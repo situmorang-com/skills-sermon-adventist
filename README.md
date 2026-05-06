@@ -118,38 +118,245 @@ Loads once; shared across all other skills.
 
 ---
 
-## How to Load & Use These Skills
+## Installation Guide — Use in Any LLM
 
-All skills require Claude's skill-creator framework. Load them in Claude Code or via `@skills` in conversation.
+These skills work with **Claude.ai, ChatGPT, Gemini, API clients, and open-source LLMs**. Choose your platform below.
 
-### Load Sequence
+### 🔵 Claude.ai (Best Experience — Recommended)
 
-1. **Always load `adventist-foundation` first** — it's the shared context layer
-2. Then load the specific skill you need:
-   - `@sermon-adventist` — for sermon prep
-   - `@bible-study-deep` — for deep Bible study
-   - `@sermon-illustrations` — for illustrations
+**Why Claude.ai:** Full skill-creator support, no instruction limits, generous file handling. This is the native environment.
 
-### Example Session
+#### Installation (5 minutes)
+
+1. **Create a Project**
+   - Go to **claude.ai** → Click **"+ Projects"** (top left)
+   - Name it: "Adventist Sermon Prep"
+   - Click **"Create"**
+
+2. **Paste Foundation Instructions**
+   - In your project, click **"Project instructions"** (gear icon)
+   - Copy the full content from: `dist/claude-project/adventist-foundation-instructions.md`
+   - Paste it in → **"Save"**
+
+3. **Choose Your Skill**
+   - Pick ONE or MORE:
+     - **Sermon Prep:** `dist/claude-project/sermon-adventist-instructions.md`
+     - **Bible Study:** `dist/claude-project/bible-study-deep-instructions.md`
+     - **Illustrations:** `dist/claude-project/sermon-illustrations-instructions.md`
+   - Paste each in a new message: `@[skill-name] [your prompt]`
+
+4. **Upload Knowledge Files**
+   - In project → **"Project knowledge"** (right sidebar)
+   - Upload all files from `dist/claude-project/knowledge/`:
+     - `adventist-themes.md`
+     - `commentary-sources.md`
+     - `research-notes-template.md`
+     - `structures.md`
+     - `illustration-sources.md`
+   - Claude will reference these automatically
+
+5. **Start Using**
+   ```
+   You: I'm preaching Romans 8:1-11 this Sabbath. 30 minutes, expository, 
+   mixed ages, English KJV.
+
+   Claude: [Generates all three documents using sermon-adventist skill]
+   ```
+
+---
+
+### 🟠 ChatGPT Custom GPTs
+
+**Why ChatGPT:** Easy to share, familiar interface, works without login after initial setup.
+
+**Note:** ChatGPT has an 8,000-character custom instruction limit. We use a "loader" approach that references knowledge files.
+
+#### Installation (5 minutes)
+
+1. **Create a Custom GPT**
+   - Go to **chat.openai.com**
+   - Click **"Create"** → **"Create a GPT"**
+   - Name it: "Adventist Sermon Prep" (or skill name)
+
+2. **Paste Loader Instructions**
+   - Click **"Configure"** (gear icon)
+   - Under **"Instructions"**, paste ONE of these:
+     - **Sermon Adventist:** `dist/chatgpt-gpt/loader-sermon-adventist.txt`
+     - **Bible Study Deep:** `dist/chatgpt-gpt/loader-bible-study-deep.txt`
+     - **Illustrations:** `dist/chatgpt-gpt/loader-sermon-illustrations.txt`
+
+3. **Upload Knowledge Files**
+   - Scroll to **"Knowledge"** section
+   - Click **"Upload files"**
+   - Upload all `.md` files from `dist/chatgpt-gpt/knowledge/`:
+     - All reference documents (ChatGPT reads them on demand)
+     - All instruction files
+
+4. **Save & Test**
+   - Click **"Save"** (top right)
+   - Try a test prompt: *"I'm preaching Daniel 12:4..."*
+   - ChatGPT reads knowledge files and responds
+
+5. **Share**
+   - Click **"Share"** → Get link → Send to team/church
+
+**File size note:** ChatGPT limits custom instructions to 8K characters. The loader instruction is ~1,500 chars; knowledge files are separate and unlimited.
+
+---
+
+### 🌐 Any LLM API (OpenAI, Anthropic SDK, Open-Source)
+
+**Why API:** Use with your preferred model, open-source models (LLaMA, Mistral), or integration tools.
+
+#### Option 1: OpenAI API (Python)
+
+```python
+import openai
+
+# Load the system prompt
+with open("dist/system-prompt/sermon-adventist.txt") as f:
+    system_prompt = f.read()
+
+# Create chat completion
+response = openai.ChatCompletion.create(
+    model="gpt-4",
+    system=system_prompt,
+    messages=[
+        {"role": "user", "content": "I'm preaching Romans 8 on Sabbath..."}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+#### Option 2: Anthropic SDK (Python)
+
+```python
+import anthropic
+
+# Load system prompt
+with open("dist/system-prompt/sermon-adventist.txt") as f:
+    system = f.read()
+
+# Create message
+client = anthropic.Anthropic()
+message = client.messages.create(
+    model="claude-opus-4",
+    max_tokens=4096,
+    system=system,
+    messages=[
+        {"role": "user", "content": "I'm preaching Romans 8..."}
+    ]
+)
+
+print(message.content[0].text)
+```
+
+#### Option 3: Open-Source Models (Ollama)
+
+```bash
+# Using Ollama with LLaMA or Mistral
+SYSTEM_PROMPT=$(cat dist/system-prompt/sermon-adventist.txt)
+
+ollama run mistral --system "$SYSTEM_PROMPT" \
+  "I'm preaching Daniel 12:4 to an AY program..."
+```
+
+#### Option 4: LangChain / LlamaIndex Integration
+
+```python
+from langchain.chat_models import ChatOpenAI
+from langchain.prompts import SystemMessagePromptTemplate
+
+# Load system prompt
+with open("dist/system-prompt/sermon-adventist.txt") as f:
+    system_prompt = f.read()
+
+# Create chat with system prompt
+llm = ChatOpenAI(model="gpt-4")
+template = SystemMessagePromptTemplate.from_template(system_prompt)
+
+# Use in chain
+result = llm([template.format_prompt()])
+```
+
+---
+
+### 💻 Local / Self-Hosted Options
+
+#### Ollama (Free, Local LLaMA/Mistral)
+1. Download [Ollama](https://ollama.ai)
+2. Run: `ollama pull mistral` (or llama2, neural-chat)
+3. Use system prompt from `dist/system-prompt/[skill].txt`
+
+#### LM Studio (GUI, Local)
+1. Download [LM Studio](https://lmstudio.ai)
+2. Load a model (LLaMA, Mistral, etc.)
+3. Set system prompt to `dist/system-prompt/[skill].txt`
+4. Chat with the skill
+
+#### Hugging Face (Hosted Models)
+1. Use any Hugging Face model through their Inference API
+2. Set system prompt to `dist/system-prompt/[skill].txt`
+3. Send requests with the skill loaded
+
+---
+
+### 🎯 Gemini (Google)
+
+**Why Gemini:** Google account integration, free tier available, Gems allow sharing.
+
+#### Installation
+
+1. **Create a Gem**
+   - Go to **gemini.google.com** → **"Gems"** (side menu)
+   - Click **"Create new gem"**
+
+2. **Paste Instructions**
+   - In the instruction field, paste: `dist/system-prompt/[skill].txt`
+
+3. **Upload Knowledge (Optional)**
+   - Gemini supports file upload
+   - Upload relevant `.md` files from `dist/[platform]/knowledge/`
+
+4. **Save & Share**
+   - Save the Gem
+   - Share link with your organization
+
+---
+
+## Quick Reference Table
+
+| Platform | Setup Time | Quality | Best For | Knowledge Files | Cost |
+|---|---|---|---|---|---|
+| **Claude.ai** | 5 min | ⭐⭐⭐⭐⭐ | Professional sermon prep | Full integration | Free tier / paid |
+| **ChatGPT GPT** | 5 min | ⭐⭐⭐⭐ | Sharing with team | Separate upload | Free tier / ChatGPT+ |
+| **Claude API** | 10 min | ⭐⭐⭐⭐⭐ | Custom apps, integration | Via code | Pay-per-use |
+| **Gemini** | 5 min | ⭐⭐⭐⭐ | Google ecosystem | Optional upload | Free tier / paid |
+| **Ollama (Local)** | 15 min | ⭐⭐⭐ | Privacy-conscious, offline | Via system prompt | Free |
+| **LM Studio** | 10 min | ⭐⭐⭐ | GUI, local control | Via system prompt | Free |
+
+---
+
+## Example: Complete Setup in Claude.ai
 
 ```
-@adventist-foundation
-@sermon-adventist
+1. Create project: "AY Sermon Prep"
+2. Paste adventist-foundation-instructions.md
+3. Upload 5 knowledge files
+4. Start using:
 
-[Prompt] I'm preaching Exodus 20:8-11 this Sabbath. 
-Audience: mixed ages, ~100 people. 
-Duration: 35 minutes. 
-Structure: Expository. 
-Language: English/KJV.
-Theme: Why the Sabbath still matters for Adventists today.
+   You: I'm preaching to AY on Sunday. Passage: James 1:22-25
+   (doers of the word). 35 minutes, Topical. Audiens: 15-25 year-olds.
+   Theme: Real faith shows in actions, not just beliefs.
+
+   Claude: 
+   → Generates research-notes.md (word studies, commentary, themes)
+   → Asks one brainstorm question at a time (7 total)
+   → Produces sermon-outline.md
+   → Creates sermon-manuscript.md with illustrations
+   → Ready to preach in ~20 minutes
 ```
-
-The skill will:
-1. Generate research-notes.md (8 sections)
-2. Ask 7 brainstorm questions ONE AT A TIME
-3. Generate outline
-4. Generate full manuscript with bookend illustrations
-5. Produce three documents
 
 ---
 
