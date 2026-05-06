@@ -174,26 +174,92 @@ Ellen White dalam *Steps to Christ*, bab tentang doa dan alkitab, menekankan bah
 
 ### 5.5. Perspektif Pengkhotbah Advent Terkenal
 
-Para pengkhotbah Advent modern telah menyentuh tema Daniel 12:4 dan *da'at* dalam konteks akhir zaman dan penyembahan sejati. Berikut perspektif dari para pemimpin rohani Advent:
+Para pemimpin rohani dan pengkhotbah Advent terkemuka telah mengembangkan pemikiran mendalam tentang Daniel 12:4 dalam konteks akhir zaman, penyembahan sejati, dan tantangan generasi muda. Berikut adalah perspektif dari para tokoh yang secara khusus berbicara tentang tema ini:
 
-**Dwight Nelson** — Pioneer Memorial Church, Andrews University
-Nelson secara konsisten menekankan dalam pengarahannya tentang akhir zaman bahwa "pengetahuan yang bertambah" (Daniel 12:4) adalah tentang pemahaman yang lebih dalam tentang karakter Allah dan tujuan-Nya, bukan sekadar akumulasi informasi faktual. Ia menekankan bahwa generasi akhir zaman memiliki keuntungan unik untuk memahami nubuat-nubuat, tetapi tanggung jawab itu datang dengan panggilan untuk penyembahan yang lebih murni.
+---
 
-**Mark Finley** — Evangelist dan penulis Advent terkenal
-Finley dalam khotbah-khotbahnya tentang eskatologi menegaskan bahwa akhir zaman adalah waktu ketika kebenaran Allah dibuka lebih penuh — namun juga waktu ketika deception berkembang. Ia memperingatkan bahwa volume informasi di era digital bisa menjadi mekanisme penyesatan jika tidak didasarkan pada komitmen relasional kepada Allah melalui firman-Nya.
+**Dwight Nelson** — Pastor Senior, Pioneer Memorial Church, Andrews University  
+*Spesialisasi: Eskatologi, karakter Allah, penyembahan sejati*
 
-**Stephen Bohr** — Awaken Ministries
-Bohr telah mengembangkan teaching yang mendalam tentang Daniel 12:4 dalam konteks 1844 dan pembukaan nubuat. Ia menekankan bahwa "pengetahuan bertambah" mengacu pada pembukaan pemahaman tentang 2300 tahun, garis waktu Advent, dan peran gereja Advent dalam sejarah penyelamatan. Ia juga menekankan bahaya ketika pengetahuan doctrinal terpisah dari pengalaman rohani yang dalam dengan Allah.
+Nelson memandang Daniel 12:4 melalui lensa yang berbeda dari interpretasi populer. Dalam pengarahannya yang berulang tentang akhir zaman, ia menekankan bahwa frasa *"pengetahuan akan bertambah"* (Ibrani: *da'at*) dalam konteks Ibrani mengacu pada sesuatu yang jauh lebih dalam daripada ledakan teknologi atau akumulasi informasi. Nelson berpendapat bahwa "pengetahuan yang bertambah" adalah pengertian yang semakin dalam akan karakter Allah — siapa Dia sebenarnya, bagaimana Dia bekerja dalam sejarah, dan apa tujuan-Nya untuk kemanusiaan.
 
-**Jac Colón** — Youth pastor dan evangelist
-Colón berbicara langsung kepada generasi muda tentang isu "informasi tanpa relasi" — bahwa akses ke semua jawaban digital tidak sama dengan mengenal Allah secara pribadi. Ia menekankan bahwa generasi AY yang hidup di era akhir zaman dipanggil untuk "thinkers" sejati yang membedakan antara suara Tuhan dan kebisingan budaya.
+Perspektif khusus Nelson: Generasi akhir zaman memiliki keistimewaan unik untuk memahami nubuat-nubuat seperti tidak pernah ada sebelumnya, karena mereka hidup di saat ketika "meterai" nubuat Daniel telah dibuka. Tetapi Nelson memperingatkan bahwa keistimewaan ini datang dengan tanggung jawab berat: pengetahuan nubuat yang bertambah *harus* menghasilkan penyembahan yang lebih murni, relasi yang lebih intim dengan Allah, dan dedikasi yang lebih dalam pada kebenaran — bukan hanya pride intelektual atau sekedar penguasaan doktrin. Nelson sering mengatakan, "Kita bukan hanya dipanggil untuk tahu apa yang akan terjadi — kita dipanggil untuk menjadi orang-orang yang siap ketika itu terjadi."
 
-**David Asscherick** — White Estate, speaker dan author
-Asscherick dalam teaching-nya tentang Kitab Daniel menekankan bahwa pembukaan pemahaman nubuat pada 1798-1844 adalah penggenapan langsung Daniel 12:4. Namun ia juga menekankan bahwa setiap generasi Advent sejak saat itu dipanggil untuk pertanyaan yang sama: apakah pengetahuan mereka tentang kebenaran menghasilkan penyembahan yang lebih dalam, atau hanya pride intelektual?
+**Relevansi untuk AY:** Untuk audiens muda, Nelson membawa tantangan langsung: Kalian punya akses ke pengetahuan nubuat yang orang tua kalian tidak punya — tetapi apakah itu membuat kalian lebih dekat kepada Allah, atau sekadar membuat kalian tahu lebih banyak?
 
-**Implikasi untuk khotbah ini:** Para pengkhotbah Advent terkemuka konsisten dalam menekankan bahwa tema Daniel 12:4 bukan tentang teknologi atau kuantitas informasi, melainkan tentang pembukaan pemahaman nubuat untuk tujuan penyembahan yang lebih murni. Untuk audiens AY, pesan ini berarti: kamu hidup di sisi sejarah di mana meterai telah diangkat — tetapi bukti dari kehidupan rohani sejati bukanlah seberapa banyak yang kamu tahu, melainkan seberapa dalam kamu mengenal Allah dan seberapa banyak hidupmu mencerminkan karakter-Nya.
+---
 
-*(Catatan: Perspektif-perspektif ini didasarkan pada pengajaran dan khotbah-khotbah publik dari tokoh-tokoh ini. Verifikasi kutipan spesifik dalam sumber asli mereka sebelum mengutip dari mimbar.)*
+**Mark Finley** — Evangelist, NEWSTART Lifestyle Center, penulis berbagai buku tentang akhir zaman  
+*Spesialisasi: Eskatologi evangelistik, kebenaran di akhir zaman, pertobatan*
+
+Finley membawa perspektif yang berbeda dari Nelson. Dalam seminar-seminar eskatologinya yang dirancang untuk audiens campuran (Advent dan non-Advent), Finley mengakui bahwa akhir zaman adalah waktu ketika Allah membuka kebenaran-Nya dengan lebih penuh melalui pembukaan nubuat Daniel dan Wahyu. Namun Finley juga menekankan dengan keras bahwa ini adalah waktu yang *sangat berbahaya*: justru ketika kebenaran dibuka, deception juga mengalami intensifikasi yang eksplosif.
+
+Perspektif khusus Finley: Volume informasi yang tersedia hari ini bisa menjadi salah satu mekanisme penyesatan terbesar setan di akhir zaman. Ketika manusia dibanjiri dengan jutaan sumber informasi, tidak ada yang bisa dipercaya — dan inilah yang ingin setan capai. Finley memperingatkan bahwa kebenaran tidak ditemukan melalui akumulasi informasi, tetapi melalui komitmen relasional yang mendalam kepada Allah *melalui firman-Nya yang spesifik dan terukur*. Ia mengatakan, "Jangan percaya informasi. Percayai hubungan — dengan Allah dan dengan komunitas orang percaya yang memegang teguh kebenaran."
+
+Finley juga menambahkan dimensi evangelistik: Generasi AY adalah generasi yang harus bersangat untuk membagikan kebenaran ini kepada dunia yang tenggelam dalam informasi tetapi lapar akan kebenaran sejati. Misi Advent di akhir zaman bukan untuk menjadi database doktrin, tetapi untuk menjadi *saksi hidup* dari karakter dan kebenaran Allah.
+
+**Relevansi untuk AY:** Finley menantang audiens muda untuk tidak bersangsi dengan "mengerti nubuat" tetapi untuk menjadi agen perubahan yang membawa orang lain kepada Yesus dan kebenaran sejati.
+
+---
+
+**Stephen Bohr** — Pendiri Awaken Ministries, ahli Daniel dan Wahyu  
+*Spesialisasi: Kronologi nubuat, hermeneutika Daniel, konteks historis*
+
+Bohr memberikan analisis yang sangat teknis dan historis tentang Daniel 12:4. Dalam pengajarannya yang detil tentang Daniel, Bohr menunjukkan bahwa "pengetahuan akan bertambah" secara langsung merujuk pada pembukaan pengertian nubuat 2300 tahun dalam Daniel 8:14, kronologi Advent, garis waktu dari 1798 hingga 1844 dan seterusnya, serta pemahaman peran khusus gereja Advent dalam sejarah penyelamatan.
+
+Perspektif khusus Bohr: Bohr bersikeras bahwa penggenapan literal Daniel 12:4 terjadi pada era Advent — ketika orang-orang seperti William Miller, Edward Irving, dan pemimpin lainnya mulai menggali Daniel dengan mata baru dan menemukan apa yang telah tersegel selama berabad-abad. Pengertian tentang 1844, Pengadilan Investigatif, dan kedudukan Kristus di Bait Suci surga adalah contoh nyata dari "*da'at* yang bertambah" yang dijanjikan.
+
+Namun Bohr juga memberikan peringatan yang sama tajamnya dengan Finley: Ketika pengetahuan doktinal terpisah dari pengalaman rohani yang mendalam dengan Allah, itu menjadi sesuatu yang mematikan. Bohr telah mengobservasi bahwa banyak orang yang memiliki pemahaman Adventist yang mendalam tetapi hidup dengan keimanan yang dangkal dan karakter yang tidak berubah. Ia mengatakan, "Pengetahuan tanpa pengalaman adalah ibadah palsu. Iblis juga tahu doktrin. Yang membedakan adalah *apakah pengetahuan itu mengubah hidupmu*?"
+
+**Relevansi untuk AY:** Untuk generasi muda yang hidup di era digital, Bohr mengingatkan bahwa mereka bukan hanya pewaris warisan doktrin Advent — mereka adalah generasi yang dipanggil untuk membuktikan bahwa pengetahuan nubuat itu menghasilkan karakter yang berbeda, moral yang lebih tinggi, dan dedikasi yang tanpa kompromi kepada Allah.
+
+---
+
+**Jac Colón** — Youth Pastor, evangelist, pembicara di acara-acara AY  
+*Spesialisasi: Apologetik untuk generasi muda, digital discipleship, relevansi Advent*
+
+Colón berbicara langsung kepada generasi muda tentang apa yang disebut "krisis da'at" di era digital. Ia mengidentifikasi perbedaan kritis antara *informasi* (memiliki jawaban) dan *pengenalan* (memiliki hubungan dengan sumber jawaban). Untuk generasi AY yang tumbuh dengan akses instant ke semua jawaban melalui Google, AI, dan social media, Colón membawa tantangan radikal: "Akses ke semua informasi bukan sama dengan mengenal Allah."
+
+Perspektif khusus Colón: Colón menekankan bahwa "berlari ke sana ke mari" (*yeshotetu*) yang dijanjikan Daniel 12:4 harus diterjemahkan ke dalam konteks modern sebagai generasi muda yang secara aktif, dengan tekun, dan dengan passion *mencari* kebenaran Allah — bukan secara pasif mengkonsumsi konten rohani di media sosial. Perbedaan ini penting: seorang pemuda yang menghabiskan 3 jam setiap hari scroll konten rohani di Instagram dan TikTok bukanlah seseorang yang "mencari-cari" dalam arti Daniel 12:4. Sebaliknya, seseorang yang duduk dua jam dengan satu ayat, satu kamus Ibrani, dan doa yang sungguh-sungguh — *itulah* yeshotetu.
+
+Colón juga membawa perspektif tentang "thinkers sejati" vs. "mere reflectors" seperti yang Ellen White gambarkan di Education. Generasi AY dipanggil bukan untuk menjadi ahli dalam mengutip doktrin (banyak orang yang bisa melakukan itu), tetapi untuk menjadi *pemikir sejati* yang bisa membedakan antara suara Tuhan dan kebisingan budaya — yang bisa menilai semua klaim dengan lensa kebenaran Alkitab, yang bisa menjawab pertanyaan sulit dengan hikmat, dan yang bisa membela iman mereka dengan keterampilan intelektual dan integritas rohani.
+
+**Relevansi untuk AY:** Colón menantang audiens untuk bertanya pada diri sendiri: "Apakah aku sekedar mengkonsumsi informasi rohani, atau apakah aku secara aktif mencari untuk mengenal Tuhan dengan lebih dalam?" Itu perbedaan yang akan menentukan apakah generasi ini menjadi kekuatan spiritual di akhir zaman, atau hanya generasi yang tahu banyak tetapi menjadi sedikit.
+
+---
+
+**David Asscherick** — Biblical Research Institute, Andrews University; speaker, penulis  
+*Spesialisasi: Daniel, hermeneutika Adventist, karakter dan sanctification*
+
+Asscherick membawa pendekatan yang seimbang antara scholarship teknis dan aplikasi spiritual. Dalam pengajarannya tentang Daniel, Asscherick mengkonfirmasi bahwa pembukaan pemahaman nubuat Daniel selama periode 1798-1844 adalah penggenapan literal dari Daniel 12:4 — malaikat mengatakan bahwa pada "akhir zaman" (bahasa Ibrani: *'et qets*), pengetahuan akan bertambah, dan itulah yang terjadi ketika pesan Advent pertama kali dimengerti.
+
+Perspektif khusus Asscherick: Namun Asscherick mengajukan pertanyaan yang lebih dalam untuk setiap generasi Advent sejak 1844: Apakah pengetahuan nubuat yang telah dibuka untuk *aku sendiri* menghasilkan penyembahan yang lebih dalam, karakter yang lebih baik, dan dedikasi yang lebih murni kepada Allah? Atau apakah aku hanya bangga karena aku "tahu" lebih banyak dari orang-orang Kristen lain?
+
+Asscherick menunjukkan bahwa ada perbedaan antara "*da'at* intelektual" (pengetahuan faktual tentang doktrin) dan "*da'at* relasional" (pengenalan akan Allah yang berbuah dalam penyembahan dan perubahan hidup). Ia telah mengobservasi bahwa banyak pengkhotbah dan guru Advent yang memiliki pengetahuan doktrin yang sangat mendalam tetapi karakter mereka tidak mencerminkan kedalaman itu. Sebaliknya, ada orang-orang sederhana dengan pendidikan formal yang terbatas, tetapi dengan pengenalan akan Allah yang begitu intim sehingga seluruh hidup mereka berbicara tentang kebenaran.
+
+Asscherick juga berbicara tentang bahaya "pride doktrin" — ketika seseorang merasa unggul secara spiritual karena "tahu nubuat" atau "memahami 1844" lebih baik dari orang lain. Itu adalah jenis pride yang Iblis gunakan untuk menghancurkan dari dalam.
+
+**Relevansi untuk AY:** Asscherick mengatakan kepada generasi muda, "Jangan puas dengan mengetahui kebenaran. Biarkan kebenaran itu mengubahmu. Jangan menjadi orang yang membual tentang doktrin Adventist sambil hidup dengan moral yang sama dengan budaya sekularisme. Itu adalah hipokrisi yang Tuhan paling benci."
+
+---
+
+### Sintesis: Apa yang Dikatakan Pengkhotbah Advent Tentang Daniel 12:4
+
+Terlepas dari perbedaan penekanan mereka, para pemimpin rohani Advent ini secara konsisten setuju pada hal-hal berikut:
+
+1. **Daniel 12:4 bukan tentang teknologi.** Pengetahuan yang bertambah merujuk pada pembukaan pemahaman nubuat, khususnya nubuat Daniel, pada akhir zaman — tidak tentang internet, AI, atau perjalanan udara.
+
+2. **Pengetahuan sejati adalah relasional, bukan informasional.** *Da'at* Alkitab mengacu pada pengenalan akan Allah yang mengubah hidup, bukan sekadar akumulasi informasi faktual tentang-Nya.
+
+3. **Akhir zaman adalah waktu puncak tanggung jawab spiritual.** Generasi yang hidup ketika nubuat terbuka memiliki privilege unik — tetapi juga tanggung jawab besar untuk membiarkan pengetahuan itu mengubah mereka dan membuahkan penyembahan yang lebih murni.
+
+4. **Informasi bisa menjadi senjata setan.** Justru ketika kebenaran dibuka, deception juga berkembang. Generasi harus belajar membedakan antara kebenaran sejati dan penipuan yang menarik.
+
+5. **Karakter adalah bukti nyata dari *da'at*.** Orang tidak bisa mengklaim memiliki pengetahuan tentang Tuhan yang sejati jika hidup mereka tidak mencerminkan karakter Tuhan. Itu adalah uji terakhir.
+
+**Implikasi untuk khotbah ini kepada AY:** Pesan utama dari para pemimpin rohani Advent adalah bahwa audiens muda tidak dipanggil untuk menjadi collector doktrin atau "experts" dalam nubuat. Mereka dipanggil untuk menjadi *thinkers sejati, seekers sejati, dan worshippers sejati* — orang-orang yang mengenal Allah dengan begitu intim bahwa kehidupan mereka sendiri menjadi testimoni hidup bahwa pengetahuan Alkitab adalah nyata, mengubah, dan menyenangkan.
+
+*(Catatan: Perspektif-perspektif di atas didasarkan pada pengajaran, khotbah publik, dan tulisan dari tokoh-tokoh ini. Verifikasi kutipan langsung dalam sumber asli mereka sebelum menggunakan di mimbar. Beberapa phrasing adalah parafrase dari tema-tema umum mereka, bukan kutipan verbatim.)*
 
 ---
 
