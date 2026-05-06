@@ -1,0 +1,49 @@
+{
+  "skill_name": "sermon-illustrations",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need an illustration for the point that grace is undeserved — a person who receives something they could never earn. Sermon is on Ephesians 2:8-9.",
+      "expected_output": "2-4 candidate illustrations. At least one should be a famous, attributable story (e.g., John Newton, Spafford, the prodigal retold, or similar well-attested grace stories). Each illustration has setup, tension, payoff, bridge to the point, source/type label, approximate spoken length, and notes on verification. A recommendation line at the end.",
+      "files": [],
+      "expectations": [
+        "Output offers 2-4 distinct illustration candidates",
+        "At least 1 candidate is labeled as a famous/attributed illustration (Tier 1)",
+        "Each illustration has clear setup, tension, payoff, and bridge to the sermon point",
+        "Each illustration includes a source/type label and verification notes",
+        "No fabricated quotes attributed to real people",
+        "If clichéd illustrations (carrot-egg-coffee, lighthouse, starfish) appear, they are mentioned as foils/replaced, not used as primary candidates",
+        "Output ends with a recommendation"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Looking for an illustration about Sabbath rest — not just stopping work but actively delighting in God. 5 minutes max when told from the pulpit.",
+      "expected_output": "2-4 candidates including likely Adventist heritage (Joseph Bates), Jewish Shabbat tradition (verifiable e.g. Heschel), or Eric Liddell. All within 5 minutes spoken length. Bridge connects to the active delight aspect, not just rest as cessation.",
+      "files": [],
+      "expectations": [
+        "Output offers 2-4 illustration candidates",
+        "At least one candidate draws from Adventist heritage or Jewish Shabbat tradition (Joseph Bates, Heschel, or similar)",
+        "Each candidate's spoken length is within or under 5 minutes",
+        "The bridge specifically addresses 'active delight' not merely 'rest from work'",
+        "No fabricated quotes",
+        "Output ends with a recommendation"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Need an illustration for the investigative judgment — the idea that records matter and Christ is our Advocate right now. Hard concept for non-Adventists.",
+      "expected_output": "2-4 candidates. Likely needs both Tier 1 (Hiram Edson cornfield, Day of Atonement, courtroom advocate stories) and possibly a Tier 2 original since this is an Adventist-distinctive concept. Clear bridge to records-matter and Christ-as-advocate-now.",
+      "files": [],
+      "expectations": [
+        "Output offers 2-4 illustration candidates",
+        "At least one candidate draws from Adventist heritage (Hiram Edson, Day of Atonement, sanctuary)",
+        "If an original illustration is included, it is clearly labeled as original/invented",
+        "Each illustration's bridge addresses 'records matter' AND 'Christ as advocate now'",
+        "Tone is accessible to non-Adventist hearers without softening the doctrine",
+        "No fabricated quotes",
+        "Output ends with a recommendation"
+      ]
+    }
+  ]
+}

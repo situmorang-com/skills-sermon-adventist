@@ -1,0 +1,73 @@
+{
+  "skill_name": "sermon-adventist",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm preaching this Sabbath at our main service on Romans 8:1-11. About 120 members, mixed ages. Want an expository sermon, around 30 minutes. Give me both an outline and a full manuscript.",
+      "expected_output": "Three documents: research-notes.md (with all 8 sections), sermon-outline.md (with service header block + outline), sermon-manuscript.md (with manuscript). Interactive brainstorm asked ONE QUESTION AT A TIME (not batched). Both an OPENING illustration and a CLOSING illustration. KJV scripture. Andrews Bible Commentary and SDABC referenced. EGW from Romans 8 / sanctification topics, fetched or paraphrased properly.",
+      "files": [],
+      "expectations": [
+        "The skill produces THREE separate documents: research-notes.md, sermon-outline.md, sermon-manuscript.md",
+        "research-notes.md contains all 8 sections: Passage Context, Historical Background, Key Word Studies, Commentary Insights, EGW Cross-References, Scriptural Cross-References, Theological Themes, Thinking Prompts",
+        "research-notes.md is generated BEFORE the brainstorm (in Step 2 order)",
+        "Word studies in research-notes include 3-5 words with KJV + TB + original language + Strong's + range + translation comparison",
+        "Commentary section in research-notes references Andrews Bible Commentary AND SDABC by name (or honestly flags if content unknown)",
+        "Commentary section also references at least one Adventist scholar by name (e.g., LaRondelle, Doukhan, Heppenstall) appropriate to Romans 8",
+        "Thinking Prompts section has 5-7 questions specific to Romans 8 (not generic)",
+        "Brainstorm asks questions ONE AT A TIME, not batched (each question is its own message awaiting response)",
+        "All 7 mandatory brainstorm questions are covered (or smart-skipped if user provided answer in initial prompt)",
+        "The sermon outline AND manuscript include a service header block with Title, Main Verse, Responsive Reading (5-7 verses, voiced), Opening Hymn, Closing Hymn",
+        "Both SDA Hymnal AND Lagu Sion Edisi Lengkap recommendations appear, with hymn numbers either verified or honestly flagged",
+        "The manuscript includes a STRONG OPENING ILLUSTRATION at the start AND a STRONG CLOSING ILLUSTRATION at the end (both labeled with source/type)",
+        "The opening and closing illustrations are different in flavor (not the same story repeated)",
+        "Manuscript word count is approximately 3500-5000 words",
+        "Scripture quotations use KJV and cite book, chapter, verse",
+        "EGW citations include work and page number, OR are clearly paraphrased without quotation marks",
+        "No banned AI-slop phrases appear",
+        "The Main Verse is echoed in intro AND conclusion of manuscript",
+        "No fabricated quotes attributed to commentaries or real people",
+        "No fabricated hymn numbers"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Saya perlu khotbah evangelisasi tentang kedatangan Yesus yang kedua kali untuk seri 'Tanda-tanda Akhir Zaman'. 25 menit, audiens campur orang non-Advent. Bahasa Indonesia. Outline dulu, baru manuskrip lengkap.",
+      "expected_output": "Three documents in Indonesian: catatan-penelitian.md (or research-notes.md in Indonesian), sermon-outline.md (Indonesian), sermon-manuscript.md (Indonesian). One-at-a-time brainstorm in Indonesian context. Bookend illustrations (opening + closing). Topical structure for second coming. EGW from Great Controversy / Desire of Ages. Andrews Bible Commentary or Stefanovic on Revelation referenced. Scripture in Terjemahan Baru.",
+      "files": [],
+      "expectations": [
+        "Three documents produced: research-notes (Indonesian), outline (Indonesian), manuscript (Indonesian)",
+        "research-notes contains all 8 sections in Indonesian or with Indonesian section labels",
+        "Word studies show TB and KJV side by side for at least one key term",
+        "Commentary section references Adventist scholars relevant to second coming / eschatology (Stefanovic, LaRondelle, Paulien, Maxwell, Doukhan)",
+        "Thinking Prompts are 5-7 specific to second coming preaching for non-Adventist audience",
+        "Brainstorm asks ONE QUESTION AT A TIME (not batched)",
+        "Service header block in Indonesian: Judul, Ayat Utama, Pembacaan Berbalasan, Lagu Pembuka, Lagu Penutup",
+        "Both LSEL and SDAH hymns recommended with verification flags where uncertain",
+        "Manuscript has STRONG OPENING and STRONG CLOSING illustrations, both fully written",
+        "Scripture in TB; manuscript ~2500-3500 words Indonesian",
+        "Tone appropriate for evangelistic non-Adventist audience",
+        "No fabricated quotes or hymn numbers"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Doing a youth Sabbath program on the story of Joseph in Genesis 39 — focus on integrity when no one's watching. Narrative style, 20 minutes, audience is 15-25 year olds. Outline + manuscript please.",
+      "expected_output": "Three documents. Research notes with word studies on key Hebrew terms (e.g., chesed, yare/fear of God), Adventist commentary references including Patriarchs and Prophets, narrative-structure outline, ~2500-3000 word manuscript. Strong opening illustration (could be activity/icebreaker for youth) AND strong closing illustration. KJV scripture.",
+      "files": [],
+      "expectations": [
+        "Three documents produced",
+        "research-notes.md includes all 8 sections; word studies cover Hebrew terms relevant to Gen 39 (e.g., 'yare Elohim' fear of God, 'chesed' loyal love, etc.)",
+        "Commentary section references Patriarchs and Prophets (EGW chapters on Joseph) and Adventist scholars on OT narrative",
+        "Thinking Prompts are youth-specific and integrity-specific",
+        "Brainstorm asks ONE QUESTION AT A TIME",
+        "Service header with Main Verse from Gen 39 (likely v.9), responsive reading on integrity (5-7 verses)",
+        "Opening ICEBREAKER ILLUSTRATION suitable for youth (could be activity, group discussion, scenario, or famous story)",
+        "Closing REINFORCEMENT ILLUSTRATION distinct from opening, sealing the integrity message",
+        "Narrative structure: tells Genesis 39 vividly, turns from story to listeners",
+        "Application is concrete and youth-relevant",
+        "Manuscript ~2400-3200 words KJV",
+        "Big Idea echoed in intro and conclusion"
+      ]
+    }
+  ]
+}

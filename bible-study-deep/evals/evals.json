@@ -1,0 +1,64 @@
+{
+  "skill_name": "bible-study-deep",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Deep study on Daniel 8:13-14. Want word studies on the key Hebrew terms, EGW references, SDABC insights, and how this connects to the sanctuary doctrine.",
+      "expected_output": "Full 8-section study in markdown. Key Hebrew terms studied: e.g., 'erev boqer' (evening-morning, 2300), 'nitsdaq' (cleansed/restored). Andrews Bible Commentary and SDABC both referenced. EGW from Great Controversy on the sanctuary and judgment. Doukhan or Davidson cited as Adventist scholars on sanctuary. Matthew Henry or Calvin noted if they address Dan 8. Cross-references include Lev 16, Heb 8-10, Rev 11:19. Theological themes connect explicitly to Adventist sanctuary doctrine.",
+      "files": [],
+      "expectations": [
+        "Output contains all 8 sections in order: Passage Context, Historical Background, Word Studies, Commentary Insights, EGW Cross-References, Scriptural Cross-References, Theological Themes, Application Questions",
+        "Word studies include 3-5 words with Hebrew/transliteration, KJV and TB translation comparison",
+        "Word studies cover 'nitsdaq' (cleansed/justified/restored) — the disputed term in Dan 8:14",
+        "Commentary section references Andrews Bible Commentary by name (or honestly flags if content unknown)",
+        "Commentary section references SDABC on the year-day principle and 1844 chronology",
+        "Commentary section names at least one Adventist scholar by specialty: Doukhan, Davidson, Goldstein, or Holbrook",
+        "Commentary section includes at least one classic non-Adventist voice (Matthew Henry, Calvin, or modern equivalent) with any doctrinal disagreement flagged",
+        "EGW section cites specific works (e.g., Great Controversy) with page numbers OR clearly paraphrases without quote marks — no fabricated verbatim quotes",
+        "Cross-references include connection-type tags (Direct parallel, Thematic, OT background, etc.) in table format",
+        "Theological themes engage the Adventist sanctuary doctrine explicitly and honestly",
+        "Application questions are 5-8 questions, not all yes/no answerable",
+        "No fabricated commentary content — if source unknown, flags honestly"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Study Mark 2:23-28. I want to understand the original cultural context, what the Pharisees were actually objecting to, and how Jesus's response shapes Adventist Sabbath theology.",
+      "expected_output": "Full 8-section study. Historical background details first-century Pharisaic halakhah on Sabbath (39 categories, Mishnah tractate Shabbat). Word studies on Sabbath, Son of Man, Lord. Andrews Bible Commentary and SDABC both referenced. Tonstad or Bacchiocchi cited for Sabbath theology. Matthew Henry and Keener (IVP Background) used for cultural context, with Sabbath-abrogation flag where applicable. EGW from Desire of Ages on the Sabbath conflicts. Themes connect Jesus's lordship over Sabbath to the SDA position that Sabbath is for humanity, not abolished.",
+      "files": [],
+      "expectations": [
+        "Output contains all 8 sections in order",
+        "Historical background explains Pharisaic Sabbath halakhah with specifics (39 categories of work, Mishnah references)",
+        "Word studies include 'Sabbath' and at least one of 'Son of Man' (huios tou anthropou) or 'Lord' (kurios)",
+        "Commentary section references Andrews Bible Commentary by name",
+        "Commentary section references SDABC on Mark 2",
+        "Commentary section names at least one Adventist Sabbath scholar: Tonstad, Bacchiocchi, or MacCarty",
+        "Commentary section includes Matthew Henry or another classic voice; flags where they disagree on Sabbath abrogation",
+        "EGW section references Desire of Ages on Mark 2 / Sabbath conflicts with proper citation or labeled paraphrase",
+        "Theological themes engage the Adventist Sabbath doctrine — Sabbath for humanity, Christ as Lord of the Sabbath, not abolished",
+        "Cross-references include Gen 2:1-3, Ex 20, and at least two NT parallels",
+        "Application questions are 5-8, with at least one observational, one interpretive, and several applicational"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Romans 8:1-11. Word studies on 'condemnation,' 'flesh,' and 'Spirit.' Cross-references, Ellen White connections, and theological themes for an Adventist congregation.",
+      "expected_output": "Full 8-section study. Word studies on katakrima (condemnation), sarx (flesh), pneuma (Spirit) with KJV and TB comparison. Andrews Bible Commentary and SDABC both referenced. Heppenstall or LaRondelle cited for salvation theology. Matthew Henry on Romans 8 included; his devotional application noted alongside any soul-immortality assumptions flagged. EGW from Steps to Christ / Selected Messages on righteousness by faith. Cross-references include Gal 5, John 3, Ezek 36. Themes: no condemnation, life in the Spirit, sanctification flowing from justification (Adventist 1888 emphasis).",
+      "files": [],
+      "expectations": [
+        "Output contains all 8 sections in order",
+        "Word studies include all three requested words: katakrima, sarx, pneuma with Greek transliteration and translation comparison",
+        "Translation comparison includes KJV and at least one other version (TB, NKJV, NASB, or ESV)",
+        "Commentary section references Andrews Bible Commentary by name (or honestly flags if content unknown)",
+        "Commentary section references SDABC on Romans 8",
+        "Commentary section names at least one Adventist salvation scholar: Heppenstall, LaRondelle, Knight, or Whidden",
+        "Commentary section includes Matthew Henry on Romans 8 — devotional application noted; any soul-immortality assumption flagged where relevant",
+        "EGW section references appropriate works (Steps to Christ, Selected Messages, or Christ's Object Lessons) with proper citation or labeled paraphrase — no fabricated verbatim quotes",
+        "Cross-references include thematically connected passages (Gal 5:16-25, Ezek 36:26-27, John 3:5-8)",
+        "Theological themes engage justification AND sanctification, noting Adventist emphasis on righteousness by faith",
+        "Theological themes are honest — Romans 8 is not forced into a sanctuary or Sabbath sermon",
+        "Application questions are 5-8, with concrete cost in the applicational ones"
+      ]
+    }
+  ]
+}
