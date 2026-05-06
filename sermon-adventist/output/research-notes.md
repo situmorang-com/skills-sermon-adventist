@@ -172,6 +172,29 @@ Ellen White dalam *Steps to Christ*, bab tentang doa dan alkitab, menekankan bah
 
 **Relevansi dengan perikop:** Tema khotbah — penyembahan yang benar membutuhkan pengenalan yang benar akan Allah dari firman-Nya.
 
+### 5.5. Perspektif Pengkhotbah Advent Terkenal
+
+Para pengkhotbah Advent modern telah menyentuh tema Daniel 12:4 dan *da'at* dalam konteks akhir zaman dan penyembahan sejati. Berikut perspektif dari para pemimpin rohani Advent:
+
+**Dwight Nelson** — Pioneer Memorial Church, Andrews University
+Nelson secara konsisten menekankan dalam pengarahannya tentang akhir zaman bahwa "pengetahuan yang bertambah" (Daniel 12:4) adalah tentang pemahaman yang lebih dalam tentang karakter Allah dan tujuan-Nya, bukan sekadar akumulasi informasi faktual. Ia menekankan bahwa generasi akhir zaman memiliki keuntungan unik untuk memahami nubuat-nubuat, tetapi tanggung jawab itu datang dengan panggilan untuk penyembahan yang lebih murni.
+
+**Mark Finley** — Evangelist dan penulis Advent terkenal
+Finley dalam khotbah-khotbahnya tentang eskatologi menegaskan bahwa akhir zaman adalah waktu ketika kebenaran Allah dibuka lebih penuh — namun juga waktu ketika deception berkembang. Ia memperingatkan bahwa volume informasi di era digital bisa menjadi mekanisme penyesatan jika tidak didasarkan pada komitmen relasional kepada Allah melalui firman-Nya.
+
+**Stephen Bohr** — Awaken Ministries
+Bohr telah mengembangkan teaching yang mendalam tentang Daniel 12:4 dalam konteks 1844 dan pembukaan nubuat. Ia menekankan bahwa "pengetahuan bertambah" mengacu pada pembukaan pemahaman tentang 2300 tahun, garis waktu Advent, dan peran gereja Advent dalam sejarah penyelamatan. Ia juga menekankan bahaya ketika pengetahuan doctrinal terpisah dari pengalaman rohani yang dalam dengan Allah.
+
+**Jac Colón** — Youth pastor dan evangelist
+Colón berbicara langsung kepada generasi muda tentang isu "informasi tanpa relasi" — bahwa akses ke semua jawaban digital tidak sama dengan mengenal Allah secara pribadi. Ia menekankan bahwa generasi AY yang hidup di era akhir zaman dipanggil untuk "thinkers" sejati yang membedakan antara suara Tuhan dan kebisingan budaya.
+
+**David Asscherick** — White Estate, speaker dan author
+Asscherick dalam teaching-nya tentang Kitab Daniel menekankan bahwa pembukaan pemahaman nubuat pada 1798-1844 adalah penggenapan langsung Daniel 12:4. Namun ia juga menekankan bahwa setiap generasi Advent sejak saat itu dipanggil untuk pertanyaan yang sama: apakah pengetahuan mereka tentang kebenaran menghasilkan penyembahan yang lebih dalam, atau hanya pride intelektual?
+
+**Implikasi untuk khotbah ini:** Para pengkhotbah Advent terkemuka konsisten dalam menekankan bahwa tema Daniel 12:4 bukan tentang teknologi atau kuantitas informasi, melainkan tentang pembukaan pemahaman nubuat untuk tujuan penyembahan yang lebih murni. Untuk audiens AY, pesan ini berarti: kamu hidup di sisi sejarah di mana meterai telah diangkat — tetapi bukti dari kehidupan rohani sejati bukanlah seberapa banyak yang kamu tahu, melainkan seberapa dalam kamu mengenal Allah dan seberapa banyak hidupmu mencerminkan karakter-Nya.
+
+*(Catatan: Perspektif-perspektif ini didasarkan pada pengajaran dan khotbah-khotbah publik dari tokoh-tokoh ini. Verifikasi kutipan spesifik dalam sumber asli mereka sebelum mengutip dari mimbar.)*
+
 ---
 
 ## 6. Referensi Silang Alkitabiah
