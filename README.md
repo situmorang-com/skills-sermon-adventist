@@ -346,7 +346,7 @@ result = llm([template.format_prompt()])
 3. Upload 5 knowledge files
 4. Start using:
 
-   You: I'm preaching to AY on Sunday. Passage: James 1:22-25
+   You: I'm preaching to AY on Sabbath. Passage: James 1:22-25
    (doers of the word). 35 minutes, Topical. Audiens: 15-25 year-olds.
    Theme: Real faith shows in actions, not just beliefs.
 
