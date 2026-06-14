@@ -121,12 +121,14 @@ When researching for a sermon or study, draw in this order:
 
 1. **Scripture** — KJV / TB primary; cross-translation for clarity
 2. **Spirit of Prophecy** — Ellen G. White's writings
-   - **Access:** Use `egw-fetch.sh` (Bash script, ~/..config/scripts/) to fetch verbatim text with page numbers via the official EGW Writings API (`a.egwwritings.org`). See Tier 1 of the Ellen G. White Citation Policy for workflow.
+   - **Access:** Use `egw-fetch.sh` (Bash script, `~/.config/scripts/`) to fetch verbatim text with page numbers via the official EGW Writings API (`a.egwwritings.org`). See Tier 1 of the Ellen G. White Citation Policy for workflow.
    - *Conflict of the Ages* series: *Patriarchs and Prophets*, *Prophets and Kings*, *Desire of Ages*, *Acts of the Apostles*, *Great Controversy*
    - *Steps to Christ*, *Christ's Object Lessons*, *Thoughts from the Mount of Blessing*, *Education*, *Ministry of Healing*
    - Testimonies, periodicals, manuscripts
 3. **SDA Bible Commentary** (SDABC) — denominational scholarly commentary
-   - **Access:** Physical copies or licensed digital access only. Point the user to the exact volume + chapter rather than fabricating quotes.
+   - **Access:** Use `sdabc-fetch.sh` (Bash script, `~/.config/scripts/`) to scrape verbatim commentary from bibletools.info. First-paragraph extraction is suitable for sermon context. See `sdabc-guide.md` for details and limitations.
+   - Volumes 1-7 available on BibleTools with full-text search
+   - **Fallback:** Physical copies or licensed Logos subscription if you need extended commentary beyond the first paragraph
 4. **Adventist Review / Ministry Magazine** — historic and contemporary Adventist thought
 5. **Broader Christian scholarship** — when it strengthens exegesis without contradicting Adventist distinctives
 
