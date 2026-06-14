@@ -39,6 +39,8 @@ Step 6: Generate sermon-outline.md
 Step 7: Generate sermon-manuscript.md
         ↓
 Step 8: Final pass (verify citations, AI-slop, hymn numbers, illustration bookends)
+        ↓
+Step 9: Auto-save to /DEV/skills-sermon-adventist/output/[kebab-case-title]/
 ```
 
 ---
@@ -373,6 +375,34 @@ After producing the three documents:
 
 Deliver all three documents:
 > Three documents ready: research-notes.md (review while you pray), sermon-outline.md (service flow), sermon-manuscript.md (what to preach). EGW quotes fetched from egwwritings.org where possible, otherwise paraphrased with notes. Hymn numbers flagged where unverified. Pray over it and make it yours.
+
+---
+
+## Step 9: Auto-Save to Output Directory
+
+After the preacher approves the final manuscripts, save all three files to the output directory:
+
+**Path structure:**
+```
+/Users/edmundsitumorang/DEV/skills-sermon-adventist/output/
+└── [sermon-title-in-kebab-case]/
+    ├── research-notes.md
+    ├── sermon-outline.md
+    └── sermon-manuscript.md
+```
+
+**Workflow:**
+1. Convert sermon title to kebab-case (lowercase, hyphens instead of spaces; keep special words like "God", "Christ")
+   - "The Place Whereon Thou Standest Is Holy" → `the-place-whereon-thou-standest-is-holy`
+2. Create the folder if it doesn't exist
+3. Write the three .md files into it
+4. Confirm to the preacher with the file paths
+
+**Example output:**
+> Sermon saved to `/Users/edmundsitumorang/DEV/skills-sermon-adventist/output/the-place-whereon-thou-standest-is-holy/`
+> - research-notes.md
+> - sermon-outline.md
+> - sermon-manuscript.md
 
 ---
 
