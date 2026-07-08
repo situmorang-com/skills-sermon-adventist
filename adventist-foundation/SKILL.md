@@ -92,6 +92,12 @@ egw-fetch.sh para 113.2411 12
 3. Fetch: `egw-fetch.sh para <para_id> <count>` to get verbatim text + page numbers.
 4. Cite verbatim with the exact refcode: *Desire of Ages*, p. 25 (not paraphrased).
 
+**Codex sandbox / Keychain troubleshooting:**
+If `egw-fetch.sh` exits with `Error: EGW_CLIENT_ID / EGW_CLIENT_SECRET not set`, do not immediately give up. The encrypted file may exist, but the sandboxed shell may be unable to read the macOS Keychain item `age-identity`.
+- Check the basics: `~/.config/scripts/.egw-credentials.env.age` exists, `age` is installed, and either `~/.age/keys.txt` exists or Keychain has service `age-identity`.
+- If the encrypted file exists and the helper still fails, rerun the same `egw-fetch.sh ...` command with elevated permissions (`sandbox_permissions: require_escalated`). Use a direct justification such as: "Can I run the EGW helper outside the sandbox so it can read the Keychain item used to decrypt API credentials?"
+- If the elevated run succeeds, proceed with the fetched EGW text. If it still fails, fall back to Tier 3 paraphrase only.
+
 **See also:** `~/.config/scripts/egw-api-guide.md` — complete reference for the API, parameter details, and the gotcha that para_id is an integer element (not the dotted `113.2411` string).
 
 ### Tier 2 — Verified high-confidence quote

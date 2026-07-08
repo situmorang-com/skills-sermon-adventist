@@ -70,15 +70,35 @@ Ellen G. White's writings are quoted often in Adventist preaching. Misquoting he
 
 Use this **three-tier policy** without exception:
 
-### Tier 1 — Live fetch (preferred for any substantial quote)
+### Tier 1 — Live fetch via the EGW Writings API (preferred for any substantial quote)
 
-Use the WebFetch tool to pull the actual passage from `egwwritings.org` (or `m.egwwritings.org`). The site contains the full corpus of EGW writings, searchable and citable.
+The public egwwritings.org site blocks automated requests (403 Forbidden). Instead, use the **official EGW Writings REST API** at `a.egwwritings.org`, which requires OAuth but is the sanctioned path for programmatic access.
 
-Workflow when you intend to quote EGW:
+**Quick workflow:**
+
+Use the helper script `~/.config/scripts/egw-fetch.sh` (credentials auto-loaded from `~/.config/scripts/.egw-credentials.env`):
+
+```bash
+egw-fetch.sh search "reverence for the house of God"
+# Returns: para_id, refcode_short (page), and snippet
+
+egw-fetch.sh para 113.2411 12
+# Returns: 12 paragraphs of verbatim text, starting at para_id 113.2411, with refcodes
+```
+
+**Full workflow when you intend to quote EGW:**
 1. Identify the work and topic (e.g., *Desire of Ages* on the cross, *Steps to Christ* on repentance).
-2. Use WebFetch to retrieve the relevant page from egwwritings.org. Search by topic if you don't know the exact location.
-3. Extract the verbatim text and the citation (Book, page number, sometimes paragraph).
-4. Use the quote with full citation: *Desire of Ages*, p. 25.
+2. Search: `egw-fetch.sh search "your distinctive phrase"` to find the para_id and refcode.
+3. Fetch: `egw-fetch.sh para <para_id> <count>` to get verbatim text + page numbers.
+4. Cite verbatim with the exact refcode: *Desire of Ages*, p. 25 (not paraphrased).
+
+**Codex sandbox / Keychain troubleshooting:**
+If `egw-fetch.sh` exits with `Error: EGW_CLIENT_ID / EGW_CLIENT_SECRET not set`, do not immediately give up. The encrypted file may exist, but the sandboxed shell may be unable to read the macOS Keychain item `age-identity`.
+- Check the basics: `~/.config/scripts/.egw-credentials.env.age` exists, `age` is installed, and either `~/.age/keys.txt` exists or Keychain has service `age-identity`.
+- If the encrypted file exists and the helper still fails, rerun the same `egw-fetch.sh ...` command with elevated permissions (`sandbox_permissions: require_escalated`). Use a direct justification such as: "Can I run the EGW helper outside the sandbox so it can read the Keychain item used to decrypt API credentials?"
+- If the elevated run succeeds, proceed with the fetched EGW text. If it still fails, fall back to Tier 3 paraphrase only.
+
+**See also:** `~/.config/scripts/egw-api-guide.md` — complete reference for the API, parameter details, and the gotcha that para_id is an integer element (not the dotted `113.2411` string).
 
 ### Tier 2 — Verified high-confidence quote
 
@@ -106,7 +126,8 @@ The word "paraphrased" should appear, or the framing should make clear it is a s
 When researching for a sermon or study, draw in this order:
 
 1. **Scripture** — KJV / TB primary; cross-translation for clarity
-2. **Spirit of Prophecy** — Ellen G. White's writings (egwwritings.org)
+2. **Spirit of Prophecy** — Ellen G. White's writings
+   - **Access:** Use `egw-fetch.sh` (Bash script, `~/.config/scripts/`) to fetch verbatim text with page numbers via the official EGW Writings API (`a.egwwritings.org`). See Tier 1 of the Ellen G. White Citation Policy for workflow.
    - *Conflict of the Ages* series: *Patriarchs and Prophets*, *Prophets and Kings*, *Desire of Ages*, *Acts of the Apostles*, *Great Controversy*
    - *Steps to Christ*, *Christ's Object Lessons*, *Thoughts from the Mount of Blessing*, *Education*, *Ministry of Healing*
    - Testimonies, periodicals, manuscripts
