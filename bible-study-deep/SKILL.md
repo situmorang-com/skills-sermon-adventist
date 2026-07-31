@@ -1,6 +1,6 @@
 ---
 name: bible-study-deep
-description: Produce deep, structured Bible study notes for a passage from a Seventh-day Adventist perspective. Includes passage context, historical and cultural background, Hebrew/Greek word studies (with KJV and Indonesian Terjemahan Baru comparison), multi-commentary insights (Andrews Bible Commentary, SDABC, named Adventist scholars, Matthew Henry, Calvin, and other classic and modern sources), Ellen G. White cross-references, scriptural cross-references, theological themes through an Adventist lens, and application questions. Use whenever the user wants to study a passage in depth, prepare teaching/Sabbath School material, do exegesis, or asks for a "deep dive" / pendalaman Alkitab on a Bible text — even if they don't say "Adventist" explicitly.
+description: Produce deep, structured Bible study notes for a passage from a Seventh-day Adventist perspective. Includes passage context, historical and cultural background, Hebrew/Greek word studies (with KJV and Indonesian Terjemahan Baru comparison), Biblical Research Institute (BRI) research, multi-commentary insights (Andrews Bible Commentary, SDABC, named Adventist scholars, and classic and modern sources), Ellen G. White cross-references, scriptural cross-references, theological themes through an Adventist lens, and application questions. Use whenever the user wants to study a passage in depth, prepare teaching/Sabbath School material, do exegesis, or asks for a "deep dive" / pendalaman Alkitab on a Bible text — even if they don't say "Adventist" explicitly.
 ---
 
 # Bible Study Deep
@@ -18,7 +18,7 @@ A structured Bible study document in markdown, with these eight sections in orde
 1. Passage Context
 2. Historical and Cultural Background
 3. Key Word Studies (3–5 words, with translation comparison)
-4. Commentary Insights (Adventist primary → Adventist scholars → Classic non-Adventist → Modern evangelical)
+4. Research and Commentary Insights (BRI → Adventist commentaries → Adventist scholars → Classic non-Adventist → Modern evangelical)
 5. Ellen G. White Cross-References
 6. Scriptural Cross-References
 7. Theological Themes (through the Adventist lens where the text engages distinctives)
@@ -35,6 +35,12 @@ Required: the passage (book, chapter, verse range).
 Optional: study angle or specific question, audience (personal devotion, Sabbath School, prayer-meeting study, sermon prep), language (English / Indonesian), depth level (overview vs. exhaustive).
 
 If the user gave only a passage, that's enough. Don't interrogate. Confirm only what's ambiguous.
+
+When this skill is invoked from a sermon workflow that already selected a responsive reading, prompt the user with a single clarifying question before proceeding: whether to study a single passage of their choosing or to use the responsive-reading passage. Use the ask_user pattern: ask one question with explicit choices, for example:
+
+- "Use the responsive-reading passage Hebrews 8:1-6 for this study?" Choices: ["Use Hebrews 8:1-6 (Recommended)", "I'll provide a different passage"]
+
+Only proceed after the user answers. If they choose "I'll provide a different passage", request the passage (book, chapter, verse range) and continue. This keeps the interaction single-question-at-a-time and avoids surprising the user with multiple prompts.
 
 Defaults if not specified:
 - Language: English (per `PRIMARY_LANGUAGE` from foundation)
@@ -72,7 +78,7 @@ The world the passage was written in. Not a general history lesson — specifics
 
 Length: ~200–350 words. Dense and specific.
 
-**Sources to draw on:** IVP Bible Background Commentary (Keener for NT; Walton/Matthews/Chavalas for OT), SDABC historical introductions, William Barclay's Daily Study Bible (use for cultural background; flag theological positions carefully — see Section 4 cautions).
+**Sources to draw on:** BRI articles when they address the passage or its interpretive setting, IVP Bible Background Commentary (Keener for NT; Walton/Matthews/Chavalas for OT), SDABC historical introductions, and William Barclay's Daily Study Bible (use for cultural background; flag theological positions carefully — see Section 4 cautions).
 
 ---
 
@@ -97,7 +103,7 @@ Free tools for word studies (use live where possible): Blue Letter Bible (bluele
 
 ---
 
-### Section 4: Commentary Insights
+### Section 4: Research and Commentary Insights
 
 This is the upgraded multi-source commentary section. Work through the four tiers below in order. For each source, **paraphrase honestly** — never invent content. If you don't know what a specific commentary says about a specific passage, say so clearly and direct the reader to verify.
 
@@ -105,7 +111,16 @@ This is the upgraded multi-source commentary section. Work through the four tier
 
 ---
 
-#### Tier 1 — Adventist Primary Commentaries
+#### Tier 1 — Adventist Institutional Research and Primary Commentaries
+
+**Biblical Research Institute (BRI)**
+Treat [adventistbiblicalresearch.org](https://adventistbiblicalresearch.org/) as a first-tier source, especially when the text raises an Adventist doctrinal, prophetic, hermeneutical, or disputed interpretive question.
+- Search for the passage reference, book name, and theological theme.
+- Prefer the original BRI article, document, or committee report over summaries on other sites.
+- Record the author, article title, publication date, and direct URL.
+- Paraphrase the relevant argument and explain how it affects the interpretation of the passage.
+- Distinguish official statements from signed staff articles or study papers. Do not present every BRI article as a voted position of the world church.
+- If no relevant BRI material is found, state that briefly rather than forcing a citation.
 
 **Andrews Bible Commentary (2020)**
 The most current official Adventist commentary. Published by Andrews University Press. Accessible, scholarly, international contributors. This is the first stop for Adventist commentary on any passage.
@@ -289,6 +304,9 @@ Single markdown document. Header structure:
 
 ## 4. Commentary Insights
 
+### Biblical Research Institute
+...
+
 ### Andrews Bible Commentary (2020)
 ...
 
@@ -320,7 +338,7 @@ Single markdown document. Header structure:
 ...
 
 ---
-*EGW quotations verified via egwwritings.org where possible; uncertain content paraphrased without quotation marks. Commentary content paraphrased from named sources — verify direct quotes before relying on them in the pulpit or classroom.*
+*EGW quotations verified via egwwritings.org where possible; uncertain content paraphrased without quotation marks. BRI and commentary content paraphrased from named sources with direct citations; verify direct quotes before relying on them in the pulpit or classroom.*
 ```
 
 ---
@@ -340,7 +358,7 @@ When `PRIMARY_LANGUAGE` is Indonesian, the entire study is in Indonesian, with:
 
 ## Anti-Patterns
 
-- **Never fabricate commentary content.** Matthew Henry, Calvin, SDABC, Doukhan — none of them. If you don't know what they say about a specific verse, say so. "Matthew Henry likely addresses the pastoral dimension here — verify in your copy." is always better than an invented quote.
+- **Never fabricate BRI or commentary content.** BRI, Matthew Henry, Calvin, SDABC, Doukhan — none of them. If you cannot access a source, say so rather than guessing what it likely argues.
 - **Never fabricate EGW quotes.** Always attempt live fetch. Tier 3 paraphrase if not possible. The vibe test on Daniel 12:4 demonstrated exactly why this matters.
 - **Never use Barclay's theological conclusions** (universal salvation, annihilationism-adjacent positions) as support for any Adventist point. His cultural/linguistic background is valuable. His theology is not a model.
 - **Never force Adventist distinctives onto a passage that doesn't engage them.** Be honest when a text is general Christian theology.
@@ -354,6 +372,6 @@ When `PRIMARY_LANGUAGE` is Indonesian, the entire study is in Indonesian, with:
 
 A single-source study (even SDABC alone) risks missing the passage's full texture. Matthew Henry will find the devotional application that a technical commentary misses. Calvin will press into the Greek where Henry glosses over it. Doukhan will see the Hebrew chiasm that no one else noticed. Keener will give you the Roman social custom that unlocks the passage's shock value for the original audience.
 
-Using all four tiers — Adventist primary, Adventist scholars, classic voices, modern exegesis — produces a study that is doctrinally grounded but not doctrinally isolated. The Adventist preacher should be the most well-read person in the room, because they are preaching to people who will go home and find Matthew Henry on their phone before the sun sets.
+Using all four tiers — BRI and Adventist primary sources, Adventist scholars, classic voices, and modern exegesis — produces a study that is doctrinally grounded but not doctrinally isolated. The Adventist preacher should be the most well-read person in the room, because they are preaching to people who will go home and find Matthew Henry on their phone before the sun sets.
 
 The goal is not to impress them with sources. The goal is to give them a text they cannot dismiss.
