@@ -15,7 +15,8 @@ Top of file:
 
 *Prepared for: [audience if given]*
 *Translation: KJV (English) / Terjemahan Baru (Indonesian)*
-*Date: [date]*
+*Delivery date: [YYYY-MM-DD]*
+*Location: [church / venue]*
 
 This is research, not the sermon. Read it. Pray over it. Use what helps. Set aside what doesn't.
 ```

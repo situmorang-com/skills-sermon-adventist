@@ -6,6 +6,21 @@ This is the reference list of commentaries and Adventist scholars the `sermon-ad
 
 ---
 
+## Primary Adventist Research Institute
+
+### Biblical Research Institute (BRI)
+
+Use [adventistbiblicalresearch.org](https://adventistbiblicalresearch.org/) as a first-tier Bible-study source for biblical interpretation, doctrine, hermeneutics, prophecy, sanctuary, Sabbath, creation, and disputed theological questions.
+
+- **The live site returns 403 to every automated request** (Vercel bot checkpoint); a browser is fine, a script is not. Use `scripts/bri-fetch.py get <url>` from the repo root, which reads the article through the Wayback Machine. Cite the snapshot date, and treat the live page as authoritative.
+- Search by passage, biblical book, author, and doctrinal theme (`bri-fetch.py search "<keyword>"`).
+- Prefer original BRI articles, documents, and committee reports over third-party summaries.
+- Capture the author, title, publication date, and direct URL in research notes.
+- Distinguish official statements from signed staff articles and study papers. A BRI-hosted authored article is authoritative Adventist scholarship, but it is not automatically a voted world-church position.
+- Paraphrase accurately unless exact wording has been verified.
+
+---
+
 ## Primary Adventist Commentaries
 
 These are the denominational reference works. They should be the first stop for any Adventist exegetical question.
@@ -93,7 +108,7 @@ For current scholarly Adventist thinking, beyond commentaries:
 - **Adventist Review** (adventistreview.org) — denominational magazine; pastoral and devotional.
 - **Andrews University Seminary Studies (AUSS)** — peer-reviewed Adventist scholarship.
 - **Journal of the Adventist Theological Society (JATS)** — Adventist scholarly journal.
-- **BRI Newsletter / Reflections** — Biblical Research Institute (BRI) — official denominational position papers and articles.
+- **BRI Newsletter / Reflections** — Biblical Research Institute scholarship and reports; distinguish voted or official statements from signed articles.
 
 ---
 

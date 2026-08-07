@@ -256,53 +256,62 @@ Before planning, answer these for yourself:
 
 ## B3: Write `teachers-guide.md`
 
+**This structure is fixed. Eight numbered sections, two appendices, the ledger.** Do not improvise a different shape per lesson: the teacher learns where things live, and a guide they can navigate under time pressure beats a better-organized one they have to read. The section count is eight because the HTML render's verified colour ramp has eight steps. If a lesson seems to need a ninth section, fold two together rather than adding one.
+
 ```markdown
-# Teacher's Guide — [Quarter Year], Lesson N: [Title]
+# Teacher's Guide: [Quarter Year], Lesson N, [Title]
 
-**Sabbath:** [YYYY-MM-DD]  ·  **Class:** [profile]  ·  **Time:** [minutes]
-**Memory Text:** [verse, quoted, with translation]
-**Key Text for the class to leave holding:** [one verse]
+**Sabbath:** [YYYY-MM-DD] · **Class:** [profile] · **Time:** [minutes]
+**Lesson week:** [printed date range] (discussed in class on Sabbath, [date])
+**Read for This Week's Study:** [the lesson's passage list]
+**Memory Text, [ref]:** [quoted in full, blockquote]
+**Key Text the class leaves holding, [ref]:** [quoted in full, blockquote]
 
-## What This Week Is Arguing
-[3–4 sentences. The lesson's claim in your own words, plus what it is not saying.]
+## 1. What This Week Is Actually Arguing
+[3–5 short paragraphs. The lesson's claim in your own words, the setting that
+makes it land, and explicitly what the lesson is NOT saying. Close by naming
+where the week is heading, which is often not what the title says.]
 
-## Objectives
-| | |
-|---|---|
-| **Know** | one fact or interpretation they did not have before |
-| **Feel** | the affective shift the text asks for |
-| **Do** | one concrete action, nameable in a sentence, doable this week |
+## 2. Objectives
+[Know / Feel / Do table. The Do must be concrete enough to be declined.]
 
-## Discussion Plan
-[The timed table — see B4.]
+## 3. Discussion Plan, [N] Minutes
+[The opening hook as an h3, then the timed table, then the closing as an h3.
+Hook and closing belong here: they are the first 90 seconds and last 2 minutes
+of this plan, not separate topics. State where to compress. Confirm in one line
+that every day of the week is assigned to a block.]
 
-## The Two Questions Worth Real Time
-[For each: the question, why it matters, what answers to expect, and how to keep
-it open when someone tries to close it with a Sunday-school answer.]
+## 4. Day-by-Day Map
+[A summary table: day | title | passages | which block it lands in. Then one
+subsection per day, Sunday through Thursday. See B6.]
 
-## Background the Class Does Not Have
-[2–3 items only. The word study, the historical detail, the Adventist distinctive.
-Each one should change how a verse reads, not decorate it.]
+## 5. The Two Questions Worth Real Time
+[For each: the question as you will actually say it, why it matters, what
+answers to expect, and how to keep it open when someone closes it with a
+Sabbath-School answer.]
 
-## Ellen G. White for This Week
-[The Friday reading, plus one paragraph worth reading aloud — verbatim with
-refcode if fetched, or clearly paraphrased. Note where to stop reading; a long
-quote read aloud loses the room.]
+## 6. Background the Class Does Not Have
+[2–3 items only, numbered. Each must change how a verse reads, not decorate it.
+Word study, translation choice, historical detail, or the distinctive in play.]
 
-## Handling the Hard Spots
-[The pushback you predicted in B2, and an honest answer. If the lesson is thin
-somewhere, how to teach the text faithfully without making the quarterly the
-problem.]
+## 7. Ellen G. White for This Week
+[The assigned Friday reading, the paragraph worth reading aloud, and where to
+stop reading. Attribution cautions go here, attached to the quote they concern.]
 
-## Opening Hook
-[The first ninety seconds. See B5.]
+## 8. Handling the Hard Spots
+[Each predicted pushback in the member's own words, then an honest answer from
+Scripture. Include a "before class" note for anything the teacher must read
+tonight. If the lesson is thin somewhere, say how to teach the text faithfully
+without making the quarterly the problem.]
 
-## Closing
-[How the class ends: the return to the Key Text, the one-sentence summary, the
-specific decision or action, and the prayer cue.]
+## Appendix A: Every Bible Text in [translation]
+[See B7.]
+
+## Appendix B: Ellen G. White, SDABC, and Adventist Sources
+[See B7.]
 
 ## Verification Ledger
-[table]
+[Source | Tag | Where | Action for the user]
 ```
 
 ## B4: The timed discussion plan

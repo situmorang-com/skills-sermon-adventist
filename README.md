@@ -1,6 +1,6 @@
 # Adventist Sermon & Bible Study Skills
 
-Four Claude AI skills for Seventh-day Adventist sermon preparation, Bible study, and illustration research. Built on the Claude skill-creator framework.
+Five Claude AI skills for Seventh-day Adventist sermon preparation, Bible study, Sabbath School teaching, and illustration research. Built on the Claude skill-creator framework.
 
 **Live Repo:** https://github.com/situmorang-com/skills-sermon-adventist
 
@@ -25,10 +25,11 @@ Loads once; shared across all other skills.
 
 **When to use:** You have a Scripture passage and want a complete sermon (research → outline → manuscript).
 
-**What it produces:** Three documents per sermon
+**What it produces:** Four documents per sermon
 1. `catatan-penelitian.md` / `research-notes.md` — 8-section exegetical research (in Indonesian or English)
 2. `sermon-outline.md` — Structured outline with service header block
 3. `sermon-manuscript.md` — Full spoken manuscript (~3,500–4,500 words)
+4. `slides.md` — Slide-by-slide deck formatted for **Gamma AI** (gamma.app), copy-paste ready
 
 **Workflow (8 steps):**
 1. Capture sermon intent (passage, audience, duration, language)
@@ -43,7 +44,7 @@ Loads once; shared across all other skills.
 **Key Features:**
 - **6 choosable sermon structures** (Expository, Topical, Narrative, Biographical, Textual, Three-Point)
 - **Mandatory bookend illustrations** — strong opening (grab attention) + strong closing (call to action)
-- **Service header block** — Title, Main Verse, Responsive Reading (5–7 verses, antiphonal), Opening/Closing Hymns (both SDAH & LSEL recommendations)
+- **Service header block** — Title, Main Verse (Ayat Inti), Responsive Reading (Ayat Bersahutan — one continuous 5–7 verse passage, antiphonal), Opening/Closing Hymns (both SDAH & LSEL recommendations)
 - **Hebrew/Greek word studies** — KJV + TB + original language + Strong's + range of meaning + translation comparison
 - **Multi-commentary insights** — Andrews Bible Commentary + SDABC + named Adventist scholars
 - **EGW citations** — fetched live from egwwritings.org or paraphrased (never fabricated)
@@ -118,6 +119,51 @@ Loads once; shared across all other skills.
 
 ---
 
+### 5. **sabbath-school-lesson** — Quarterly Lessons & Teacher's Guides
+
+**When to use:** You are writing a Sabbath School lesson, or teaching this week's Adult Bible Study Guide lesson to a class.
+
+**Two modes** — the skill asks which one first:
+
+| | **Mode A — Original Lesson** | **Mode B — Teacher's Guide** |
+|---|---|---|
+| The ask | "Write a seven-day lesson on Abraham" | "I'm teaching lesson 6 this Sabbath" |
+| Produces | `sabbath-school-lesson.md` + `teachers-comments.md` | `teachers-guide.md` |
+| You supply | Theme or passage | The actual quarterly lesson text |
+| Length | ~3,000–4,000 words + ~1,200 teacher edition | ~1,500–2,200 words |
+
+**Mode A — the real quarterly format:**
+- **Lesson Spine** shown for approval before any prose: central claim, Memory Text, reading list, five *distinct* daily moves, and the day that costs something
+- **Sabbath Afternoon** — Read for This Week's Study, Memory Text (verbatim), 250–350 word introduction, the quarterly's own closing line
+- **Sunday–Thursday** — one passage per day, 350–450 words exposition, 1–2 open questions
+- **Friday Further Thought** — the Ellen G. White reading, one quoted paragraph, exactly three discussion questions
+- **Teachers Comments** — Key Text, Study Focus, Part I Overview / Part II Commentary / Part III Life Application, plus the Verification Ledger
+
+**Mode B — a plan for the class hour:**
+- Know / Feel / Do objectives, with a **Do** concrete enough to be declined
+- **Minute-by-minute discussion plan** (35 min default; compresses at minutes 22–28, never at application)
+- The two questions worth real time, expected answers, and how to keep them open
+- Predicted pushback with an honest scriptural answer, and a time-box
+- Opening hook, closing that returns to the Key Text
+
+**Key Features:**
+- **Questions are the deliverable.** Four hard tests: not answerable by yes/no/"Jesus", two defensible answers possible, names something concrete, and the teacher does not already know the answer
+- **Facilitation over presentation** — someone other than the teacher speaks in the first two minutes; silence after a real question is planned for, not filled
+- **Never invents an EGW page range.** Fetched and confirmed, or chapter title and book only
+- **Never reconstructs an official lesson it could not read** — asks you to paste it instead
+- **Memory Text verified verbatim** (the class memorizes it; an error propagates for a quarter)
+- Indonesian quarterly labels (Sabat Sore, Ayat Hafalan, Pendalaman, Pertanyaan Diskusi) with day-then-month dates
+- Handles visitors, seeker classes, mixed-language classes, dominant talkers, and doctrinal arguments breaking out mid-class
+
+**Example prompts:**
+- "Write a Sabbath School lesson on the call of Abraham, Genesis 12. Adult class, Sabbath 2026-08-15. English."
+- "Saya mengajar Sekolah Sabat pekan ini. Pelajaran 6 kuartal ketiga 2026. Tolong buatkan penuntun guru."
+- "Lesson on the state of the dead for a class with three or four non-Adventist visitors most weeks. 30 minutes."
+
+**Output location:** `output/[YYYY-MM-DD]-ss-[kebab-case-title]/` — the `ss-` prefix keeps it separate from a sermon on the same Sabbath.
+
+---
+
 ## Installation Guide — Use in Any LLM
 
 These skills work with **Claude.ai, ChatGPT, Gemini, API clients, and open-source LLMs**. Choose your platform below.
@@ -143,6 +189,7 @@ These skills work with **Claude.ai, ChatGPT, Gemini, API clients, and open-sourc
      - **Sermon Prep:** `dist/claude-project/sermon-adventist-instructions.md`
      - **Bible Study:** `dist/claude-project/bible-study-deep-instructions.md`
      - **Illustrations:** `dist/claude-project/sermon-illustrations-instructions.md`
+     - **Sabbath School:** `dist/claude-project/sabbath-school-lesson-instructions.md`
    - Paste each in a new message: `@[skill-name] [your prompt]`
 
 4. **Upload Knowledge Files**
@@ -150,9 +197,13 @@ These skills work with **Claude.ai, ChatGPT, Gemini, API clients, and open-sourc
    - Upload all files from `dist/claude-project/knowledge/`:
      - `adventist-themes.md`
      - `commentary-sources.md`
+     - `commentary-tiers.md`
      - `research-notes-template.md`
      - `structures.md`
      - `illustration-sources.md`
+     - `lesson-anatomy.md`
+     - `teaching-methods.md`
+     - `html-template.html`
    - Claude will reference these automatically
 
 5. **Start Using**
@@ -402,8 +453,19 @@ skills-sermon-adventist/
 │
 ├── bible-study-deep/
 │   ├── SKILL.md (8-section deep study, 4-tier commentary)
-│   └── evals/
-│       └── evals.json (3 test cases: Daniel 8:13-14, Mark 2:23-28, Romans 8:1-11)
+│   ├── evals/
+│   │   └── evals.json (3 test cases: Daniel 8:13-14, Mark 2:23-28, Romans 8:1-11)
+│   └── references/
+│       ├── commentary-tiers.md (Tier 3/4 sources, lexicons, cautions)
+│       └── html-template.html (bible-study.html skeleton)
+│
+├── sabbath-school-lesson/
+│   ├── SKILL.md (Mode A: original 7-day lesson · Mode B: teacher's guide)
+│   ├── evals/
+│   │   └── evals.json (3 test cases: Genesis 12 lesson, Indonesian penuntun guru, state of the dead with visitors)
+│   └── references/
+│       ├── lesson-anatomy.md (quarterly week part by part, word budgets, Indonesian labels)
+│       └── teaching-methods.md (question sequencing, timing, silence, class dynamics)
 │
 └── sermon-illustrations/
     ├── SKILL.md (Tier 1 famous → Tier 2 original)
