@@ -8,9 +8,18 @@ Reference for the `sabbath-school-lesson` skill. Where teaching helps come from,
 
 ## What the official Teacher Comments already does
 
-Read it first, at [absg.sspmadventist.org](https://absg.sspmadventist.org/) (the quarter path looks like `/en/2026-03/06/teacher-comments` for Q3 2026, lesson 6). It is a JavaScript-rendered site, so a script gets an empty shell: open it in a browser, or read the same material in the Teacher's Edition app or the printed quarterly.
+**It is fetchable, through the API behind the official app.** Do not scrape [absg.sspmadventist.org](https://absg.sspmadventist.org/): it is a JavaScript shell that returns an empty page to any script. Use Adventech's Sabbath School API instead, which is what the official GC app runs on:
 
-Its fixed shape:
+```bash
+B=https://sabbath-school.adventech.io/api/v2/en/quarterlies/2026-03
+curl -s "$B/lessons/06/days/teacher-comments/read/index.json"
+```
+
+Quarterly id is `YYYY-MM` with `MM` as the quarter's first month, so Q3 2026 is `2026-03`. Alongside the seven day ids for the week itself, each lesson exposes `teacher-comments`, `hope-ss` (the Hope Sabbath School outline) and `inside-story` (the mission story). Content comes back as HTML in a `content` field.
+
+A second route, useful when you want the whole quarter at once: [fustero.es](https://www.fustero.es/index_en.php) hosts the quarterly as a PDF at `https://www.fustero.es/en_<year>t<quarter>.pdf`, so Q3 2026 is `en_2026t3.pdf`. Verified reachable; roughly 6 MB.
+
+Its fixed shape:Its fixed shape:
 
 | Part | Contains |
 |---|---|

@@ -75,7 +75,24 @@ What you minimally need before writing: the lesson title, the Memory Text, the R
 
 **The teacher's guide already exists.** The Adult Bible Study Guide ships Teacher Comments every week, and ssnet publishes several more helps every Monday. A guide that restates them is dead weight. This step is what stops that happening.
 
-Read the official Teacher Comments for the week at [absg.sspmadventist.org](https://absg.sspmadventist.org/), path `/en/<year>-<quarter>/<lesson>/teacher-comments`. It is a JavaScript-rendered site, so a fetch returns an empty shell: ask the user to paste it, or read it in the Teacher's Edition app. Its shape is fixed — Key Text, Study Focus, Part I Overview, Part II Commentary, Part III Life Application.
+**The official Teacher Comments is fetchable, through the API that powers the official app.** Do not settle for asking the user to paste it, and do not scrape `absg.sspmadventist.org`: that site is a JavaScript shell and returns nothing.
+
+```bash
+B=https://sabbath-school.adventech.io/api/v2/en/quarterlies/2026-03
+curl -s "$B/lessons/index.json"                              # 13 lessons, ids 01-13, with dates
+curl -s "$B/lessons/06/index.json"                           # days for one lesson
+curl -s "$B/lessons/06/days/teacher-comments/read/index.json"  # the official Teacher Comments
+```
+
+The quarterly id is `YYYY-MM` where `MM` is the quarter's first month: Q3 2026 is `2026-03`. The `days` list for a lesson holds `01`–`07` for the week itself, plus three extras worth knowing about:
+
+| Day id | What it is |
+|---|---|
+| `teacher-comments` | **The official Teacher Comments.** Part I Overview, Part II Commentary, Part III Life Application |
+| `hope-ss` | The Hope Sabbath School outline for that week |
+| `inside-story` | The week's mission story |
+
+Each returns `{id, date, title, bible, content}` with `content` as HTML. Strip the tags and read it.
 
 Then answer this in one sentence, before writing anything:
 
