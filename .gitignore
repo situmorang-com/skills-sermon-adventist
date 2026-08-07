@@ -1,2 +1,5 @@
 .DS_Store
 **/.DS_Store
+
+# Generated sermon and lesson output. Working product, published separately.
+/output/
