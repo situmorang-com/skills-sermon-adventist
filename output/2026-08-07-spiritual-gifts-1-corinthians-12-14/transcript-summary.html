@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript Summary: Lesson 06 — Spiritual Gifts (1 Corinthians 12–14)</title>
+<style>
+:root{
+  --ink:#1a1d21; --muted:#606871; --faint:#8a929b;
+  --rule:#dde2e7; --accent:#0b5c4d; --accent-soft:#e7f2ef;
+  --band:#f4f7f6; --paper:#fff; --bg:#eef0f2;
+  --verbatim:#0b6b3a; --verbatim-bg:#e6f4ec;
+  --unread:#9a3412; --unread-bg:#fdeee3;
+  --known:#1e4f8a; --known-bg:#e8f0fa;
+  --infer:#5b5563; --infer-bg:#f0eef2;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ink:#e6e9ec; --muted:#a3acb6; --faint:#7f8892;
+    --rule:#333a42; --accent:#6fd3ba; --accent-soft:#12312a;
+    --band:#20262c; --paper:#161a1e; --bg:#0e1114;
+    --verbatim:#6fd39a; --verbatim-bg:#12301f;
+    --unread:#f0a878; --unread-bg:#3a2416;
+    --known:#8fbdf0; --known-bg:#16283d;
+    --infer:#b6aebe; --infer-bg:#272430;
+  }
+}
+:root[data-theme="light"]{
+  --ink:#1a1d21; --muted:#606871; --faint:#8a929b;
+  --rule:#dde2e7; --accent:#0b5c4d; --accent-soft:#e7f2ef;
+  --band:#f4f7f6; --paper:#fff; --bg:#eef0f2;
+  --verbatim:#0b6b3a; --verbatim-bg:#e6f4ec;
+  --unread:#9a3412; --unread-bg:#fdeee3;
+  --known:#1e4f8a; --known-bg:#e8f0fa;
+  --infer:#5b5563; --infer-bg:#f0eef2;
+}
+:root[data-theme="dark"]{
+  --ink:#e6e9ec; --muted:#a3acb6; --faint:#7f8892;
+  --rule:#333a42; --accent:#6fd3ba; --accent-soft:#12312a;
+  --band:#20262c; --paper:#161a1e; --bg:#0e1114;
+  --verbatim:#6fd39a; --verbatim-bg:#12301f;
+  --unread:#f0a878; --unread-bg:#3a2416;
+  --known:#8fbdf0; --known-bg:#16283d;
+  --infer:#b6aebe; --infer-bg:#272430;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.68 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;}
+.sheet{max-width:900px;margin:0 auto;background:var(--paper);
+  padding:56px 60px 72px;box-shadow:0 1px 3px rgba(0,0,0,.09)}
+
+h1{font-size:29px;line-height:1.24;margin:0 0 6px;font-weight:700;letter-spacing:-.015em}
+.subtitle{color:var(--muted);font-size:15px;margin:0 0 4px}
+header.doc{border-bottom:3px double var(--accent);padding-bottom:26px;margin-bottom:6px}
+.kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+  font-weight:700;margin-bottom:13px}
+
+h2{font-size:15px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);
+  margin:46px 0 18px;padding:11px 15px;background:var(--accent-soft);
+  border-radius:5px;font-weight:700;scroll-margin-top:14px}
+h3{font-size:18.5px;margin:34px 0 12px;font-weight:700;letter-spacing:-.01em;
+  padding-bottom:7px;border-bottom:1px solid var(--rule);scroll-margin-top:14px}
+h4{font-size:16px;margin:24px 0 8px;font-weight:700}
+
+p{margin:0 0 14px}
+p.note{color:var(--muted);font-size:14.5px}
+a{color:var(--accent)}
+strong{font-weight:700}
+hr.rule{border:0;border-top:1px solid var(--rule);margin:34px 0}
+ul,ol{margin:0 0 16px;padding-left:26px}
+li{margin:0 0 9px}
+
+blockquote{margin:18px 0;padding:16px 20px;border-radius:0 5px 5px 0;
+  background:var(--band);border-left:4px solid var(--rule)}
+blockquote p{margin:0 0 10px}
+blockquote p:last-child{margin:0}
+blockquote.scripture{border-left-color:var(--accent);background:var(--accent-soft);
+  font-size:16.5px;line-height:1.66}
+blockquote.cited{border-left-color:var(--faint);font-style:italic}
+
+.tablewrap{overflow-x:auto;margin:0 0 20px;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+thead th{background:var(--band);font-size:11px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);text-align:left;padding:10px 13px;border-bottom:2px solid var(--rule);
+  white-space:nowrap}
+tbody td{padding:11px 13px;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+table.spec tbody td:first-child{width:22%;font-weight:600;color:var(--muted);
+  background:var(--band);white-space:nowrap}
+table.grid tbody tr:nth-child(even){background:rgba(127,136,146,.055)}
+td.ts{white-space:nowrap;font:600 13px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color:var(--accent)}
+
+code{font:13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  background:var(--band);padding:1.5px 5px;border-radius:3px}
+.ts-inline{font:600 12px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color:var(--accent);background:var(--accent-soft);padding:1px 7px;border-radius:11px;
+  white-space:nowrap;margin-right:7px;display:inline-block}
+.tag{font:600 11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  padding:2px 8px;border-radius:11px;white-space:nowrap;display:inline-block}
+.tag-verbatim{color:var(--verbatim);background:var(--verbatim-bg)}
+.tag-unread{color:var(--unread);background:var(--unread-bg)}
+.tag-known{color:var(--known);background:var(--known-bg)}
+.tag-infer{color:var(--infer);background:var(--infer-bg)}
+
+nav.toc{margin:30px 0 8px;padding:20px 24px;background:var(--band);
+  border-radius:6px;border:1px solid var(--rule)}
+nav.toc .th{font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:12px}
+nav.toc ol{list-style:none;margin:0;padding:0;columns:2;column-gap:34px}
+nav.toc li{margin:0 0 7px;break-inside:avoid;font-size:14.5px}
+nav.toc li.l3{padding-left:15px;font-size:13.5px;color:var(--muted)}
+nav.toc a{text-decoration:none}
+nav.toc a:hover{text-decoration:underline}
+
+.callout{margin:20px 0;padding:16px 20px;border-radius:6px;
+  background:var(--accent-soft);border:1px solid var(--rule)}
+.callout .lt{font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:8px}
+.callout p:last-child{margin:0}
+
+.themebtn{position:fixed;top:14px;right:14px;z-index:9;
+  font:600 12px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  padding:9px 13px;border-radius:18px;cursor:pointer;
+  background:var(--paper);color:var(--muted);border:1px solid var(--rule)}
+.themebtn:hover{color:var(--accent);border-color:var(--accent)}
+
+footer.doc{margin-top:44px;padding-top:20px;border-top:1px solid var(--rule);
+  font-size:13px;color:var(--faint)}
+
+@media (max-width:720px){
+  .sheet{padding:30px 20px 44px}
+  h1{font-size:24px} h2{font-size:13.5px} h3{font-size:17px}
+  nav.toc ol{columns:1}
+  table.spec tbody td:first-child{width:34%;white-space:normal}
+}
+@media print{
+  :root{--ink:#000;--muted:#333;--faint:#555;--rule:#bbb;--accent:#0b5c4d;
+    --accent-soft:#eef5f3;--band:#f4f6f5;--paper:#fff;--bg:#fff}
+  body{background:#fff;font-size:10.5pt;line-height:1.5}
+  .sheet{max-width:none;box-shadow:none;padding:0}
+  .themebtn{display:none}
+  h2{break-after:avoid;background:var(--accent-soft);
+    -webkit-print-color-adjust:exact;print-color-adjust:exact}
+  h3,h4{break-after:avoid}
+  blockquote,table,.tablewrap,.callout{break-inside:avoid}
+  tr{break-inside:avoid}
+  a{color:#000;text-decoration:none}
+  @page{margin:16mm 14mm}
+}
+</style>
+</head>
+<body>
+<button class="themebtn" id="themebtn" type="button">Dark</button>
+<div class="sheet">
+
+<header class="doc">
+  <div class="kicker">Transcript Summary &middot; Sabbath School Lesson 06</div>
+  <h1>Spiritual Gifts<br><span class="subtitle" style="font-size:20px;font-weight:400">1 Corinthians 12–14 &mdash; a day-by-day digest of the video walkthrough</span></h1>
+  <p class="subtitle">Series: 1 and 2 Corinthians (Q3 2026) &middot; Channel: Deep Made Simple</p>
+  <p class="subtitle">Source: <a href="transcript.md">transcript.md</a> &middot; <a href="https://www.youtube.com/watch?v=jvxt7qoXMtU">video</a> &middot; published 2026-08-01 &middot; length 37:27</p>
+  <p class="subtitle">Timestamps below point back to the transcript paragraph where each idea appears.</p>
+</header>
+
+<nav class="toc"><div class="th">Contents</div><ol>
+  <li><a href="#thesis"><strong>1.</strong> The Thesis in One Paragraph</a></li>
+  <li><a href="#setting"><strong>2.</strong> The Setting: Why Corinth Broke</a></li>
+  <li><a href="#days"><strong>3.</strong> Day by Day</a></li>
+  <li class="l3"><a href="#sunday">Sunday — What a Gift Actually Is</a></li>
+  <li class="l3"><a href="#monday">Monday — One Body, Many Members</a></li>
+  <li class="l3"><a href="#tuesday">Tuesday — The More Excellent Way</a></li>
+  <li class="l3"><a href="#wednesday">Wednesday — The Gift of Tongues</a></li>
+  <li class="l3"><a href="#thursday">Thursday — The Gift of Prophecy</a></li>
+  <li class="l3"><a href="#christ">Thursday (cont.) — The Name in the Love Chapter</a></li>
+  <li class="l3"><a href="#friday">Friday — Bringing It Home</a></li>
+  <li><a href="#hooks"><strong>4.</strong> Illustrations and Images Used</a></li>
+  <li><a href="#adventist"><strong>5.</strong> Distinctively Adventist Turns</a></li>
+  <li><a href="#lines"><strong>6.</strong> Most Quotable Lines</a></li>
+  <li><a href="#preach"><strong>7.</strong> What a Preacher Can Take From This</a></li>
+  <li><a href="#cautions"><strong>8.</strong> Cautions Before Reuse</a></li>
+</ol></nav>
+
+<hr class="rule">
+
+<h2 id="thesis">1. The Thesis in One Paragraph</h2>
+<p>1 Corinthians 13 is not a wedding poem. Paul dropped it into the middle of an ugly church fight, and reading it that way changes everything. Corinth was not a dead church — it was a <em>dazzling</em> one, full of genuinely gifted people who had turned their gifts into a ranking system and their worship service into a talent show. Paul's answer runs in three moves: the gifts are <strong>grace</strong>, not achievement (ch. 12:1–11); the church is a <strong>body</strong> whose differences are the design, not the defect (12:12–31); and <strong>love</strong> is the artery that has to run through every gift or the gift does no good at all (ch. 13) — which then becomes the practical test for public worship (ch. 14): does anyone actually get built up?</p>
+
+<div class="callout">
+  <div class="lt">One-line takeaway</div>
+  <p>A small gift soaked in love does more good than a spectacular one used to feed a spectacular ego. <span class="ts-inline">35:08</span></p>
+</div>
+
+<hr class="rule">
+
+<h2 id="setting">2. The Setting: Why Corinth Broke</h2>
+<p><span class="ts-inline">01:33</span> Paul has been working through one Corinthian mess after another — factions behind favorite preachers, immorality they were proud of, idolatry, lawsuits, confusion over marriage and food. Chapters 12–14 arrive at what happened when they actually gathered to worship, and it was chaos. The one hour meant to knit them together as a family had become the hour that most exposed how divided they were.</p>
+<p><span class="ts-inline">02:02</span> The reason is where they came from. Most Corinthian believers grew up in pagan religion, and pagan religion ran on <strong>spectacle</strong>: trances, frenzy, strange inspired speech, the more dramatic the better. If you weren't visibly overcome, people doubted God was with you. That instinct walked into church with them. They took the real gifts of the Spirit and treated them the way they had treated pagan ecstasy — as proof of membership in a spiritual elite.</p>
+<p class="note"><strong>Diagnosis:</strong> the same disease as the rest of the letter — pride and division — just in a new arena.</p>
+
+<hr class="rule">
+
+<h2 id="days">3. Day by Day</h2>
+
+<h3 id="sunday">Sunday — What a Spiritual Gift Actually Is (1 Cor 12:1–11)</h3>
+<div class="tablewrap"><table class="grid">
+<thead><tr><th>Time</th><th>Point</th></tr></thead>
+<tbody>
+<tr><td class="ts">03:34</td><td><strong>The word itself is the argument.</strong> The main word behind "spiritual gifts" is built on the root meaning <em>grace</em> — the same family Paul uses for God's free, undeserved favor. You don't collect it as a wage or win it as a prize. The credit belongs to the giver, so boasting is a category error.</td></tr>
+<tr><td class="ts">04:35</td><td><strong>Grace is tied to joy.</strong> The presenter notes the grace-word is itself connected to rejoicing and delight — God taking pleasure in dressing up His church. The intended mood was a room of grateful people delighting in each other's gifts. Corinth turned a room of joy into a room of rivalry.</td></tr>
+<tr><td class="ts">05:04</td><td><strong>Nobody was giftless.</strong> Before any dramatic gift, Paul names the most basic one: the ability to say and mean "Jesus is Lord," which no one can genuinely say except by the Spirit. If you can make that confession, the Spirit is already at work in you. There is no second-class believer standing outside.</td></tr>
+<tr><td class="ts">06:04</td><td><strong>That confession was dangerous.</strong> In the Roman world there was another lord — Caesar — and the empire increasingly used that confession as a loyalty test. To say <em>Jesus is Lord</em> was by implication to say Caesar is not: a quiet act of treason that could cost standing, safety, sometimes life.</td></tr>
+<tr><td class="ts">06:35</td><td><strong>The gifts are grounded in the Trinity.</strong> Different gifts / same Spirit; different service / same Lord; different working / same God. Spirit, Lord, God — Father, Son, Spirit in three parallel lines. Unity that doesn't erase difference is God's own nature, and the church is meant to mirror it.</td></tr>
+<tr><td class="ts">07:39</td><td><strong>"As He wills."</strong> The Spirit distributes to each one <em>as He wills</em>. You don't select your gift off a menu. So comparing gifts isn't merely unkind — it's absurd, like one body part resenting another for its assignment.</td></tr>
+</tbody></table></div>
+<p class="note"><strong>Sunday's foundation:</strong> gifts are grace not achievement; every believer has one; they flow from the triune God; the Spirit assigns them. There is no room in any of that for pride or ranking.</p>
+
+<h3 id="monday">Monday — One Body, Many Members (1 Cor 12:12–31)</h3>
+<div class="tablewrap"><table class="grid">
+<thead><tr><th>Time</th><th>Point</th></tr></thead>
+<tbody>
+<tr><td class="ts">09:43</td><td><strong>Look at your hand.</strong> It can't see, hear, taste, smell, or think a thought — profoundly limited by almost every measure. Yet nobody calls a hand useless, because a hand isn't supposed to see. Every part is spectacularly bad at almost everything and spectacularly good at the one thing it was made for.</td></tr>
+<tr><td class="ts">10:16</td><td><strong>The limitation is the design.</strong> If your hand could also see and hear and taste, it wouldn't be a better hand — it would be a monster. Dependence isn't weakness in a body; it's the whole arrangement.</td></tr>
+<tr><td class="ts">10:47</td><td><strong>Paul lets the parts talk.</strong> "Because I'm not a hand, I don't belong" — ridiculous. Then he turns it: the eye saying to the hand, <em>I have no need of you</em>. That's aimed at the proud ones whose flashy gifts made the ordinary members seem unnecessary.</td></tr>
+<tr><td class="ts">11:46</td><td><strong>"I have no need of you" is suicide, not arrogance.</strong> An eye that fired the hands would starve. A head that dismissed the feet would never go anywhere. The dismissing part is endangered too.</td></tr>
+<tr><td class="ts">12:17</td><td><strong>The hidden organs keep you alive.</strong> Heart and lungs work unseen, in the dark, where no one applauds. The showy parts are not the parts keeping you alive. Same in church: the one who prays, serves behind the scenes, cleans up after everyone has gone home may be doing the work that keeps the body alive. Corinth had it exactly backwards.</td></tr>
+<tr><td class="ts">13:21</td><td><strong>Shared nerve endings.</strong> Stub your toe and the whole body knows — eyes water, breath catches, hands reach down. When one member hurts, all hurt; when one is honored, all rejoice. There's nothing to compete over.</td></tr>
+<tr><td class="ts">13:54</td><td><strong>Unity is not uniformity.</strong> A body that was all eye couldn't walk; all ear couldn't do anything but listen. The differences are the point. The very thing they were fighting over was the thing meant to hold them together.</td></tr>
+</tbody></table></div>
+
+<h3 id="tuesday">Tuesday — The More Excellent Way (1 Cor 13)</h3>
+<div class="tablewrap"><table class="grid">
+<thead><tr><th>Time</th><th>Point</th></tr></thead>
+<tbody>
+<tr><td class="ts">14:56</td><td><strong>Chapter 13 is not a detour.</strong> It sits right at the seam after the body illustration — "a still more excellent way." It is the heart of the argument, the thing missing from all their gifted, impressive, divided worship.</td></tr>
+<tr><td class="ts">15:26</td><td><strong>The gong and cymbal were temple instruments.</strong> In the frenzied worship of the old gods, gongs and cymbals were banged to work the crowd up and get the deity's attention. So Paul is telling former pagans that their loveless displays aren't Christian worship at all — they have slipped back into the empty noise of the temples they left. <span class="tag tag-infer">background claim — verify</span></td></tr>
+<tr><td class="ts">16:29</td><td><strong>The arithmetic is zero, not "less."</strong> Prophecy, all mysteries, all knowledge, mountain-moving faith, giving everything away, martyrdom itself — without love, "I am nothing," "I gain nothing." Love isn't one nice quality among many; it's what gives every other thing its value.</td></tr>
+<tr><td class="ts">17:04</td><td><strong>Almost every word is a verb.</strong> Patient, kind, does not envy, does not boast, keeps no record, bears, believes, hopes, endures. These aren't feelings — they're things you do. Love is not something you fall into but something you practice, action by action, especially toward hard-to-love people.</td></tr>
+<tr><td class="ts">18:16</td><td><strong>It's a mirror, not a poem.</strong> Every item answers something Corinth was doing wrong. "Love does not boast" to a church of boasters. "Love is not proud" to a church puffed up. "Love keeps no record of wrongs" to a church hauling each other to court.</td></tr>
+<tr><td class="ts">18:49</td><td><strong>Love is the artery.</strong> A gift without love is a limb without blood — technically present, doing no good. You can teach and make people feel small; you can prophesy and wield it like a weapon. Love is what makes a gift build somebody up instead of drawing attention to its owner.</td></tr>
+<tr><td class="ts">19:19</td><td><strong>Why love is greatest.</strong> Faith will become sight, hope will be fulfilled — but love never ends, because love is the very nature of God and God is forever.</td></tr>
+</tbody></table></div>
+
+<h3 id="wednesday">Wednesday — The Gift of Tongues (1 Cor 14)</h3>
+<div class="tablewrap"><table class="grid">
+<thead><tr><th>Time</th><th>Point</th></tr></thead>
+<tbody>
+<tr><td class="ts">20:26</td><td><strong>What it was.</strong> Most likely the Spirit-given ability to speak real human languages the speaker had never learned — as at Pentecost, where each visitor heard the good news in his own tongue. A miracle of communication, a bridge across the language barrier.</td></tr>
+<tr><td class="ts">20:57</td><td><strong>What they did with it.</strong> Because tongues was dramatic and obviously supernatural, it became the gift everyone wanted. Services filled with people all speaking at once, no interpretation, no order — a wall of sound meaning nothing to anyone listening. They took a bridge and turned it back into a wall.</td></tr>
+<tr><td class="ts">21:30</td><td><strong>Babel reversed, then rebuilt.</strong> At Babel human pride reached upward and God confused language so they scattered. At Pentecost God undid it, gathering the scattered around one message. Corinth took God's undoing of Babel and rebuilt Babel with it.</td></tr>
+<tr><td class="ts">22:34</td><td><strong>Paul never says the gift is bad.</strong> He is careful about that — the gift is real, it is from the Spirit, it has its place. What he corrects is the <em>use</em>, and the rule comes down to one word: <strong>understanding</strong>.</td></tr>
+<tr><td class="ts">23:01</td><td><strong>The rule.</strong> If someone speaks in a tongue in the gathering there must be an interpreter; if there is none, stay quiet and speak to God privately. The test is never "does this make me look spiritual" but "does this help the people around me understand and grow."</td></tr>
+<tr><td class="ts">23:32</td><td><strong>Five words over ten thousand.</strong> Worship is not a stage for individual performance; it is a family gathering meant to build everyone up. A gift that leaves everyone else confused and excluded has missed its entire purpose — it's the clanging cymbal again.</td></tr>
+<tr><td class="ts">24:05</td><td><strong>Tongues is not the required proof of the Spirit.</strong> Paul wished all could speak in tongues the way you'd wish everyone had any good gift, but he never expected or required it. "Are all apostles? Are all prophets? Do all speak with tongues?" The answer to each is no — by design. A church where everyone had one gift would be a giant disembodied tongue.</td></tr>
+</tbody></table></div>
+
+<h3 id="thursday">Thursday — The Gift of Prophecy (1 Cor 14:1–5)</h3>
+<div class="tablewrap"><table class="grid">
+<thead><tr><th>Time</th><th>Point</th></tr></thead>
+<tbody>
+<tr><td class="ts">25:07</td><td><strong>Paul's ranking is the reverse of Corinth's.</strong> Wherever he lists the gifts, prophecy comes high and tongues near the bottom; when he does put tongues first, it's to knock it down a peg. They prized the self-displaying gift and neglected the others-building one.</td></tr>
+<tr><td class="ts">25:40</td><td><strong>Prophecy is mostly not prediction.</strong> The word can mean to speak beforehand, but more often simply to speak <em>on behalf of</em> someone — to speak for God. A prophet is a mouthpiece. Paul defines its effect functionally: it builds up, encourages, comforts.</td></tr>
+<tr><td class="ts">26:15</td><td><strong>Why it outranks tongues.</strong> Uninterpreted tongues builds up only the speaker; prophecy builds the whole church. If the purpose of the gifts is edification, the gift that edifies most is the one to desire most. The value of a gift is measured by how much it serves, not by how impressive it looks.</td></tr>
+<tr><td class="ts">26:47</td><td><strong>The gifts did not switch off.</strong> Against the idea that they ended with the apostles or the closing of the New Testament: the gifts were given to equip God's people until we all reach maturity and the fullness of Christ. That day hasn't come, so the gifts remain — including prophecy.</td></tr>
+<tr><td class="ts">27:52</td><td><strong>Four tests of a true prophet.</strong> (1) An unconditional prediction spoken in God's name comes to pass. (2) The message agrees with prior Scripture — God does not contradict Himself. (3) The prophet's life shows real commitment to Christ, acknowledging Jesus came in the flesh. (4) "By their fruits ye shall know them" — character and results, over time.</td></tr>
+<tr><td class="ts">28:58</td><td><strong>Revelation's remnant.</strong> The last book describes God's end-time people as keeping God's commandments and holding the testimony of Jesus, which it links to the spirit of prophecy. The prophetic gift is portrayed as a mark of the genuine church in the final age.</td></tr>
+<tr><td class="ts">29:31</td><td><strong>Always under Scripture.</strong> Any true prophetic gift stays subordinate to the Bible — tested by it, never replacing it or standing above it, always pointing back to it and never away.</td></tr>
+</tbody></table></div>
+
+<h3 id="christ">Thursday (cont.) — The Name That Belongs in the Love Chapter</h3>
+<p><span class="ts-inline">30:03</span> The rhetorical center of the whole study: go back to 1 Corinthians 13 and wherever it says <em>love</em>, put in the name of <em>Jesus</em>.</p>
+<blockquote class="scripture"><p>Jesus is patient. Jesus is kind. Jesus does not envy, does not boast, is not proud. Jesus is not rude, does not insist on his own way, is not easily angered, keeps no record of wrongs. Jesus bears all things, believes all things, hopes all things, endures all things. Jesus never fails.</p></blockquote>
+<p><span class="ts-inline">30:44</span> It fits every line, because the love Paul describes isn't an abstract ideal — it's a portrait of a person. Patient: He endured a lifetime of being misunderstood by His closest disciples and never gave up on them. Keeps no record of wrongs: He looked down from the cross at the people killing Him and asked the Father to forgive them. Bears and endures all things: He bore the weight of the world's sin. Does not insist on its own way: "Not my will, but thine, be done."</p>
+<p><span class="ts-inline">31:58</span> That reframes the week. The gifts exist to build up the body of Christ — <em>whose</em> body? His. Not Paul's, not Peter's, not the Corinthians'. The gifts point to Him, serve Him, and build the thing He died for. So when Paul tells them to stop competing and start loving, he isn't handing them a rule; he's pointing them to a person.</p>
+<p><span class="ts-inline">33:00</span> <strong>At the foot of the cross the whole competition dies.</strong> How do you stand there ranking your gifts when the One you're looking at emptied Himself completely for you? People who have been loved at that cost no longer need to prove they matter — they have already been told they matter more than they could imagine.</p>
+
+<h3 id="friday">Friday — Bringing It Home</h3>
+<p><span class="ts-inline">33:30</span> Corinth's problem is still ours. We may not fight over tongues, but the instinct behind the fight is alive in every church and every heart: to compare, to rank, to quietly wonder whether our contribution matters as much as someone else's — or to secretly suspect it matters more. Same disease, same cure: remember you're a body, not a collection of soloists.</p>
+<p class="note"><strong>The two questions the study lands on:</strong></p>
+<ol>
+<li><strong>What is your gift?</strong> <span class="ts-inline">34:06</span> Set aside the gift you wish you had and the gift you envy. What has the Spirit actually placed in you? You have one — if you can say "Jesus is Lord" and mean it, He has gifted you on purpose. It may be a quiet gift: encouragement, hospitality, prayer, showing up faithfully when no one is watching, noticing the person everyone else overlooks. Do not despise it for not being flashy — the hidden organs keep the body alive.</li>
+<li><strong>Is your gift running on love, or on you?</strong> <span class="ts-inline">35:08</span> Having a gift isn't enough. Am I using what God gave me to serve, or to be noticed, to feel important, to win a quiet competition nobody else knows I'm running? The test isn't how impressive the gift is; it's whether love is flowing through it.</li>
+</ol>
+<p><span class="ts-inline">35:39</span> And the landing is relief, not burden. You don't have to be the most gifted person in the room. You were never in a competition. You're a part of a body, given exactly the gift the Spirit wanted you to have, placed exactly where He wanted you, needed by everyone around you and free to need them right back. The pressure to prove yourself is gone.</p>
+
+<hr class="rule">
+
+<h2 id="hooks">4. Illustrations and Images Used</h2>
+<div class="tablewrap"><table class="grid">
+<thead><tr><th>Image</th><th>Serves</th><th>Time</th></tr></thead>
+<tbody>
+<tr><td>Wedding readings — invitations, pillows, nervous grooms in rented suits</td><td>Opening hook; sets up the reversal that ch. 13 was aimed at a church fight</td><td class="ts">00:00</td></tr>
+<tr><td>Worship service as a talent show</td><td>The Corinthian disorder in one phrase</td><td class="ts">03:04</td></tr>
+<tr><td>Look at your own hand — everything it can't do</td><td>Limitation is design, not defect</td><td class="ts">09:43</td></tr>
+<tr><td>A hand that could also see would be a monster</td><td>Specialization requires limitation</td><td class="ts">10:16</td></tr>
+<tr><td>An eye that fires the hands starves</td><td>"I have no need of you" is self-destruction</td><td class="ts">11:46</td></tr>
+<tr><td>Heart and lungs working in the dark where no one applauds</td><td>The unseen servant is the essential one</td><td class="ts">12:17</td></tr>
+<tr><td>Stub your toe and the whole body knows</td><td>Shared suffering and shared rejoicing</td><td class="ts">13:21</td></tr>
+<tr><td>Gongs and cymbals of the pagan temples</td><td>Loveless gifting is relabeled pagan noise</td><td class="ts">15:26</td></tr>
+<tr><td>A bridge turned back into a wall / Babel rebuilt</td><td>The misuse of tongues</td><td class="ts">21:30</td></tr>
+<tr><td>A giant disembodied tongue</td><td>What a church of one gift would be</td><td class="ts">24:36</td></tr>
+<tr><td>Love is the artery; a gift without love is a limb without blood</td><td>Controlling metaphor of the whole study</td><td class="ts">18:49</td></tr>
+<tr><td>Reading "Jesus" into the love chapter</td><td>Christ-centered climax</td><td class="ts">30:03</td></tr>
+</tbody></table></div>
+
+<hr class="rule">
+
+<h2 id="adventist">5. Distinctively Adventist Turns</h2>
+<ul>
+<li><strong>Continuationism with a fence.</strong> The gifts, including prophecy, did not cease with the apostles — they run "until we all come to the fullness of Christ," a day that has not arrived. <span class="ts-inline">26:47</span></li>
+<li><strong>Four scriptural tests of prophetic claims</strong> — fulfillment, agreement with prior Scripture, confession that Jesus came in the flesh, and fruit. Presented as wisdom rather than suspicion. <span class="ts-inline">27:52</span></li>
+<li><strong>The remnant of Revelation</strong> — commandment-keeping people who hold the testimony of Jesus, identified with the spirit of prophecy, with the seventh-day Sabbath named in passing. <span class="ts-inline">28:58</span></li>
+<li><strong>Scripture stays the standard.</strong> A genuine prophetic gift is always subordinate to the Bible, tested by it, never replacing it. Ellen G. White is never named in the transcript; the argument is made structurally and left for the hearer to complete. <span class="ts-inline">29:31</span></li>
+</ul>
+
+<hr class="rule">
+
+<h2 id="lines">6. Most Quotable Lines</h2>
+<p class="note">Wording below follows the auto-generated caption track. Confirm against the audio before quoting the presenter directly.</p>
+<blockquote class="cited"><p>"You can have every gift there is. And if you don't have love, you're just noise." <span class="ts-inline">01:03</span></p></blockquote>
+<blockquote class="cited"><p>"How do you boast about a gift? The very nature of a gift is that the credit belongs to the giver, not the receiver." <span class="ts-inline">04:04</span></p></blockquote>
+<blockquote class="cited"><p>"In a body, <em>I have no need of you</em> is not arrogance, it's suicide." <span class="ts-inline">11:46</span></p></blockquote>
+<blockquote class="cited"><p>"It's the quiet, hidden, unglamorous parts that matter most." <span class="ts-inline">12:17</span></p></blockquote>
+<blockquote class="cited"><p>"He's not writing an abstract poem. He's holding up a mirror." <span class="ts-inline">18:16</span></p></blockquote>
+<blockquote class="cited"><p>"A gift without love is a limb without blood — technically present, but doing no good to anyone." <span class="ts-inline">18:49</span></p></blockquote>
+<blockquote class="cited"><p>"They'd taken God's undoing of Babel and rebuilt Babel with it." <span class="ts-inline">22:05</span></p></blockquote>
+<blockquote class="cited"><p>"The cross is the end of showing off. It's the death of the clanging cymbal." <span class="ts-inline">33:00</span></p></blockquote>
+<blockquote class="cited"><p>"You're not in a competition and you never were." <span class="ts-inline">35:39</span></p></blockquote>
+
+<hr class="rule">
+
+<h2 id="preach">7. What a Preacher Can Take From This</h2>
+<ul>
+<li><strong>The reversal opening works.</strong> Starting at the wedding and pulling the rug — "Paul wasn't writing about romance, he dropped it into an ugly church fight" — is a strong, reusable hook. Everyone in the room already knows the passage; the surprise is the setting.</li>
+<li><strong>One controlling metaphor, carried the whole way.</strong> Body → artery → blood. The illustrations never wander from it, which is why the study coheres across five days.</li>
+<li><strong>The hand exercise is participatory.</strong> "Look at your own hand. Now think about everything it can't do." Asking the congregation to physically look at something is a cheap and effective attention reset.</li>
+<li><strong>Substituting "Jesus" into 1 Corinthians 13</strong> is the natural climax for any sermon on this passage, and it converts an ethical demand into a portrait of a person.</li>
+<li><strong>The Friday landing is grace, not duty.</strong> The application ends with pressure removed rather than added — "you don't have to be the most gifted person in the room." Worth imitating: an Adventist sermon on gifts can easily become a recruitment drive; this one doesn't.</li>
+</ul>
+
+<hr class="rule">
+
+<h2 id="cautions">8. Cautions Before Reuse</h2>
+<ol>
+<li><strong>The grace-joy word link</strong> <span class="ts-inline">04:35</span> — <em>charis</em> and <em>chara</em> do share a root, but Paul's argument in 12:4–11 turns on <em>unearnedness</em>, not joy. Preach the grace; keep the joy as a grace note, not as the exegesis. (See the word-study caution in <a href="bible-study.html">bible-study.html</a>, §3.1.)</li>
+<li><strong>Gongs and cymbals as temple instruments</strong> <span class="ts-inline">15:26</span> — a well-attested but secondary background claim. Verify in a classical dictionary or Keener's background commentary before asserting it from the pulpit.</li>
+<li><strong>"Tongues = real human languages"</strong> <span class="ts-inline">20:26</span> — the transcript states this as the likely meaning. It is the standard Adventist reading, but note that the KJV's "unknown tongue" supplies the word <em>unknown</em>; it is not in the Greek. Say so if you teach from the KJV.</li>
+<li><strong>Caption-track wording.</strong> These are YouTube auto-generated captions with no speaker punctuation of their own. Sentence breaks are the caption track's segmentation. Treat every quotation above as approximate.</li>
+<li><strong>No sources are cited in the video.</strong> The transcript makes historical and lexical claims without attribution. The companion <a href="bible-study.html">bible-study.html</a> is where those claims are checked against SDABC, Andrews Bible Commentary, BRI, Ellen G. White, and Matthew Henry — use it, not this summary, as the research base.</li>
+</ol>
+
+<footer class="doc">
+  Summarized from <code>transcript.md</code> (YouTube auto-captions, retrieved 2026-08-07 via yt-dlp).
+  Timestamps mark the transcript paragraph where each point appears. Auto-captions carry no
+  speaker punctuation of their own — verify wording before quoting the presenter directly.
+  For verified sourcing of the claims made in the video, see <code>bible-study.md</code> /
+  <code>bible-study.html</code>.
+</footer>
+</div>
+<script>
+(function(){
+  var r=document.documentElement,b=document.getElementById('themebtn');
+  var saved=null;
+  try{saved=localStorage.getItem('bs-theme')}catch(e){}
+  function sys(){return window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}
+  function set(t){r.setAttribute('data-theme',t);b.textContent=t==='dark'?'☀ Light':'☽ Dark';
+    try{localStorage.setItem('bs-theme',t)}catch(e){}}
+  set(saved||sys());
+  b.addEventListener('click',function(){
+    set(r.getAttribute('data-theme')==='dark'?'light':'dark')});
+})();
+</script>
+</body>
+</html>
