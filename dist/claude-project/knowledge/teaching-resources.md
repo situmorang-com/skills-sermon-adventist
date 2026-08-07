@@ -19,7 +19,7 @@ Quarterly id is `YYYY-MM` with `MM` as the quarter's first month, so Q3 2026 is 
 
 A second route, useful when you want the whole quarter at once: [fustero.es](https://www.fustero.es/index_en.php) hosts the quarterly as a PDF at `https://www.fustero.es/en_<year>t<quarter>.pdf`, so Q3 2026 is `en_2026t3.pdf`. Verified reachable; roughly 6 MB.
 
-Its fixed shape:Its fixed shape:
+Its fixed shape:
 
 | Part | Contains |
 |---|---|
