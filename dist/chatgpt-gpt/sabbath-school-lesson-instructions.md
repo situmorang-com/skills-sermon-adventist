@@ -427,8 +427,23 @@ Eight numbered sections map to the eight verified ramp steps, `data-hue="1"` thr
 | Appendix scattered verses | `<div class="tablewrap"><table class="verses">` |
 | Ledger | `<div class="tablewrap"><table class="ledger grid">` with tags in `<code>` |
 | Any table at all | **Always** inside `<div class="tablewrap">` so it scrolls on a phone instead of breaking the page |
+| Provenance the teacher needs once, not per screen | `<details class="fold">` with a `<summary>`. Opens automatically before printing |
 
 **Chip labels are language-aware.** The CSS defaults to English, and any `data-label` attribute overrides it. For Indonesian output set them: `data-label="Ayat Alkitab"`, `"Roh Nubuat"`, `"Komentar"`, `"Perhatian"`, `"2 menit"`, `"Sebelum kelas"`. Do not edit the CSS to change a label.
+
+### Attribution: complete, but quiet
+
+Crediting a source is what makes a collection honest rather than plagiarism, so every borrowed point names its origin. But attribution that repeats itself stops being credit and becomes noise: a caveat printed under all sixteen SDABC quotes is not sixteen times as honest, it just pushes the lesson off the screen.
+
+Three rules keep it both complete and small:
+
+1. **The chip does the per-quote work.** `data-label="6SDABC pada 12:1"` on the card edge already says whose it is and which verse. Do not restate that underneath.
+2. **A caveat that applies to a whole class of quotes is stated once**, near the top of the section that uses them, and never repeated. "SDABC here is a first-paragraph paraphrase" belongs at the head of the day-by-day map. "The Indonesian tab is a working translation" belongs in the section on reading quotes aloud.
+3. **Keep inline only what carries information**: book, page, and the link. `<em>Christian Leadership</em>, hlm. 38.2` plus a deep link is a citation. Anything after that is usually boilerplate.
+
+The fuller provenance story — which section came from which source — goes in a `<details class="fold">` so it is one tap away instead of a screen of table. The foldouts open automatically before printing, so nothing disappears on paper.
+
+Applied to the Q3 2026 lesson 6 guide this removed 29 repeated sentences and 15 citation lines, and the guide lost nothing a teacher needed.
 
 ### Bilingual quotations — every English quote, no exceptions
 

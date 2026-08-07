@@ -637,6 +637,22 @@ nav.toc details[open] > summary::after{content:"\2212"}
   a.v{text-decoration:none;color:#000}
   nav.toc details > summary{display:none}
 }
+
+/* Collapsible aside: provenance and apparatus the teacher needs once, not on
+   every screen. The chip on a quote card already says whose it is; this is for
+   the fuller story. Forced open before printing by the script. */
+details.fold{margin:22px 0;border:1px solid var(--edge-soft);border-radius:12px;
+  background:var(--glass);padding:0 16px}
+details.fold > summary{cursor:pointer;list-style:none;padding:13px 0;min-height:44px;
+  display:flex;align-items:center;gap:9px;font:600 10px/1.5 var(--mono);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+details.fold > summary::-webkit-details-marker{display:none}
+details.fold > summary::after{content:"+";margin-left:auto;font-size:15px;color:var(--hue)}
+details.fold[open] > summary::after{content:"\2212"}
+details.fold[open]{padding-bottom:4px}
+details.fold > summary:hover{color:var(--ink)}
+/* Citation lines sit closer to the quote they belong to. */
+p.note{font-size:13.5px;margin-top:-11px}
 </style>
 </head>
 <body>
@@ -960,6 +976,16 @@ nav.toc details[open] > summary::after{content:"\2212"}
     a.onkeydown=function(e){
       if(e.key==='Enter'||e.key===' '){e.preventDefault();open(a)}};
   });
+
+
+  /* Provenance foldouts open before printing so nothing vanishes on paper. */
+  function openFolds(){[].forEach.call(document.querySelectorAll('details.fold'),
+    function(d){d.dataset.was=d.open?'1':'';d.open=true})}
+  function restoreFolds(){[].forEach.call(document.querySelectorAll('details.fold'),
+    function(d){d.open=d.dataset.was==='1'})}
+  if(window.matchMedia){var mq=window.matchMedia('print');
+    if(mq.addEventListener)mq.addEventListener('change',function(e){e.matches?openFolds():restoreFolds()})}
+  addEventListener('beforeprint',openFolds); addEventListener('afterprint',restoreFolds);
 
   /* --- Contents: force open at desktop width, collapsible below -------- */
   var td=document.getElementById('tocd');
