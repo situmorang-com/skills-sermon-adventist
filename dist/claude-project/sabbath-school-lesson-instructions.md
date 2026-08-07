@@ -95,9 +95,19 @@ Secondary sources, useful for cross-checking a date or a title:
 
 What you minimally need before writing: the lesson title, the Memory Text, the Read-for-This-Week list, the five daily section titles with their passages, and the three Friday discussion questions.
 
-## Step 3: Read the official Teacher Comments, then aim past it
+## Step 3: Gather the best of what already exists
 
-**The teacher's guide already exists.** The Adult Bible Study Guide ships Teacher Comments every week, and ssnet publishes several more helps every Monday. A guide that restates them is dead weight. This step is what stops that happening.
+**A good teacher's guide is a collection, not an invention.** The official Teacher Comments ships every week, ssnet publishes four named columns, video walkthroughs go deeper than either, and SDABC and Ellen G. White sit behind all of it. Every one of those is on the internet and none of them is in the room with the teacher on Sabbath morning.
+
+**That is the job: bring the good material into one document the teacher can actually work from, credit it, and add what is missing.** Not "say something nobody else said." A teacher does not want novelty; they want everything worth knowing about this week in one place, organized for the clock.
+
+So the test for including something is **not** "is this original?" It is:
+
+1. **Is it good?** Then take it, and say whose it is.
+2. **Does it help in the room?** A brilliant point that needs three screens of context is worse than a plain one the teacher can say out loud in ten seconds.
+3. **Is it verified?** Attribution without checking is how a wrong name gets read aloud.
+
+The one thing to refuse is **restating without adding and without crediting**. Copying the official commentary into your own words, unattributed, produces a document that is both derivative and dishonest. Taking the official's Greco-Roman background, naming it as theirs, and setting it next to SDABC's verse notes and a timed plan produces something none of the sources is: usable.
 
 **The official Teacher Comments is fetchable, through the API that powers the official app.** Do not settle for asking the user to paste it, and do not scrape `absg.sspmadventist.org`: that site is a JavaScript shell and returns nothing.
 
@@ -118,13 +128,13 @@ The quarterly id is `YYYY-MM` where `MM` is the quarter's first month: Q3 2026 i
 
 Each returns `{id, date, title, bible, content}` with `content` as HTML. Strip the tags and read it.
 
-Then answer this in one sentence, before writing anything:
+Then answer this before writing, in one sentence:
 
-> What does my guide give that the official Teacher Comments does not?
+> If a teacher had all of these open in tabs, what would my guide save them?
 
-If the honest answer is "the same thing, reworded," you have not gone deep enough yet. Go back to Step 4 and the sources.
+A good answer sounds like: *it puts the official's historical background next to the verse-level notes nobody publishes, in their language, on a clock that fits their class.* A bad answer is *it says the same things in different words* — that is the one failure mode, and it is a failure of assembly, not of originality.
 
-**The gap is structural, not a failing of the writers.** The official comments are written a year or more ahead, by one author, for every class on earth. So they cannot know your clock, your room, what your class will argue about, which day carries the weight for you, or where the lesson itself is thin. They also stay shallow on verse-level work and are monolingual. **Every one of those is this guide's job.**
+**The gap the official leaves is structural, not a failing of the writers.** Written a year or more ahead, by one author, for every class on earth, it cannot know your clock, your room, what your class will argue about, which day carries the weight, or where the lesson is thin. It also stays shallow at verse level and is monolingual. Fill those, and keep everything good it does supply.
 
 ### Gather the weekly helps
 
@@ -546,7 +556,7 @@ This step exists only in Claude Code. The `dist/` bundles for Claude Projects an
 
 ## Anti-Patterns
 
-- **Never write a guide that restates the official Teacher Comments.** It already exists and it is free. Read it, then give the teacher what it structurally cannot: their clock, their room, the pushback they will get, the day that carries the weight, and depth at verse level.
+- **Never restate a source without crediting it, and never leave good material out just because someone else said it first.** Both are failures. The guide is a collection: take the official's best background, take ssnet's sharpest question, name whose they are, and set them beside the depth and the timed plan that nothing else supplies. Avoiding a point because it is not original serves the writer's vanity, not the teacher.
 - **Never quote a video presenter verbatim from auto-captions.** They mis-hear names and carry no punctuation. Paraphrase, and say it came from the video.
 - **Never ask the user for a theme.** Sabbath School has no theme to choose: the quarterly set it, church-wide. Asking for one shows you do not know how Sabbath School works. Find which lesson falls on that Sabbath instead.
 - **Never reconstruct an official quarterly lesson you could not read.** The one unforgivable failure. Ask for a paste instead.

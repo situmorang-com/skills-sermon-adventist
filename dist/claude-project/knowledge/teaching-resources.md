@@ -2,7 +2,9 @@
 
 Reference for the `sabbath-school-lesson` skill. Where teaching helps come from, what each one is good for, and the one thing this guide has to do that none of them do.
 
-**The premise: the teacher's guide already exists.** The official Adult Bible Study Guide ships a Teacher Comments section every week, and a healthy ecosystem publishes more every Monday. Writing another generic teacher's guide adds nothing. This skill earns its place only by going past what is already free.
+**The premise: a good teacher's guide is a collection.** The official Adult Bible Study Guide ships Teacher Comments every week, ssnet publishes four named columns, video walkthroughs go deeper than either, and SDABC and Ellen G. White sit behind all of it. Every one is on the internet; none is in the room on Sabbath morning.
+
+So the job is to gather the good material into one document the teacher can work from, credit it, and add what is missing. **Take what is good and name whose it is.** The only thing to refuse is restating a source without crediting it and without adding anything.
 
 ---
 
@@ -44,7 +46,9 @@ None of the following is a criticism of the writers. It is a structural conseque
 | Verse-level depth | SDABC verse by verse, word studies, BRI on contested points |
 | Your language | Terjemahan Baru alongside the English, and quotes you can read aloud |
 
-**That gap is the whole product.** Before writing, state to yourself in one sentence what this guide gives that the official Teacher Comments does not. If the answer is "the same thing, reworded," stop and go deeper instead.
+**Fill that gap, and keep everything good the official supplies.** Its Greco-Roman background for Q3 2026 lesson 6, the Oracle of Delphi and the mystery cults, is better than anything the third-party helps carry: take it, credit it, and set it beside the verse work.
+
+The question to answer before writing is not "what is original here?" but **"if the teacher had all of these open in tabs, what would my guide save them?"**
 
 ---
 
