@@ -71,7 +71,41 @@ This is the failure point of the whole mode. A guide built on a guessed lesson i
 
 What you minimally need before writing: the lesson title, the Memory Text, the Read-for-This-Week list, the five daily section titles with their passages, and the three Friday discussion questions.
 
-## Step 3: Read the lesson as a teacher, not a reader
+## Step 3: Read the official Teacher Comments, then aim past it
+
+**The teacher's guide already exists.** The Adult Bible Study Guide ships Teacher Comments every week, and ssnet publishes several more helps every Monday. A guide that restates them is dead weight. This step is what stops that happening.
+
+Read the official Teacher Comments for the week at [absg.sspmadventist.org](https://absg.sspmadventist.org/), path `/en/<year>-<quarter>/<lesson>/teacher-comments`. It is a JavaScript-rendered site, so a fetch returns an empty shell: ask the user to paste it, or read it in the Teacher's Edition app. Its shape is fixed — Key Text, Study Focus, Part I Overview, Part II Commentary, Part III Life Application.
+
+Then answer this in one sentence, before writing anything:
+
+> What does my guide give that the official Teacher Comments does not?
+
+If the honest answer is "the same thing, reworded," you have not gone deep enough yet. Go back to Step 4 and the sources.
+
+**The gap is structural, not a failing of the writers.** The official comments are written a year or more ahead, by one author, for every class on earth. So they cannot know your clock, your room, what your class will argue about, which day carries the weight for you, or where the lesson itself is thin. They also stay shallow on verse-level work and are monolingual. **Every one of those is this guide's job.**
+
+### Gather the weekly helps
+
+Once the official comments are read, sweep the ecosystem. Full annotated list in `references/teaching-resources.md`; the short form:
+
+- **[Sabbath School Net](https://ssnet.org/)** publishes named columns per lesson: Teaching Outline (Bruce Cameron), Teaching Plan (William Earnhardt), Discussion Starters (Robert Nohr), and Singing with Inspiration (Corinne Knopper) for hymns. Its shorter/longer sample outlines are worth reading for what gets cut first when the hour is eaten.
+- **Video walkthroughs go deeper than any printed help.** Deep Made Simple for depth on the passage; **Hope Sabbath School for watching facilitation done well**, which is the harder half of teaching and the one no written help conveys.
+- Pull a transcript with `yt-dlp --write-auto-sub --sub-lang en --skip-download`, save it beside the guide as `transcript.md`, and treat it as **paraphrase-only**: auto-captions mis-hear names and carry no punctuation, so never quote a presenter verbatim from them and never pin a doctrinal position on caption evidence.
+
+**Depth still comes from the primary sources,** not from the helps. SDABC verse by verse, BRI on contested points, Ellen G. White, named scholars. The helps tell you what has already been said and show you how others run the hour; they are not a substitute for reading the text.
+
+### Study the lesson three times
+
+The ecosystem's own best advice, and it maps onto the steps that follow:
+
+1. **For yourself.** What does this text do to you? Skip this and the class hears a report, not a witness.
+2. **For the one point.** What must this class not leave without? That becomes the weight-bearing day in Step 6.
+3. **For the questions.** Build questions that let the class arrive where you arrived, rather than being told.
+
+---
+
+## Step 4: Read the lesson as a teacher, not a reader
 
 Before planning, answer these for yourself:
 
@@ -81,7 +115,7 @@ Before planning, answer these for yourself:
 - **What will the class push back on?** Name it in advance. Every class has one member who has been waiting all week to raise it.
 - **Which distinctive is in play?** And is the lesson engaging it or gliding past it?
 
-## Step 4: Write `teachers-guide.md`
+## Step 5: Write `teachers-guide.md`
 
 **This structure is fixed. Eight numbered sections, two appendices, the ledger.** Do not improvise a different shape per lesson: the teacher learns where things live, and a guide they can navigate under time pressure beats a better-organized one they have to read. The section count is eight because the HTML render's verified colour ramp has eight steps. If a lesson seems to need a ninth section, fold two together rather than adding one.
 
@@ -110,7 +144,7 @@ that every day of the week is assigned to a block.]
 
 ## 4. Day-by-Day Map
 [A summary table: day | title | passages | which block it lands in. Then one
-subsection per day, Sunday through Thursday. See Step 7.]
+subsection per day, Sunday through Thursday. See Step 8.]
 
 ## 5. The Two Questions Worth Real Time
 [For each: the question as you will actually say it, why it matters, what
@@ -132,16 +166,16 @@ tonight. If the lesson is thin somewhere, say how to teach the text faithfully
 without making the quarterly the problem.]
 
 ## Appendix A: Every Bible Text in [translation]
-[See Step 8.]
+[See Step 9.]
 
 ## Appendix B: Ellen G. White, SDABC, and Adventist Sources
-[See Step 8.]
+[See Step 9.]
 
 ## Verification Ledger
 [Source | Tag | Where | Action for the user]
 ```
 
-## Step 5: The timed discussion plan
+## Step 6: The timed discussion plan
 
 Sabbath School lesson study is typically 30–40 minutes and it is *always* shorter than planned. Plan for the shorter number.
 
@@ -161,7 +195,7 @@ Compress by cutting minutes 22–28, never by cutting application.
 
 **If the class runs 40 minutes**, add the extra five to the second real question, not to your exposition.
 
-## Step 6: Facilitation, not presentation
+## Step 7: Facilitation, not presentation
 
 A teacher's guide that produces a monologue has failed regardless of its content quality. Build these in:
 
@@ -174,7 +208,7 @@ A teacher's guide that produces a monologue has failed regardless of its content
 
 See `references/teaching-methods.md` for the fuller set: question sequencing, mixed-language classes, the mission story slot, seeker-present classes, and what to do when a doctrinal argument breaks out.
 
-## Step 7: The day-by-day map (Section 4)
+## Step 8: The day-by-day map (Section 4)
 
 The teacher has read the lesson. What they lack is a per-day judgment of what matters and what can be dropped. Section 4 supplies exactly that, and it is the section they will actually use in the room.
 
@@ -205,7 +239,7 @@ What is left for Appendix B is the *apparatus*, not the quotes: which sources la
 
 Two more rules for this section. **Cross-reference, do not repeat:** if a point already lives in Section 6 as background or Section 8 as a hard spot, point to it in one clause rather than restating it. And **the day titles are the lesson's, not yours.** If you are working from an English edition and writing in Indonesian, your translated titles are a convenience, so say so and tell the teacher to use the titles printed on their own lesson sheet.
 
-## Step 8: The two appendices
+## Step 9: The two appendices
 
 A teacher mid-argument will not open ten browser tabs. Everything they might need to reach for goes at the bottom of the one document they already have open. Both appendices come after Section 8 and before the ledger.
 
@@ -471,6 +505,8 @@ This step exists only in Claude Code. The `dist/` bundles for Claude Projects an
 
 ## Anti-Patterns
 
+- **Never write a guide that restates the official Teacher Comments.** It already exists and it is free. Read it, then give the teacher what it structurally cannot: their clock, their room, the pushback they will get, the day that carries the weight, and depth at verse level.
+- **Never quote a video presenter verbatim from auto-captions.** They mis-hear names and carry no punctuation. Paraphrase, and say it came from the video.
 - **Never ask the user for a theme.** Sabbath School has no theme to choose: the quarterly set it, church-wide. Asking for one shows you do not know how Sabbath School works. Find which lesson falls on that Sabbath instead.
 - **Never reconstruct an official quarterly lesson you could not read.** The one unforgivable failure. Ask for a paste instead.
 - **Never invent an EGW page range.** Chapter title and book, or nothing.
@@ -489,6 +525,7 @@ This step exists only in Claude Code. The `dist/` bundles for Claude Projects an
 ## Reference Files
 
 - `references/lesson-anatomy.md` — the quarterly week's structure part by part, word budgets, heading conventions, the student/teacher edition split, and the Indonesian label table
+- `references/teaching-resources.md` — where teaching helps come from: what the official Teacher Comments covers and where it stops, ssnet's named weekly columns, video walkthroughs and how to transcribe them, method sources, and the source order for a guide
 - `references/teaching-methods.md` — facilitation: question sequencing, timing variants, silence, dominant talkers, mixed-language and seeker-present classes, doctrinal arguments, the mission story slot
 - `references/teachers-guide-template.html` — the `teachers-guide.html` skeleton: full stylesheet, theme and mono toggles, and markup examples for the plan table, day cards, two-minute callouts, question cards, hard spots, and appendix passages. Copy it rather than designing a new page
 - `bible-study-deep/SKILL.md` — the exegetical engine and the provenance/ledger discipline this skill inherits
