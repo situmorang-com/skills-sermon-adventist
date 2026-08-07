@@ -544,10 +544,20 @@ A "further reading" list without links is a list of homework the teacher will no
 
 The `para_id` you recorded in the markdown **is** the deep link: `127.1407` becomes `text.egwwritings.org/read/127.1407`. Putting it inside an `href` is not the same as printing it as visible apparatus, so this does not conflict with keeping `para_id` out of the HTML.
 
+**You can resolve a page reference you never fetched.** Do not settle for linking a book's front matter because you only have "Ev 314". Full-text search is the wrong tool here — searching `"Ev 314"` returns pages that *cite* Ev 314, not the page itself. Use the API's structure instead, with the token from `egw-fetch.sh token`:
+
+1. `GET /content/books/<book>/toc` returns every chapter with a `para_id` and a `refcode_short` such as `Ev 315`. Parse the trailing page number and pick the chapter with the greatest start page that is still less than or equal to your target.
+2. `GET /content/books/<book>/content/<element>?limit=400&direction=down` from that chapter, where `<element>` is the `para_id` **with the book prefix stripped** — `30.1728` is requested as `1728`. Passing the dotted form 404s or silently returns page 1.
+3. Walk the returned paragraphs for the first whose `refcode_short` page equals your target. Its `para_id` is your exact-page deep link.
+
+That resolved all eight of SDABC's cross-references for 1 Corinthians 14:40 to the exact page. The verification is at the data level: the API reported `Ev 314.1` for paragraph `30.1728`, so the link is right regardless of whether you can open it from a script.
+
+While you are in the TOC, **keep the chapter title and print it.** It tells the teacher what is about to open, and it sometimes reveals that a cross-reference is not where you assumed: SDABC's Ev 314 for a verse about orderly worship sits in "Baptism and Church Membership."
+
 Two rules that are not optional:
 
 - **Verify every book number, one at a time.** Do not infer them from a pattern. Search for the title and read the number out of a real URL.
-- **Say which links are precise and which are not.** Label a paragraph link differently from a book link, and where you only have the book, tell the teacher the page to navigate to and why there is no deep link.
+- **Say which links are precise and which are not.** Label a paragraph link differently from a book link. If a reference genuinely cannot be resolved, say why rather than quietly linking the book and hoping.
 
 **And check that similar titles are actually the same book.** `Spiritual Gifts, vol. 1` is book 104; a separate item titled `Spiritual Gifts` with refcode SGL is book 1340. A quote fetched from one of them is not evidence about the other. This exact trap cost a wrong citation in the Q3 2026 lesson 6 guide: a quote from SGL was written up as "vol. 1" because the quarterly's Friday reading happened to be vol. 1. If two references share a title, resolve both book numbers before you write either one down, and if you cannot establish they are the same text, say so in the guide rather than merging them.
 
