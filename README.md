@@ -123,42 +123,17 @@ Loads once; shared across all other skills.
 
 **When to use:** You are writing a Sabbath School lesson, or teaching this week's Adult Bible Study Guide lesson to a class.
 
-**Two modes** — the skill asks which one first:
+**What it does:** the lesson is already written and used church-wide, so the skill never invents one. It works out which quarterly lesson falls on your Sabbath, gets the official text, then digs deeper through SDABC, Ellen G. White, BRI and Adventist scholarship to build a guided study you can run in about thirty-five minutes.
 
-| | **Mode A — Original Lesson** | **Mode B — Teacher's Guide** |
-|---|---|---|
-| The ask | "Write a seven-day lesson on Abraham" | "I'm teaching lesson 6 this Sabbath" |
-| Produces | `sabbath-school-lesson.md` + `teachers-comments.md` | `teachers-guide.md` + `teachers-guide.html` |
-| You supply | Theme or passage | The actual quarterly lesson text |
-| Length | ~3,000–4,000 words + ~1,200 teacher edition | ~1,500–2,200 words |
+**It will never ask you for a theme.** There is no theme to choose.
 
-**Mode A — the real quarterly format:**
-- **Lesson Spine** shown for approval before any prose: central claim, Memory Text, reading list, five *distinct* daily moves, and the day that costs something
-- **Sabbath Afternoon** — Read for This Week's Study, Memory Text (verbatim), 250–350 word introduction, the quarterly's own closing line
-- **Sunday–Thursday** — one passage per day, 350–450 words exposition, 1–2 open questions
-- **Friday Further Thought** — the Ellen G. White reading, one quoted paragraph, exactly three discussion questions
-- **Teachers Comments** — Key Text, Study Focus, Part I Overview / Part II Commentary / Part III Life Application, plus the Verification Ledger
+| | |
+|---|---|
+| You need | The actual quarterly lesson text |
+| Produces | `teachers-guide.md` + `teachers-guide.html` |
+| Length | ~2,500–3,500 words plus appendices |
 
-**Mode B — a plan for the class hour:**
-- Know / Feel / Do objectives, with a **Do** concrete enough to be declined
-- **Minute-by-minute discussion plan** (35 min default; compresses at minutes 22–28, never at application)
-- The two questions worth real time, expected answers, and how to keep them open
-- Predicted pushback with an honest scriptural answer, and a time-box
-- Opening hook, closing that returns to the Key Text
-
-**Key Features:**
-- **Questions are the deliverable.** Four hard tests: not answerable by yes/no/"Jesus", two defensible answers possible, names something concrete, and the teacher does not already know the answer
-- **Facilitation over presentation** — someone other than the teacher speaks in the first two minutes; silence after a real question is planned for, not filled
-- **Never invents an EGW page range.** Fetched and confirmed, or chapter title and book only
-- **Never reconstructs an official lesson it could not read** — asks you to paste it instead
-- **Memory Text verified verbatim** (the class memorizes it; an error propagates for a quarter)
-- Indonesian quarterly labels (Sabat Sore, Ayat Hafalan, Pendalaman, Pertanyaan Diskusi) with day-then-month dates
-- Handles visitors, seeker classes, mixed-language classes, dominant talkers, and doctrinal arguments breaking out mid-class
-
-**Example prompts:**
-- "Write a Sabbath School lesson on the call of Abraham, Genesis 12. Adult class, Sabbath 2026-08-15. English."
-- "Saya mengajar Sekolah Sabat pekan ini. Pelajaran 6 kuartal ketiga 2026. Tolong buatkan penuntun guru."
-- "Lesson on the state of the dead for a class with three or four non-Adventist visitors most weeks. 30 minutes."
+**The one unforgivable failure** is building a guide on a lesson it could not read. If it cannot fetch the week from ssnet.org or absg.adventist.org, it says so in one sentence and asks you to paste it, rather than guessing what "lesson 6" probably covers.
 
 **Fixed structure, every time:** eight numbered sections (what the week argues → objectives → timed plan → day-by-day map → the two big questions → background → EGW → hard spots), then **Appendix A** with every Bible text quoted in full, **Appendix B** with the EGW/SDABC/BRI sources, and the Verification Ledger last. The teacher learns where things live.
 
@@ -466,7 +441,7 @@ skills-sermon-adventist/
 │       └── html-template.html (bible-study.html skeleton)
 │
 ├── sabbath-school-lesson/
-│   ├── SKILL.md (Mode A: original 7-day lesson · Mode B: teacher's guide)
+│   ├── SKILL.md (quarterly teacher's guide: 8 sections + appendices)
 │   ├── evals/
 │   │   └── evals.json (3 test cases: Genesis 12 lesson, Indonesian penuntun guru, state of the dead with visitors)
 │   └── references/

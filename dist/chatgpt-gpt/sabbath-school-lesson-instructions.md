@@ -1,6 +1,6 @@
 ---
 name: sabbath-school-lesson
-description: Build Seventh-day Adventist Sabbath School material in the real quarterly format. Two modes — (A) write an original seven-day lesson from scratch (weekly theme, Read for This Week's Study, Memory Text, Sabbath Afternoon introduction, Sunday–Thursday daily sections with discussion questions, Friday Further Thought with Ellen G. White readings, plus a Teachers Comments edition), or (B) build a teacher's guide for an existing Adult Bible Study Guide lesson (learning objectives, timed discussion flow, participation questions, illustrations, closing appeal). Produces English (KJV) or Indonesian (Terjemahan Baru) output. Use whenever the user wants to write, teach, or prepare a Sabbath School lesson, quarterly lesson, lesson study, Adult Bible Study Guide week, teachers guide, or class study plan — including Indonesian phrasings like pelajaran Sekolah Sabat, penuntun guru, pendalaman pekan ini, or when they say they are teaching the lesson this Sabbath.
+description: Build a Seventh-day Adventist Sabbath School teacher's guide for a quarterly Adult Bible Study Guide lesson. The lesson itself is already written and used church-wide, so this skill never invents one: it locates the official lesson for a given Sabbath, then digs deeper through SDABC, Ellen G. White, the Biblical Research Institute and Adventist scholarship to build a guided study the teacher can run in about thirty-five minutes. Produces a markdown guide plus a readable HTML page, in English (KJV) or Indonesian (Terjemahan Baru), with a timed discussion plan, a day-by-day map carrying each day's own sources, the two questions worth real time, predicted pushback, and every Bible text in full. Use whenever the user is teaching or preparing a Sabbath School lesson, quarterly lesson, lesson study, Adult Bible Study Guide week, teachers guide, or class study plan, including Indonesian phrasings like pelajaran Sekolah Sabat, penuntun guru, pendalaman pekan ini, or when they say they are teaching the lesson this Sabbath.
 ---
 
 # Sabbath School Lesson
@@ -13,221 +13,48 @@ Sabbath School is not a sermon with chairs in a circle. It is a *discussion* bui
 
 ---
 
-## Two Modes
+## The Lesson Is Already Written
 
-Ask which one first. It changes everything downstream.
+Sabbath School follows the quarterly Adult Bible Study Guide, worldwide, every week. A local teacher does not write their own seven-day lesson; they teach the lesson the whole church is studying.
 
-| | **Mode A — Original Lesson** | **Mode B — Teacher's Guide** |
-|---|---|---|
-| The ask sounds like | "Write a Sabbath School lesson on Abraham" · "I need a seven-day lesson for our class series" · "buat pelajaran Sekolah Sabat" | "I'm teaching this week's lesson" · "Help me teach lesson 6" · "penuntun guru untuk pelajaran pekan ini" |
-| You are writing | The lesson itself, in quarterly format | A plan for presenting a lesson that already exists |
-| Deliverables | `sabbath-school-lesson.md` + `teachers-comments.md` | `teachers-guide.md` + `teachers-guide.html` |
-| You need | Theme or passage | The actual lesson (see Mode B, Step 1) |
-| Length | ~3,000–4,000 words + ~1,200 for the teacher edition | ~2,500–3,500 for sections 1–8; the appendices and ledger add whatever the sources require and are not counted against that |
+**So never ask the user for a theme.** There is no theme to choose. Which lesson falls on a given Sabbath is a fact to look up, not a decision to make, and asking for one signals that you do not understand how Sabbath School works.
 
-**Mode B is the default. Assume it unless told otherwise.** Sabbath School follows the quarterly Adult Bible Study Guide, worldwide, every week. A local teacher does not write their own seven-day lesson; they teach the lesson the whole church is studying. So "I need a Sabbath School lesson" almost always means "help me teach *this week's* lesson," and the right first move is to work out which lesson falls on that Sabbath and get its text.
+The work is the other half: digging deeper than the quarterly page, through SDABC, Ellen G. White, the Biblical Research Institute and Adventist scholarship, and turning that into a guided study a teacher can actually run in thirty-five minutes.
 
-Mode A is for the genuine exception: a custom study series, a youth or small-group track running outside the quarterly, or a lesson written for a class that has no quarterly available. Confirm that before writing an original week.
+| | |
+|---|---|
+| The ask sounds like | "I'm teaching this week's lesson" · "Help me teach lesson 6" · "penuntun guru untuk pelajaran pekan ini" · "buat pelajaran Sekolah Sabat" |
+| You need | The actual lesson text. See Step 2 |
+| You produce | `teachers-guide.md` + `teachers-guide.html` |
+| Length | ~2,500–3,500 words across the eight sections; the appendices add whatever the sources require and are not counted against that |
 
-Mode B is also the more dangerous mode, because it depends on the official lesson text. Never invent that text. See Mode B, Step 1.
+**All the danger is in the input.** Everything downstream is built on the official lesson text, so a wrong or invented lesson poisons the whole guide. Never invent it. See Step 2.
 
 **Working out which lesson.** A quarterly week is *read* across its printed date range and *discussed in class the following Sabbath*: the week printed "Aug 1–7" is taught on Sabbath Aug 8, which is why its Sabbath Afternoon section closes by pointing to that later date. So find the lesson whose date range *ends the day before* the Sabbath being taught. Do not assume the quarter starts on the first Sabbath of the month; Q3 2026 began June 27, which shifts every lesson number by one.
 
 ---
 
-## Step 1: Capture Inputs (both modes)
+## Step 1: Capture inputs
 
 One short conversational message. Skip anything already given.
 
-| Field | Mode A | Mode B |
-|---|---|---|
-| Mode | Required | Required |
-| **Language** | **Always ask.** English (KJV) / Indonesian (Terjemahan Baru) / bilingual | Same |
-| Theme or passage | Required | Comes from the lesson |
-| The lesson identity | n/a | Required: quarter, year, lesson number and title |
-| Sabbath date being taught | Required (ISO `YYYY-MM-DD`) — drives the day headings and the folder name | Required |
-| Class profile | Adults, young adults, youth, seekers/baptismal class, mixed | Same |
-| Class size and talk culture | Affects question count and whether you plan small groups | Same |
-| Time available | Default 35 minutes of lesson study | Same |
-| Series context | Lesson N of a quarter, or standalone | Which quarter |
+| Field | Notes |
+|---|---|
+| **Language** | **Always ask.** English (KJV) / Indonesian (Terjemahan Baru) / bilingual |
+| The lesson identity | Quarter, year, lesson number and title |
+| Sabbath date being taught | Required, ISO `YYYY-MM-DD`. Drives the day headings and the folder name |
+| Class profile | Adults, young adults, youth, seekers/baptismal class, mixed |
+| Class size and talk culture | Affects question count and whether you plan small groups |
+| Time available | Default 35 minutes of lesson study |
+| Series context | Which quarter |
 
 **Language is asked every time, not inherited.** A Sabbath School class often differs in language from the preacher's own default, and mixed-language congregations are normal. If the answer is bilingual, produce one document with the Indonesian section following each English section, never two half-documents.
 
-Do not interrogate beyond the table. If the user gave a theme and a date, that is enough to start Mode A.
+Do not interrogate beyond the table. If the user named the Sabbath and the language, that is enough to go and find the lesson.
 
 ---
 
-# MODE A — Write an Original Seven-Day Lesson
-
-## A1: Fix the week's spine before writing a word of prose
-
-A quarterly week is one argument delivered in six moves. Decide the whole spine first, then write. Lessons that get written day-by-day wander, repeat themselves on Tuesday and Thursday, and arrive at Friday with nothing left to land.
-
-Write this out and show it to the user for confirmation:
-
-```
-## Lesson Spine
-
-**Lesson N: [Title]**            (4–7 words, concrete, not abstract)
-**Week of:** [date range]
-**Sabbath:** [YYYY-MM-DD]
-**Language:** [English / Indonesian / bilingual]
-
-**Central claim:** [one declarative sentence the whole week argues]
-**Memory Text:** [reference — the verse that carries the claim]
-**Read for This Week's Study:** [4–6 passages, in canonical order]
-
-Sun    — [move 1: usually the problem, the setting, or the text's first turn]
-Mon    — [move 2]
-Tue    — [move 3]
-Wed    — [move 4 — often the theological center]
-Thu    — [move 5 — usually where it costs something]
-Fri    — Further Thought [the EGW reading and the three discussion questions]
-
-**Adventist lens:** [the distinctive genuinely engaged, or "general Christian — none forced"]
-**Where the week gets uncomfortable:** [the day that is not safe]
-```
-
-Ask: "Spine look right before I write the week?"
-
-Two rules on the spine:
-
-- **Five distinct moves, not five restatements.** If Monday and Wednesday could swap places without loss, the spine is broken. Each day must do something the others do not.
-- **One day must cost something.** A week that is agreeable on all five days was not built from Scripture. Name that day in the spine so it does not get sanded down during drafting.
-
-## A2: Research the week
-
-Run the passages through the machinery in `bible-study-deep` before drafting: word studies where translation carries interpretive weight, BRI on anything doctrinally contested, Andrews Bible Commentary and SDABC on the key verses, EGW for Friday.
-
-Two things to fetch early, because they gate the writing:
-
-**The Ellen G. White reading for Friday.** Every quarterly week points to a specific EGW reading. Use `egw-fetch.sh` per the foundation's Tier 1 workflow. See the page-range rule in A4 (Friday) before you write a single page number.
-
-**The Memory Text wording.** Verbatim, from KJV or Terjemahan Baru. The class memorizes this verse. A wrong word in the Memory Text is the most visible error the document can contain, and it propagates: people quote it back for thirteen weeks. Confirm the wording against a Bible text (Blue Letter Bible, Bible Hub, STEP Bible) rather than typing it from memory.
-
-Apply the source provenance discipline from `bible-study-deep` — `fetched-verbatim`, `located-unread`, `known-position`, `inference` — as internal working categories. **The tags never appear in the lesson body.** They live in the Verification Ledger in `teachers-comments.md`. A lesson handed to a class must read as devotional prose, not as a build log.
-
-## A3: Word budgets
-
-Hit these. The quarterly format is tight on purpose, and a class has thirty-five minutes.
-
-| Part | English | Indonesian |
-|---|---|---|
-| Sabbath Afternoon introduction | 250–350 | 220–300 |
-| Each daily section (Sun–Thu) | 450–600 | 400–520 |
-| Friday Further Thought | 200–300 + 3 questions | 180–260 + 3 questions |
-| **Week total** | **3,000–4,000** | **2,600–3,400** |
-| Teachers Comments | 1,000–1,500 | 900–1,300 |
-
-Indonesian runs shorter for the same content. Do not pad it to match the English count.
-
-## A4: Write the seven sections
-
-### Sabbath Afternoon
-
-Opens the week. In order:
-
-1. **Read for This Week's Study:** the passage list, canonical order, comma-separated.
-2. **Memory Text:** the verse quoted in full, in a blockquote, with reference and translation.
-3. **The introduction itself** (250–350 words). This is the only place in the week you get to be a writer. Open with a scene, a question the text forces, or a tension a real person carries — not with a summary of what the week will cover. Land on the central claim without stating it as a thesis sentence.
-4. **The closing line**, the quarterly's own convention: *"Study this week's lesson to prepare for Sabbath, [date]."*
-
-Never open with "This week we will study..." That is a table of contents wearing a paragraph's clothes.
-
-### Sunday through Thursday
-
-Each day is a titled section. Heading format — day name, date, colon, then a concrete title of 3–7 words that names something in the passage rather than an abstraction ("The Cost of Leaving" beats "Faith and Obedience"). A colon, not an em dash, since the foundation bans em dashes in output.
-
-- English: `## Sunday, August 9: The Call No One Asked For`
-- Indonesian: `## Minggu, 9 Agustus: Panggilan yang Tak Diminta`
-- Friday: `## Friday, August 14: Further Thought` / `## Jumat, 14 Agustus: Pendalaman`
-
-Each day, in this shape:
-
-1. **The read prompt** — `Read Genesis 12:1–5.` One passage, short enough to actually read aloud in class.
-2. **Exposition** (350–450 words) — what the text says, what the original hearers would have caught, what the words carry. This is where word studies, background, and commentary land, written as prose. No source tiers on the page, no scaffolding visible.
-3. **One or two questions**, set off in bold or italic per the quarterly convention. See A5 — these questions are the entire point of the day.
-
-Discipline for the daily sections:
-
-- **The text drives, not the theme.** Each day is anchored in its own passage. A day that quotes six scattered verses to support an idea is a topical sermon fragment, not a lesson section.
-- **Do not answer your own question.** The quarterly's worst habit is asking a question and then supplying the answer in the next sentence. Ask it and stop. The class supplies the answer, or the teacher draws it out.
-- **Paragraphs of four sentences or fewer.** People read this on a phone at 6 a.m.
-- **EGW belongs on Friday.** A short quote mid-week is fine when it genuinely opens the text, but the weight goes to Friday. A lesson with an EGW quote every day reads as proof-texting.
-
-### Friday — Further Thought
-
-The week's landing. Three parts:
-
-1. **The Ellen G. White reading**, named as a directive: `Read Ellen G. White, "The Call of Abraham," in Patriarchs and Prophets, pp. 125–131.`
-
-   **The page-range rule, and it is hard:** give a page range *only* if you fetched it and the refcodes confirm it. If you have not verified the pages, name the **chapter title and the book** and stop. Chapter titles are stable and checkable; page numbers vary by edition and are the single easiest thing in this document to get wrong. A chapter title with no pages is correct and useful. An invented page range is a fabrication that a class member will find in ninety seconds.
-
-2. **One EGW paragraph quoted** — verbatim in a blockquote with the exact refcode, or, if the fetch path is exhausted, clearly paraphrased with no quotation marks per the foundation's Tier 3. Follow it with one or two sentences tying it to the week's claim.
-
-3. **Discussion Questions** — numbered, usually three or four. Real quarterlies vary; count them rather than assuming. These differ from the daily questions: they are for the whole class on Sabbath morning, they assume the week has been read, and they should reach past the text into the congregation's actual life. At least one must be answerable by someone who disagrees with the lesson's conclusion, or the class will perform agreement instead of thinking.
-
-## A5: The questions are the lesson
-
-Everything else is setup. A quarterly week lives or dies on eight to twelve questions.
-
-**A question earns its place if it passes all four:**
-
-1. It cannot be answered "yes," "no," or "Jesus."
-2. A person who read the passage carefully could give two different defensible answers.
-3. It names something real — a decision, a relationship, a fear, a cost — not an abstraction.
-4. The teacher does not already know what the class will say.
-
-| Dead question | Live question |
-|---|---|
-| "Do we need to trust God?" | "Abram left without knowing the destination. Name one thing you are being asked to do right now without knowing how it ends." |
-| "What can we learn from Abram's faith?" | "Abram lied about Sarai in Egypt two chapters after this call. Does that change how you read verse 4?" |
-| "Isn't God's promise wonderful?" | "The promise was land, offspring, and blessing. Abram died owning a burial cave. Was the promise kept?" |
-| "Why is the Sabbath important?" | "Your coworker says the Sabbath was for Israel. You have four minutes before the meeting starts. What do you actually say?" |
-
-Distribute the question types across the week: one or two observational (what does the text *say*), three or four interpretive (why this, not that), and the rest applicational, increasing in cost as the week goes on. Thursday should be the expensive one.
-
-## A6: Write `teachers-comments.md`
-
-The Teachers Edition of the quarterly. Separate file, separate audience: the person standing up front. Structure:
-
-```markdown
-# Teachers Comments — Lesson N: [Title]
-
-**Key Text:** [the one verse the class must leave holding]
-**Study Focus:** [passages]
-
-## Part I — Overview
-
-Lesson themes (2–4, named), and the one sentence that says what this week is
-actually about. Where the week is heading and why the order of days is what it is.
-
-## Part II — Commentary
-
-Two or three headed subsections of exposition the teacher needs and the student
-lesson could not carry: the background that unlocks a verse, the word that the
-translation flattened, the Adventist distinctive the passage genuinely engages,
-the objection a thoughtful class member will raise and how to meet it honestly.
-
-## Part III — Life Application
-
-The discussion plan: an opening question that gets someone talking in the first
-ninety seconds, the two questions worth spending real time on, an activity if the
-class is one that will do activities, and the closing move that asks for a
-decision without manipulating for one.
-
-## Verification Ledger
-
-[table — every tagged citation from the lesson and these comments]
-```
-
-The Verification Ledger is the same table as in `bible-study-deep`: Source | Tag | Where | Action for the user. It is the only place provenance tags appear, and it goes in this file, never in the student lesson.
-
----
-
-# MODE B — Teacher's Guide for an Existing Lesson
-
-## B1: Get the actual lesson text. Do not proceed without it.
+## Step 2: Get the actual lesson text. Do not proceed without it.
 
 This is the failure point of the whole mode. A guide built on a guessed lesson is worse than no guide, because the teacher discovers the mismatch in front of the class.
 
@@ -244,7 +71,7 @@ This is the failure point of the whole mode. A guide built on a guessed lesson i
 
 What you minimally need before writing: the lesson title, the Memory Text, the Read-for-This-Week list, the five daily section titles with their passages, and the three Friday discussion questions.
 
-## B2: Read the lesson as a teacher, not a reader
+## Step 3: Read the lesson as a teacher, not a reader
 
 Before planning, answer these for yourself:
 
@@ -254,7 +81,7 @@ Before planning, answer these for yourself:
 - **What will the class push back on?** Name it in advance. Every class has one member who has been waiting all week to raise it.
 - **Which distinctive is in play?** And is the lesson engaging it or gliding past it?
 
-## B3: Write `teachers-guide.md`
+## Step 4: Write `teachers-guide.md`
 
 **This structure is fixed. Eight numbered sections, two appendices, the ledger.** Do not improvise a different shape per lesson: the teacher learns where things live, and a guide they can navigate under time pressure beats a better-organized one they have to read. The section count is eight because the HTML render's verified colour ramp has eight steps. If a lesson seems to need a ninth section, fold two together rather than adding one.
 
@@ -283,7 +110,7 @@ that every day of the week is assigned to a block.]
 
 ## 4. Day-by-Day Map
 [A summary table: day | title | passages | which block it lands in. Then one
-subsection per day, Sunday through Thursday. See B6.]
+subsection per day, Sunday through Thursday. See Step 7.]
 
 ## 5. The Two Questions Worth Real Time
 [For each: the question as you will actually say it, why it matters, what
@@ -305,16 +132,16 @@ tonight. If the lesson is thin somewhere, say how to teach the text faithfully
 without making the quarterly the problem.]
 
 ## Appendix A: Every Bible Text in [translation]
-[See B7.]
+[See Step 8.]
 
 ## Appendix B: Ellen G. White, SDABC, and Adventist Sources
-[See B7.]
+[See Step 8.]
 
 ## Verification Ledger
 [Source | Tag | Where | Action for the user]
 ```
 
-## B4: The timed discussion plan
+## Step 5: The timed discussion plan
 
 Sabbath School lesson study is typically 30–40 minutes and it is *always* shorter than planned. Plan for the shorter number.
 
@@ -334,7 +161,7 @@ Compress by cutting minutes 22–28, never by cutting application.
 
 **If the class runs 40 minutes**, add the extra five to the second real question, not to your exposition.
 
-## B5: Facilitation, not presentation
+## Step 6: Facilitation, not presentation
 
 A teacher's guide that produces a monologue has failed regardless of its content quality. Build these in:
 
@@ -347,7 +174,7 @@ A teacher's guide that produces a monologue has failed regardless of its content
 
 See `references/teaching-methods.md` for the fuller set: question sequencing, mixed-language classes, the mission story slot, seeker-present classes, and what to do when a doctrinal argument breaks out.
 
-## B6: The Day-by-Day Map (Section 4)
+## Step 7: The day-by-day map (Section 4)
 
 The teacher has read the lesson. What they lack is a per-day judgment of what matters and what can be dropped. Section 4 supplies exactly that, and it is the section they will actually use in the room.
 
@@ -378,7 +205,7 @@ What is left for Appendix B is the *apparatus*, not the quotes: which sources la
 
 Two more rules for this section. **Cross-reference, do not repeat:** if a point already lives in Section 6 as background or Section 8 as a hard spot, point to it in one clause rather than restating it. And **the day titles are the lesson's, not yours.** If you are working from an English edition and writing in Indonesian, your translated titles are a convenience, so say so and tell the teacher to use the titles printed on their own lesson sheet.
 
-## B7: The Two Appendices
+## Step 8: The two appendices
 
 A teacher mid-argument will not open ten browser tabs. Everything they might need to reach for goes at the bottom of the one document they already have open. Both appendices come after Section 8 and before the ledger.
 
@@ -408,13 +235,13 @@ Everything the guide draws on, in one place, with provenance attached to each it
 
 ---
 
-## Output Format (both modes)
+## Output Format
 
 Markdown. Scripture in blockquotes with translation cited. EGW in blockquotes with full citation. Headings follow the quarterly's own conventions — day names as section headings, `Read [passage]` as a directive line, discussion questions numbered.
 
 For Indonesian output, use the quarterly's Indonesian labels (Sabat Sore, Minggu, Senin, Ayat Hafalan, Pendalaman, Pertanyaan Diskusi). The full label table, including what to verify against a current Indonesian quarterly, is in `references/lesson-anatomy.md`.
 
-Every **markdown** document ends with a **Verification Ledger** — except the student lesson in Mode A, which stays clean and carries its ledger in `teachers-comments.md`. The HTML render never carries a ledger.
+The **markdown** guide ends with a **Verification Ledger**. The HTML render never carries one.
 
 ---
 
@@ -424,26 +251,23 @@ Before delivering, check:
 
 1. **Memory Text is verbatim** and the reference is right. Check it against a Bible text, not memory.
 2. **Every EGW page range was fetched.** Any unverified range is replaced by a chapter title, or dropped.
-3. **No fabricated lesson content in Mode B.** Everything attributed to the quarterly is from the text you actually read.
+3. **No fabricated lesson content.** Everything attributed to the quarterly is from the text you actually read.
 4. **Questions pass the four tests in A5.** Count them. Delete the dead ones rather than rewriting them into life.
 5. **No question is answered in the next sentence.**
-6. **Five distinct daily moves** (Mode A). No two days interchangeable.
 7. **One day costs something.** Find it. If you cannot, the week is not finished.
 8. **Word budgets hit** (A3), Indonesian not padded.
 9. **No provenance tags, no HTTP codes, no "this session"** in any body text. Ledger only. **`para_id` goes in the markdown only, never in the HTML** — it is a re-fetch handle for desk work, and on the page it competes with the page number for the teacher's eye.
 10. **AI-slop swept** per the foundation's banned list, both languages. No em dashes in output prose.
-11. **Timed plan adds up**, the minutes are contiguous, **every day of the week is assigned to a block**, and application survives compression (Mode B).
+11. **Timed plan adds up**, the minutes are contiguous, **every day of the week is assigned to a block**, and application survives compression.
 12. **Adventist lens honest** — engaged where the text engages it, absent where it does not.
-13. **Eight numbered sections, in order** (Mode B), then Appendix A, Appendix B, ledger last.
+13. **Eight numbered sections, in order**, then Appendix A, Appendix B, ledger last.
 14. **Every verse in Appendix A was fetched**, and any truncated fetch is marked with an ellipsis and logged, not completed from memory.
 15. **Appendix B's SDABC table lists only verses whose text you actually have.**
 16. **`teachers-guide.html` rendered** from `references/teachers-guide-template.html`, and its checklist run.
 
 Then deliver plainly:
 
-> Mode A: two files — `sabbath-school-lesson.md` for the class, `teachers-comments.md` for you (ledger inside). EGW pages verified where shown; chapter titles given where they were not.
->
-> Mode B: `teachers-guide.md`, built on the lesson text you provided. The 35-minute plan compresses at minutes 22–28 if the superintendent runs long.
+> `teachers-guide.md` and `teachers-guide.html`, built on the lesson text you provided. Quotes sit in the day they explain. The 35-minute plan compresses at minutes 22–28 if the superintendent runs long.
 
 ---
 
@@ -452,15 +276,13 @@ Then deliver plainly:
 ```
 /Users/edmundsitumorang/DEV/skills-sermon-adventist/output/
 └── [YYYY-MM-DD]-ss-[kebab-case-title]/
-    ├── sabbath-school-lesson.md     (Mode A)
-    ├── teachers-comments.md         (Mode A)
-    ├── teachers-guide.md            (Mode B)
-    └── teachers-guide.html          (Mode B, the copy used in the room)
+    ├── teachers-guide.md            (the workshop copy: ledger, para_id)
+    └── teachers-guide.html          (the copy used in the room)
 ```
 
 The `ss-` prefix is deliberate. A Sabbath School lesson and a sermon can fall on the same Sabbath and are different material, so they get different folders. Do not write Sabbath School files into a sermon folder.
 
-Mode B's `teachers-guide.html` is also what gets published to `ss.situmorang.com`; the folder name becomes the archive slug, with `-ss-` collapsed. See **Publish** below.
+`teachers-guide.html` is also what gets published to `ss.situmorang.com`; the folder name becomes the archive slug, with `-ss-` collapsed. See **Publish** below.
 
 - Date is the Sabbath the lesson is taught, ISO `YYYY-MM-DD`.
 - Title in kebab-case, keeping words like "God" and "Christ": lesson "The Call of Abraham" on 2026-08-15 → `2026-08-15-ss-the-call-of-abraham`.
@@ -471,7 +293,7 @@ Mode B's `teachers-guide.html` is also what gets published to `ss.situmorang.com
 
 ## HTML Render: `teachers-guide.html`
 
-A teacher's guide is read at a table on Sabbath morning, often on a phone, often while someone is talking. Render an HTML copy beside the markdown by default for Mode B, since the markdown is the workshop and the page is what actually gets used in the room.
+A teacher's guide is read at a table on Sabbath morning, often on a phone, often while someone is talking. Render an HTML copy beside the markdown every time, since the markdown is the workshop and the page is what actually gets used in the room.
 
 **Start from `references/teachers-guide-template.html`.** Copy it and fill it in. Do not design a new page: the template shares its palette, measure, and type scale with `bible-study-deep`'s template, so a guide and a study read as one series. The whole stylesheet, the theme and mono toggles, the contents scroll-spy and the print rules are already in it.
 
@@ -649,7 +471,8 @@ This step exists only in Claude Code. The `dist/` bundles for Claude Projects an
 
 ## Anti-Patterns
 
-- **Never reconstruct an official quarterly lesson you could not read.** Mode B's one unforgivable failure. Ask for a paste instead.
+- **Never ask the user for a theme.** Sabbath School has no theme to choose: the quarterly set it, church-wide. Asking for one shows you do not know how Sabbath School works. Find which lesson falls on that Sabbath instead.
+- **Never reconstruct an official quarterly lesson you could not read.** The one unforgivable failure. Ask for a paste instead.
 - **Never invent an EGW page range.** Chapter title and book, or nothing.
 - **Never mis-quote the Memory Text.** The class memorizes it.
 - **Never write a lesson that is a sermon in seven pieces.** Sabbath School is discussion. If the class only listens, the material was wrong.

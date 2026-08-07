@@ -125,7 +125,7 @@ The teachers edition follows a fixed three-part shape.
 | **Part III — Life Application** | The discussion plan: the opening question, the two questions worth real time, an activity where the class will do activities, and the closing move toward decision |
 | **Verification Ledger** | Source / Tag / Where / Action — every tagged citation from both files |
 
-An older format stated objectives as **Know / Feel / Do**. It is still useful and this skill keeps it in the Mode B teacher's guide, where a single teacher needs a target more than a themes list.
+An older format stated objectives as **Know / Feel / Do**. It is still useful and this skill keeps it in the teacher's guide, where a single teacher needs a target more than a themes list.
 
 ---
 
@@ -159,7 +159,7 @@ Labels used in the Indonesian Sabbath School quarterly. **Verify against a curre
 
 ---
 
-## Where the Official Lesson Lives (Mode B)
+## Where the Official Lesson Lives
 
 For building a teacher's guide, the official text is required input. Places it is published:
 
