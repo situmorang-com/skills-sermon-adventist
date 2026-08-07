@@ -1,6 +1,6 @@
 ---
 name: bible-study-deep
-description: Produce deep, structured Bible study notes for a passage from a Seventh-day Adventist perspective. Includes passage context, historical and cultural background, Hebrew/Greek word studies (with KJV and Indonesian Terjemahan Baru comparison), Biblical Research Institute (BRI) research, multi-commentary insights (Andrews Bible Commentary, SDABC, named Adventist scholars, and classic and modern sources), Ellen G. White cross-references, scriptural cross-references, theological themes through an Adventist lens, and application questions. Use whenever the user wants to study a passage in depth, prepare teaching/Sabbath School material, do exegesis, or asks for a "deep dive" / pendalaman Alkitab on a Bible text — even if they don't say "Adventist" explicitly.
+description: Produce deep, structured Bible study notes for a passage from a Seventh-day Adventist perspective. Includes passage context, historical and cultural background, Hebrew/Greek word studies (with KJV and Indonesian Terjemahan Baru comparison), Biblical Research Institute (BRI) research, multi-commentary insights (Andrews Bible Commentary, SDABC, named Adventist scholars, and classic and modern sources), Ellen G. White cross-references, scriptural cross-references, theological themes through an Adventist lens, and application questions. Use whenever the user wants to study a passage in depth, do exegesis, prepare their own teaching notes on a text, or asks for a "deep dive" / pendalaman Alkitab on a Bible passage — even if they don't say "Adventist" explicitly. This skill is passage-driven exegesis. For a quarterly Adult Bible Study Guide week, a seven-day lesson, or a teacher's guide in Sabbath School format, use `sabbath-school-lesson` instead.
 ---
 
 # Bible Study Deep
@@ -26,7 +26,7 @@ A structured Bible study document in markdown, with these eight sections in orde
 
 Plus a **Verification Ledger** at the end: every source claim with its provenance tag, so the preacher knows at a glance what is safe to read aloud and what still needs checking.
 
-The primary output is `bible-study.md` — the preacher's working document, ledger included. An optional `bible-study.html` render (Step 4) is the *reading* copy: same study, no verification apparatus.
+The primary output is `bible-study.md` — the preacher's working document, ledger included. An optional `bible-study.html` render (Step 5) is the *reading* copy: same study, no verification apparatus.
 
 ---
 
@@ -38,16 +38,39 @@ Optional: study angle or specific question, audience (personal devotion, Sabbath
 
 If the user gave only a passage, that's enough. Don't interrogate. Confirm only what's ambiguous.
 
-When this skill is invoked from a sermon workflow that already selected a responsive reading, prompt the user with a single clarifying question before proceeding: whether to study a single passage of their choosing or to use the responsive-reading passage. Use the ask_user pattern: ask one question with explicit choices, for example:
-
-- "Use the responsive-reading passage Hebrews 8:1-6 for this study?" Choices: ["Use Hebrews 8:1-6 (Recommended)", "I'll provide a different passage"]
-
-Only proceed after the user answers. If they choose "I'll provide a different passage", request the passage (book, chapter, verse range) and continue. This keeps the interaction single-question-at-a-time and avoids surprising the user with multiple prompts.
+When a sermon workflow has already chosen a responsive reading, ask one question before starting: use that passage, or a different one? Offer the responsive reading as the recommended option, wait for the answer, and if they want another passage, ask for it.
 
 Defaults if not specified:
 - Language: English (per `PRIMARY_LANGUAGE` from foundation)
 - Translation: KJV (English) or Terjemahan Baru (Indonesian)
-- Depth: full study (all 8 sections); offer "overview" mode if they want shorter
+- Depth: **Standard** (see below)
+- Form: research document, not a teaching script (see Class Teaching Mode)
+
+### Depth modes
+
+Pick one and hold to its budget. "As long as it needs to be" produces a 32,000-word study nobody reads.
+
+| Mode | Body words | What changes |
+|---|---|---|
+| **Overview** | ~1,200 | All 8 sections, but 2 word studies, 3 cross-references, 3 questions, one paragraph per commentary tier. No sub-headings inside sections |
+| **Standard** (default) | 3,000–4,000 | The full spec as written below |
+| **Exhaustive** | 8,000+ | Only on request, or when the passage genuinely carries it (a doctrinal locus like Daniel 8 or Hebrews 8–9). Add sub-headings, more scholars, an appendix if useful |
+
+Any study over ~2,500 words opens with a short contents block after the header. Above 12,000 words, say so and ask whether to split the study or cut scope: past that length it stops being a study and becomes a book chapter.
+
+### Class Teaching Mode
+
+If the user is going to *teach* this (Sabbath School class, prayer meeting, small group) rather than study it, ask once, then produce the research document **plus** a teaching layer:
+
+- A flow at the top: segments with minute counts adding to the stated slot (typically 45 or 60)
+- An opening illustration or hook, written out
+- Discussion prompts placed inside the segments, not saved for the end
+- Teacher notes: what to skip if time runs short, and which question to protect
+- The eight research sections stay underneath as the teacher's own preparation
+
+Do not silently switch to this form. A study document and a lesson plan are different deliverables.
+
+**Not the same as a quarterly lesson.** If the user wants an Adult Bible Study Guide week, a teacher's guide for the current quarterly, or anything in the seven-day Sabbath School format, that is the `sabbath-school-lesson` skill. Hand it over rather than approximating it here.
 
 ---
 
@@ -64,9 +87,11 @@ What the passage is and where it sits.
 - **Book overview** (2–3 sentences): author, audience, date, purpose
 - **Genre** (1 sentence): epistle, narrative, poetry, prophecy, apocalyptic, wisdom
 - **Placement** (2–3 sentences): what comes before and after; how this passage fits the book's argument or story
+- **Literary shape** (2–4 sentences): how the passage is *built*. Chiasm, inclusio, parallelism, repeated refrain, a hinge verse, an argument that turns on a single conjunction. Name the structure and say what it does to the meaning. Hebrew narrative and poetry are shaped deliberately, and Adventist scholarship (Doukhan above all) reads that shape as carrying weight. If the passage has no notable structure, say so in a clause and move on rather than inventing a chiasm
 - **The passage itself** — quote it in full from the chosen translation in a blockquote, with attribution
+- **Textual integrity** — flag a significant variant when there is one. The KJV follows the Textus Receptus, so passages like Mark 16:9–20, John 7:53–8:11, 1 John 5:7, Acts 8:37 and Matthew 6:13b read differently in the critical text. Say plainly which witnesses support what, and never build a doctrinal point on a disputed reading without noting the dispute. Most passages need nothing here; say nothing rather than manufacture a controversy
 
-Length: ~150–250 words plus the quoted passage.
+Length: ~200–300 words plus the quoted passage.
 
 ---
 
@@ -91,9 +116,9 @@ Pick 3–5 words from the passage that carry interpretive weight. For each:
 | Field | What |
 |---|---|
 | English word | As it appears in KJV |
-| Indonesian word | As it appears in Terjemahan Baru |
+| Indonesian word | As it appears in Terjemahan Baru. Note which TB: the 1974 TB and the 2023 revision (TB2) differ in wording often enough to matter in a word study |
 | Original (Hebrew/Greek) | With transliteration |
-| Strong's number | If known |
+| Strong's number | Only if you are certain. Omit the row rather than approximate: a wrong Strong's number sends the reader to the wrong word |
 | Literal / root meaning | The basic sense |
 | Range of meaning | How the word is used elsewhere in Scripture (cite 1–3 other occurrences) |
 | Translation comparison | KJV vs. TB vs. one or two others (NKJV, NIV, NASB, ESV) where the difference is interpretive |
@@ -128,7 +153,7 @@ Classify every source claim as you research. The classification governs what you
 
 One rule governs all four: **do not paraphrase what you have not read.** Naming the right scholar for a question is an inference. Claiming what that scholar concluded is a position claim, and only if you genuinely know it. When in doubt, drop a tier.
 
-Collect every classified citation into the **Verification Ledger** at the end of the document (see Output Format). That table is where the tags live.
+Collect every classified citation into the **Verification Ledger** at the end of the document (Step 3). That table is where the tags live.
 
 #### How to say it in the body
 
@@ -150,7 +175,7 @@ The honesty is not reduced by any of this — it moves to the ledger, where it i
 
 #### Fetching Source Text — Do This Before Writing Tier 1
 
-**BRI first:** `scripts/bri-fetch.py get <url>` (see Tier 1). It clears the 403 that WebFetch and curl both hit.
+**BRI first:** `scripts/bri-fetch.py get <url>` from the repo root (see Tier 1 for the manual fallback). It clears the 403 that WebFetch and curl both hit.
 
 The EGW Writings API serves more than Ellen White. **Andrews Bible Commentary, SDABC, Matthew Henry, and Vine's Expository Dictionary are all indexed there**, so the same helper the foundation uses for EGW is the first stop for commentary text:
 
@@ -177,7 +202,8 @@ If both paths fail for a source, it is located-unread or absent. It is never a p
 
 **Biblical Research Institute (BRI)**
 Treat [adventistbiblicalresearch.org](https://adventistbiblicalresearch.org/) as a first-tier source, especially when the text raises an Adventist doctrinal, prophetic, hermeneutical, or disputed interpretive question.
-- **The live site 403s every automated request.** Do not record BRI as unreadable — use `scripts/bri-fetch.py get <url>`, which reads the article via the Wayback Machine and unpacks the Next.js payload. You will usually get the full text, footnotes included.
+- **The live site 403s every automated request.** Do not record BRI as unreadable. Run the repo tool `scripts/bri-fetch.py get <url>` (path is relative to the repo root, not to this skill), which reads the article through the Wayback Machine and unpacks the Next.js payload. You will usually get the full text, footnotes included.
+- **If that script is not present** (the skill installed on its own), do it by hand: `web.archive.org/cdx/search/cdx?url=<page>&filter=statuscode:200&fl=timestamp` for a snapshot, fetch `web.archive.org/web/<timestamp>id_/<page>`, and read the article out of the `__NEXT_DATA__` JSON at `props.pageProps.page.resources.Article.body` — the archived HTML shell holds only the title.
 - Search for the passage reference, book name, and theological theme (`bri-fetch.py search "<keyword>"` lists archived URLs).
 - Prefer the original BRI article, document, or committee report over summaries on other sites.
 - Cite the snapshot date in the ledger alongside the URL. Some pages archive only as empty client-rendered shells; those genuinely are located-unread.
@@ -315,6 +341,8 @@ Format as a table (Reference | Connection Type | Quote/Note) — easier to scan 
 - **Adventist lens** (when applicable) — how this theme connects to a distinctive Adventist doctrine. Don't force it; if the passage doesn't engage a distinctive, say: *"general Christian theology — no specific Adventist distinctive engaged here."*
 - **Pastoral implication** — one sentence on what this means for a real Adventist church member today
 
+**At least one theme must trace the passage to Christ.** Not as a decoration bolted to the end, and not by allegorizing a detail into a type Scripture never authorizes. Show the actual line: what this text reveals about the character, work, or claim of Jesus, or how it sits in the plan of salvation. The foundation's rule is that doctrine is the road and Jesus is the destination; a study that never arrives has not finished. On a text that resists it, say what the honest connection is rather than forcing a stronger one.
+
 For the standard distinctives and their anchor passages, see the `adventist-themes.md` reference shipped with the `sermon-adventist` skill (in a dist package it sits in the `knowledge/` folder).
 
 ---
@@ -335,8 +363,9 @@ Mix of question types:
 
 ---
 
-## Output Format
+## Step 3: Assemble the Document
 
+**Output format.** 
 Single markdown document. Header structure:
 
 ```markdown
@@ -356,7 +385,7 @@ Single markdown document. Header structure:
 ### 3.1. [Word]
 [table]
 
-## 4. Commentary Insights
+## 4. Research and Commentary Insights
 
 ### Biblical Research Institute
 ...
@@ -413,7 +442,7 @@ Hymn numbers, if the study recommends any, go in the ledger too — never invent
 
 ---
 
-## Step 3: Save the Study
+## Step 4: Save the Study
 
 Once the study is delivered and the user is satisfied with it, write it to the repo output tree so it sits alongside the sermon material.
 
@@ -435,129 +464,20 @@ The filename is always `bible-study.md` — that is what the sermon workflow and
 
 ---
 
-## Step 4: Optional HTML Render — `bible-study.html`
+## Step 5: Optional HTML Render — `bible-study.html`
 
-When the user wants a readable or shareable version, render a styled `bible-study.html` beside the markdown. **The two files have different audiences and are not the same document.**
+When the user wants a readable or shareable version, render a styled page beside the markdown.
 
-| | `bible-study.md` | `bible-study.html` |
-|---|---|---|
-| Read by | The preacher, preparing and verifying | The preacher reading, or the class |
-| Verification Ledger | Yes — full table | **No. Removed entirely.** |
-| `para_id`, HTTP codes, API and site names | Yes | **Never.** These are workshop tools, not content |
-| Tier markers after quotes | Yes | No — the page citation alone |
-| Page citations (*Desire of Ages* p. 25, 6SDABC on 12:11) | Yes | Yes. Real citations stay in both |
-| Doctrinal flags (Henry on soul immortality, Barclay) | Yes | Yes. Teaching content, not provenance |
-| Short teacher notes ("read this before teaching ch. 14") | Yes | Yes |
-| Provenance statement | The ledger | One closing line, pointing to the markdown |
+**The two files are not the same document.** `bible-study.md` is the workshop: it carries the Verification Ledger, `para_id`s, tier markers, HTTP codes. `bible-study.html` is the reading copy: same study, same citations, same doctrinal flags, **none of the verification apparatus**. The ledger does not go into the HTML at all; a single footer line points back to the markdown for it.
 
-The HTML footer carries the whole provenance story in one sentence:
+Build it from `references/html-template.html` — copy the template and fill it in, never design a fresh page. It carries the stylesheet, both toggles (theme and monochrome), the contents scroll-spy and the progress bar, so consecutive studies read as one series.
 
-> Scripture quoted from the KJV and Terjemahan Baru. Ellen G. White, SDABC, and Matthew Henry quotations are verbatim from the sources cited. The full source ledger, including what could not be accessed, is in `bible-study.md`.
+**`references/html-render.md` is the full spec** and you should open it before rendering: the eight placeholders, the markup contract for every element, the design numbers (68ch measure, 18.5px/1.72 body, sentence-case headings, AA contrast on every pair), the sanctuary palette and its section ramp, and a twelve-point checklist to run before handing the file over.
 
-**Links.** Every link gets descriptive anchor text. The URL lives in the `href` and never in the visible text.
+Two rules worth stating here because they are the ones most often broken:
 
-- Wrong: `"The Gift of Tongues in 1 Corinthians 14" — adventistbiblicalresearch.org/materials/the-gift-of-tongues-in-1-corinthians-14/`
-- Right: `<a href="https://adventistbiblicalresearch.org/materials/the-gift-of-tongues-in-1-corinthians-14/">The Gift of Tongues in 1 Corinthians 14</a>`
-
-Same rule in the markdown: `[The Gift of Tongues in 1 Corinthians 14](url)`, not a bare URL in running text.
-
-### Building the page
-
-**Start from `references/html-template.html`.** Copy it and fill in the content — do not design a new page each time. The template carries the whole stylesheet and the theme-toggle script, so consecutive studies look like one series instead of eight different documents.
-
-Fill the four header placeholders (`{{LANG}}`, `{{PASSAGE}}`, `{{TITLE}}`, `{{AUDIENCE}}`, `{{TRANSLATION}}`), then convert the markdown section by section using the markup contract below.
-
-### Markup contract
-
-| Study element | Markup |
-|---|---|
-| Numbered section (1–8) | `<section class="sec" data-hue="4">` wrapping `<h2 id="..."><span class="num">4</span> Research and Commentary Insights</h2>`. The `data-hue` is the section number — it drives every color inside |
-| Sub-heading (a word study, an EGW reference, a theme) | `<h3 id="...">` with a matching id |
-| Scripture quotation | `<blockquote class="scripture">` + `<p class="note">` carrying reference and translation |
-| Ellen G. White quotation | `<blockquote class="egw">` + `<p class="note">` carrying *Book Title*, p. 000 |
-| Other commentary quotation | `<blockquote class="cited">` + `<p class="note">` naming the source |
-| Word study (label/value pairs) | `<div class="tablewrap"><table class="spec">` — first column is the label |
-| Data table (cross-references, argument structure) | `<div class="tablewrap"><table class="grid">` — has a `<thead>` |
-| Any table at all | **Always** wrapped in `<div class="tablewrap">` so it scrolls on a phone instead of breaking the page |
-| Numbered list (application questions, argument steps) | **One** `<ol>` holding every `<li>`. Markdown converters routinely emit one `<ol>` per item, which restarts the count so every question renders as "1." — merge adjacent single-item lists and check the numbering runs 1…n |
-| Section divider | `<hr class="rule">` |
-| Aside, citation line, teacher note | `<p class="note">` |
-| Contents nav | `<nav class="toc">`: sections as `<li data-hue="N">`, sub-headings as `<li class="l3" data-hue="N">` carrying their parent's hue. Include for studies over ~2,500 words |
-
-Greek and Hebrew go in as real Unicode (χαρίσματα, תִּקְוָה) with the transliteration in `<em>`.
-
-### Design spec — do not improvise on these
-
-A study runs 3,000–10,000 words. Every value below is set for sustained reading, not for looking designed. The template already encodes them; if you hand-build a page, hit these numbers.
-
-| Decision | Value | Why |
-|---|---|---|
-| **Measure** | `68ch` (~66 characters) | 50–75 CPL is the readability optimum and WCAG 1.4.8 caps at 80. A full-width 900px column runs ~97 CPL and reads as a wall — this is the single biggest thing that makes a study page feel heavy |
-| **Body type** | 18.5px / 1.72 sans; Scripture quotes set 20px serif | 18–20px is the long-form sweet spot; 1.5 is the line-height minimum, more when lines are long. The serif is reserved for Scripture so the text being studied reads differently from the notes about it |
-| **Headings** | Sentence case, sans, 26px (h2) / 18.5px (h3); `h1` is gradient display type | Never all-caps: caps cost 10–20% reading speed and flatten word shape, and headings are exactly what a browsing reader navigates by |
-| **Section separation** | Colored rule + number badge above each `h2` | The eight sections are the map of the document; they should be visible from a scroll position, not just readable |
-| **Contrast** | Every text/background pair ≥ 4.5:1, hues included | WCAG AA for body text. Compute it, don't eyeball it — the template's 8 hues were checked on paper and on their own tint, light and dark |
-| **Dark mode** | The default. Linen on onyx `#070b14`, rim-lit glass over the aurora | Never `#fff` on `#000`. The ramp is bright enough to glow and still lands 5.8–9.5:1 on every glass surface |
-| **Depth** | Translucent cards (`--card`) with hairline edges over the aurora; `backdrop-filter` only on the fixed controls and the sticky sidebar | Blur is expensive. Two blurred surfaces read as glass; thirty of them stutter on scroll |
-| **Motion** | Progress bar, section reveal on entry, animated nav dot — all killed by `prefers-reduced-motion` | Motion is garnish. It must never be load-bearing, and it must be switchable off |
-| **Browsing** | Sticky glass contents sidebar ≥1120px, plain list below; gradient reading-progress bar at the top | The nav is how a 6,000-word study becomes browsable. Sub-headings hide on narrow screens |
-
-### The color system — the sanctuary palette
-
-**The palette is fixed and it means something.** Exodus 26:31 specifies the veil of the sanctuary: "blue, and purple, and scarlet, and fine twined linen." Exodus 25 adds the gold. Those five are the entire palette of this page. Nothing else gets in — no free-choice hues, no rainbow.
-
-| Name | Role | Dark | Light |
-|---|---|---|---|
-| **techelet** — blue | Structure: headings, links, contents, Scripture | `#71cdf4` | `#1d6e90` |
-| **argaman** — purple | The far end of the section ramp | `#bc7af5` | `#601f98` |
-| **zahav** — gold | Ellen G. White / Spirit of Prophecy, always and everywhere | `#e8b44a` | `#8a6410` |
-| **shani** — scarlet | Cautions and doctrinal flags **only** — it is rare so that it lands | `#f2707a` | `#b02832` |
-| **shesh** — linen | The text itself | `#eef1f7` | `#141922` |
-| **onyx** | The surface everything floats on | `#070b14` | `#f5f6f9` |
-
-**Section wayfinding is a ramp, not a spectrum.** Eight steps walk techelet (198°) to argaman (272°) as `--s1`…`--s8`. One analogous family, so section 3 and section 6 are still distinguishable while the page reads as a single palette. Wrap each section as `<section class="sec" data-hue="4">` and its step flows to the badge, heading, gradient rule, left spine, table heads and list markers, and to its entries in the contents rail.
-
-All sixteen steps were checked on glass: **5.8–9.5:1 dark, 5.6–10.6:1 light**. The mid-ramp indigos need a lightness lift to clear AA — that is already baked into the values above; don't interpolate a fresh ramp by eye.
-
-**Content types hold a fixed color anywhere in the document:**
-
-| Content | Class | Color |
-|---|---|---|
-| Scripture | `blockquote.scripture` | Techelet, serif, soft glow |
-| Ellen G. White | `blockquote.egw` | Gold |
-| Other commentary (SDABC, Henry, scholars) | `blockquote.cited` | Neutral |
-| Doctrinal flag / caution | `div.flag` | Scarlet — the only scarlet on the page |
-
-Each card labels itself: the chip on its top edge ("Scripture", "Spirit of Prophecy", "Commentary", "Caution") comes from CSS `::before`, so the markdown conversion never has to add it.
-
-**Body prose always stays linen.** Color marks structure and source; it never tints running text.
-
-**The aurora** is three blurred radial sources only — techelet top-left, argaman top-right, one ember of gold low centre — over a masked 60px techelet grid. Fixed at `z-index:-2`. Atmosphere, not motion.
-
-**Monochrome button.** Sets `data-mono="on"`, which re-points the eight ramp steps plus `--techelet`, `--argaman`, `--zahav`, `--shani`, `--scripture`, `--sop`, `--link`, and zeroes `--aurora` and `--glow`. Every tint, glow, gradient and aurora source derives from those variables through `color-mix()`, so one override desaturates the whole page and the gradient `h1` reverts to flat ink. Keep it that way: no hard-coded hex outside the theme blocks.
-
-### Rules
-
-- **Self-contained.** Inline CSS, no external fonts, no CDN, no scripts beyond the two toggles and the contents scroll-spy already in the template. The file must render correctly opened straight off disk with no network.
-- **Light and dark both readable.** The template handles this with `prefers-color-scheme` plus a `data-theme` override the toggle sets. Don't hard-code colors — use the CSS variables.
-- **Printable.** The template's `@media print` rules flatten the page and avoid breaking blockquotes and table rows. Keep them.
-- **No verification apparatus.** Per the table above: no ledger, no `para_id`, no HTTP codes, no tier markers, no bare URLs as link text.
-- **Every `href` has a matching `id`.** A contents nav with a dead link is worse than no nav.
-- **Never regenerate the HTML from an older markdown.** If you edit the study, edit both files or re-render.
-
-### Before you hand it over
-
-1. Measure is capped (`68ch`) — no full-bleed text column.
-2. Every table wrapped in `.tablewrap`.
-3. Every nav link resolves to an id on the page.
-4. No `para_id`, no `located-unread`, no "HTTP 403", no "this session" anywhere in the file.
-5. Links show titles, not URLs.
-6. Footer names the translation and points to `bible-study.md`.
-7. No all-caps headings anywhere.
-8. Mono toggle leaves no color behind — no hex values outside the theme blocks.
-9. Reduced-motion honored: reveals and transitions disabled, content still visible.
-10. Ordered lists count correctly — no run of single-item `<ol>` blocks all showing "1."
-11. Tags balance and the file ends with `</html>`.
+- **Descriptive link text.** The URL belongs in the `href`, never in the visible text — in the markdown too: `[The gift of tongues in 1 Corinthians 14](url)`, not a bare address in running prose.
+- **One `<ol>` per list.** Markdown converters emit one list per item, which restarts the count and renders every application question as "1."
 
 ---
 
@@ -565,7 +485,7 @@ Each card labels itself: the chip on its top edge ("Scripture", "Spirit of Proph
 
 When `PRIMARY_LANGUAGE` is Indonesian, the entire study is in Indonesian, with:
 
-- **Passage quoted in Terjemahan Baru** (and KJV alongside if interpretively useful)
+- **Passage quoted in Terjemahan Baru** (and KJV alongside if interpretively useful). State which edition when it matters: TB (1974) is the default; TB2 (2023) revises wording in places, and a word study built on the older phrasing can mislead a reader holding the new Alkitab
 - **Word studies** show TB and KJV side by side, plus original language
 - **Commentary content** (SDABC, EGW, Matthew Henry, etc.) paraphrased into Indonesian; cite the English source title. Direct quotes remain in English with a parenthetical Indonesian translation if useful.
 - Section headers and prose in Indonesian
@@ -587,15 +507,20 @@ When `PRIMARY_LANGUAGE` is Indonesian, the entire study is in Indonesian, with:
 - **Never force Adventist distinctives onto a passage that doesn't engage them.** Be honest when a text is general Christian theology.
 - **Never produce a wall of text.** Use the section structure. The reader should be able to scan.
 - **Never give a study without application questions.** Study without surrender hardens.
-- **Never give an "overview" when the user asked for a deep study,** and vice versa.
+- **Never give an "overview" when the user asked for a deep study,** and vice versa. Pick a depth mode and hold its word budget.
+- **Never end a study without arriving at Christ.** At least one theme has to trace the line. Doctrine is the road, not the destination.
+- **Never quietly hand back a lesson plan instead of a study.** Class Teaching Mode is a declared choice, and a quarterly week belongs to `sabbath-school-lesson`.
+- **Never build a point on a disputed text without saying it is disputed.** The KJV follows the Textus Receptus; where that matters, say so.
+- **Never invent a chiasm.** Literary structure is reported when the text has it, not manufactured to look scholarly.
 
 ---
 
 ## Reference Files
 
 - `references/commentary-tiers.md` — Tier 3 and Tier 4 sources in full, lexicon list, the root-fallacy caution, free digital tools
-- `scripts/bri-fetch.py` — reads BRI articles the live site blocks, via the Wayback Machine
-- `references/html-template.html` — the `bible-study.html` skeleton: full stylesheet, theme toggle, markup examples for every element. Copy it rather than designing a new page
+- `references/html-render.md` — the full HTML spec: placeholders, markup contract, design numbers, sanctuary palette, pre-delivery checklist
+- `references/html-template.html` — the page skeleton itself. Copy it rather than designing a new page
+- `scripts/bri-fetch.py` — **repo root, not this folder.** Reads BRI articles the live site blocks, via the Wayback Machine
 - `adventist-themes.md` (ships with `sermon-adventist`) — Adventist distinctives mapped to anchor passages and EGW works
 - `commentary-sources.md` (ships with `sermon-adventist`) — the Adventist side: BRI, ABC, SDABC, SDAIBC, Adventist scholars by specialty, periodicals
 - `HOWTO_EGW_LaguSion.md` (ships with `sermon-adventist`) — operating the EGW API helper and the Lagu Sion hymn database

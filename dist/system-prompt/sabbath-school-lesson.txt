@@ -25,7 +25,13 @@ Ask which one first. It changes everything downstream.
 | You need | Theme or passage | The actual lesson (see Mode B, Step 1) |
 | Length | ~3,000–4,000 words + ~1,200 for the teacher edition | ~1,500–2,200 words |
 
-**Mode B is the more common real need** and the more dangerous one, because it depends on the official lesson text. Never invent that text. See Mode B, Step 1.
+**Mode B is the default. Assume it unless told otherwise.** Sabbath School follows the quarterly Adult Bible Study Guide, worldwide, every week. A local teacher does not write their own seven-day lesson; they teach the lesson the whole church is studying. So "I need a Sabbath School lesson" almost always means "help me teach *this week's* lesson," and the right first move is to work out which lesson falls on that Sabbath and get its text.
+
+Mode A is for the genuine exception: a custom study series, a youth or small-group track running outside the quarterly, or a lesson written for a class that has no quarterly available. Confirm that before writing an original week.
+
+Mode B is also the more dangerous mode, because it depends on the official lesson text. Never invent that text. See Mode B, Step 1.
+
+**Working out which lesson.** A quarterly week is *read* across its printed date range and *discussed in class the following Sabbath*: the week printed "Aug 1–7" is taught on Sabbath Aug 8, which is why its Sabbath Afternoon section closes by pointing to that later date. So find the lesson whose date range *ends the day before* the Sabbath being taught. Do not assume the quarter starts on the first Sabbath of the month; Q3 2026 began June 27, which shifts every lesson number by one.
 
 ---
 
@@ -159,7 +165,7 @@ The week's landing. Three parts:
 
 2. **One EGW paragraph quoted** — verbatim in a blockquote with the exact refcode, or, if the fetch path is exhausted, clearly paraphrased with no quotation marks per the foundation's Tier 3. Follow it with one or two sentences tying it to the week's claim.
 
-3. **Discussion Questions** — exactly three, numbered. These differ from the daily questions: they are for the whole class on Sabbath morning, they assume the week has been read, and they should reach past the text into the congregation's actual life. At least one must be answerable by someone who disagrees with the lesson's conclusion, or the class will perform agreement instead of thinking.
+3. **Discussion Questions** — numbered, usually three or four. Real quarterlies vary; count them rather than assuming. These differ from the daily questions: they are for the whole class on Sabbath morning, they assume the week has been read, and they should reach past the text into the congregation's actual life. At least one must be answerable by someone who disagrees with the lesson's conclusion, or the class will perform agreement instead of thinking.
 
 ## A5: The questions are the lesson
 

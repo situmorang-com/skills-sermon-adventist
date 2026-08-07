@@ -83,7 +83,7 @@ Read Ellen G. White, "The Call of Abraham," in Patriarchs and Prophets, pp. 125�
 
 **b. One quoted EGW paragraph** — verbatim in a blockquote with the exact refcode, or clearly paraphrased with no quotation marks (foundation Tier 3). One or two sentences after it tie it to the week's claim. One paragraph, not three: a long quote read aloud on Sabbath morning loses the room.
 
-**c. Discussion Questions** — exactly three, numbered.
+**c. Discussion Questions** — numbered, usually three or four. Quarterlies vary week to week, so count them in the actual lesson rather than assuming a number.
 
 These are a different instrument from the daily questions:
 
@@ -92,7 +92,7 @@ These are a different instrument from the daily questions:
 | Asked of | The individual reader, mid-week | The whole class, Sabbath morning |
 | Assume | The passage just read | The whole week has been read |
 | Scope | Inside the text | Text reaching into the congregation's actual life |
-| Count | 1–2 per day | Exactly 3 |
+| Count | 1–2 per day | Usually 3–4; count them |
 
 At least one of the three must be genuinely answerable by someone who disagrees with the lesson's conclusion. Without that, the class performs agreement instead of thinking.
 

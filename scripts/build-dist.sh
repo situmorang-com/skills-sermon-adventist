@@ -26,6 +26,18 @@ copy_references() {
     fi
 }
 
+# ChatGPT's custom-instructions field caps at 8000 characters, and a full SKILL.md
+# is far past that. If a skill ships a hand-condensed <skill>/chatgpt-instructions.md,
+# use it for the ChatGPT package; otherwise fall back to the full SKILL.md.
+chatgpt_source() {
+    local skill=$1
+    if [ -f "$REPO_ROOT/$skill/chatgpt-instructions.md" ]; then
+        echo "$REPO_ROOT/$skill/chatgpt-instructions.md"
+    else
+        echo "$REPO_ROOT/$skill/SKILL.md"
+    fi
+}
+
 # Function to check file size
 check_size() {
     local file=$1
@@ -56,7 +68,7 @@ echo "📦 Building adventist-foundation packages..."
 cp -v "$REPO_ROOT/adventist-foundation/SKILL.md" "$DIST_DIR/claude-project/adventist-foundation-instructions.md"
 
 # ChatGPT (same - foundation is usually OK size-wise)
-cp -v "$REPO_ROOT/adventist-foundation/SKILL.md" "$DIST_DIR/chatgpt-gpt/adventist-foundation-instructions.md"
+cp -v "$(chatgpt_source adventist-foundation)" "$DIST_DIR/chatgpt-gpt/adventist-foundation-instructions.md"
 
 # System prompt (API)
 cp -v "$REPO_ROOT/adventist-foundation/SKILL.md" "$DIST_DIR/system-prompt/adventist-foundation.txt"
@@ -74,7 +86,7 @@ cp -v "$REPO_ROOT/sermon-adventist/SKILL.md" "$DIST_DIR/claude-project/sermon-ad
 copy_references "sermon-adventist" "claude-project"
 
 # ChatGPT (full SKILL.md, let GPT read references on demand)
-cp -v "$REPO_ROOT/sermon-adventist/SKILL.md" "$DIST_DIR/chatgpt-gpt/sermon-adventist-instructions.md"
+cp -v "$(chatgpt_source sermon-adventist)" "$DIST_DIR/chatgpt-gpt/sermon-adventist-instructions.md"
 copy_references "sermon-adventist" "chatgpt-gpt"
 
 # System prompt (API)
@@ -93,7 +105,7 @@ cp -v "$REPO_ROOT/bible-study-deep/SKILL.md" "$DIST_DIR/claude-project/bible-stu
 copy_references "bible-study-deep" "claude-project"
 
 # ChatGPT (full)
-cp -v "$REPO_ROOT/bible-study-deep/SKILL.md" "$DIST_DIR/chatgpt-gpt/bible-study-deep-instructions.md"
+cp -v "$(chatgpt_source bible-study-deep)" "$DIST_DIR/chatgpt-gpt/bible-study-deep-instructions.md"
 copy_references "bible-study-deep" "chatgpt-gpt"
 
 # System prompt (API)
@@ -112,7 +124,7 @@ cp -v "$REPO_ROOT/sermon-illustrations/SKILL.md" "$DIST_DIR/claude-project/sermo
 copy_references "sermon-illustrations" "claude-project"
 
 # ChatGPT (full)
-cp -v "$REPO_ROOT/sermon-illustrations/SKILL.md" "$DIST_DIR/chatgpt-gpt/sermon-illustrations-instructions.md"
+cp -v "$(chatgpt_source sermon-illustrations)" "$DIST_DIR/chatgpt-gpt/sermon-illustrations-instructions.md"
 copy_references "sermon-illustrations" "chatgpt-gpt"
 
 # System prompt (API)
@@ -131,7 +143,7 @@ cp -v "$REPO_ROOT/sabbath-school-lesson/SKILL.md" "$DIST_DIR/claude-project/sabb
 copy_references "sabbath-school-lesson" "claude-project"
 
 # ChatGPT (full)
-cp -v "$REPO_ROOT/sabbath-school-lesson/SKILL.md" "$DIST_DIR/chatgpt-gpt/sabbath-school-lesson-instructions.md"
+cp -v "$(chatgpt_source sabbath-school-lesson)" "$DIST_DIR/chatgpt-gpt/sabbath-school-lesson-instructions.md"
 copy_references "sabbath-school-lesson" "chatgpt-gpt"
 
 # System prompt (API)

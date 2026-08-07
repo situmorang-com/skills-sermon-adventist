@@ -4,38 +4,40 @@
     {
       "id": 1,
       "prompt": "Deep study on Daniel 8:13-14. Want word studies on the key Hebrew terms, EGW references, SDABC insights, and how this connects to the sanctuary doctrine.",
-      "expected_output": "Full 8-section study in markdown. Key Hebrew terms studied: e.g., 'erev boqer' (evening-morning, 2300), 'nitsdaq' (cleansed/restored). Andrews Bible Commentary and SDABC both referenced. EGW from Great Controversy on the sanctuary and judgment. Doukhan or Davidson cited as Adventist scholars on sanctuary. Matthew Henry or Calvin noted if they address Dan 8. Cross-references include Lev 16, Heb 8-10, Rev 11:19. Theological themes connect explicitly to Adventist sanctuary doctrine.",
+      "expected_output": "Full 8-section study in markdown, Standard or Exhaustive depth, closing with a Verification Ledger. Key Hebrew terms studied: e.g. 'erev boqer' (evening-morning, 2300), 'nitsdaq' (cleansed/restored). Andrews Bible Commentary and SDABC both attempted via egw-fetch.sh and reported honestly. EGW from Great Controversy on the sanctuary and judgment, fetched with para_id. Doukhan or Davidson cited as Adventist scholars on sanctuary, with pointers distinguished from claims. Cross-references include Lev 16, Heb 8-10, Rev 11:19. Theological themes connect explicitly to Adventist sanctuary doctrine, and at least one theme traces the passage to Christ.",
       "files": [],
       "expectations": [
         "Output contains all 8 sections in order: Passage Context, Historical Background, Word Studies, Commentary Insights, EGW Cross-References, Scriptural Cross-References, Theological Themes, Application Questions",
+        "Section 1 includes a literary-shape note on how the chapter's vision-plus-audition structure is built",
         "Word studies include 3-5 words with Hebrew/transliteration, KJV and TB translation comparison",
         "Word studies cover 'nitsdaq' (cleansed/justified/restored) — the disputed term in Dan 8:14",
-        "Commentary section references Andrews Bible Commentary by name (or honestly flags if content unknown)",
+        "Strong's numbers appear only where certain; no approximated numbers",
+        "Commentary section references Andrews Bible Commentary by name, with access attempted and the outcome reported honestly",
         "Commentary section references SDABC on the year-day principle and 1844 chronology",
         "Commentary section names at least one Adventist scholar by specialty: Doukhan, Davidson, Goldstein, or Holbrook",
-        "Commentary section includes at least one classic non-Adventist voice (Matthew Henry, Calvin, or modern equivalent) with any doctrinal disagreement flagged",
-        "EGW section cites specific works (e.g., Great Controversy) with page numbers OR clearly paraphrases without quote marks — no fabricated verbatim quotes",
-        "Cross-references include connection-type tags (Direct parallel, Thematic, OT background, etc.) in table format",
-        "Theological themes engage the Adventist sanctuary doctrine explicitly and honestly",
-        "Application questions are 5-8 questions, not all yes/no answerable",
-        "No fabricated commentary content — if source unknown, flags honestly"
+        "Commentary section includes at least one classic non-Adventist voice with any doctrinal disagreement flagged",
+        "EGW section cites specific works with page numbers and para_id where fetched, OR clearly paraphrases without quote marks — no fabricated verbatim quotes",
+        "Cross-references include connection-type tags in table format",
+        "Theological themes engage the Adventist sanctuary doctrine explicitly, and at least one theme traces the passage to Christ",
+        "Application questions are 5-8, not all yes/no answerable",
+        "Document closes with a Verification Ledger table carrying a provenance tag for every source claim",
+        "No provenance tags, no para_id, no 'this session', and no first-person research narration in the body of the study"
       ]
     },
     {
       "id": 2,
       "prompt": "Study Mark 2:23-28. I want to understand the original cultural context, what the Pharisees were actually objecting to, and how Jesus's response shapes Adventist Sabbath theology.",
-      "expected_output": "Full 8-section study. Historical background details first-century Pharisaic halakhah on Sabbath (39 categories, Mishnah tractate Shabbat). Word studies on Sabbath, Son of Man, Lord. Andrews Bible Commentary and SDABC both referenced. Tonstad or Bacchiocchi cited for Sabbath theology. Matthew Henry and Keener (IVP Background) used for cultural context, with Sabbath-abrogation flag where applicable. EGW from Desire of Ages on the Sabbath conflicts. Themes connect Jesus's lordship over Sabbath to the SDA position that Sabbath is for humanity, not abolished.",
+      "expected_output": "Full 8-section study. Historical background details first-century Pharisaic halakhah on Sabbath (39 categories, Mishnah tractate Shabbat). Word studies on Sabbath, Son of Man, Lord. Tonstad or Bacchiocchi cited for Sabbath theology. Matthew Henry and Keener used for cultural context, with the Sabbath-abrogation divergence flagged. EGW from Desire of Ages on the Sabbath conflicts. Themes connect Jesus's lordship over the Sabbath to the SDA position that Sabbath is for humanity and is not abolished.",
       "files": [],
       "expectations": [
-        "Output contains all 8 sections in order",
+        "Output contains all 8 sections in order, plus a Verification Ledger",
         "Historical background explains Pharisaic Sabbath halakhah with specifics (39 categories of work, Mishnah references)",
         "Word studies include 'Sabbath' and at least one of 'Son of Man' (huios tou anthropou) or 'Lord' (kurios)",
-        "Commentary section references Andrews Bible Commentary by name",
-        "Commentary section references SDABC on Mark 2",
+        "Commentary section references Andrews Bible Commentary and SDABC on Mark 2",
         "Commentary section names at least one Adventist Sabbath scholar: Tonstad, Bacchiocchi, or MacCarty",
-        "Commentary section includes Matthew Henry or another classic voice; flags where they disagree on Sabbath abrogation",
+        "Calvin or another classic voice on Sabbath abrogation is flagged explicitly as diverging from the Adventist position",
         "EGW section references Desire of Ages on Mark 2 / Sabbath conflicts with proper citation or labeled paraphrase",
-        "Theological themes engage the Adventist Sabbath doctrine — Sabbath for humanity, Christ as Lord of the Sabbath, not abolished",
+        "Theological themes engage the Adventist Sabbath doctrine — Sabbath for humanity, Christ as Lord of the Sabbath, not abolished — and one theme traces the passage to Christ",
         "Cross-references include Gen 2:1-3, Ex 20, and at least two NT parallels",
         "Application questions are 5-8, with at least one observational, one interpretive, and several applicational"
       ]
@@ -43,21 +45,101 @@
     {
       "id": 3,
       "prompt": "Romans 8:1-11. Word studies on 'condemnation,' 'flesh,' and 'Spirit.' Cross-references, Ellen White connections, and theological themes for an Adventist congregation.",
-      "expected_output": "Full 8-section study. Word studies on katakrima (condemnation), sarx (flesh), pneuma (Spirit) with KJV and TB comparison. Andrews Bible Commentary and SDABC both referenced. Heppenstall or LaRondelle cited for salvation theology. Matthew Henry on Romans 8 included; his devotional application noted alongside any soul-immortality assumptions flagged. EGW from Steps to Christ / Selected Messages on righteousness by faith. Cross-references include Gal 5, John 3, Ezek 36. Themes: no condemnation, life in the Spirit, sanctification flowing from justification (Adventist 1888 emphasis).",
+      "expected_output": "Full 8-section study. Word studies on katakrima, sarx, pneuma with KJV and TB comparison. Heppenstall or LaRondelle cited for salvation theology. Matthew Henry on Romans 8 included, devotional application noted, soul-immortality assumptions flagged only where relevant. EGW from Steps to Christ / Selected Messages on righteousness by faith. Themes: no condemnation, life in the Spirit, sanctification flowing from justification. Romans 8 is NOT forced into a sanctuary or Sabbath reading.",
       "files": [],
       "expectations": [
-        "Output contains all 8 sections in order",
-        "Word studies include all three requested words: katakrima, sarx, pneuma with Greek transliteration and translation comparison",
-        "Translation comparison includes KJV and at least one other version (TB, NKJV, NASB, or ESV)",
-        "Commentary section references Andrews Bible Commentary by name (or honestly flags if content unknown)",
-        "Commentary section references SDABC on Romans 8",
+        "Output contains all 8 sections in order, plus a Verification Ledger",
+        "Word studies include katakrima, sarx, pneuma with Greek transliteration and translation comparison",
+        "Translation comparison includes KJV and at least one other version",
+        "A lexicon is named where a word study leans on one (BDAG, Thayer's, BDB, HALOT)",
+        "Commentary section references Andrews Bible Commentary and SDABC on Romans 8",
         "Commentary section names at least one Adventist salvation scholar: Heppenstall, LaRondelle, Knight, or Whidden",
-        "Commentary section includes Matthew Henry on Romans 8 — devotional application noted; any soul-immortality assumption flagged where relevant",
-        "EGW section references appropriate works (Steps to Christ, Selected Messages, or Christ's Object Lessons) with proper citation or labeled paraphrase — no fabricated verbatim quotes",
-        "Cross-references include thematically connected passages (Gal 5:16-25, Ezek 36:26-27, John 3:5-8)",
-        "Theological themes engage justification AND sanctification, noting Adventist emphasis on righteousness by faith",
-        "Theological themes are honest — Romans 8 is not forced into a sanctuary or Sabbath sermon",
+        "Commentary section includes Matthew Henry on Romans 8, fetched verbatim where possible",
+        "EGW section references appropriate works with proper citation or labeled paraphrase — no fabricated verbatim quotes",
+        "Cross-references include Gal 5:16-25, Ezek 36:26-27, John 3:5-8",
+        "Theological themes engage justification AND sanctification, noting the Adventist righteousness-by-faith emphasis",
+        "Theological themes are honest — Romans 8 is not forced into a sanctuary or Sabbath reading",
         "Application questions are 5-8, with concrete cost in the applicational ones"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Do a deep study on 1 Corinthians 14 for a class that will ask about modern speaking in tongues. I want to know what BRI actually says.",
+      "expected_output": "Full study whose BRI section reports the real BRI position from the actual articles, retrieved with scripts/bri-fetch.py despite the live site's 403. BRI holds that tongues in Scripture are Spirit-given real human languages, not ecstatic utterance, and that modern glossolalia should not be equated with the NT gift. Ledger records the Wayback snapshot dates. Tests the anti-fabrication path end to end: the skill must not report BRI as unreadable, and must not invent its position either.",
+      "files": [],
+      "expectations": [
+        "The BRI section reports actual article content, not a list of links the skill could not open",
+        "bri-fetch.py (or the documented manual Wayback + __NEXT_DATA__ fallback) is used after the live site returns 403",
+        "BRI's position is stated accurately: tongues as real human languages, not ecstatic speech; modern glossolalia not equated with the NT gift",
+        "Article titles and publication years are given, and the Wayback snapshot date is recorded in the ledger",
+        "Ledger marks the retrieved BRI articles fetched-verbatim, and any inaccessible page located-unread with the reason",
+        "No fabricated BRI content, and no claim that BRI is inaccessible when the fetcher works",
+        "Gerhard Hasel's Speaking in Tongues is surfaced as the fuller Adventist treatment if the BRI footnotes name it",
+        "The body contains no provenance tags, no HTTP codes, and no first-person account of what was or was not retrieved"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Give me a quick overview study of Psalm 23. Nothing exhaustive, I just want the shape of it before Wednesday.",
+      "expected_output": "Overview mode: all 8 sections present but compressed to roughly 1,200 words, with 2 word studies, about 3 cross-references, 3 application questions, and one paragraph per commentary tier. No contents block needed at this length. The skill must not deliver a 6,000-word study when overview was requested.",
+      "files": [],
+      "expectations": [
+        "Total body length is close to 1,200 words, and clearly not a full Standard-depth study",
+        "All 8 sections are still present in order",
+        "Roughly 2 word studies rather than 3-5",
+        "Roughly 3 cross-references and 3 application questions",
+        "Commentary tiers are each covered in about a paragraph",
+        "A Verification Ledger is still present — depth does not remove the audit trail",
+        "Spurgeon's Treasury of David is used, since the passage is a Psalm",
+        "No contents block (document is under ~2,500 words)"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Saya mau pendalaman Alkitab tentang Yohanes 15:1-8 untuk kelas hari Sabat. Bahasa Indonesia.",
+      "expected_output": "Entire study in natural Indonesian, with the passage quoted from Terjemahan Baru, word studies showing TB and KJV side by side plus Greek, section headings and prose in Indonesian, and application questions phrased for an Indonesian Adventist reader. EGW book titles stay in English as the canonical reference form. Tests both the Indonesian output path and the class-teaching signal ('untuk kelas hari Sabat').",
+      "files": [],
+      "expectations": [
+        "The whole document is in Indonesian, not English with Indonesian quotations",
+        "Passage quoted from Terjemahan Baru; where TB and TB2 differ meaningfully, the difference is noted",
+        "Word studies show TB and KJV side by side with the Greek and transliteration",
+        "Indonesian reads naturally rather than as translated English, and avoids the foundation's banned Indonesian filler phrases",
+        "EGW works are cited by their English titles",
+        "Because the user says they are teaching a class, the skill either asks once about Class Teaching Mode or delivers the teaching layer alongside the research sections",
+        "It does not silently switch to the sabbath-school-lesson quarterly format",
+        "Verification Ledger is present"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Study Mark 16:9-20 on the great commission and the signs that follow believers.",
+      "expected_output": "A study that flags the textual variant honestly and early. Mark 16:9-20 is absent from Sinaiticus and Vaticanus; the KJV includes it because the Textus Receptus does. The study should say which witnesses support what, avoid building doctrine on the disputed ending without noting the dispute, and still treat the passage pastorally rather than dismissing it.",
+      "files": [],
+      "expectations": [
+        "Section 1 flags the textual variant, naming the major witnesses that omit the long ending",
+        "The KJV's inclusion is explained as following the Textus Receptus",
+        "No doctrinal point is built on the disputed verses without the dispute being noted",
+        "The passage is still treated pastorally and exegetically, not merely dismissed",
+        "SDABC and Adventist scholarship on the long ending are consulted or honestly flagged as unread",
+        "Verification Ledger present, with the textual-critical claims tagged appropriately"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Study Hebrews 8:1-6, then give me an HTML version I can read on my phone.",
+      "expected_output": "The markdown study plus a bible-study.html rendered from references/html-template.html. The HTML carries the same content and citations but no Verification Ledger, no para_id, no HTTP codes, no tier markers, and no bare URLs as link text. Sections wrapped with data-hue 1-8, Scripture in blockquote.scripture, EGW in blockquote.egw, tables in .tablewrap, one ol per numbered list, and the footer pointing back to bible-study.md.",
+      "files": [],
+      "expectations": [
+        "Both bible-study.md and bible-study.html are produced and saved in the same dated output folder",
+        "The HTML has no Verification Ledger, no para_id, no HTTP status codes, no tier markers",
+        "Every section is wrapped in <section class=\"sec\" data-hue=\"N\"> with a numbered badge",
+        "Scripture uses blockquote.scripture and EGW uses blockquote.egw",
+        "Every table is wrapped in div.tablewrap",
+        "Numbered lists use one <ol> and count 1..n rather than restarting at 1",
+        "Links show descriptive text, never bare URLs",
+        "No placeholders remain in the delivered page",
+        "The footer names the translation and points to bible-study.md",
+        "Page is self-contained: no external fonts, stylesheets, or scripts"
       ]
     }
   ]
