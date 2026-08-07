@@ -1,11 +1,11 @@
 ---
 name: adventist-foundation
-description: Shared context and theological guardrails for Seventh-day Adventist sermon preparation skills. Sets doctrinal alignment, voice, Bible translation defaults (KJV + Indonesian Terjemahan Baru), and Ellen G. White citation policy. Install alongside sermon-adventist, sermon-illustrations, and bible-study-deep. Use this whenever the user is preparing Adventist sermons, Bible studies, or pastoral content — even if they don't say "Adventist" explicitly but mention Sabbath, sanctuary, second coming, Ellen White, SDA, or 28 Fundamental Beliefs.
+description: Shared context and theological guardrails for Seventh-day Adventist sermon preparation skills. Sets doctrinal alignment, voice, Bible translation defaults (KJV + Indonesian Terjemahan Baru), and Ellen G. White citation policy. Install alongside sermon-adventist, sermon-illustrations, bible-study-deep, and sabbath-school-lesson. Use this whenever the user is preparing Adventist sermons, Bible studies, Sabbath School material, or pastoral content — even if they don't say "Adventist" explicitly but mention Sabbath, sanctuary, second coming, Ellen White, SDA, or 28 Fundamental Beliefs.
 ---
 
 # Adventist Foundation
 
-Shared context layer for the Adventist sermon-prep skill collection. Every task skill in this collection (`sermon-adventist`, `sermon-illustrations`, `bible-study-deep`) builds on this foundation.
+Shared context layer for the Adventist sermon-prep skill collection. Every task skill in this collection (`sermon-adventist`, `sermon-illustrations`, `bible-study-deep`, `sabbath-school-lesson`) builds on this foundation.
 
 The task skills handle the *what*. This foundation handles the *how*: theological alignment, voice, citation rules, language conventions, and what makes the output sound like it came from a thoughtful Adventist preacher rather than a generic AI.
 
@@ -131,12 +131,23 @@ When researching for a sermon or study, draw in this order:
    - *Conflict of the Ages* series: *Patriarchs and Prophets*, *Prophets and Kings*, *Desire of Ages*, *Acts of the Apostles*, *Great Controversy*
    - *Steps to Christ*, *Christ's Object Lessons*, *Thoughts from the Mount of Blessing*, *Education*, *Ministry of Healing*
    - Testimonies, periodicals, manuscripts
-3. **SDA Bible Commentary** (SDABC) — denominational scholarly commentary
+3. **Biblical Research Institute (BRI)** — primary Adventist research source for biblical interpretation, doctrine, hermeneutics, and theological questions
+   - **Access:** The live site is behind a Vercel bot checkpoint that returns **403 to every automated request**, whatever headers you send. A browser works; a script does not. Use the helper:
+     ```bash
+     scripts/bri-fetch.py search "tongues"        # archived BRI URLs by keyword
+     scripts/bri-fetch.py get <bri-url>           # the full article as text
+     ```
+     It reads the article through the Wayback Machine and unpacks the Next.js payload (archived HTML is only a shell). Text retrieved this way is the real article, so quoting it is legitimate — **report the snapshot date with the citation**, and treat the live page as authoritative. Prefer the original BRI article, document, or committee report over third-party summaries.
+   - Consult BRI early when a passage touches prophecy, sanctuary, Sabbath, creation, anthropology, ordination, hermeneutics, or another debated Adventist doctrine.
+   - Record the author, title, publication date, and URL. Distinguish official church or BRI statements from signed staff articles and study papers; do not imply that every authored article is a voted denominational position.
+4. **Adventist Bible commentaries** — denominational scholarly commentary
+   - Andrews Bible Commentary for current, accessible exposition
+   - SDA Bible Commentary (SDABC) for detailed verse-level treatment
    - **Access:** Use `sdabc-fetch.sh` (Bash script, `~/.config/scripts/`) to scrape verbatim commentary from bibletools.info. First-paragraph extraction is suitable for sermon context. See `sdabc-guide.md` for details and limitations.
    - Volumes 1-7 available on BibleTools with full-text search
    - **Fallback:** Physical copies or licensed Logos subscription if you need extended commentary beyond the first paragraph
-4. **Adventist Review / Ministry Magazine** — historic and contemporary Adventist thought
-5. **Broader Christian scholarship** — when it strengthens exegesis without contradicting Adventist distinctives
+5. **Adventist Review / Ministry Magazine** — historic and contemporary Adventist thought
+6. **Broader Christian scholarship** — when it strengthens exegesis without contradicting Adventist distinctives
 
 ---
 
