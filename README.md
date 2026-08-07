@@ -128,7 +128,7 @@ Loads once; shared across all other skills.
 | | **Mode A — Original Lesson** | **Mode B — Teacher's Guide** |
 |---|---|---|
 | The ask | "Write a seven-day lesson on Abraham" | "I'm teaching lesson 6 this Sabbath" |
-| Produces | `sabbath-school-lesson.md` + `teachers-comments.md` | `teachers-guide.md` |
+| Produces | `sabbath-school-lesson.md` + `teachers-comments.md` | `teachers-guide.md` + `teachers-guide.html` |
 | You supply | Theme or passage | The actual quarterly lesson text |
 | Length | ~3,000–4,000 words + ~1,200 teacher edition | ~1,500–2,200 words |
 
@@ -160,7 +160,13 @@ Loads once; shared across all other skills.
 - "Saya mengajar Sekolah Sabat pekan ini. Pelajaran 6 kuartal ketiga 2026. Tolong buatkan penuntun guru."
 - "Lesson on the state of the dead for a class with three or four non-Adventist visitors most weeks. 30 minutes."
 
+**Fixed structure, every time:** eight numbered sections (what the week argues → objectives → timed plan → day-by-day map → the two big questions → background → EGW → hard spots), then **Appendix A** with every Bible text quoted in full, **Appendix B** with the EGW/SDABC/BRI sources, and the Verification Ledger last. The teacher learns where things live.
+
+**Readable HTML render:** `teachers-guide.html`, built from `references/teachers-guide-template.html`. Same sanctuary palette and 68ch measure as the `bible-study-deep` page, plus components a guide needs: a glanceable timed plan (weight-bearing rows tinted, the droppable row dimmed), per-day cards with a "two minutes" callout, question cards, pushback blocks, and a gold "before class" homework note. Dark/light and mono toggles, print rules, works offline.
+
 **Output location:** `output/[YYYY-MM-DD]-ss-[kebab-case-title]/` — the `ss-` prefix keeps it separate from a sermon on the same Sabbath.
+
+**Publishes to the web (Claude Code only):** `teachers-guide.html` ships to **[ss.situmorang.com](https://ss.situmorang.com/)** via `scripts/publish-guide.mjs` in the [`situmorang-com/sabbath-school`](https://github.com/situmorang-com/sabbath-school) repo, which strips the Verification Ledger, scrubs `para_id` locators, and archives every week under `/lessons/`. The newest guide is always the homepage. Not available in the Claude Project or ChatGPT bundles.
 
 ---
 
