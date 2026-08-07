@@ -13,11 +13,12 @@ Prepare a complete sermon package: research notes → interactive brainstorm →
 
 ## What This Skill Produces
 
-Three documents per sermon, in this order:
+Four documents per sermon, in this order:
 
 1. **`research-notes.md`** — exegetical and pastoral research the preacher can review, study, and reference. Includes passage context, historical background, key word studies, commentary insights from multiple Adventist sources, EGW cross-references, scriptural cross-references, theological themes, and thinking prompts that pressure-test the sermon.
 2. **`sermon-outline.md`** — service header block (title, main verse, responsive reading, opening + closing hymns) followed by a sermon outline appropriate to the chosen structure, with **strong bookend illustrations** at the opening and the closing.
 3. **`sermon-manuscript.md`** — the actual words the preacher will say, in the chosen language, with both bookend illustrations woven in, all Scripture and EGW quotes properly cited.
+4. **`slides.md`** — a slide-by-slide deck, formatted as copy-paste text for **Gamma AI** (gamma.app). One idea per slide, slides separated by `---`, with Scripture quoted verbatim and `[GAMBAR: …]` visual suggestions. Includes a paste-ready block and a verification notes section.
 
 ---
 
@@ -38,7 +39,11 @@ Step 6: Generate sermon-outline.md
         ↓
 Step 7: Generate sermon-manuscript.md
         ↓
-Step 8: Final pass (verify citations, AI-slop, hymn numbers, illustration bookends)
+Step 8: Generate slides.md (Gamma AI deck)
+        ↓
+Step 9: Final pass (verify citations, AI-slop, hymn numbers, illustration bookends)
+        ↓
+Step 10: Auto-save to /DEV/skills-sermon-adventist/output/[YYYY-MM-DD]-[kebab-case-title]/
 ```
 
 ---
@@ -50,6 +55,8 @@ Ask the preacher these as a single short message at the start. Skip any item the
 | Field | What to capture | Notes |
 |---|---|---|
 | Passage / topic | The text or theme | Required |
+| Date of delivery | The Sabbath/date the sermon will be preached (ISO `YYYY-MM-DD`) | Required — used in the folder name and documented in every file |
+| Location | Church / venue where it will be delivered (e.g., "Jemaat Bandung Timur", "Loma Linda University Church") | Required — documented in every file |
 | Sermon structure | expository, topical, narrative, biographical, textual, three-point | If unclear, recommend based on passage |
 | Language | English or Indonesian | Default per `PRIMARY_LANGUAGE` |
 | Audience | Sabbath main service, evangelistic, youth/AY, Sabbath School, week of prayer, etc. | Affects tone and depth |
@@ -236,6 +243,8 @@ Output the brief so the preacher confirms direction before you write outline + m
 ## Sermon Brief
 
 **Passage:** [passage]
+**Date:** [YYYY-MM-DD]
+**Location:** [church / venue]
 **Structure:** [chosen structure]
 **Language:** [English / Indonesian]
 **Length:** [target minutes]
@@ -288,17 +297,21 @@ The outline opens with the **service header block** at the very top, then the se
 
 ```
 **Sermon Title:** [Short, evocative title]
-**Main Verse:** [One verse, quoted in full, with translation]
-**Responsive Reading:** [Theme + 5–7 verses with antiphonal voicing]
+**Date:** [YYYY-MM-DD, optionally with day name — e.g., "2026-07-04 (Sabbath)"]
+**Location:** [Church / venue where it will be delivered]
+**Main Verse / Ayat Inti:** [One verse, quoted in full, with translation]
+**Responsive Reading / Ayat Bersahutan:** [Theme + one continuous passage of 5–7 verses, antiphonally voiced]
 **Opening Hymn:** [SDAH #___ — Title] / [Lagu Sion Edisi Lengkap #___ — Judul]
 **Closing Hymn:** [SDAH #___ — Title] / [LSEL #___ — Judul]
 ```
 
-#### Main Verse
+> **Label convention:** In Indonesian sermons render the labels as **"Ayat Inti"** (the main verse) and **"Ayat Bersahutan"** (the responsive reading). In English sermons use "Main Verse" and "Responsive Reading."
+
+#### Main Verse / Ayat Inti
 One verse, drawn from the preaching passage, that the entire sermon orbits. Echoed throughout.
 
-#### Responsive Reading
-**5–7 verses** (sweet spot; min 3, max 10). Mix verses from the preaching passage with related Scripture (Psalms, Gospels, Prophets). Voiced antiphonally (Leader / Congregation / All; or Pemimpin / Jemaat / Bersama-sama in Indonesian). Theme should *prepare* the heart for the sermon, not summarize it. Don't reuse the Main Verse here — keep it fresh.
+#### Responsive Reading / Ayat Bersahutan
+**One continuous passage** of about 5–7 verses (sweet spot; min 3, max 10). The verses **must come from a single passage** — the same chapter, or adjacent/closely related verses within the same book (e.g., Yohanes 1:1-6). **Do NOT stitch together scattered verses from different books.** Read the passage straight through, split antiphonally across the voices (Leader / Congregation / All; or Pemimpin / Jemaat / Bersama-sama in Indonesian). Choose a passage whose flow *prepares* the heart for the sermon, not one that summarizes it. Where possible, pick a range that does not center on the Ayat Inti so the main verse still lands fresh during the sermon.
 
 #### Opening and Closing Hymns
 Recommend hymn pairs by **theme**:
@@ -358,9 +371,72 @@ Manuscript requirements:
 
 ---
 
-## Step 8: Final Pass
+## Step 8: Generate `slides.md` (Gamma AI Deck)
 
-After producing the three documents:
+Once the manuscript is approved, produce a slide deck **formatted for Gamma AI** (gamma.app). This file is copy-paste ready: the preacher pastes it into Gamma → "Paste in text" and Gamma builds the presentation.
+
+The deck follows the sermon's flow — it does NOT invent new content. Pull title, Ayat Inti, points, Scripture, EGW, illustrations, and Big Idea straight from the outline and manuscript.
+
+### File structure
+
+```
+# Outline Presentasi untuk Gamma.app
+## "[Sermon Title]" — [Passage]
+
+---
+
+## CARA PAKAI
+1. Buka gamma.app → New → "Paste in text" → mode "Card-by-card".
+2. Salin teks antara "=== MULAI SALIN ===" dan "=== AKHIR SALIN ===".
+3. Setelan: Format: Presentation · Language: [Indonesian/English] · Amount of text: [Medium / for Tuli: Brief]. Biarkan tema/visual dipilih Gamma.
+4. Tiap blok dipisah `---` = satu slide.
+
+---
+
+=== MULAI SALIN ===
+
+# [Judul Khotbah]
+### [Passage] — [subtitle]
+
+---
+
+[... slide-per-slide: judul + beberapa baris fokus, tanpa arahan gambar ...]
+
+=== AKHIR SALIN ===
+
+---
+
+## Catatan Verifikasi (jangan disalin ke Gamma)
+[List each EGW quote / paraphrase status, hymn numbers, and a reminder to re-check every verse after Gamma generates.]
+```
+
+### Slide rules
+
+**Focus on the WORDS, one slide at a time.** Gamma chooses the visuals/theme/background — do NOT prescribe them.
+
+- **One idea per slide.** Slides separated by `---`. Aim for ~15–22 slides for a full sermon.
+- **Each slide = a clear headline + a few focused lines.** Short. Punchy. The preacher speaks the rest. No dense paragraphs (a paste that looks like the outline is too heavy — break it up).
+- **Do NOT add `[GAMBAR: ...]` or any background/image/theme directives.** Let Gamma decide the look. The file is words only.
+- **Scripture verbatim**, with reference and translation, in blockquotes.
+- **EGW quotes** only if verified; mark paraphrases as paraphrase (no quote marks).
+- Keep the paste region **clean** so Gamma's "Card-by-card" mode makes one good card per `---` block. Keep CARA PAKAI and verification notes OUTSIDE the `=== MULAI SALIN ===` / `=== AKHIR SALIN ===` markers so they don't become slides.
+- Cover the arc: title → opening illustration → Big Idea → each body point (with its Scripture/word study) → application → closing illustration → final Big Idea + appeal.
+- The **Big Idea** appears on its own slide near the start, and again near the end.
+- A **verification notes** section at the bottom, clearly marked "jangan disalin ke Gamma."
+
+### For Tuli / simplified-language sermons
+
+- Set "Amount of text: Brief" in Gamma.
+- Keep slides **short phrases**, not sentences — match the simplified vocabulary of the manuscript (short, concrete words).
+- Fewer words per slide, more slides — let each small idea breathe on its own card.
+
+After outputting, tell the preacher how to paste it into Gamma (Card-by-card mode, copy between the MULAI/AKHIR markers).
+
+---
+
+## Step 9: Final Pass
+
+After producing the four documents:
 
 1. Re-read manuscript for **AI-slop phrases** (see foundation banned list). Strip them.
 2. Verify **every Scripture citation** has book, chapter, verse, and translation.
@@ -370,9 +446,45 @@ After producing the three documents:
 6. Confirm **OPENING illustration AND CLOSING illustration** are both present, both fully written, both with verification notes if attributed.
 7. Confirm the **Main Verse echoes back** in intro and conclusion of the manuscript.
 8. Confirm `research-notes.md` exists with all 8 sections present.
+9. Confirm the **Date and Location** appear in all files (header block on outline + manuscript; header line on research notes) and match what the preacher gave.
+10. Confirm `slides.md` exists, every verse on a slide matches the manuscript, and the verification-notes section is present and marked "jangan disalin ke Gamma."
 
-Deliver all three documents:
-> Three documents ready: research-notes.md (review while you pray), sermon-outline.md (service flow), sermon-manuscript.md (what to preach). EGW quotes fetched from egwwritings.org where possible, otherwise paraphrased with notes. Hymn numbers flagged where unverified. Pray over it and make it yours.
+Deliver all four documents:
+> Four documents ready: research-notes.md (review while you pray), sermon-outline.md (service flow), sermon-manuscript.md (what to preach), slides.md (paste into gamma.app for the deck). EGW quotes fetched from egwwritings.org where possible, otherwise paraphrased with notes. Hymn numbers flagged where unverified. Pray over it and make it yours.
+
+---
+
+## Step 10: Auto-Save to Output Directory
+
+After the preacher approves the final manuscripts, save all four files to the output directory:
+
+**Path structure:**
+```
+/Users/edmundsitumorang/DEV/skills-sermon-adventist/output/
+└── [YYYY-MM-DD]-[sermon-title-in-kebab-case]/
+    ├── research-notes.md
+    ├── sermon-outline.md
+    ├── sermon-manuscript.md
+    └── slides.md
+```
+
+**Workflow:**
+1. Convert sermon title to kebab-case (lowercase, hyphens instead of spaces; keep special words like "God", "Christ")
+   - "The Place Whereon Thou Standest Is Holy" → `the-place-whereon-thou-standest-is-holy`
+2. Prefix the folder name with the **date of delivery** in ISO `YYYY-MM-DD` form so sermons sort chronologically
+   - Date `2026-07-04` + title above → `2026-07-04-the-place-whereon-thou-standest-is-holy`
+   - If the preacher never gave a date, fall back to the title alone and tell them no date was recorded
+3. Create the folder if it doesn't exist
+4. Write the four .md files into it — each (except slides.md) already carries the **Date** and **Location** in its service header block (see Step 6)
+5. Confirm to the preacher with the file paths
+
+**Example output:**
+> Sermon saved to `/Users/edmundsitumorang/DEV/skills-sermon-adventist/output/2026-07-04-the-place-whereon-thou-standest-is-holy/`
+> - research-notes.md
+> - sermon-outline.md
+> - sermon-manuscript.md
+> - slides.md
+> Delivery: 2026-07-04 at [location] — recorded in each file's header.
 
 ---
 

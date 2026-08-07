@@ -20,7 +20,9 @@ copy_references() {
 
     if [ -d "$REPO_ROOT/$skill/references" ]; then
         mkdir -p "$DIST_DIR/$dist_type/knowledge"
+        # .md knowledge files plus .html assets (e.g. the bible-study page template)
         cp -v "$REPO_ROOT/$skill/references"/*.md "$DIST_DIR/$dist_type/knowledge/" 2>/dev/null || true
+        cp -v "$REPO_ROOT/$skill/references"/*.html "$DIST_DIR/$dist_type/knowledge/" 2>/dev/null || true
     fi
 }
 
@@ -37,6 +39,12 @@ check_size() {
         echo "✅ $file is $(($size / 1024))K (limit: $(($limit / 1024))K)"
         return 0
     fi
+}
+
+# Same check, but never aborts the build under `set -e` — oversize is a warning,
+# not a failure (ChatGPT users split long instructions into knowledge files).
+check_size_warn() {
+    check_size "$1" "$2" || true
 }
 
 # ---
@@ -115,12 +123,32 @@ echo ""
 
 # ---
 
-# 5. SIZE CHECKS
+# 5. SABBATH-SCHOOL-LESSON
+echo "📦 Building sabbath-school-lesson packages..."
+
+# Claude Project (full)
+cp -v "$REPO_ROOT/sabbath-school-lesson/SKILL.md" "$DIST_DIR/claude-project/sabbath-school-lesson-instructions.md"
+copy_references "sabbath-school-lesson" "claude-project"
+
+# ChatGPT (full)
+cp -v "$REPO_ROOT/sabbath-school-lesson/SKILL.md" "$DIST_DIR/chatgpt-gpt/sabbath-school-lesson-instructions.md"
+copy_references "sabbath-school-lesson" "chatgpt-gpt"
+
+# System prompt (API)
+cp -v "$REPO_ROOT/sabbath-school-lesson/SKILL.md" "$DIST_DIR/system-prompt/sabbath-school-lesson.txt"
+
+echo "✅ sabbath-school-lesson built"
+echo ""
+
+# ---
+
+# 6. SIZE CHECKS
 echo "📏 Checking file sizes for ChatGPT 8K instruction limit..."
-check_size "$DIST_DIR/chatgpt-gpt/adventist-foundation-instructions.md" 8000
-check_size "$DIST_DIR/chatgpt-gpt/sermon-adventist-instructions.md" 8000
-check_size "$DIST_DIR/chatgpt-gpt/bible-study-deep-instructions.md" 8000
-check_size "$DIST_DIR/chatgpt-gpt/sermon-illustrations-instructions.md" 8000
+check_size_warn "$DIST_DIR/chatgpt-gpt/adventist-foundation-instructions.md" 8000
+check_size_warn "$DIST_DIR/chatgpt-gpt/sermon-adventist-instructions.md" 8000
+check_size_warn "$DIST_DIR/chatgpt-gpt/bible-study-deep-instructions.md" 8000
+check_size_warn "$DIST_DIR/chatgpt-gpt/sermon-illustrations-instructions.md" 8000
+check_size_warn "$DIST_DIR/chatgpt-gpt/sabbath-school-lesson-instructions.md" 8000
 
 echo ""
 echo "📂 Generated files:"
