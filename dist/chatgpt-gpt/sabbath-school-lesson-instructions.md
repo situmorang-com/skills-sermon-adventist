@@ -1,3 +1,15 @@
+**And check that similar titles are actually the same book.** Resolve the book id and read its catalogue record; do not reason from the title. A worked example from Q3 2026 lesson 6, where three items share a name and **none of them is what it looks like**:
+
+| Book | Title | Author | Year |
+|---|---|---|---|
+| 1340, code SGL | *Spiritual Gifts* | **J. N. Loughborough** | 1899 |
+| 104, code 1SG | *Spiritual Gifts, vol. 1* | Ellen G. White | 1858 |
+| pp. 5–16 inside book 104 | *Spiritual Gifts* | **Roswell F. Cottrell** | — |
+
+A quote fetched from 1340 is Loughborough's. The lesson's Friday reading is Cottrell's essay printed inside White's volume. Neither is Ellen White writing about spiritual gifts, and a guide that says "Ellen White says" over either one is wrong in front of a class that can check in a minute.
+
+Getting this right took `GET /content/books/<id>` and reading the `author` field, which costs one call. Guessing cost two wrong attributions in a row: first "vol. 1," then "probably Cottrell." **When two references share a title, resolve every book id before writing any of them down.**
+
 ---
 name: sabbath-school-lesson
 description: Build a Seventh-day Adventist Sabbath School teacher's guide for a quarterly Adult Bible Study Guide lesson. The lesson itself is already written and used church-wide, so this skill never invents one: it locates the official lesson for a given Sabbath, then digs deeper through SDABC, Ellen G. White, the Biblical Research Institute and Adventist scholarship to build a guided study the teacher can run in about thirty-five minutes. Produces a markdown guide plus a readable HTML page, in English (KJV) or Indonesian (Terjemahan Baru), with a timed discussion plan, a day-by-day map carrying each day's own sources, the two questions worth real time, predicted pushback, and every Bible text in full. Use whenever the user is teaching or preparing a Sabbath School lesson, quarterly lesson, lesson study, Adult Bible Study Guide week, teachers guide, or class study plan, including Indonesian phrasings like pelajaran Sekolah Sabat, penuntun guru, pendalaman pekan ini, or when they say they are teaching the lesson this Sabbath.
@@ -58,14 +70,26 @@ Do not interrogate beyond the table. If the user named the Sabbath and the langu
 
 This is the failure point of the whole mode. A guide built on a guessed lesson is worse than no guide, because the teacher discovers the mismatch in front of the class.
 
-**Ask for it directly first:** "Paste the lesson text, or tell me the quarter, year, and lesson number and I'll try to pull it."
+**Fetch it from the Adventech API.** This is the backend the official GC Sabbath School app runs on, and it serves the whole lesson week as JSON. It is the reliable path, not a fallback:
 
-**If attempting to fetch**, the lesson is published in several places. Try them, and treat failure as a normal outcome:
+```bash
+B=https://sabbath-school.adventech.io/api/v2/en/quarterlies/2026-03
+curl -s "$B/lessons/index.json"                        # 13 lessons with date ranges
+curl -s "$B/lessons/06/index.json"                     # the day list for one lesson
+curl -s "$B/lessons/06/days/01/read/index.json"        # Sabbath Afternoon
+curl -s "$B/lessons/06/days/04/read/index.json"        # a weekday
+curl -s "$B/lessons/06/days/07/read/index.json"        # Friday, Further Thought
+```
 
-- Sabbath School Net (`ssnet.org`) — posts each week's lesson and teacher helps in HTML
-- The Adult Bible Study Guide site (`absg.adventist.org`)
-- The Sabbath School app's backend used by Adventech's apps, if reachable
-- For Indonesian, the local conference or division quarterly, often as a PDF
+Quarterly id is `YYYY-MM` with `MM` the quarter's first month, so Q3 2026 is `2026-03`. Days `01`–`07` are the week; each returns `{id, date, title, bible, content}` with `content` as HTML. Strip the tags. Day `01` carries the Read-for-This-Week list and the Memory Text; day `07` carries Further Thought and the discussion questions.
+
+**Do not scrape `absg.sspmadventist.org`.** It is a JavaScript shell and returns an empty page to any script. The API serves the same official content.
+
+Secondary sources, useful for cross-checking a date or a title:
+
+- Sabbath School Net (`ssnet.org`) posts each week's lesson in plain HTML, at `/lessons/<yy><q>/less<NN>.html`
+- `fustero.es/en_<year>t<quarter>.pdf` holds the whole quarter as a PDF
+- For Indonesian, the local conference or division quarterly. The API's `id` language endpoint exists but did not carry this quarter, so check rather than assume
 
 **Hard rule:** if you cannot read the lesson, say so in one sentence and ask the user to paste it. Do **not** reconstruct a lesson week from its title. Do **not** infer the daily sections from the quarter's theme. Do **not** produce a guide "based on what lesson 6 likely covers." A quarterly title tells you almost nothing about which passages the five days actually treat.
 

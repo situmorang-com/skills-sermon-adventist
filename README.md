@@ -133,7 +133,7 @@ Loads once; shared across all other skills.
 | Produces | `teachers-guide.md` + `teachers-guide.html` |
 | Length | ~2,500–3,500 words plus appendices |
 
-**The one unforgivable failure** is building a guide on a lesson it could not read. If it cannot fetch the week from ssnet.org or absg.adventist.org, it says so in one sentence and asks you to paste it, rather than guessing what "lesson 6" probably covers.
+**The one unforgivable failure** is building a guide on a lesson it could not read. It pulls the official lesson, and the official Teacher Comments, from the Adventech API that powers the GC Sabbath School app. If that fails it says so in one sentence and asks you to paste it, rather than guessing what "lesson 6" probably covers.
 
 **Fixed structure, every time:** eight numbered sections (what the week argues → objectives → timed plan → day-by-day map → the two big questions → background → EGW → hard spots), then **Appendix A** with every Bible text quoted in full, **Appendix B** with the EGW/SDABC/BRI sources, and the Verification Ledger last. The teacher learns where things live.
 

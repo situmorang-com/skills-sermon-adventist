@@ -165,9 +165,10 @@ For building a teacher's guide, the official text is required input. Places it i
 
 | Source | Form | Notes |
 |---|---|---|
-| Sabbath School Net (`ssnet.org`) | HTML, weekly | Posts the lesson plus independent teacher helps and commentary. Usually the most fetchable |
-| Adult Bible Study Guide (`absg.adventist.org`) | HTML / PDF | The official General Conference edition |
-| Adventech Sabbath School apps | App / API backend | Powers the mobile apps; reachability from a script varies |
+| **Adventech Sabbath School API** | JSON | **The reliable path.** `sabbath-school.adventech.io/api/v2/en/quarterlies/<YYYY-MM>/lessons/<NN>/days/<DD>/read/index.json`. Serves days `01`–`07` plus `teacher-comments`, `hope-ss` and `inside-story`. This is what the official GC app runs on |
+| Sabbath School Net (`ssnet.org`) | HTML | Server-rendered, good for cross-checking a title or date range |
+| `fustero.es/en_<year>t<quarter>.pdf` | PDF | The whole quarter in one file, roughly 6 MB |
+| `absg.sspmadventist.org` | JavaScript shell | **Returns an empty page to any script.** Readable only in a browser or the app. Use the API instead |
 | Local conference or division | PDF | The usual path for Indonesian editions |
 
 **If none of these can be read, ask the user to paste the lesson.** Do not reconstruct a week from its title. A quarterly title tells you almost nothing about which passages the five days actually treat, and a guide built on a guess fails in front of the class.
