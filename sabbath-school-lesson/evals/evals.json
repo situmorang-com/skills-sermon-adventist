@@ -1,0 +1,79 @@
+{
+  "skill_name": "sabbath-school-lesson",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Sabbath School lesson on the call of Abraham, Genesis 12. For an adult class, teaching Sabbath 2026-08-15. English.",
+      "expected_output": "Mode A. Language confirmed explicitly rather than assumed. A Lesson Spine shown for approval first (central claim, Memory Text, Read for This Week's Study, five named daily moves, Adventist lens, the day that costs something). Then two files: sabbath-school-lesson.md with Sabbath Afternoon (Read list, Memory Text quoted verbatim in KJV with reference, 250-350 word introduction, the 'Study this week's lesson to prepare for Sabbath, August 15' closing line), five day sections headed 'Sunday, August 9 - [title]' style with a Read prompt, 350-450 words exposition, and 1-2 questions each, and Friday Further Thought with an EGW reading from Patriarchs and Prophets, one quoted or clearly paraphrased paragraph, and exactly three numbered discussion questions. Plus teachers-comments.md with Key Text, Study Focus, Part I Overview, Part II Commentary, Part III Life Application, and the Verification Ledger. Saved to output/2026-08-15-ss-[kebab-title]/.",
+      "files": [],
+      "expectations": [
+        "Asks for the output language explicitly rather than defaulting silently to PRIMARY_LANGUAGE",
+        "Presents a Lesson Spine for confirmation before writing the week's prose",
+        "Spine names five distinct daily moves, not five restatements of one idea",
+        "Spine explicitly identifies which day costs something / is uncomfortable",
+        "Sabbath Afternoon contains all four elements in order: Read for This Week's Study, Memory Text, introduction, the 'Study this week's lesson to prepare for Sabbath, [date]' closing line",
+        "Memory Text is quoted in full in a blockquote with reference and translation named (KJV)",
+        "Introduction does not open with 'This week we will study' or any table-of-contents opening",
+        "Each of Sunday through Thursday has a day-and-date heading, a single 'Read [passage]' prompt, exposition, and 1-2 questions",
+        "Daily sections are each anchored in their own passage, not a chain of scattered proof-texts",
+        "No question in the lesson is answered by the sentence that follows it",
+        "Friday Further Thought names an Ellen G. White reading, and gives a page range ONLY if fetched and confirmed - otherwise chapter title and book with no page numbers",
+        "Friday has exactly three numbered discussion questions, at least one answerable by someone who disagrees with the lesson's conclusion",
+        "Questions pass the four tests: not yes/no/Jesus answerable, two defensible answers possible, names something concrete, answer not predetermined",
+        "teachers-comments.md is a separate file with Key Text, Study Focus, Part I Overview, Part II Commentary, Part III Life Application",
+        "Verification Ledger appears in teachers-comments.md and NOT in the student lesson",
+        "No provenance tags (fetched-verbatim, located-unread, known-position, inference), no para_id, and no 'this session' anywhere in the student lesson body",
+        "Word budget respected: student edition 3,000-4,000 words, Teachers Comments 1,000-1,500",
+        "Saved to output/2026-08-15-ss-[kebab-case-title]/ with the ss- prefix, not into a sermon folder",
+        "No fabricated EGW page numbers and no fabricated commentary content"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Saya mengajar Sekolah Sabat pekan ini. Pelajaran 6 kuartal ketiga 2026. Tolong buatkan penuntun guru.",
+      "expected_output": "Mode B. Must NOT reconstruct the lesson from the quarter and lesson number. Should attempt to locate the official text (ssnet.org, absg.adventist.org, local conference PDF for the Indonesian edition) and, if it cannot read it, say so in one sentence and ask the user to paste the lesson text - naming exactly what is needed: lesson title, Ayat Hafalan, the Bacalah untuk Pelajaran Pekan Ini list, the five daily section titles with passages, and the three Pertanyaan Diskusi. Once the text is supplied, produce teachers-guide.md in Indonesian with Indonesian quarterly labels, a Know/Feel/Do objectives table, a 35-minute timed discussion plan, the two questions worth real time, 2-3 background items, the EGW reading, predicted pushback with an honest answer, an opening hook, a closing that returns to the Ayat Kunci, and a Verification Ledger.",
+      "files": [],
+      "expectations": [
+        "Recognizes this as Mode B, not Mode A",
+        "Does NOT invent or reconstruct the content of quarter 3 lesson 6 from its number or title",
+        "Attempts to locate the official lesson text, naming real sources (ssnet.org, absg.adventist.org, or the local/divisional Indonesian PDF)",
+        "If the lesson cannot be read, says so in one short sentence and asks the user to paste it",
+        "Names precisely what is minimally needed: title, Memory Text, reading list, five daily titles with passages, three Friday discussion questions",
+        "Output is in Indonesian, using quarterly labels: Sabat Sore, Minggu, Senin, Selasa, Rabu, Kamis, Jumat, Ayat Hafalan, Pendalaman, Pertanyaan Diskusi",
+        "Indonesian date order is day-then-month (e.g. 'Minggu, 9 Agustus')",
+        "EGW book titles remain in English even in Indonesian output",
+        "Includes a Know / Feel / Do objectives table with a Do that is concrete enough to be declined",
+        "Includes a minute-by-minute discussion plan totalling the stated time, defaulting to 35 minutes",
+        "Plan states where to compress if announcements run long, and application is NOT the part that gets cut",
+        "Identifies the weight-bearing day rather than treating all five days equally",
+        "Predicts specific class pushback and gives an honest answer from Scripture",
+        "Plans facilitation, not presentation: someone other than the teacher speaks in the first two minutes, and silence after a real question is planned for",
+        "Indonesian prose reads naturally, not translated-from-English, and avoids the foundation's banned Indonesian filler phrases",
+        "Verification Ledger present"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I need a Sabbath School lesson on the state of the dead for a class that has three or four non-Adventist visitors most weeks. 30 minutes only, and one of our members always brings up near-death experiences.",
+      "expected_output": "Mode A with the class profile driving real choices. Language asked. Spine built on the actual texts (Eccl 9:5-6, Ps 146:4, John 11:11-14, 1 Thess 4:13-18, Luke 16 handled honestly as a parable) rather than a doctrinal outline. The distinctive is engaged directly, not softened for visitors, but every term is defined on first use and no question is staged so a visitor's honest answer becomes the wrong answer publicly. The 30-minute compression is planned explicitly. The near-death-experience objection is anticipated by name with an honest scriptural answer and a time-box. EGW from The Great Controversy with a verified page range or a chapter title only.",
+      "files": [],
+      "expectations": [
+        "Asks for output language explicitly",
+        "Spine is built from the passages, not from a doctrinal proposition looking for proof-texts",
+        "Engages the Adventist state-of-the-dead distinctive directly rather than softening it for the visitors present",
+        "Defines terms on first use for visitors: soul sleep, conditional immortality, the resurrection - no undefined in-group shorthand",
+        "No question is constructed so that a visitor's honest answer is publicly the wrong answer",
+        "Handles Luke 16 honestly as a parable rather than as a description of the afterlife",
+        "Plans the 30-minute compression explicitly, cutting the survey of remaining days rather than the application",
+        "Anticipates the near-death-experience objection by name and answers it from Scripture, with a time-box for taking it further after class",
+        "Flags classic commentators (Matthew Henry, Spurgeon) where they assume soul immortality, if they are cited at all",
+        "Friday EGW reading from The Great Controversy with a page range only if fetched and confirmed, otherwise chapter title and book only",
+        "Exactly three Friday discussion questions, at least one genuinely open to a dissenting answer",
+        "Questions are concrete and name real situations (a funeral, a grieving relative, a coworker's claim), not abstractions",
+        "Two files produced: sabbath-school-lesson.md clean, teachers-comments.md carrying the Verification Ledger",
+        "No fabricated EGW quotes or page numbers; no fabricated commentary content",
+        "Saved with the ss- prefix in the output folder name"
+      ]
+    }
+  ]
+}
