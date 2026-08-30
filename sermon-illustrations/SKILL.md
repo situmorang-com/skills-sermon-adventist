@@ -274,7 +274,7 @@ Cast a wide net across these wells:
 
 For any quote attributed to a real person, you must be able to point to a reasonable source — a sermon, book, biography, or verified collection. If you can't, paraphrase the idea and frame it as "a teaching attributed to" or skip the quote entirely.
 
-For Ellen G. White content, follow the foundation's three-tier policy strictly. **Use WebFetch on egwwritings.org** when in doubt about exact wording.
+For Ellen G. White content, follow the foundation's three-tier policy strictly. **Do not fetch egwwritings.org** — it disallows automated agents site-wide in robots.txt, and its API requires OAuth. Use the 995 EGW passages already in the local library (`--tradition sda --tag form:quote`), or ask the preacher to check the wording. If you cannot confirm the wording, say so rather than reconstructing it.
 
 ---
 
@@ -297,7 +297,50 @@ How to write a strong original:
 
 ---
 
-## Step 5: Output Format
+## Step 5: The Verification Gate
+
+Run this over every candidate before you write it, whatever tier it came from. It is a rule
+about what you may **assert**, not about what you must find. Withholding a detail is always
+allowed and is the right move whenever the check fails.
+
+For every **named particular** — a date, a year, a place, a sum of money, a transaction, a
+garment, an object, who was present, what happened to someone, a cause of death — ask:
+
+1. **Where did this come from?** A library record, a source I actually read, or my own memory?
+2. **If memory:** can I name a source? If not, drop it. Memory that feels like recollection is
+   exactly how invented detail gets in.
+3. **If a library record:** does the record's own text hold together, and did I read the whole
+   thing? The library contains errors and self-contradictions.
+4. **If Scripture:** does the passage actually say this, or is it a familiar picture assembled
+   from several passages?
+
+When a particular fails, you have three honest moves, in this order:
+
+- **Drop it.** "Edson was a farmer near Port Gibson" carries the illustration without the
+  unverified sale. Most failed particulars are not load-bearing and nobody misses them.
+- **Generalise it.** "Years later" instead of a date you cannot source.
+- **Flag it,** once, in the Notes: "I could not verify X — check it before you preach it."
+
+Never keep the detail and hope. A vivid particular is exactly what a preacher repeats from the
+pulpit, and exactly what a visitor checks afterwards.
+
+**Two real failures of this skill, both caught by this gate:**
+
+| Asserted | Why it failed |
+|---|---|
+| Edson "sold what he had and told his neighbours the world was ending" before 1844 | Memory, no source. He bought the Port Gibson farm in 1832 and sold it in **1850** — six years *after* the Disappointment, to fund the movement. |
+| "Before he stepped behind the veil the high priest put on the jewelled breastplate" | Scripture says the opposite. Leviticus 16:4 prescribes plain linen for the Day of Atonement; the breastplate and ephod of Exodus 28 belong to the ordinary Holy Place ministry. |
+
+Note what these have in common: neither is a quote, so the quote rule above never fired. The
+gate exists because **the dangerous fabrications in this domain are specifics, not quotations.**
+
+**Keep the gate quiet.** It produces *silence* about unverified particulars, not a wall of
+disclaimers. Do not caveat what you did verify, and say each caveat once. An answer hedged
+everywhere is as unusable as one invented everywhere.
+
+---
+
+## Step 6: Output Format
 
 For each illustration (offer 2–4 candidates):
 
