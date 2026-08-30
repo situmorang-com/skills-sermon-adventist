@@ -133,18 +133,83 @@ The exit code is the gate: `0` means candidates, `1` means nothing — go to Tie
 Also go to Tier 1 when the counts are honest but thin. **Adventist-distinctive material is the
 weakest part of this library** — 1,207 of 78,573 records, and the SDA slice is dominated by
 long *Great Controversy* excerpts that are quotations, not illustrations. Probing
-`"Hiram Edson cornfield"` returns 0; `--tag the-sanctuary` holds 10 records total. On the
-investigative judgment, the sanctuary, the three angels' messages or the pioneers, expect Tier 0
-to come up short and go looking properly.
+`"Hiram Edson cornfield"` returns 0; `--tag the-sanctuary` holds 10 records total.
+
+So on an **Adventist-distinctive** subject — the sanctuary, the investigative judgment, the
+three angels' messages, the 1844 experience, the state of the dead, the pioneers — Tier 0 will
+usually return little or nothing, and the Adventist heritage well in Tier 1 is where to go.
+
+**But heritage material must be sourced like anything else, and it is the easiest place in this
+skill to fabricate.** These stories are told from memory in Adventist circles, which makes
+invented detail feel like recollection. Measured failures when this was pushed too hard:
+
+- "Edson had sold what he had and told his neighbours the world was ending" — invented. He sold
+  his Port Gibson farm in **1850**, to support the movement, six years after the Disappointment.
+- "Before he stepped behind the veil the high priest put on the jewelled breastplate" —
+  Leviticus 16:4 says the opposite: plain linen for the Day of Atonement entry. The breastplate
+  and ephod of Exodus 28 belong to the ordinary ministry in the Holy Place.
+
+Both were produced while reaching for heritage content the library does not hold. So:
+
+> Offer a heritage illustration when you can point to a real source — Ellen White's own account
+> with a citation, the SDA Encyclopedia, a documented biography, the Edson manuscript's actual
+> provenance and its scholarly cautions. **If you cannot source it, say so to the preacher
+> rather than narrating it.** "The library holds almost nothing on Hiram Edson and I would want
+> to check the primary account before you preach detail from it" is a useful answer. An
+> unsourced cornfield narrative is not.
+
+A sanctuary question answered with three borrowed courtroom analogies is a thin answer, and worth
+saying so to the preacher. It is still better than a vivid one you made up.
+
+**Don't offer one image three times.** Courtroom / courtroom / courtroom gives the preacher one
+choice, not three. Vary the register — a legal picture, a heritage narrative, a domestic or
+natural picture — so the candidates are genuinely different ways in.
+
+### Drop what doesn't fit — never pad the answer with near-misses
+
+Tier 0 hands you a shortlist, not a set of candidates. Filter it hard.
+
+**Every candidate must serve the whole point asked, not the topic it lives near.** If the
+preacher asks for *records matter AND Christ is our Advocate right now*, a record that only
+establishes "your file exists" is half an answer, and offering it as a candidate spends the
+preacher's attention on something they cannot preach. Two illustrations that land beat four
+that are adjacent.
+
+Tier 0 **supplements** Tier 1, it does not replace it. If fewer than two local records genuinely
+fit, keep the ones that do and go to Tier 1 for the rest — a mixed answer is normal and good.
+Running the search is not a reason to use what it returned.
 
 ### Tier 0 does not lower the bar
 
 This is a compilation of 19 sources, many of them 20th-century collections that reprinted
 stories without citing them. 71% of records carry no click-through URL and `attribution` is a
-single free-text field. **A record found here is a lead, not a verified fact.** The verification
-rule in Tier 1 applies to it unchanged: if the story is presented as true and you cannot point
-to a real source, label it "a frequently told story" or drop it. If it carries a quote you
-cannot verify, paraphrase it or leave it out.
+single free-text field. **A record found here is a lead, not a verified fact.**
+
+**Verify the details inside the record, not just that the record exists.** The library text
+itself contains errors, and finding a story here is no evidence its details are right. A worked
+example — record #34513, the John Newton conversion story, says:
+
+> "Newton was on a slave ship returning from the tropics where they had deposited their 'cargo'"
+
+and four sentences later says the cargo was **"beeswax and wood."** Both cannot be true, and the
+second is the correct one: the *Greyhound* was not slaving on the 1748 voyage, and Newton
+captained slave ships only **after** his conversion. Retelling that record faithfully puts a
+false and well-known-to-be-false detail in the pulpit. The contradiction is visible in the record
+itself, to anyone who reads it before believing it.
+
+So: `illus.mjs show <id>` and read the whole thing. Check the named dates, places, cargoes and
+quotes against a real source before you retell them. The verification rule in Tier 1 applies here
+unchanged: if the story is presented as true and you cannot point to a real source, label it
+"a frequently told story" or drop it. If it carries a quote you cannot verify, paraphrase it or
+leave it out. **Never write "verified" next to a detail you took from the library and did not
+check** — a library id is a provenance record, not a fact-check.
+
+**Scope every verification note to exactly what you checked.** "No verification risk, it is the
+biblical text" is false the moment the retelling adds detail the text does not contain — that
+someone carried Mephibosheth to every meal, that soldiers arrived with a summons. Say which part
+is quoted and which part is reconstruction: *"KJV quotations are verbatim; the detail about being
+carried to the table is inference from 2 Samuel 9:13, not stated."* A blanket assurance stretched
+over a mixed claim is worse than no note, because the preacher stops checking.
 
 ---
 
