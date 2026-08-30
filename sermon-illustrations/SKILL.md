@@ -110,7 +110,8 @@ Real output for `find "running from God" '"hound of heaven"'`:
 | `--ref "Romans 8:28"` | The sermon passage. This is a *mode switch*, not a text filter: it returns what the library indexes to that verse span, including cross-chapter ranges like `Heb 11:39-12:2`. |
 | `--max-words` / `--min-words` | The preacher's length budget from Step 1. |
 | `--attested` | Only illustrations more than one compiler thought worth keeping. |
-| `--tradition sda` | The 1,207 Adventist records. See the warning below. |
+| `--tradition sda` | The 1,207 Adventist records — but 995 are EGW passages typed `quote`. Add `--tag form:story` for the 211 that are actual illustrations. |
+| `--tag form:quote` / `form:story` | The quotation/illustration split. `form` mirrors `illustration_type`: story 73,632, quote 3,191, humor 1,186, hymn-story 649, testimony 233, poem 139. |
 | `--tag <name>` | A taxonomy term. **ANDs with the probes** — `"day of atonement"` alone is 366 hits, with `--tag the-sanctuary` it is 2. |
 
 **Search broadly first.** Probes and `--ref` only. Add `--tag` or `--tradition` on a *second*
@@ -131,9 +132,27 @@ every Scripture reference, and the click-through URL where one exists.
 The exit code is the gate: `0` means candidates, `1` means nothing — go to Tier 1.
 
 Also go to Tier 1 when the counts are honest but thin. **Adventist-distinctive material is the
-weakest part of this library** — 1,207 of 78,573 records, and the SDA slice is dominated by
-long *Great Controversy* excerpts that are quotations, not illustrations. Probing
+weakest part of this library** — 211 usable illustrations out of 78,573 records. Probing
 `"Hiram Edson cornfield"` returns 0; `--tag the-sanctuary` holds 10 records total.
+
+**The 1,207 figure overstates what you can preach.** Broken down: 995 are Ellen G. White
+passages typed `quote`, 209 are It Is Written illustrations, 2 Adventist Stewardship, 1 other.
+So there are **211 Adventist illustrations**, not 1,207. And the 995 EGW records are passages to
+mine rather than quotations to deliver — only 13 of them are under 150 words.
+
+Use the split deliberately:
+
+- `--tradition sda --tag form:story` — the 211 actual illustrations.
+- `--tradition sda --tag form:quote` — the EGW passages, when you want a citation rather than a
+  story. Expect to excerpt: most run 150–300+ words.
+
+Without that filter a Sabbath search returns three *Great Controversy* excerpts and one
+illustration, which reads like the library is answering but is mostly handing you source text.
+
+One caveat on the marker: for EGW and It Is Written the type is a **uniform per-source label**,
+not a per-record judgement — every EGW row is `quote`, every It Is Written row is `story`. So it
+separates those sources reliably and tells you nothing *within* one. Elsewhere (Holwick carries
+6 types, Ministry127 5) it is a real per-record call, though still a rough one.
 
 So on an **Adventist-distinctive** subject — the sanctuary, the investigative judgment, the
 three angels' messages, the 1844 experience, the state of the dead, the pioneers — Tier 0 will
