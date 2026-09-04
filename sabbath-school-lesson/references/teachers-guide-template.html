@@ -289,8 +289,10 @@ code{font:13.5px/1.5 var(--mono);background:var(--edge-soft);padding:2px 6px;
 
 /* Contents ---------------------------------------------------------------- */
 nav.toc{padding:30px 24px;font:14px/1.45 var(--sans)}
-nav.toc .th{font:600 10px/1 var(--mono);letter-spacing:.19em;text-transform:uppercase;
-  color:var(--faint);margin:0 0 16px}
+/* The sidebar heading. Below 1120px the <summary> is the heading instead, so
+   this must stay hidden or the contents shows its title twice. */
+nav.toc .th{display:none;font:600 10px/1 var(--mono);letter-spacing:.19em;
+  text-transform:uppercase;color:var(--faint);margin:0 0 16px}
 nav.toc ol{list-style:none;margin:0;padding:0}
 nav.toc li{margin:0;--hue:var(--muted)}
 nav.toc li[data-hue="1"]{--hue:var(--s1)}
@@ -398,6 +400,18 @@ table.plan-t tr.cut td:nth-child(2){color:var(--muted);font-weight:400}
     0 8px 32px color-mix(in srgb, var(--hue) calc(var(--glow)*30%), transparent)}
 .qbig .when{display:block;margin:0 0 12px;font:600 9.5px/1.6 var(--mono);
   letter-spacing:.14em;text-transform:uppercase;color:var(--hue)}
+/* The setup carries the fact the question needs, so a class that did not read
+   the lesson can still answer. Quieter than the ask it precedes. */
+.qbig .setup{position:relative;margin:0 0 14px;padding:14px 16px 12px;
+  border-radius:4px 12px 12px 4px;border:1px solid var(--edge-soft);
+  border-left:3px solid var(--techelet);background:var(--card);
+  font:17px/1.62 var(--sans);color:var(--muted)}
+.qbig .setup::before{content:"Setup";position:absolute;top:-9px;left:14px;
+  padding:2px 9px;border-radius:999px;font:600 9.5px/1.6 var(--mono);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--techelet);
+  background:color-mix(in srgb, var(--techelet) 17%, var(--base));
+  border:1px solid color-mix(in srgb, var(--techelet) 42%, transparent)}
+.qbig .setup[data-label]::before{content:attr(data-label)}
 .qbig .ask{margin:0 0 18px;font:600 20px/1.45 var(--serif);color:var(--ink)}
 .qbig h4{margin:18px 0 6px;color:var(--hue);
   font:600 10.5px/1.6 var(--mono);letter-spacing:.12em;text-transform:uppercase}
@@ -424,6 +438,25 @@ table.plan-t tr.cut td:nth-child(2){color:var(--muted);font-weight:400}
   border:1px solid color-mix(in srgb, var(--zahav) 42%, transparent)}
 .tonight[data-label]::before{content:attr(data-label)}
 .tonight p:last-child{margin-bottom:0}
+
+/* --- Congregation profile: who is actually in the room ------------------
+   Techelet, not gold (Spirit of Prophecy) and not scarlet (cautions): this is
+   structural information about the room, not part of the lesson's argument. */
+.profile{position:relative;margin:26px 0;padding:20px 22px 16px;
+  border-radius:4px 14px 14px 4px;border:1px solid var(--edge-soft);
+  border-left:3px solid var(--techelet);
+  background:linear-gradient(120deg,
+    color-mix(in srgb, var(--techelet) 10%, transparent), transparent 62%),var(--card)}
+.profile::before{content:"Class profile";position:absolute;top:-9px;left:16px;
+  padding:2px 9px;border-radius:999px;font:600 9.5px/1.6 var(--mono);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--techelet);
+  background:color-mix(in srgb, var(--techelet) 17%, var(--base));
+  border:1px solid color-mix(in srgb, var(--techelet) 42%, transparent)}
+.profile[data-label]::before{content:attr(data-label)}
+.profile ul{margin:0;padding-left:20px}
+.profile li{margin:0 0 8px}
+.profile li:last-child{margin-bottom:0}
+.profile p:last-child{margin-bottom:0}
 
 /* --- Appendix verse tables and read-aloud passages --------------------- */
 section.sec.apx h2 .num{font-size:14px}
@@ -575,6 +608,7 @@ nav.toc details[open] > summary::after{content:"\2212"}
 @media (min-width:1120px){
   nav.toc details > summary{display:none}
   nav.toc details{display:block}
+  nav.toc .th{display:block}
 }
 
 /* TABLET: 721px to 1119px. Wider gutters, two-up cards, contents collapsed. */
@@ -720,6 +754,12 @@ p.note{font-size:13.5px;margin-top:-11px}
   <h3 id="hook">{{HOOK_HEADING}}</h3>
   <blockquote class="ask" data-label="{{ASK_LABEL}}"><p>"…"</p><p>"…"</p></blockquote>
 
+  <!-- Who is in the room. Emitted from the matching profile in
+       teaching-methods.md; says only what CHANGES for this class. -->
+  <div class="profile" data-label="{{PROFILE_LABEL}}">
+    <ul><li>…</li></ul>
+  </div>
+
   <h3 id="plan">{{PLAN_HEADING}}</h3>
   <div class="tablewrap plan"><table class="plan-t"><thead>
     <tr><th>Min</th><th>{{MOVE}}</th><th>{{NOTE}}</th></tr></thead><tbody>
@@ -761,6 +801,7 @@ p.note{font-size:13.5px;margin-top:-11px}
   <h2 id="s5"><span class="num">5</span> {{SECTION_5}}</h2>
   <div class="qbig">
     <span class="when">{{MINUTES_RANGE}}</span>
+    <p class="setup" data-label="{{SETUP_LABEL}}">"…the fact the question needs…"</p>
     <p class="ask">"…"</p>
     <h4>{{WHY}}</h4><p>…</p>
     <h4>{{EXPECT}}</h4><p>…</p>
