@@ -17,7 +17,7 @@ Given a sermon point, theme, or theological concept, this skill produces 2–4 c
 
 Three-tier approach:
 
-0. **Tier 0 — Search the local library.** 78,573 illustrations are indexed on this machine by
+0. **Tier 0 — Search the local library.** 80,211 illustrations are indexed on this machine by
    Scripture reference, subject taxonomy and full text. Search them before searching the web.
    Finding one here does not exempt it from the verification rule below.
 1. **Tier 1 — Find a famous illustration that fits.** Search known wells: classic preachers (Spurgeon, Moody, Tozer, Lloyd-Jones, Whyte), Adventist heritage (Ellen White's experiences, Joseph Bates, William Miller, mission stories), history, science, biography, literature. Verify what's verifiable. If a quote is involved, never fabricate it.
@@ -44,7 +44,7 @@ If the preacher has already given enough in their initial prompt, skip the quest
 
 ## Step 2: Tier 0 — Search the Local Library First
 
-78,573 illustrations sit on this machine, indexed by Scripture span, an 11-facet subject
+80,211 illustrations sit on this machine, indexed by Scripture span, an 11-facet subject
 taxonomy, 682 hymns and full text. Search them before you search the web.
 
 ```bash
@@ -91,7 +91,7 @@ Real output for `find "running from God" '"hound of heaven"'`:
   …own mind; and in the mist of tears I hid *from* Him, and under *running* laughter…
 ```
 
-- `93w` — **word count is the length signal, not the type.** 73,632 of 78,573 records are typed
+- `93w` — **word count is the length signal, not the type.** 74,857 of 80,211 records are typed
   `story` regardless of what they are. At preaching pace: 30 seconds ≈ 75 words, 2 minutes ≈ 300,
   5 minutes ≈ 750. Bound it with `--max-words 300` / `--min-words 100` (the floor matters — the
   library holds 5,374 records under 40 words, many of them one-line stubs).
@@ -111,7 +111,7 @@ Real output for `find "running from God" '"hound of heaven"'`:
 | `--max-words` / `--min-words` | The preacher's length budget from Step 1. |
 | `--attested` | Only illustrations more than one compiler thought worth keeping. |
 | `--tradition sda` | The 1,207 Adventist records — but 995 are EGW passages typed `quote`. Add `--tag form:story` for the 211 that are actual illustrations. |
-| `--tag form:quote` / `form:story` | The quotation/illustration split. `form` mirrors `illustration_type`: story 73,632, quote 3,191, humor 1,186, hymn-story 649, testimony 233, poem 139. |
+| `--tag form:quote` / `form:story` | The quotation/illustration split. `form` mirrors `illustration_type`: story 74,857, quote 3,199, humor 1,186, hymn-story 649, testimony 233, poem 139. |
 | `--tag <name>` | A taxonomy term. **ANDs with the probes** — `"day of atonement"` alone is 366 hits, with `--tag the-sanctuary` it is 2. |
 
 **Search broadly first.** Probes and `--ref` only. Add `--tag` or `--tradition` on a *second*
@@ -132,7 +132,7 @@ every Scripture reference, and the click-through URL where one exists.
 The exit code is the gate: `0` means candidates, `1` means nothing — go to Tier 1.
 
 Also go to Tier 1 when the counts are honest but thin. **Adventist-distinctive material is the
-weakest part of this library** — 211 usable illustrations out of 78,573 records. Probing
+weakest part of this library** — 211 usable illustrations out of 80,211 records. Probing
 `"Hiram Edson cornfield"` returns 0; `--tag the-sanctuary` holds 10 records total.
 
 **The 1,207 figure overstates what you can preach.** Broken down: 995 are Ellen G. White
@@ -391,7 +391,7 @@ For Indonesian sermons, illustrations should:
 ## Reference Files
 
 - `references/illustration-sources.md` — themed lists of well-known illustrations and where to look them up.
-- `/Users/edmundsitumorang/DEV/illustration-library/` — the local library (78,573 records) and its
+- `/Users/edmundsitumorang/DEV/illustration-library/` — the local library (80,211 records) and its
   CLI. `README.md` there documents the query model; `bin/illus.mjs find --help` documents the flags.
 
 ---
