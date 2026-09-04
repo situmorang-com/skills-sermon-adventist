@@ -25,7 +25,6 @@ Never invert this. An application question asked before the class has done the i
 
 - A show of hands with a real split: "Hands up if you have ever moved house without knowing where you were going to live."
 - One word around the circle: "One word for how Abram felt in verse 1."
-- A concrete recall: "Who can tell me, without looking, what God actually promised him?"
 - A disagreement invitation on something safe: "Does verse 1 read like an invitation or an order to you?"
 
 ### Entry questions that fail
@@ -33,19 +32,21 @@ Never invert this. An application question asked before the class has done the i
 - "What did everyone think of this week's lesson?" — no one answers first.
 - "Why is faith important?" — abstract, and the answer is a recitation.
 - "Did everyone do their reading?" — makes the honest answer embarrassing.
+- A concrete recall: "Who can tell me, without looking, what God actually promised him?" — **only if you already know this class read the lesson.** In most rooms they did not, and this opens the hour by exposing that. See "The self-contained question".
 
 ---
 
-## The Four Tests for Any Question
+## The Five Tests for Any Question
 
-A question earns its place only if all four hold:
+A question earns its place only if all five hold:
 
 1. It cannot be answered "yes," "no," or "Jesus."
-2. A careful reader of the passage could give two different defensible answers.
+2. A member who has heard only the setup could give two different defensible answers.
 3. It names something real: a decision, a relationship, a fear, a cost. Not an abstraction.
 4. The teacher does not already know what the class will say.
+5. It works for someone who did not read the lesson. See "The self-contained question".
 
-Test 4 is the one most often failed. A question whose answer the teacher is waiting for is not a question, it is a quiz, and classes learn to detect quizzes within two weeks and stop volunteering.
+Test 5 is the one the whole week turns on, because most members arrive not having read. Test 4 is the one most often failed. A question whose answer the teacher is waiting for is not a question, it is a quiz, and classes learn to detect quizzes within two weeks and stop volunteering.
 
 | Dead | Live |
 |---|---|
@@ -53,6 +54,53 @@ Test 4 is the one most often failed. A question whose answer the teacher is wait
 | "What can we learn from this story?" | "The text says he took Lot. Genesis 13 says that was a problem. Did Abram obey fully?" |
 | "Isn't grace amazing?" | "If grace covers Tuesday's failure, what makes Wednesday different?" |
 | "Why is the Sabbath a blessing?" | "Your manager schedules an unmissable Saturday meeting. Walk me through your actual Friday." |
+
+---
+
+## The Self-Contained Question
+
+Most members arrive not having read the lesson. That is the normal room, not the bad room, and a
+question built on the assumption that they read it lands on silence or on a platitude.
+
+The fix is not to lecture first. It is to put what the question needs **inside the question**: a
+**setup** stating the fact, then the ask opening the judgment. Everything needed to answer is
+present, so prior reading becomes a bonus rather than a prerequisite.
+
+The file's own Live examples already do this, which is why the pattern is worth naming rather
+than inventing:
+
+> "Abram obeyed and it cost him his country. Name the last thing obedience actually cost you."
+
+Setup: he obeyed, it cost him his country. Ask: what has it cost you. Someone who never opened
+the quarterly can answer that sentence.
+
+### The setup
+
+- **Two sentences, normally.** Enough to state the situation, no more.
+- **Facts only, never the conclusion.** The setup may say what happened; it may not say what it
+  means. The meaning is what the class is for.
+- **The operational test:** if the setup answers the question, it is exposition wearing a
+  question mark. Cut it back until the question is genuinely open again.
+
+### When a longer setup is legitimate
+
+Sometimes the passage cannot be entered at all without more, and a short teaching stretch is the
+honest move rather than a failure of nerve. It earns its place only when the class could not
+infer the thing from the text in front of them:
+
+- a historical or cultural fact the text assumes and never states
+- a term whose ordinary meaning misleads, where the Hebrew or Greek carries the argument
+- events from an earlier chapter the passage is answering
+
+Even then: **cap it at half a minute**, say it as narrative rather than as points, and put the
+question straight after. Never open the hour with it — the first two minutes belong to somebody
+other than the teacher. And a guide that needs a long setup on more than one day of the week has
+usually mistaken its own research for the lesson.
+
+### Where this applies
+
+Both big questions, every spare question, and the day cards' two-minute lines. A spare question
+is the one most often written for a reader, because it is written last.
 
 ---
 
@@ -102,7 +150,7 @@ Practical notes for the guide:
 
 Every class has one, and they are usually well-meaning and well-read.
 
-- **Small groups of three for four minutes** dissolves the problem without confronting anyone. It also solves the silent class. When the class profile suggests either problem, put this in the plan.
+- **Small groups of three for four minutes** dissolves the problem without confronting anyone. It also solves the silent class. When the class profile suggests either problem, put this in the plan. **Exception: not in a signed class**, where there is no evidence it works and gaze refusal is the documented move. See **Deaf, signed**.
 - Direct the next question to a named person, warmly: "Ibu Sari, what do you make of verse 5?"
 - Set a frame at the start on a heavy week: "Let's hear from three different people on this one."
 - After a long contribution, thank and pivot: "Good. Who reads it differently?"
@@ -113,18 +161,106 @@ Every class has one, and they are usually well-meaning and well-read.
 - Written or paired answers first, spoken second. "Turn to the person next to you for two minutes."
 - Ask about the *text* before asking about *them*. Observation questions are safe; application questions are exposing.
 
-### The seeker or visitor present
+## Congregation Profiles
 
-- Assume no background. Give the book, chapter, and verse every time, and say what a term means the first time it is used: the sanctuary, the investigative judgment, the Spirit of Prophecy.
-- Do not use in-group shorthand undefined. "The 1888 message" and "the shut door" mean nothing to a visitor and signal that the room is not for them.
-- Never stage a question so a visitor's honest answer becomes the wrong answer in front of the class.
+Six rooms, and the teacher may serve a different one each week. **Adults is the baseline: the
+rest of this file is written for that room.** The other five are departures from it, so each
+subsection below says only what *changes*, never what already holds.
+
+A room is often a combination. Take the primary profile and read the overlaps at the end.
+
+### Adults
+
+Deliberately thin. The general advice is adult advice.
+
+- **They have studied this lesson cycle three or four times.** The enemy is recognition, not
+  comprehension: "we know this one" closes a class faster than confusion does. Reach for the day
+  they think they already know, and ask the question they have not answered before.
+- **Elders and officers are in the room, so being wrong in public costs something** and people
+  play safe. Ask for *readings* before verdicts. When an answer is wrong, do not correct it
+  yourself: ask a second person for a different reading and let the text arbitrate.
+
+### Young adults
+
+Published Adventist curriculum splits this span three ways with no bridge between them:
+RealTime Faith 13–14, Cornerstone Connections 15–18, inVerse 19–35. **Treating teens and
+thirties as one room is our construction, not a denominational position.** Say so if asked.
+
+- **Reading aloud is by consent.** inVerse's own instruction: if someone does not want to read,
+  they tap the next person. Never make a reading turn compulsory.
+- **Give the context before the passage**, on the assumption nobody prepared. This is inVerse's
+  published practice and it arrived at the self-contained question independently of us.
+- **Open with a hard question and do not answer it.** Also theirs.
+- **Doubt gets room, not a rebuttal.** inVerse gave a whole quarter to apologetics: skepticism,
+  the problem of evil, other religions, hellfire. A doubt raised in class is not a fire to put
+  out in five minutes. Let the question stand even if it stands unanswered.
+- **A wrong answer earns no disapproval.** Let them reach their own conclusion; the closest
+  published rule is Cornerstone Connections' weekly teaching note.
+- **Not documented anywhere:** what to do when a young adult disagrees out loud and will not let
+  it go. Nothing denominational exists. Fall back on the time-boxing under **When a Doctrinal
+  Argument Breaks Out**, and know you are improvising.
+
+### Deaf, signed
+
+**No Adventist material on facilitating a deaf class exists.** This subsection is built on
+general deaf-education research, all of it from ASL, NGT, BSL and Libras. **Nothing here comes
+from Bisindo research**, so treat it as a starting point to correct against the room.
+
+- **Turn-taking is gaze, and it is a real system, not an approximation.** An arc sweep across the
+  group means the question is for everyone. Gaze held on one person tells everyone else it is not
+  their turn. The teacher's eyes are the microphone.
+- **Refuse a bid by withholding eye contact.** This is the documented move for the dominant
+  talker and it is quieter than anything in **Class Dynamics**. There is **no evidence at all**
+  that small groups of three work in a signed class, so do not reach for them here first.
+- **Attention is sequential, never divided.** Deaf students show no successful divided attention,
+  only switching. A handout, the screen, another member's turn and the teacher's own hands are
+  one channel. **Read-slots and sign-slots must be separate blocks in the plan**, never
+  concurrent. The setup of a question belongs in the sign-slot, not the read-slot.
+- **Keep the silence, but know the number is borrowed.** Signed turn gaps measure about 270ms,
+  inside the spoken range, so a pause is as marked as in a hearing room. The four to six seconds
+  in **Silence** comes from hearing classrooms. The real difference: a signing teacher has **no
+  neutral place to put her eyes** during the pause, because looking away ends the question.
+- **Simplified register is language access, not cognitive capacity.** A 2001 *Ministry* article
+  suggesting deaf members find abstraction difficult is contradicted by the same denomination in
+  2016. Carry the simplification; drop that rationale, and do not let it back in.
+
+### Seeker or visitor present
+
+- Assume no background. Give the book, chapter, and verse every time, and say what a term means
+  the first time it is used: the sanctuary, the investigative judgment, the Spirit of Prophecy.
+- Do not use in-group shorthand undefined. "The 1888 message" and "the shut door" mean nothing to
+  a visitor and signal that the room is not for them.
+- Never stage a question so a visitor's honest answer becomes the wrong answer in front of the
+  class.
 - An Adventist distinctive is not softened for a visitor. It is *explained* rather than assumed.
 
-### The baptismal or seeker class
+### Baptismal class
 
-- The lesson is a doctrine study more than a discussion. Questions still matter, but the density of explanation is higher.
+- The lesson is a doctrine study more than a discussion. Questions still matter, but the density
+  of explanation is higher.
 - Every distinctive gets its anchor texts read aloud, not summarized.
-- Expect and welcome the objection. A class member who raises the standard Sunday-keeping argument is doing the class a favor.
+- Expect and welcome the objection. A class member who raises the standard Sunday-keeping
+  argument is doing the class a favor.
+
+### Mixed: members and seekers together
+
+The hardest room to pitch, because the same question can expose one half and bore the other.
+
+- **The self-contained question does most of the work here.** A setup that states the fact serves
+  the member and the newcomer with one sentence, which is why it matters more in this room than
+  in any other.
+- **Ask the newer member second, never first.** First is exposure; second is participation.
+- **Never let the in-group answer close a question.** When someone answers in fluent Adventist,
+  thank them and ask who reads it differently.
+- Book, chapter and verse every time, as for a visitor.
+
+### If you also have
+
+- **A visitor, in any profile:** borrow the first and third bullets from **Seeker or visitor
+  present**. Those two carry most of the benefit.
+- **More than one language in the room:** see **Mixed-Language Classes** below.
+
+Stop there. A profile crossed with two modifiers stops being readable on a Sabbath morning.
 
 ---
 
