@@ -250,7 +250,7 @@ Sabbath School lesson study is typically 30–40 minutes and it is *always* shor
 | Min | Move | Notes |
 |---|---|---|
 | 0–3 | Opening hook + the week's claim in one sentence | Someone other than you speaks by minute two |
-| 3–6 | Memory Text read aloud, and one question about it | Not "what does it mean" — something specific |
+| 3–6 | Memory Text read from the Bible, and one question about it | Not "what does it mean" — something specific |
 | 6–14 | The weight-bearing day | Read the passage. Two questions. Let silence sit |
 | 14–22 | The second real question | This is where the class does its own thinking |
 | 22–28 | The remaining days, moved through quickly | Name what they add. Do not re-teach them |
@@ -267,7 +267,8 @@ A teacher's guide that produces a monologue has failed regardless of its content
 
 - **Someone else talks in the first two minutes.** A show of hands, a one-word answer around the circle, a question with an easy entry point. A class that stays silent for ten minutes has decided its role for the whole hour.
 - **Plan the silence.** After a real question, four to six seconds of nothing is the question working. Note in the guide where to wait.
-- **Read the passage aloud, from the Bible, every time.** Not from the lesson's paraphrase.
+- **Read the passage from the Bible, every time. Not from the lesson's paraphrase.** Aloud, or displayed and read together: the rule is about the *source*, not the channel, because a signed class reads off a screen and "aloud" is meaningless there.
+- **If the class profile is `deaf, signed`, the whole guide's prose changes register.** Not just Section 3: every section, every day card, every hard spot. One clause per sentence, the name repeated instead of a pronoun, idiom removed, and every Adventist term glossed in brackets at first use. Terjemahan Baru itself is never paraphrased; hard words in a verse are glossed after it. Write so a twelve-year-old could read it, without writing as though a twelve-year-old were thinking: the doctrine, the weight and the cost of the week stay exactly as they are. See **Simplified Indonesian for a signed class** in `references/teaching-methods.md`.
 - **Write every question so it carries its own setup.** Most members arrive not having read, so the fact the question needs goes inside the question: setup, then ask. Two sentences of fact, never the conclusion. A longer teaching stretch is legitimate where the class could not infer the thing from the text in front of them, capped at half a minute and never in the opening. See **The Self-Contained Question** in `references/teaching-methods.md`.
 - **Have a plan for the dominant talker** and for the class that will not speak. Small groups of three for four minutes solves both, and belongs in the guide when the class profile calls for it.
 - **Do not defend the quarterly.** If a day is weak, teach the text.
@@ -361,13 +362,14 @@ Before delivering, check:
 9. **No provenance tags, no HTTP codes, no "this session"** in any body text. Ledger only. **`para_id` goes in the markdown only, never in the HTML** — it is a re-fetch handle for desk work, and on the page it competes with the page number for the teacher's eye.
 10. **AI-slop swept** per the foundation's banned list, both languages. No em dashes in output prose.
 11. **Timed plan adds up**, the minutes are contiguous, **every day of the week is assigned to a block**, and application survives compression.
-12. **The profile block is present, first in Section 3, and matches the profile actually given.** The six are adults, young adults, deaf-signed, seeker, baptismal, mixed. A guide whose profile block restates the general advice, or contradicts the stated profile, has failed this check. If the class is deaf, verify the plan separates read-slots from sign-slots.
-13. **Adventist lens honest** — engaged where the text engages it, absent where it does not.
-14. **Eight numbered sections, in order**, then Appendix A, Appendix B, ledger last.
-15. **Every verse in Appendix A was fetched**, and any truncated fetch is marked with an ellipsis and logged, not completed from memory.
-16. **Appendix B's SDABC table lists only verses whose text you actually have.**
-17. **`teachers-guide.html` rendered** from `references/teachers-guide-template.html`, and its checklist run.
-18. **`slides/*.pptx` built** per `references/teaching-deck.md`, and its checklist run: no run below 20pt, speaker notes on every slide, a source line on every quote, no day without meat, and a PDF beside it.
+12. **The profile block is present, first in Section 3, and matches the profile actually given.** The six are adults, young adults, deaf-signed, seeker, baptismal, mixed. A guide whose profile block restates the general advice, or contradicts the stated profile, has failed this check. If the class is deaf, verify that no block asks the class to read and watch at the same time; the clock itself is unchanged.
+13. **If the profile is `deaf, signed`, the whole guide is in simplified register.** Spot-check three paragraphs from different sections: one clause per sentence, names not pronouns, no idiom, every Adventist term glossed at first use. A guide whose Section 3 is simplified and whose Section 6 is not has failed this.
+14. **Adventist lens honest** — engaged where the text engages it, absent where it does not.
+15. **Eight numbered sections, in order**, then Appendix A, Appendix B, ledger last.
+16. **Every verse in Appendix A was fetched**, and any truncated fetch is marked with an ellipsis and logged, not completed from memory.
+17. **Appendix B's SDABC table lists only verses whose text you actually have.**
+18. **`teachers-guide.html` rendered** from `references/teachers-guide-template.html`, and its checklist run.
+19. **`slides/*.pptx` built** per `references/teaching-deck.md`, and its checklist run: no run below 20pt, speaker notes on every slide, a source line on every quote, no day without meat, and a PDF beside it.
 
 Then deliver plainly:
 

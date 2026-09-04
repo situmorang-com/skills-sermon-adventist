@@ -113,12 +113,18 @@ Plan for the shorter number. The lesson study block absorbs every overrun from t
 | Min | Move |
 |---|---|
 | 0–3 | Entry question, then the week's claim in one sentence |
-| 3–6 | Memory Text aloud, one specific question about it |
+| 3–6 | Memory Text read from the Bible, one specific question about it |
 | 6–14 | The weight-bearing day: read the passage, two questions, let silence sit |
 | 14–22 | The second real question. The class does its own thinking here |
 | 22–28 | Remaining days, moved through quickly. Name what each adds, do not re-teach |
 | 28–33 | Application: the one concrete thing |
 | 33–35 | Key Text again, one sentence, prayer |
+
+### A signed class
+
+**Unchanged.** Reading off a screen runs at about the rate of reading aloud, and the plan already
+budgets for the reading. The only difference is that reading and signing cannot overlap, so the
+blocks run strictly in order. See **Deaf, signed** under Congregation Profiles.
 
 ### 25 minutes (announcements ran long)
 
@@ -214,15 +220,89 @@ from Bisindo research**, so treat it as a starting point to correct against the 
   that small groups of three work in a signed class, so do not reach for them here first.
 - **Attention is sequential, never divided.** Deaf students show no successful divided attention,
   only switching. A handout, the screen, another member's turn and the teacher's own hands are
-  one channel. **Read-slots and sign-slots must be separate blocks in the plan**, never
-  concurrent. The setup of a question belongs in the sign-slot, not the read-slot.
+  one channel. So **reading and signing never overlap**: the class reads, then eyes come back,
+  then you sign. The setup of a question belongs with the signing, not with the reading.
+  **This costs no extra minutes.** A signed class reads a passage off the screen at about the
+  rate a hearing class reads it aloud, and the standard plan already pays for that reading inside
+  its blocks. What changes is the *order*, not the clock: you cannot talk over the reading the
+  way a hearing teacher can. Run the 35-minute plan as written.
+- **This class reads screen text comfortably**, including your own prose, not only Scripture. So
+  a two-minute line or a summary can go on the screen rather than being signed, which buys you
+  back attention rather than spending it. Ask the room before assuming either way.
 - **Keep the silence, but know the number is borrowed.** Signed turn gaps measure about 270ms,
   inside the spoken range, so a pause is as marked as in a hearing room. The four to six seconds
   in **Silence** comes from hearing classrooms. The real difference: a signing teacher has **no
   neutral place to put her eyes** during the pause, because looking away ends the question.
+- **Register changes the whole guide, not one section.** See **Simplified Indonesian for a signed class** below.
 - **Simplified register is language access, not cognitive capacity.** A 2001 *Ministry* article
   suggesting deaf members find abstraction difficult is contradicted by the same denomination in
   2016. Carry the simplification; drop that rationale, and do not let it back in.
+
+### Simplified Indonesian for a signed class
+
+**Write so a twelve-year-old could read it. Do not write as though a twelve-year-old were
+thinking.** Those are different instructions and only the first one is right.
+
+The reason is language, not capacity. **Written Indonesian is a second language to a Bisindo
+signer**, standing to their first language roughly as written English stands to an ASL signer.
+Indonesia's formal deaf education has largely used SIBI, an artificial system that manually codes
+spoken Indonesian, so for many signers schooling itself happened in something close to a foreign
+tongue. The reported figure is that Indonesian deaf students aged 17–18 write at the level of
+hearing nine- to ten-year-olds — treat that as **unverified**, the source could not be read, but
+the direction is not in doubt.
+
+The denomination is explicit that this is not about intelligence: *"Do not treat the deaf adult
+like a child"* (Evans & Jordan, 2016), and the 2001 *Ministry* article that suggested deaf members
+find abstraction difficult is contradicted by the church's own later material and by everything in
+the current literature. **Keep the doctrine, the weight, and the cost of the week exactly as they
+are. Change the sentences.**
+
+The model is the church's own **Easy Reading edition** of the quarterly, which does precisely
+that. Diffing it against the standard edition yields the rules below. Note what the diff shows:
+mean sentence length barely moves, 14.2 words to 11.8. **The register control is in vocabulary,
+pronouns and ordering, not in uniform shortening.**
+
+1. **The question comes before the reference.** Not "Baca 2 Korintus 3:1-3. Apa bukti pelayanan
+   Paulus?" but "Apa bukti pelayanan Paulus? Baca 2 Korintus 3:1-3 untuk jawabannya." Tell them
+   what to look for before sending them to look.
+2. **One clause per sentence.** Split every sentence that carries a *karena*, *sehingga*, or
+   *walaupun* into two.
+3. **Repeat the name where you would use a pronoun.** "Paulus … Paulus … Paulus", not
+   "ia … dia … -nya". Pronoun reference across sentences is the first thing to break.
+4. **Replace Latinate and abstract vocabulary rather than defining it.** *kredensial* → *surat*;
+   *integritas* → *hidup yang jujur*; *rekonsiliasi* → *berbaikan kembali*.
+5. **Gloss in-line what cannot be replaced**, at first use, in brackets. This is the rule that
+   matters most, because **Adventist in-group vocabulary is the highest-risk category** — it is
+   both essential and impossible to shorten away: *bait suci (rumah Allah di Perjanjian Lama)*,
+   *pengadilan pemeriksaan (penyelidikan Allah sebelum Yesus datang)*, *Roh Nubuat (tulisan Ellen
+   G. White)*.
+6. **Remove idiom.** *"menanggung beban"*, *"membuka hati lebar-lebar"*, *"bermegah"* all need a
+   literal form. Idiom is where a second-language reader silently loses the sentence.
+7. **Concretise the application.** Not "Bagaimana kita dapat menyatakan kasih Kristus dalam
+   pelayanan kita?" but "Siapa yang Anda temui setiap hari? Sebutkan satu nama."
+
+**The eighth rule does not port and the guide must not pretend it does.** In English, Easy Reading
+also swaps the Bible translation — the standard edition quotes ESV and NKJV, the Easy edition
+quotes WE, NLV, ERV and EASY. There is **no Indonesian Easy Reading quarterly** for any quarter
+2019–2026, and **no simplified Indonesian Bible** comparable to those. So Terjemahan Baru stays,
+and the hard words in the verse get glossed after it rather than replaced inside it. Never
+paraphrase Scripture to simplify it.
+
+**Worked example**, from a guide written for an adult class and then re-registered:
+
+> **Before.** Di Korintus, surat rekomendasi adalah alat kuasa. Kota itu menghargai kehormatan,
+> status, dan pembicara yang fasih. Para penentang Paulus datang membawa surat. Paulus tidak.
+>
+> **After.** Di Korintus, orang memakai surat untuk mendapat kuasa. Surat itu berkata: "Orang ini
+> baik. Tolong dia." Penentang Paulus membawa surat seperti itu. Paulus tidak membawa surat.
+
+The claim is identical. Nothing was softened. What changed: *kehormatan, status, fasih* went, the
+pronoun-free ending became a repeated noun, and one sentence became four.
+
+**This overrides Mixed-Language Classes for this profile.** That section says Adventist terms
+often stay Indonesian inside an English sentence and that this is normal register rather than an
+error. True for hearing bilinguals; **false here.** For a signed class the term needs a gloss, not
+a pass.
 
 ### Seeker or visitor present
 
@@ -238,7 +318,7 @@ from Bisindo research**, so treat it as a starting point to correct against the 
 
 - The lesson is a doctrine study more than a discussion. Questions still matter, but the density
   of explanation is higher.
-- Every distinctive gets its anchor texts read aloud, not summarized.
+- Every distinctive gets its anchor texts read out in full, not summarized.
 - Expect and welcome the objection. A class member who raises the standard Sunday-keeping
   argument is doing the class a favor.
 
@@ -276,6 +356,9 @@ Common in Indonesian congregations, diaspora churches, and student churches.
 
 ---
 
+> **Not for a signed class.** See **Simplified Indonesian for a signed class**: there, an
+> unglossed Adventist term is a barrier rather than normal register.
+
 ## When a Doctrinal Argument Breaks Out
 
 It will. Someone raises the state of the dead, or a Hebrew Roots claim, or a date-setting theory, and eleven minutes disappear.
@@ -302,7 +385,7 @@ Three to five minutes, sometimes read in class rather than from the front. It is
 
 The last two minutes decide what the hour was.
 
-- **Return to the Key Text.** Read it once more, aloud. The class leaves holding one verse, not seven.
+- **Return to the Key Text.** Read it once more. The class leaves holding one verse, not seven.
 - **One sentence of summary, from the teacher.** Not a recap of the five days. The week's claim, said once.
 - **One specific action.** Specific enough that a person could decline it. "Trust God more" cannot be declined and therefore cannot be accepted.
 - **Prayer that names the action**, not a general blessing on the class.

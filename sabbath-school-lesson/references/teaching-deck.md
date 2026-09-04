@@ -120,6 +120,13 @@ print('sizes:',dict(sorted(c.items())),'| below 20:',[k for k in c if k<20] or '
 
 One language per deck. Two languages on a projected slide halves the type size for both.
 
+**For a `deaf, signed` class the slide text follows the simplified register** in
+`teaching-methods.md`: one clause per sentence, the name rather than a pronoun, no idiom, every
+Adventist term glossed in brackets at first use. Scripture stays Terjemahan Baru and is never
+paraphrased — gloss the hard word beneath the card instead. This class reads screen prose
+comfortably, so a summary or a two-minute line can be displayed rather than signed, which buys
+attention back instead of spending it.
+
 ---
 
 ## Look
