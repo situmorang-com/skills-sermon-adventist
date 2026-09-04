@@ -254,7 +254,7 @@ Sabbath School lesson study is typically 30–40 minutes and it is *always* shor
 | 6–14 | The weight-bearing day | Read the passage. Two questions. Let silence sit |
 | 14–22 | The second real question | This is where the class does its own thinking |
 | 22–28 | The remaining days, moved through quickly | Name what they add. Do not re-teach them |
-| 28–33 | Application: the one concrete thing | Specific enough that someone could refuse it |
+| 28–33 | Application: the one concrete thing, ending in **one sentence the teacher says aloud** | Specific enough that someone could refuse it. This block *is* the week's challenge; do not add a separate element saying the same thing a third time |
 | 33–35 | Key Text again, one sentence, prayer | Ends on the text, not on your summary |
 
 Compress by cutting minutes 22–28, never by cutting application.
@@ -289,7 +289,8 @@ Then one subsection per day, Sunday through Thursday, each in this fixed shape:
 | **What this day is doing** | One line on its function in the week's argument. Not a summary of its content |
 | **Points to hold** | 2–4 items. The unlocking background, the translation choice, the verse that is stronger than the class realizes, the caution where a popular reading is not demonstrated exegesis |
 | **Quotes for this day** | **Every Ellen G. White, SDABC, commentary, and Adventist-research source that illuminates this day, all of them.** See below |
-| **If you only have two minutes** | **The single sentence to say out loud.** For the surveyed days this is the whole treatment, so write it as speech, not as a note. For the two long blocks, write "You have ten minutes; this is the weight-bearing day" instead |
+| **Take home** | **The single sentence the class carries out of the room**, written as speech and sayable in ten seconds. It **names what the passage does, then turns it** — states a fact, then the consequence the class has not drawn yet. It never tells the member how to feel. Where a fetched quote says it better, use the quote and cite it; that is the exception, not the default, because no quote is written to name *this* day's turn. For a surveyed day this is the whole treatment |
+| **How to run it** | Stage direction, and **only** stage direction: "you have ten minutes, this is the weight-bearing day", "read five verses, then wait". Teacher-only, so it never competes with the take-home. Keeping these apart matters — this skill previously told you to write the ten-minute note *into* the take-home slot, and the result was a chip doing two jobs and doing neither cleanly |
 | **Spare question** | One question if the discussion stalls or runs short. **Self-contained**, like the two big ones. This is the question most often written for a reader, because it is written last |
 
 ### Quotes go in the day they explain, never in a pile
@@ -364,12 +365,13 @@ Before delivering, check:
 11. **Timed plan adds up**, the minutes are contiguous, **every day of the week is assigned to a block**, and application survives compression.
 12. **The profile block is present, first in Section 3, and matches the profile actually given.** The six are adults, young adults, deaf-signed, seeker, baptismal, mixed. A guide whose profile block restates the general advice, or contradicts the stated profile, has failed this check. If the class is deaf, verify that no block asks the class to read and watch at the same time; the clock itself is unchanged.
 13. **If the profile is `deaf, signed`, the whole guide is in simplified register.** Spot-check three paragraphs from different sections: one clause per sentence, names not pronouns, no idiom, every Adventist term glossed at first use. A guide whose Section 3 is simplified and whose Section 6 is not has failed this.
-14. **Adventist lens honest** — engaged where the text engages it, absent where it does not.
-15. **Eight numbered sections, in order**, then Appendix A, Appendix B, ledger last.
-16. **Every verse in Appendix A was fetched**, and any truncated fetch is marked with an ellipsis and logged, not completed from memory.
-17. **Appendix B's SDABC table lists only verses whose text you actually have.**
-18. **`teachers-guide.html` rendered** from `references/teachers-guide-template.html`, and its checklist run.
-19. **`slides/*.pptx` built** per `references/teaching-deck.md`, and its checklist run: no run below 20pt, speaker notes on every slide, a source line on every quote, no day without meat, and a PDF beside it.
+14. **Every day has a take-home line, and it is not stage direction.** Read each aloud: it should name what the passage does and turn it, in under ten seconds, without telling anyone how to feel. A day whose take-home says "you have ten minutes" has put the wrong thing in the slot. And the week's challenge lives in the application block, stated once — not in the objectives, the plan and a third element.
+15. **Adventist lens honest** — engaged where the text engages it, absent where it does not.
+16. **Eight numbered sections, in order**, then Appendix A, Appendix B, ledger last.
+17. **Every verse in Appendix A was fetched**, and any truncated fetch is marked with an ellipsis and logged, not completed from memory.
+18. **Appendix B's SDABC table lists only verses whose text you actually have.**
+19. **`teachers-guide.html` rendered** from `references/teachers-guide-template.html`, and its checklist run.
+20. **`slides/*.pptx` built** per `references/teaching-deck.md`, and its checklist run: no run below 20pt, speaker notes on every slide, a source line on every quote, no day without meat, and a PDF beside it.
 
 Then deliver plainly:
 
@@ -437,7 +439,8 @@ Eight numbered sections map to the eight verified ramp steps, `data-hue="1"` thr
 | Who is in the room | `<div class="profile" data-label="Profil kelas">` holding a `<ul>`, placed **first in Section 3, before the hook and the plan table**. Emitted from the matching profile in `references/teaching-methods.md`; carries only what *changes* for this class |
 | **The timed plan** | `<div class="tablewrap plan"><table class="plan-t">` — minutes in column 1. Add `class="key"` to the two weight-bearing rows and `class="cut"` to the row that gets dropped when time is short |
 | A day in the day-by-day map | `<div class="day">` holding `<h3>`, `<p class="when">`, `<p class="refs">`, `<h4>` groups |
-| "If you only have two minutes" | `<div class="twomin" data-label="2 menit">` — the most-used element on the page |
+| The line the class takes home | `<div class="twomin" data-label="Bawa pulang">` — the most-used element on the page |
+| Stage direction for a block | `<div class="howto" data-label="Cara menjalankannya">` — dashed and muted, deliberately quieter than the take-home |
 | Know / Feel / Do | `<ul class="objectives">` with `<span class="k">` |
 | A question worth real time | `<div class="qbig">` with `<p class="setup" data-label="Pengantar">` for the fact the question needs, then `<p class="ask">` for the question itself, `<h4>` for why / expect / keep-open |
 | Predicted pushback and answer | `<div class="hard">` with `<p class="push">` for the objection |
@@ -454,7 +457,7 @@ Eight numbered sections map to the eight verified ramp steps, `data-hue="1"` thr
 | Any table at all | **Always** inside `<div class="tablewrap">` so it scrolls on a phone instead of breaking the page |
 | Provenance the teacher needs once, not per screen | `<details class="fold">` with a `<summary>`. Opens automatically before printing |
 
-**Chip labels are language-aware.** The CSS defaults to English, and any `data-label` attribute overrides it. For Indonesian output set them: `data-label="Ayat Alkitab"`, `"Roh Nubuat"`, `"Komentar"`, `"Perhatian"`, `"2 menit"`, `"Sebelum kelas"`, `"Profil kelas"`. Do not edit the CSS to change a label.
+**Chip labels are language-aware.** The CSS defaults to English, and any `data-label` attribute overrides it. For Indonesian output set them: `data-label="Ayat Alkitab"`, `"Roh Nubuat"`, `"Komentar"`, `"Perhatian"`, `"Bawa pulang"`, `"Cara menjalankannya"`, `"Sebelum kelas"`, `"Profil kelas"`. Do not edit the CSS to change a label.
 
 ### Attribution: complete, but quiet
 

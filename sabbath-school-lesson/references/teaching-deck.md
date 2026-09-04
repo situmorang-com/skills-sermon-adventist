@@ -58,6 +58,11 @@ day the class feels short-changed, and it is usually the day nobody remembers. M
 - an **illustration** that is a real story, not a hypothetical
 - **background** the class cannot get from the text: a word study, a cultural fact, a custom
 
+**The take-home line stays in the guide and off the slides.** Each day already ends on a question,
+and a slide that *states* the day's point invites the class to read it instead of answer. The one
+exception is a signed class, which reads screen prose comfortably: there the take-home earns a
+slide, because reading it is how that room receives it.
+
 ---
 
 ## Two clocks. Say which one you are on.

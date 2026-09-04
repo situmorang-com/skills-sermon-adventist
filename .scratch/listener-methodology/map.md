@@ -78,6 +78,14 @@ profile and no longer assumes prior reading.
   with hard words glossed after the verse. Adventist vocabulary is the highest-risk category and
   gets an in-line gloss at first use. This profile changes the prose of the **whole** guide.
 
+- [The two listener-facing moves](issues/05-listener-facing-moves.md) — both already existed. The
+  two-minute line **was** the take-home; the chip was doing two jobs because Step 8 told it to put
+  stage direction in the same slot. Renamed rather than rebuilt, so every guide already written
+  gains it; stage direction gets its own quieter `.howto` chip. The weekly challenge folds into the
+  application block rather than becoming a third statement of one instruction. Q14's quote-first
+  rule is reversed: the take-home is the teacher's own sentence, governed by a shape rule — name
+  what the passage does, then turn it, and never tell the member how to feel.
+
 ## Not yet specified
 
 - **A listener-facing artifact.** A page or handout the member reads themselves. Held as fog

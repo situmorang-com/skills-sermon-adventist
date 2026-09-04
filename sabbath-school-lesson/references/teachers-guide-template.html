@@ -372,7 +372,7 @@ table.plan-t tr.cut td:nth-child(2){color:var(--muted);font-weight:400}
   border-left:3px solid var(--hue);
   background:linear-gradient(120deg,
     color-mix(in srgb, var(--hue) 11%, transparent), transparent 62%),var(--card)}
-.twomin::before{content:"2 minutes";position:absolute;top:-9px;left:14px;
+.twomin::before{content:"Take home";position:absolute;top:-9px;left:14px;
   padding:2px 9px;border-radius:999px;font:600 9.5px/1.6 var(--mono);
   letter-spacing:.14em;text-transform:uppercase;color:var(--hue);
   background:color-mix(in srgb, var(--hue) 17%, var(--base));
@@ -424,6 +424,19 @@ table.plan-t tr.cut td:nth-child(2){color:var(--muted);font-weight:400}
   border-left:3px solid color-mix(in srgb, var(--shani) 62%, transparent);
   font:600 17px/1.5 var(--sans);color:var(--ink)}
 .hard p:last-child{margin-bottom:0}
+
+/* --- How to run it: stage direction, teacher-only. Deliberately quieter than
+   .twomin, which carries the line the CLASS takes home. Two jobs, two looks. */
+.howto{position:relative;margin:18px 0 22px;padding:15px 17px 13px;
+  border-radius:4px 12px 12px 4px;border:1px dashed var(--edge);
+  background:transparent}
+.howto::before{content:"How to run it";position:absolute;top:-9px;left:14px;
+  padding:2px 9px;border-radius:999px;font:600 9.5px/1.6 var(--mono);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  background:var(--base);border:1px solid var(--edge)}
+.howto[data-label]::before{content:attr(data-label)}
+.howto p{margin:0;font:16.5px/1.6 var(--sans);color:var(--muted)}
+.howto p + p{margin-top:9px}
 
 /* --- Homework: what to do tonight, before class ------------------------- */
 .tonight{position:relative;margin:26px 0;padding:20px 22px 16px;
