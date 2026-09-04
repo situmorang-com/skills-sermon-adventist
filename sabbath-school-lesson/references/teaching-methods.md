@@ -321,6 +321,7 @@ a pass.
 - Every distinctive gets its anchor texts read out in full, not summarized.
 - Expect and welcome the objection. A class member who raises the standard Sunday-keeping
   argument is doing the class a favor.
+- **The close may appeal directly**, and should. See **Closing the Class**: this is the one profile preparing for a decision, so an open-ended ask can understate what the room is actually for.
 
 ### Mixed: members and seekers together
 
@@ -390,6 +391,23 @@ The last two minutes decide what the hour was.
 - **One specific action.** Specific enough that a person could decline it. "Trust God more" cannot be declined and therefore cannot be accepted.
 - **Prayer that names the action**, not a general blessing on the class.
 - **Do not appeal for a decision by pressure.** Sabbath School is a study, not an altar call. Ask honestly and let the answer be private.
+
+**On the word "appeal".** The General Conference Sabbath School department holds that a lesson
+without an appeal is unfinished, and that a teacher is to exhort rather than only teach. Read
+against the four bullets above, there is no conflict: *"one specific action, specific enough that
+a person could decline it"*, asked honestly and answered privately, **is** an appeal — and it is
+the open-ended form inVerse itself prefers. The close has always contained one; it simply never
+used the word. Use it, so that a teacher who reads the department's line does not conclude this
+guide is arguing with the church.
+
+What the bullet above forbids is the *pressured* form: the raised hand, the repeated ask, the
+public commitment. Scope it by profile:
+
+| Profile | The close |
+|---|---|
+| **Baptismal class** | The appeal may be direct and named. This room is preparing for a decision; pretending otherwise is its own dishonesty |
+| **Seeker or visitor present** | Never press. A visitor's honest "no" must cost them nothing, and they must not have to perform a "yes" to belong |
+| Everyone else | The open-ended form already specified: one declinable action, asked once, answered privately |
 
 ---
 

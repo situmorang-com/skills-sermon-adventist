@@ -48,7 +48,7 @@ One short conversational message. Skip anything already given.
 | Time available | Default 35 minutes of lesson study |
 | Series context | Which quarter |
 
-**Language is asked every time, not inherited.** A Sabbath School class often differs in language from the preacher's own default, and mixed-language congregations are normal. If the answer is bilingual, produce one document with the Indonesian section following each English section, never two half-documents.
+**Language is asked every time, not inherited.** A Sabbath School class often differs in language from the preacher's own default, and mixed-language congregations are normal. If the answer is bilingual, the answer is still **one page** — one `teachers-guide.html` carrying both languages behind an `EN`/`ID` toggle, published to one slug. Never two half-documents, and never a `-en` twin URL: see **A bilingual page is one page** below.
 
 Do not interrogate beyond the table. If the user named the Sabbath and the language, that is enough to go and find the lesson.
 
@@ -175,9 +175,14 @@ Before planning, answer these for yourself:
 **Key Text the class leaves holding, [ref]:** [quoted in full, blockquote]
 
 ## 1. What This Week Is Actually Arguing
-[3–5 short paragraphs. The lesson's claim in your own words, the setting that
-makes it land, and explicitly what the lesson is NOT saying. Close by naming
-where the week is heading, which is often not what the title says.]
+[3–5 short paragraphs. **Open with one clause saying where the church has been**
+— "Last week Paul defended himself against a charge of insincerity; this week
+he stops defending" — because the quarterly is globally sequential even though
+your congregation is not. For lesson 1 of a quarter there is no predecessor, so
+name where the quarter is going instead. Then: the lesson's claim in your own
+words, the setting that makes it land, and explicitly what the lesson is NOT
+saying. Close by naming where the week is heading, which is often not what the
+title says.]
 
 ## 2. Objectives
 [Know / Feel / Do table. The Do must be concrete enough to be declined.]
@@ -265,6 +270,7 @@ Compress by cutting minutes 22–28, never by cutting application.
 
 A teacher's guide that produces a monologue has failed regardless of its content quality. Build these in:
 
+- **Nothing orients the class from the front.** The continuity with last week belongs in Section 1's opening clause, where it costs no minutes; the facts a question needs belong in that question's own setup. Do not spend the opening on a spoken recap — this block's whole job is the bullet below.
 - **Someone else talks in the first two minutes.** A show of hands, a one-word answer around the circle, a question with an easy entry point. A class that stays silent for ten minutes has decided its role for the whole hour.
 - **Plan the silence.** After a real question, four to six seconds of nothing is the question working. Note in the guide where to wait.
 - **Read the passage from the Bible, every time. Not from the lesson's paraphrase.** Aloud, or displayed and read together: the rule is about the *source*, not the channel, because a signed class reads off a screen and "aloud" is meaningless there.
@@ -424,6 +430,27 @@ The filename is deliberately not `html-template.html`. `scripts/build-dist.sh` f
 
 **Same reasoning kills `para_id`.**
 
+### A bilingual page is one page
+
+When the language answer is bilingual, build the Indonesian render and the English render as
+intermediates, then **merge them into a single file**. Both panes ship; CSS hides one. A toggle in
+the header switches every word on the page — headings, plan table, questions, take-home lines,
+contents nav — not just the Scripture cards.
+
+- **Both panes are in the DOM**, each wrapped `<... data-pane="id">` / `<... data-pane="en">`, and
+  `:root[data-pagelang]` shows one and hides the other. The choice persists in
+  `localStorage['ss-pagelang']`.
+- **`data-pagelang` is a different attribute from `data-lang`, and reusing one for the other is a
+  bug.** `:root[data-lang]` already drives the English/working-translation tabs *inside* `.bq`
+  quote cards. Drive the page toggle off it and every quote card flips to the working translation
+  the moment someone reads the page in Indonesian. This cost a debugging pass; do not rediscover it.
+- **Suffix every `id` per pane** — `s1__id`, `s1__en`. Two copies of the contents nav otherwise
+  collide on the same ids and every anchor jumps into the hidden pane.
+- **The contents nav ships twice too**, once per pane, and the `.th` heading above it stays hidden
+  below 1120px. A `nav.toc` shown without its media query is how the page ends up with two
+  "CONTENTS" headings stacked at the top.
+- **Publish once.** One file, one slug. The separate `-en` URL is retired.
+
 ### Section and colour scheme
 
 Eight numbered sections map to the eight verified ramp steps, `data-hue="1"` through `"8"`. The two appendices and the ledger sit **outside** the ramp as `<section class="sec apx">` with letter badges (A, B, ✓) in techelet. All sixteen ramp steps were contrast-checked on glass; **do not interpolate a ninth step by eye.** If the content wants a ninth section, fold two together.
@@ -582,6 +609,7 @@ Also required: `viewport-fit=cover` in the viewport meta, `env(safe-area-inset-*
 17. At ≤620px the plan table renders as stacked blocks, not a horizontal scroll.
 18. **No Verification Ledger section, and no `#ledger` entry in the contents.** The footer points at the markdown for provenance instead.
 19. **Every day in Section 4 carries its own "Kutipan untuk hari ini" block.** A day with sources available and none printed is a failure; a day whose sources were piled into an appendix instead is the same failure.
+20. **On a bilingual page, the toggle moves everything and collides with nothing.** Switch to `EN` and read the whole page: any Indonesian left standing is a pane that was never wrapped. Then confirm `:root[data-lang]` is untouched by the page toggle — the quote cards must still be showing English, not the working translation — and that ids carry a pane suffix, so no contents link jumps into the hidden pane.
 
 ---
 
@@ -618,7 +646,7 @@ straight through a source line — both passed validation and were obvious in th
 
 The guide is a page before it is a file, so it can go on the web. `ss.situmorang.com` is a GitHub Pages site served from the public repo `situmorang-com/sabbath-school`. It is **not** on a VPS, and it needs no credentials beyond the `gh` login that is already in place.
 
-Publishing needs `teachers-guide.html` to exist. Render it first — Final Pass item 16 — and run its checklist. There is nothing to publish from the markdown.
+Publishing needs `teachers-guide.html` to exist. Render it first — Final Pass item 19 — and run its checklist. There is nothing to publish from the markdown.
 
 ```sh
 cd "/Users/edmundsitumorang/Library/Mobile Documents/iCloud~md~obsidian/Documents/BIBLE STUDY/200 Seedbox/ss"

@@ -86,6 +86,24 @@ profile and no longer assumes prior reading.
   rule is reversed: the take-home is the teacher's own sentence, governed by a shape rule — name
   what the passage does, then turn it, and never tell the member how to feel.
 
+- [The lesson bridge](issues/06-lesson-bridge.md) — dropped as a spoken move, required as Section
+  1's opening clause. The opening block exists so somebody other than the teacher speaks by minute
+  two, and ticket 04's setups already orient continuously at the point of need. Lesson 1 of a
+  quarter names where the quarter is going instead.
+- [Should a class close with an appeal?](issues/09-appeal-at-the-close.md) — terminological, not
+  substantive. The close already required one declinable action asked honestly and answered
+  privately, which **is** an open-ended appeal; the word is now used and the denominational
+  position recorded, so no teacher reads the guide as arguing with the church. Scoped by profile:
+  direct for a baptismal class, never pressed with a visitor present, open-ended otherwise.
+
+- [SKILL.md and the bilingual output](issues/08-skill-doc-bilingual-debt.md) — the file already
+  named one page; what was missing was the *mechanism*, which lived only in a built output.
+  `:root[data-pagelang]`, the ids suffixed per pane, the reason it must not reuse `data-lang`,
+  and the doubled-CONTENTS cause are now in the skill, plus a checklist item that catches an
+  unwrapped pane. The template stays single-language: the merge is a build step.
+
+**All eleven tickets resolved.**
+
 ## Not yet specified
 
 - **A listener-facing artifact.** A page or handout the member reads themselves. Held as fog
