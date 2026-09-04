@@ -1,7 +1,7 @@
 # The timed plan when attention is sequential
 
 Type: grilling
-Status: open
+Status: resolved
 
 ## Question
 
@@ -28,23 +28,42 @@ Settle:
 
 Depends on nothing further; the research is already in ticket 01.
 
-## Evidence from the Lesson 10 two-profile test
+## Answer
 
-Generated Section 3 + Section 5 twice from an identical spine, adults and deaf, 35 minutes each.
+**The premise was wrong, and it was my error rather than the research's.**
 
-| | adults | deaf |
-|---|---|---|
-| Plan blocks | 7 | 8 |
-| Minutes in dedicated read-slots | 0 | **7** |
-| Big questions that fit | 2 | **1** |
-| Shared spine | 100% identical | 100% identical |
-| Section 3 + 5 overall | 38% similar, so 62% diverged | |
+Q19: a signed class reads a passage off the screen **at about the rate a hearing class reads it
+aloud.** The Lesson 10 two-profile test claimed the deaf plan lost seven minutes and therefore one
+of its two big questions. That figure was an estimate I built, never a measurement, and it came
+from counting the hearing class's reading as free while counting the deaf class's as an extra
+cost. The standard plan already pays for reading inside its blocks — the guide's own Tuesday card
+says "fourteen verses takes about two minutes, leave eight for questions".
 
-**Separating read from sign costs about seven minutes, which is exactly one big question.** The
-deaf class structurally holds less in the same 35 minutes. So this ticket cannot resolve as "the
-existing plan carries a note" — the plan table itself changes shape and content is dropped.
+So: **no seven-minute cost, no lost question, and the 35-minute plan runs unchanged.**
 
-**This contradicts the Q6(a) decision.** A per-profile facilitation *section* cannot express "you
-get one question instead of two", because that is the plan table, not the prose beside it. Q6(a)
-looks sound for adults, young adults, seeker, baptismal and mixed; for deaf it does not hold.
-Likely resolution: mostly (a), with generator-side branching for the deaf plan table only.
+The research file was careful and is vindicated: it called the *sequencing* well-evidenced and
+said explicitly that read-slot **duration** was undocumented and depended on a reading rate nobody
+had measured. The overreach was mine in interpreting it.
+
+**What is real, and stays:** attention is single-channel, so reading and signing never overlap.
+The class reads, eyes come back, then you sign. You cannot talk over the reading the way a hearing
+teacher can. That is a constraint on *order*, not on the clock.
+
+**This also dissolves the Q6 contradiction** this ticket claimed to have found. A per-profile
+facilitation section can express "never concurrent" perfectly well; no generator-side branching of
+the plan table is needed. Q6(a) stands as chosen.
+
+**Q20 — the read-aloud rule is now about the source, not the channel.** "Read the passage from the
+Bible, every time. Not from the lesson's paraphrase. Aloud, or displayed and read together."
+Rewritten at every instruction site: `SKILL.md` Step 7 and its plan table, and three in
+`teaching-methods.md` (the 35-minute table, the baptismal bullet, the closing).
+
+**Q21 — this class reads screen prose comfortably**, not only Scripture. That widens the
+teacher's options rather than narrowing them: a two-minute line or a summary can be displayed
+instead of signed, buying attention back. Recorded in the deaf profile with the instruction to
+ask the room rather than assume.
+
+**Applied:** the deaf profile in `teaching-methods.md` now says the clock is unchanged and only
+the order differs; `Timing Variants` gains a short "A signed class" entry saying the same; Final
+Pass item 12 asks whether any block makes the class read and watch at once, rather than asking for
+separate slots.

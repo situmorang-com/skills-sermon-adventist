@@ -41,8 +41,9 @@ profile and no longer assumes prior reading.
 - [Facilitating discussion in a deaf, signed Sabbath School class](issues/01-research-deaf-class-facilitation.md)
   — no Adventist source exists, so the subsection is ours. Turn-taking is gaze; refusing eye
   contact beats small groups for the dominant talker, and small groups have no evidence here.
-  Attention is strictly sequential, which constrains the timed plan. Silence survives but our
-  4–6s is borrowed. All evidence is ASL/NGT/BSL/Libras, none Bisindo.
+  Attention is strictly sequential, so reading and signing never overlap — a constraint on order,
+  not on the clock (see ticket 11, which corrected a later overreach on this). Silence survives
+  but our 4–6s is borrowed. All evidence is ASL/NGT/BSL/Libras, none Bisindo.
 
 - [The question form for a class that has not read the lesson](issues/04-content-carrying-questions.md)
   — named **the self-contained question**: setup states the fact, ask opens the judgment. Two
@@ -62,6 +63,20 @@ profile and no longer assumes prior reading.
   emitted first in Section 3 (before the hook, which is itself profile-dependent), techelet
   chip in the template, markup contract row, Final Pass item 12, and an anti-pattern against
   collecting inputs the output ignores.
+
+- [The timed plan when attention is sequential](issues/11-deaf-timing-variant.md) — the premise
+  was my own error. A signed class reads off a screen at about the rate a hearing class reads
+  aloud, and the standard plan already budgets for reading, so there is **no seven-minute cost and
+  no lost question**; the 35-minute plan runs unchanged and only the order differs. This dissolves
+  the Q6 contradiction the test claimed. The read-aloud rule is now about the source, not the
+  channel. And the class reads screen prose comfortably, which widens the teacher's options.
+
+- [Simplified Indonesian register](issues/10-simplified-indonesian-register.md) — write so a
+  twelve-year-old could **read** it, never as though one were **thinking**: doctrine, weight and
+  cost unchanged, sentences changed. Seven rules ported from the church's own Easy Reading edition;
+  the eighth (swap the Bible translation) does not port, so Terjemahan Baru stays unparaphrased
+  with hard words glossed after the verse. Adventist vocabulary is the highest-risk category and
+  gets an in-line gloss at first use. This profile changes the prose of the **whole** guide.
 
 ## Not yet specified
 

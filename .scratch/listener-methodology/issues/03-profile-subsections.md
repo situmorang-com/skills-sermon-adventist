@@ -50,13 +50,14 @@ facilitation advice already in the file.
   signed class. Prefer the gaze move; do not assert small groups work here.
 - **Silence: keep it, label the number as borrowed** from hearing-classroom research. Add the
   real difference — a signing teacher has no neutral place to put her eyes mid-pause.
-- **Attention is sequential, never divided.** Read-slots and sign-slots must be separate blocks
-  in the timed plan. This is a timing constraint, not a style note.
+- **Attention is sequential, never divided.** Reading and signing never overlap. This is a
+  constraint on ORDER, not on the clock — see ticket 11, which corrected an earlier claim here
+  that it cost the deaf class seven minutes and one of its two questions. It costs neither.
 - **All evidence is ASL/NGT/BSL/Libras; nothing on Bisindo.** State that limit in the subsection.
 - Register is handled separately in "Simplified Indonesian register".
-- **Interaction with the self-contained question (ticket 04):** attention is sequential, so in a
-  deaf class the setup and the ask cannot be signed while text is on the screen. The setup is
-  part of the sign-slot, not the read-slot.
+- **Interaction with the self-contained question (ticket 04):** in a deaf class the setup and the
+  ask cannot be signed while text is on the screen. The setup goes with the signing, after the
+  reading, not over it.
 
 ## Answer
 
