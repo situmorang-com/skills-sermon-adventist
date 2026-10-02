@@ -13,7 +13,8 @@
         "Each illustration includes a source/type label and verification notes",
         "No fabricated quotes attributed to real people",
         "If clichéd illustrations (carrot-egg-coffee, lighthouse, starfish) appear, they are mentioned as foils/replaced, not used as primary candidates",
-        "Output ends with a recommendation"
+        "Output ends with a recommendation",
+        "The local illustration library was searched first (illus.mjs find with 3-4 lexically different probes and --ref), or the output states in one line that the library was unavailable; any library candidate is labeled with its record id and says what was and was not verified"
       ]
     },
     {
@@ -27,7 +28,8 @@
         "Each candidate's spoken length is within or under 5 minutes",
         "The bridge specifically addresses 'active delight' not merely 'rest from work'",
         "No fabricated quotes",
-        "Output ends with a recommendation"
+        "Output ends with a recommendation",
+        "The local illustration library was searched first (illus.mjs find with 3-4 lexically different probes and --ref), or the output states in one line that the library was unavailable; any library candidate is labeled with its record id and says what was and was not verified"
       ]
     },
     {
@@ -42,7 +44,8 @@
         "Each illustration's bridge addresses 'records matter' AND 'Christ as advocate now'",
         "Tone is accessible to non-Adventist hearers without softening the doctrine",
         "No fabricated quotes",
-        "Output ends with a recommendation"
+        "Output ends with a recommendation",
+        "The local illustration library was searched first (illus.mjs find with 3-4 lexically different probes and --ref), or the output states in one line that the library was unavailable; any library candidate is labeled with its record id and says what was and was not verified"
       ]
     }
   ]

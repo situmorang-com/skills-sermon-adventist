@@ -9,7 +9,7 @@ Sabbath School is not a sermon with chairs in a circle. It is a *discussion* bui
 
 **Requires:** the `adventist-foundation` skill is loaded for doctrinal alignment, translation defaults, voice, banned phrases, and the Ellen G. White citation policy. Do not restate those rules here — apply them.
 
-**Related skills:** `bible-study-deep` for the exegetical engine behind a lesson, `sermon-illustrations` for the opening hook, `sermon-adventist` when the ask is actually a sermon.
+**Related skills:** `bible-study-deep` for the exegetical engine behind a lesson, `sermon-illustrations` for the opening hook and any day's illustration (its Tier 0 searches the local illustration library at `/Users/edmundsitumorang/DEV/illustration-library` before the web; go there first), `sermon-adventist` when the ask is actually a sermon.
 
 ---
 
@@ -710,6 +710,7 @@ This step exists only in Claude Code. The `dist/` bundles for Claude Projects an
 - `references/teaching-deck.md` — the `slides/*.pptx` teaching deck: the day-by-day structure, the slide-versus-speaker-notes split, the 20pt floor, quote discipline on a screen, and the generator traps this collection has already paid for. Requires the `pptx` skill for the mechanics
 - `references/teachers-guide-template.html` — the `teachers-guide.html` skeleton: full stylesheet, theme and mono toggles, and markup examples for the plan table, day cards, two-minute callouts, question cards, hard spots, and appendix passages. Copy it rather than designing a new page
 - `bible-study-deep/SKILL.md` — the exegetical engine and the provenance/ledger discipline this skill inherits
+- `sermon-illustrations/SKILL.md` — where the hook and any day's illustration come from: the local illustration library first (Step 2, Tier 0), then the web, then an original
 - `commentary-tiers.md` (ships with `bible-study-deep`) — commentary sources by tier, lexicons, cautions
 - `adventist-themes.md`, `commentary-sources.md` (ship with `sermon-adventist`) — distinctives mapped to texts, and the Adventist source list
 - `HOWTO_EGW_LaguSion.md` (ships with `sermon-adventist`) — operating the EGW API helper

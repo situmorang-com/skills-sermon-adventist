@@ -1,6 +1,6 @@
 ---
 name: sermon-illustrations
-description: Find or craft sermon illustrations for Seventh-day Adventist preaching. First searches for famous, well-attested illustrations from history, biography, classic preachers, Adventist heritage, and literature; if no fitting famous illustration exists, crafts an original engaging one. Use whenever the user asks for an illustration, story, analogy, opening hook, or "something to bring this point home" for a sermon, Bible study, or lesson — even if they don't say "illustration" but say "I need a story for this point" or "how do I open this sermon."
+description: Find or craft sermon illustrations for Seventh-day Adventist preaching. Searches the preacher's own illustration library first (80,211 records at /Users/edmundsitumorang/DEV/illustration-library, by passage, subject and full text), then famous, well-attested illustrations from history, biography, classic preachers, Adventist heritage, and literature; if nothing fits, crafts an original engaging one. Use whenever the user asks for an illustration, story, analogy, opening hook, or "something to bring this point home" for a sermon, Bible study, or lesson — even if they don't say "illustration" but say "I need a story for this point" or "how do I open this sermon."
 ---
 
 # Sermon Illustrations
@@ -52,7 +52,8 @@ taxonomy, 682 hymns and full text. Search them before you search the web.
 ```
 
 Run `illus.mjs find --help` for the full flag list. If the command is missing or errors with
-exit 3, the library isn't available on this machine — go straight to Tier 1 and don't mention it.
+exit 3, the library isn't available on this machine (a cloud session, for instance) — say so in one
+line, so the preacher knows it was not searched, then go straight to Tier 1.
 
 ### Send 3–4 short, lexically diverse probes — never one sentence
 

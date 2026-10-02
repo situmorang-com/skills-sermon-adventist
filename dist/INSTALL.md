@@ -268,7 +268,8 @@ dist/
 - Application questions
 
 ### Sermon Illustrations
-- Tier 1: Search famous/attributed illustrations first
+- Tier 0: Search the preacher's local illustration library first (Claude Code on the preacher's own machine; Claude Projects and ChatGPT cannot run it and start at Tier 1)
+- Tier 1: Search famous/attributed illustrations
 - Tier 2: Create original illustrations labeled clearly
 - Themed source lists by doctrine
 

@@ -2,6 +2,8 @@
 
 Themed pointers to wells of well-attested illustrations. Use these to find candidate illustrations, then verify before using. Quotes must be checked; unverifiable material gets paraphrased or dropped.
 
+These are the **Tier 1** wells. The local illustration library at `/Users/edmundsitumorang/DEV/illustration-library` (`bin/illus.mjs find … --ref <passage>`) is Tier 0 and is searched before any of them; see `SKILL.md`, Step 2.
+
 ---
 
 ## Grace / Undeserved Favor

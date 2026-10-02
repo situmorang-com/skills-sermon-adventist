@@ -1,18 +1,6 @@
-**And check that similar titles are actually the same book.** Resolve the book id and read its catalogue record; do not reason from the title. A worked example from Q3 2026 lesson 6, where three items share a name and **none of them is what it looks like**:
-
-| Book | Title | Author | Year |
-|---|---|---|---|
-| 1340, code SGL | *Spiritual Gifts* | **J. N. Loughborough** | 1899 |
-| 104, code 1SG | *Spiritual Gifts, vol. 1* | Ellen G. White | 1858 |
-| pp. 5–16 inside book 104 | *Spiritual Gifts* | **Roswell F. Cottrell** | — |
-
-A quote fetched from 1340 is Loughborough's. The lesson's Friday reading is Cottrell's essay printed inside White's volume. Neither is Ellen White writing about spiritual gifts, and a guide that says "Ellen White says" over either one is wrong in front of a class that can check in a minute.
-
-Getting this right took `GET /content/books/<id>` and reading the `author` field, which costs one call. Guessing cost two wrong attributions in a row: first "vol. 1," then "probably Cottrell." **When two references share a title, resolve every book id before writing any of them down.**
-
 ---
 name: sabbath-school-lesson
-description: Build a Seventh-day Adventist Sabbath School teacher's guide for a quarterly Adult Bible Study Guide lesson. The lesson itself is already written and used church-wide, so this skill never invents one: it locates the official lesson for a given Sabbath, then digs deeper through SDABC, Ellen G. White, the Biblical Research Institute and Adventist scholarship to build a guided study the teacher can run in about thirty-five minutes. Produces a markdown guide plus a readable HTML page, in English (KJV) or Indonesian (Terjemahan Baru), with a timed discussion plan, a day-by-day map carrying each day's own sources, the two questions worth real time, predicted pushback, and every Bible text in full. Use whenever the user is teaching or preparing a Sabbath School lesson, quarterly lesson, lesson study, Adult Bible Study Guide week, teachers guide, or class study plan, including Indonesian phrasings like pelajaran Sekolah Sabat, penuntun guru, pendalaman pekan ini, or when they say they are teaching the lesson this Sabbath.
+description: Build a Seventh-day Adventist Sabbath School teacher's guide for a quarterly Adult Bible Study Guide lesson. The lesson itself is already written and used church-wide, so this skill never invents one: it locates the official lesson for a given Sabbath, then digs deeper through SDABC, Ellen G. White, the Biblical Research Institute and Adventist scholarship to build a guided study the teacher can run in about thirty-five minutes. Produces a markdown guide, a readable bilingual HTML page, and a projector-ready PowerPoint deck that walks the lesson day by day, in English (KJV) or Indonesian (Terjemahan Baru), with a timed discussion plan, a day-by-day map carrying each day's own sources, the two questions worth real time, predicted pushback, and every Bible text in full. Use whenever the user is teaching or preparing a Sabbath School lesson, quarterly lesson, lesson study, Adult Bible Study Guide week, teachers guide, or class study plan, including Indonesian phrasings like pelajaran Sekolah Sabat, penuntun guru, pendalaman pekan ini, or when they say they are teaching the lesson this Sabbath.
 ---
 
 # Sabbath School Lesson
@@ -21,7 +9,7 @@ Sabbath School is not a sermon with chairs in a circle. It is a *discussion* bui
 
 **Requires:** the `adventist-foundation` skill is loaded for doctrinal alignment, translation defaults, voice, banned phrases, and the Ellen G. White citation policy. Do not restate those rules here — apply them.
 
-**Related skills:** `bible-study-deep` for the exegetical engine behind a lesson, `sermon-illustrations` for the opening hook, `sermon-adventist` when the ask is actually a sermon.
+**Related skills:** `bible-study-deep` for the exegetical engine behind a lesson, `sermon-illustrations` for the opening hook and any day's illustration (its Tier 0 searches the local illustration library at `/Users/edmundsitumorang/DEV/illustration-library` before the web; go there first), `sermon-adventist` when the ask is actually a sermon.
 
 ---
 
@@ -37,7 +25,7 @@ The work is the other half: digging deeper than the quarterly page, through SDAB
 |---|---|
 | The ask sounds like | "I'm teaching this week's lesson" · "Help me teach lesson 6" · "penuntun guru untuk pelajaran pekan ini" · "buat pelajaran Sekolah Sabat" |
 | You need | The actual lesson text. See Step 2 |
-| You produce | `teachers-guide.md` + `teachers-guide.html` |
+| You produce | `teachers-guide.md` + `teachers-guide.html` + `slides/*.pptx` (and its PDF) |
 | Length | ~2,500–3,500 words across the eight sections; the appendices add whatever the sources require and are not counted against that |
 
 **All the danger is in the input.** Everything downstream is built on the official lesson text, so a wrong or invented lesson poisons the whole guide. Never invent it. See Step 2.
@@ -55,12 +43,12 @@ One short conversational message. Skip anything already given.
 | **Language** | **Always ask.** English (KJV) / Indonesian (Terjemahan Baru) / bilingual |
 | The lesson identity | Quarter, year, lesson number and title |
 | Sabbath date being taught | Required, ISO `YYYY-MM-DD`. Drives the day headings and the folder name |
-| Class profile | Adults, young adults, youth, seekers/baptismal class, mixed |
+| **Class profile** | One of six: **adults** · **young adults** (teens through thirties) · **deaf, signed** · **seeker or visitor present** · **baptismal class** · **mixed** (members and seekers together). Drives Section 3's profile block, so it is never a decorative answer. See the six subsections in `references/teaching-methods.md` |
 | Class size and talk culture | Affects question count and whether you plan small groups |
 | Time available | Default 35 minutes of lesson study |
 | Series context | Which quarter |
 
-**Language is asked every time, not inherited.** A Sabbath School class often differs in language from the preacher's own default, and mixed-language congregations are normal. If the answer is bilingual, produce one document with the Indonesian section following each English section, never two half-documents.
+**Language is asked every time, not inherited.** A Sabbath School class often differs in language from the preacher's own default, and mixed-language congregations are normal. If the answer is bilingual, the answer is still **one page** — one `teachers-guide.html` carrying both languages behind an `EN`/`ID` toggle, published to one slug. Never two half-documents, and never a `-en` twin URL: see **A bilingual page is one page** below.
 
 Do not interrogate beyond the table. If the user named the Sabbath and the language, that is enough to go and find the lesson.
 
@@ -88,6 +76,13 @@ Quarterly id is `YYYY-MM` with `MM` the quarter's first month, so Q3 2026 is `20
 Secondary sources, useful for cross-checking a date or a title:
 
 - Sabbath School Net (`ssnet.org`) posts each week's lesson in plain HTML, at `/lessons/<yy><q>/less<NN>.html`
+  - **`ssnet.org` refuses automated requests** (Wordfence, HTTP 403) and a browser-like
+    User-Agent does not help. Neither does its RSS feed, and its weekly posts are usually too
+    recent for the Wayback Machine. **It reads fine in a real browser**, so drive the in-app
+    browser (`preview_start` then `get_page_text`) rather than `curl`. A text-extraction proxy
+    such as `r.jina.ai/<url>` also works and is quicker, but it routes the request through a
+    third party, so prefer the browser. Getting in matters: ssnet carries the only weekly
+    Teaching Outline and hymn column there is.
 - `fustero.es/en_<year>t<quarter>.pdf` holds the whole quarter as a PDF
 - For Indonesian, the local conference or division quarterly. The API's `id` language endpoint exists but did not carry this quarter, so check rather than assume
 
@@ -140,7 +135,7 @@ A good answer sounds like: *it puts the official's historical background next to
 
 Once the official comments are read, sweep the ecosystem. Full annotated list in `references/teaching-resources.md`; the short form:
 
-- **[Sabbath School Net](https://ssnet.org/)** publishes named columns per lesson: Teaching Outline (Bruce Cameron), Teaching Plan (William Earnhardt), Discussion Starters (Robert Nohr), and Singing with Inspiration (Corinne Knopper) for hymns. Its shorter/longer sample outlines are worth reading for what gets cut first when the hour is eaten.
+- **[Sabbath School Net](https://ssnet.org/)** publishes named columns per lesson: Teaching Outline (Bruce Cameron), Teaching Plan (William Earnhardt), Discussion Starters (Robert Nohr), and Singing with Inspiration (Corinne Knopper) for hymns. Its shorter/longer sample outlines are worth reading for what gets cut first when the hour is eaten. **Reach it with the browser, not `curl`** — see the Wordfence note in Step 2. The archive page for the quarter lists every column for every lesson, so load that once and `find` the lesson number rather than guessing post slugs.
 - **Video walkthroughs go deeper than any printed help.** Deep Made Simple for depth on the passage; **Hope Sabbath School for watching facilitation done well**, which is the harder half of teaching and the one no written help conveys.
 - Pull a transcript with `yt-dlp --write-auto-sub --sub-lang en --skip-download`, save it beside the guide as `transcript.md`, and treat it as **paraphrase-only**: auto-captions mis-hear names and carry no punctuation, so never quote a presenter verbatim from them and never pin a doctrinal position on caption evidence.
 
@@ -180,15 +175,21 @@ Before planning, answer these for yourself:
 **Key Text the class leaves holding, [ref]:** [quoted in full, blockquote]
 
 ## 1. What This Week Is Actually Arguing
-[3–5 short paragraphs. The lesson's claim in your own words, the setting that
-makes it land, and explicitly what the lesson is NOT saying. Close by naming
-where the week is heading, which is often not what the title says.]
+[3–5 short paragraphs. **Open with one clause saying where the church has been**
+— "Last week Paul defended himself against a charge of insincerity; this week
+he stops defending" — because the quarterly is globally sequential even though
+your congregation is not. For lesson 1 of a quarter there is no predecessor, so
+name where the quarter is going instead. Then: the lesson's claim in your own
+words, the setting that makes it land, and explicitly what the lesson is NOT
+saying. Close by naming where the week is heading, which is often not what the
+title says.]
 
 ## 2. Objectives
 [Know / Feel / Do table. The Do must be concrete enough to be declined.]
 
 ## 3. Discussion Plan, [N] Minutes
-[The opening hook as an h3, then the timed table, then the closing as an h3.
+[The profile block first, then the opening hook as an h3, then the timed table,
+then the closing as an h3.
 Hook and closing belong here: they are the first 90 seconds and last 2 minutes
 of this plan, not separate topics. State where to compress. Confirm in one line
 that every day of the week is assigned to a block.]
@@ -198,9 +199,10 @@ that every day of the week is assigned to a block.]
 subsection per day, Sunday through Thursday. See Step 8.]
 
 ## 5. The Two Questions Worth Real Time
-[For each: the question as you will actually say it, why it matters, what
-answers to expect, and how to keep it open when someone closes it with a
-Sabbath-School answer.]
+[For each: the setup that carries the fact, the question as you will actually
+say it, why it matters, what answers to expect, and how to keep it open when
+someone closes it with a Sabbath-School answer. Both questions must be
+self-contained: see Step 7.]
 
 ## 6. Background the Class Does Not Have
 [2–3 items only, numbered. Each must change how a verse reads, not decorate it.
@@ -226,6 +228,24 @@ without making the quarterly the problem.]
 [Source | Tag | Where | Action for the user]
 ```
 
+### Three kinds of text, three different homes
+
+Every block in this guide mixes three things that read at different speeds, and welding them into one paragraph is what makes a guide feel like admin instead of study. Separate them:
+
+| Kind | Example | Where it goes |
+|---|---|---|
+| **Material** | the question, the verse, the illustration, the point | the reading flow |
+| **Stage direction** | "read it aloud", "let the silence sit", "wait for two answers" | its own short line or a callout, never inside a paragraph of material |
+| **Provenance** | Cameron / ssnet, the official Teacher Comments, SDABC | a chip, a parenthetical, or the Appendix B foldout. **Never a sentence** |
+
+Then delete on sight:
+
+- **Anything the timed plan already says.** "Hold it to three minutes" is the plan table's `0–3` row printed twice. The plan is the single source of truth for the clock; a day card states a duration only for the two long blocks, where Step 8 requires it.
+- **Reassurance the teacher cannot act on.** "With a talkative class this will catch fire" gives them nothing to do. Cut it and the guide gets shorter and more confident at once.
+- **A credit that has swallowed its own material.** If you are writing "this question comes from X, who uses the example Y", then Y is the valuable half and it is trapped inside a citation. Promote Y to its own usable element and let a chip carry X.
+
+Measured on the Q3 2026 lesson 9 guide, sourcing prose was 7 sentences while stage direction ran to 42 instances. **Attribution is rarely the clutter; instruction woven into insight usually is.** Count both before deciding what to cut.
+
 ## Step 6: The timed discussion plan
 
 Sabbath School lesson study is typically 30–40 minutes and it is *always* shorter than planned. Plan for the shorter number.
@@ -235,11 +255,11 @@ Sabbath School lesson study is typically 30–40 minutes and it is *always* shor
 | Min | Move | Notes |
 |---|---|---|
 | 0–3 | Opening hook + the week's claim in one sentence | Someone other than you speaks by minute two |
-| 3–6 | Memory Text read aloud, and one question about it | Not "what does it mean" — something specific |
+| 3–6 | Memory Text read from the Bible, and one question about it | Not "what does it mean" — something specific |
 | 6–14 | The weight-bearing day | Read the passage. Two questions. Let silence sit |
 | 14–22 | The second real question | This is where the class does its own thinking |
 | 22–28 | The remaining days, moved through quickly | Name what they add. Do not re-teach them |
-| 28–33 | Application: the one concrete thing | Specific enough that someone could refuse it |
+| 28–33 | Application: the one concrete thing, ending in **one sentence the teacher says aloud** | Specific enough that someone could refuse it. This block *is* the week's challenge; do not add a separate element saying the same thing a third time |
 | 33–35 | Key Text again, one sentence, prayer | Ends on the text, not on your summary |
 
 Compress by cutting minutes 22–28, never by cutting application.
@@ -250,14 +270,17 @@ Compress by cutting minutes 22–28, never by cutting application.
 
 A teacher's guide that produces a monologue has failed regardless of its content quality. Build these in:
 
+- **Nothing orients the class from the front.** The continuity with last week belongs in Section 1's opening clause, where it costs no minutes; the facts a question needs belong in that question's own setup. Do not spend the opening on a spoken recap — this block's whole job is the bullet below.
 - **Someone else talks in the first two minutes.** A show of hands, a one-word answer around the circle, a question with an easy entry point. A class that stays silent for ten minutes has decided its role for the whole hour.
 - **Plan the silence.** After a real question, four to six seconds of nothing is the question working. Note in the guide where to wait.
-- **Read the passage aloud, from the Bible, every time.** Not from the lesson's paraphrase.
+- **Read the passage from the Bible, every time. Not from the lesson's paraphrase.** Aloud, or displayed and read together: the rule is about the *source*, not the channel, because a signed class reads off a screen and "aloud" is meaningless there.
+- **If the class profile is `deaf, signed`, the whole guide's prose changes register.** Not just Section 3: every section, every day card, every hard spot. One clause per sentence, the name repeated instead of a pronoun, idiom removed, and every Adventist term glossed in brackets at first use. Terjemahan Baru itself is never paraphrased; hard words in a verse are glossed after it. Write so a twelve-year-old could read it, without writing as though a twelve-year-old were thinking: the doctrine, the weight and the cost of the week stay exactly as they are. See **Simplified Indonesian for a signed class** in `references/teaching-methods.md`.
+- **Write every question so it carries its own setup.** Most members arrive not having read, so the fact the question needs goes inside the question: setup, then ask. Two sentences of fact, never the conclusion. A longer teaching stretch is legitimate where the class could not infer the thing from the text in front of them, capped at half a minute and never in the opening. See **The Self-Contained Question** in `references/teaching-methods.md`.
 - **Have a plan for the dominant talker** and for the class that will not speak. Small groups of three for four minutes solves both, and belongs in the guide when the class profile calls for it.
 - **Do not defend the quarterly.** If a day is weak, teach the text.
 - **The teacher's own study is not the lesson.** Background goes in only where it changes a reading.
 
-See `references/teaching-methods.md` for the fuller set: question sequencing, mixed-language classes, the mission story slot, seeker-present classes, and what to do when a doctrinal argument breaks out.
+See `references/teaching-methods.md` for the fuller set: the five tests for any question, the self-contained question, question sequencing, **the six congregation profiles**, mixed-language classes, the mission story slot, and what to do when a doctrinal argument breaks out.
 
 ## Step 8: The day-by-day map (Section 4)
 
@@ -272,8 +295,9 @@ Then one subsection per day, Sunday through Thursday, each in this fixed shape:
 | **What this day is doing** | One line on its function in the week's argument. Not a summary of its content |
 | **Points to hold** | 2–4 items. The unlocking background, the translation choice, the verse that is stronger than the class realizes, the caution where a popular reading is not demonstrated exegesis |
 | **Quotes for this day** | **Every Ellen G. White, SDABC, commentary, and Adventist-research source that illuminates this day, all of them.** See below |
-| **If you only have two minutes** | **The single sentence to say out loud.** For the surveyed days this is the whole treatment, so write it as speech, not as a note. For the two long blocks, write "You have ten minutes; this is the weight-bearing day" instead |
-| **Spare question** | One question if the discussion stalls or runs short |
+| **Take home** | **The single sentence the class carries out of the room**, written as speech and sayable in ten seconds. It **names what the passage does, then turns it** — states a fact, then the consequence the class has not drawn yet. It never tells the member how to feel. Where a fetched quote says it better, use the quote and cite it; that is the exception, not the default, because no quote is written to name *this* day's turn. For a surveyed day this is the whole treatment |
+| **How to run it** | Stage direction, and **only** stage direction: "you have ten minutes, this is the weight-bearing day", "read five verses, then wait". Teacher-only, so it never competes with the take-home. Keeping these apart matters — this skill previously told you to write the ten-minute note *into* the take-home slot, and the result was a chip doing two jobs and doing neither cleanly |
+| **Spare question** | One question if the discussion stalls or runs short. **Self-contained**, like the two big ones. This is the question most often written for a reader, because it is written last |
 
 ### Quotes go in the day they explain, never in a pile
 
@@ -337,18 +361,23 @@ Before delivering, check:
 1. **Memory Text is verbatim** and the reference is right. Check it against a Bible text, not memory.
 2. **Every EGW page range was fetched.** Any unverified range is replaced by a chapter title, or dropped.
 3. **No fabricated lesson content.** Everything attributed to the quarterly is from the text you actually read.
-4. **Questions pass the four tests in A5.** Count them. Delete the dead ones rather than rewriting them into life.
-5. **No question is answered in the next sentence.**
+4. **Questions pass the five tests** in `references/teaching-methods.md`. Delete the dead ones rather than rewriting them into life.
+5. **No question is answered in the next sentence**, and no setup answers its own question. **Every question is self-contained**: both big questions, all five spare questions and each two-minute line must work for someone who did not read the lesson. Read each aloud as if you had never opened the quarterly; if it cannot be answered, it needs a setup. Eight questions in a normal week.
+6. **No credit is a sentence, no line repeats the clock, no line is unactionable reassurance.** Grep the draft for "comes from", "diambil dari", "as noted by", and for durations outside the plan table. Each hit is a chip, a deletion, or a promotion of the material the credit was hiding.
 7. **One day costs something.** Find it. If you cannot, the week is not finished.
 8. **Word budgets hit** (A3), Indonesian not padded.
 9. **No provenance tags, no HTTP codes, no "this session"** in any body text. Ledger only. **`para_id` goes in the markdown only, never in the HTML** — it is a re-fetch handle for desk work, and on the page it competes with the page number for the teacher's eye.
 10. **AI-slop swept** per the foundation's banned list, both languages. No em dashes in output prose.
 11. **Timed plan adds up**, the minutes are contiguous, **every day of the week is assigned to a block**, and application survives compression.
-12. **Adventist lens honest** — engaged where the text engages it, absent where it does not.
-13. **Eight numbered sections, in order**, then Appendix A, Appendix B, ledger last.
-14. **Every verse in Appendix A was fetched**, and any truncated fetch is marked with an ellipsis and logged, not completed from memory.
-15. **Appendix B's SDABC table lists only verses whose text you actually have.**
-16. **`teachers-guide.html` rendered** from `references/teachers-guide-template.html`, and its checklist run.
+12. **The profile block is present, first in Section 3, and matches the profile actually given.** The six are adults, young adults, deaf-signed, seeker, baptismal, mixed. A guide whose profile block restates the general advice, or contradicts the stated profile, has failed this check. If the class is deaf, verify that no block asks the class to read and watch at the same time; the clock itself is unchanged.
+13. **If the profile is `deaf, signed`, the whole guide is in simplified register.** Spot-check three paragraphs from different sections: one clause per sentence, names not pronouns, no idiom, every Adventist term glossed at first use. A guide whose Section 3 is simplified and whose Section 6 is not has failed this.
+14. **Every day has a take-home line, and it is not stage direction.** Read each aloud: it should name what the passage does and turn it, in under ten seconds, without telling anyone how to feel. A day whose take-home says "you have ten minutes" has put the wrong thing in the slot. And the week's challenge lives in the application block, stated once — not in the objectives, the plan and a third element.
+15. **Adventist lens honest** — engaged where the text engages it, absent where it does not.
+16. **Eight numbered sections, in order**, then Appendix A, Appendix B, ledger last.
+17. **Every verse in Appendix A was fetched**, and any truncated fetch is marked with an ellipsis and logged, not completed from memory.
+18. **Appendix B's SDABC table lists only verses whose text you actually have.**
+19. **`teachers-guide.html` rendered** from `references/teachers-guide-template.html`, and its checklist run.
+20. **`slides/*.pptx` built** per `references/teaching-deck.md`, and its checklist run: no run below 20pt, speaker notes on every slide, a source line on every quote, no day without meat, and a PDF beside it.
 
 Then deliver plainly:
 
@@ -362,7 +391,10 @@ Then deliver plainly:
 /Users/edmundsitumorang/DEV/skills-sermon-adventist/output/
 └── [YYYY-MM-DD]-ss-[kebab-case-title]/
     ├── teachers-guide.md            (the workshop copy: ledger, para_id)
-    └── teachers-guide.html          (the copy used in the room)
+    ├── teachers-guide.html          (the copy used in the room)
+    └── slides/
+        ├── pelajaran-NN-[slug].pptx (projected to the class)
+        └── pelajaran-NN-[slug].pdf  (fallback: the projector laptop may lack PowerPoint)
 ```
 
 The `ss-` prefix is deliberate. A Sabbath School lesson and a sermon can fall on the same Sabbath and are different material, so they get different folders. Do not write Sabbath School files into a sermon folder.
@@ -398,6 +430,27 @@ The filename is deliberately not `html-template.html`. `scripts/build-dist.sh` f
 
 **Same reasoning kills `para_id`.**
 
+### A bilingual page is one page
+
+When the language answer is bilingual, build the Indonesian render and the English render as
+intermediates, then **merge them into a single file**. Both panes ship; CSS hides one. A toggle in
+the header switches every word on the page — headings, plan table, questions, take-home lines,
+contents nav — not just the Scripture cards.
+
+- **Both panes are in the DOM**, each wrapped `<... data-pane="id">` / `<... data-pane="en">`, and
+  `:root[data-pagelang]` shows one and hides the other. The choice persists in
+  `localStorage['ss-pagelang']`.
+- **`data-pagelang` is a different attribute from `data-lang`, and reusing one for the other is a
+  bug.** `:root[data-lang]` already drives the English/working-translation tabs *inside* `.bq`
+  quote cards. Drive the page toggle off it and every quote card flips to the working translation
+  the moment someone reads the page in Indonesian. This cost a debugging pass; do not rediscover it.
+- **Suffix every `id` per pane** — `s1__id`, `s1__en`. Two copies of the contents nav otherwise
+  collide on the same ids and every anchor jumps into the hidden pane.
+- **The contents nav ships twice too**, once per pane, and the `.th` heading above it stays hidden
+  below 1120px. A `nav.toc` shown without its media query is how the page ends up with two
+  "CONTENTS" headings stacked at the top.
+- **Publish once.** One file, one slug. The separate `-en` URL is retired.
+
 ### Section and colour scheme
 
 Eight numbered sections map to the eight verified ramp steps, `data-hue="1"` through `"8"`. The two appendices and the ledger sit **outside** the ramp as `<section class="sec apx">` with letter badges (A, B, ✓) in techelet. All sixteen ramp steps were contrast-checked on glass; **do not interpolate a ninth step by eye.** If the content wants a ninth section, fold two together.
@@ -410,11 +463,13 @@ Eight numbered sections map to the eight verified ramp steps, `data-hue="1"` thr
 | Appendix or ledger | `<section class="sec apx">` with `<span class="num">A</span>` / `B` / `✓` |
 | Header facts (Sabbath, time, class) | `<ul class="facts">` with `<span class="k">` label and `<span class="v">` value |
 | Memory text, key text, readings | `<dl class="meta">` in the header |
+| Who is in the room | `<div class="profile" data-label="Profil kelas">` holding a `<ul>`, placed **first in Section 3, before the hook and the plan table**. Emitted from the matching profile in `references/teaching-methods.md`; carries only what *changes* for this class |
 | **The timed plan** | `<div class="tablewrap plan"><table class="plan-t">` — minutes in column 1. Add `class="key"` to the two weight-bearing rows and `class="cut"` to the row that gets dropped when time is short |
 | A day in the day-by-day map | `<div class="day">` holding `<h3>`, `<p class="when">`, `<p class="refs">`, `<h4>` groups |
-| "If you only have two minutes" | `<div class="twomin" data-label="2 menit">` — the most-used element on the page |
+| The line the class takes home | `<div class="twomin" data-label="Bawa pulang">` — the most-used element on the page |
+| Stage direction for a block | `<div class="howto" data-label="Cara menjalankannya">` — dashed and muted, deliberately quieter than the take-home |
 | Know / Feel / Do | `<ul class="objectives">` with `<span class="k">` |
-| A question worth real time | `<div class="qbig">` with `<p class="ask">` for the question itself, `<h4>` for why / expect / keep-open |
+| A question worth real time | `<div class="qbig">` with `<p class="setup" data-label="Pengantar">` for the fact the question needs, then `<p class="ask">` for the question itself, `<h4>` for why / expect / keep-open |
 | Predicted pushback and answer | `<div class="hard">` with `<p class="push">` for the objection |
 | Read-this-tonight note | `<div class="tonight" data-label="Sebelum kelas">` |
 | Scripture quote | `<blockquote class="scripture">` + `<p class="note">` with reference and translation |
@@ -429,7 +484,7 @@ Eight numbered sections map to the eight verified ramp steps, `data-hue="1"` thr
 | Any table at all | **Always** inside `<div class="tablewrap">` so it scrolls on a phone instead of breaking the page |
 | Provenance the teacher needs once, not per screen | `<details class="fold">` with a `<summary>`. Opens automatically before printing |
 
-**Chip labels are language-aware.** The CSS defaults to English, and any `data-label` attribute overrides it. For Indonesian output set them: `data-label="Ayat Alkitab"`, `"Roh Nubuat"`, `"Komentar"`, `"Perhatian"`, `"2 menit"`, `"Sebelum kelas"`. Do not edit the CSS to change a label.
+**Chip labels are language-aware.** The CSS defaults to English, and any `data-label` attribute overrides it. For Indonesian output set them: `data-label="Ayat Alkitab"`, `"Roh Nubuat"`, `"Komentar"`, `"Perhatian"`, `"Bawa pulang"`, `"Cara menjalankannya"`, `"Sebelum kelas"`, `"Profil kelas"`. Do not edit the CSS to change a label.
 
 ### Attribution: complete, but quiet
 
@@ -440,10 +495,21 @@ Three rules keep it both complete and small:
 1. **The chip does the per-quote work.** `data-label="6SDABC pada 12:1"` on the card edge already says whose it is and which verse. Do not restate that underneath.
 2. **A caveat that applies to a whole class of quotes is stated once**, near the top of the section that uses them, and never repeated. "SDABC here is a first-paragraph paraphrase" belongs at the head of the day-by-day map. "The Indonesian tab is a working translation" belongs in the section on reading quotes aloud.
 3. **Keep inline only what carries information**: book, page, and the link. `<em>Christian Leadership</em>, hlm. 38.2` plus a deep link is a citation. Anything after that is usually boilerplate.
+4. **A credit is never a sentence in the reading flow.** It is a chip (`data-label="Tanyakan · Cameron, ssnet"`), a trailing parenthetical (`*(Cameron, ssnet)*`), or a foldout row. The moment a credit needs a verb it has become prose, and prose about sourcing is the teacher reading your research notes instead of the lesson.
+
+Rule 4 has a trap worth naming, because it looks like good practice while it destroys the thing it credits:
+
+> **Before.** "Pertanyaan ini diambil dari Teaching Outline Bruce Cameron di Sabbath School Net, yang memakai contoh kalimat penghiburan di pemakaman seperti 'Jangan khawatir, ini semua sudah rencana Tuhan.' Biarkan dua atau tiga orang menjawab. Untuk kelas yang suka bicara, ini akan langsung hidup. **Batasi tiga menit dengan tegas**, lalu tutup dengan klaim pekan ini." (60 words)
+>
+> **After.** Chip reads `Tanyakan · Cameron, ssnet`. The funeral line becomes its own prompt under a second chip, `Kalau kelas diam`. The timing goes, because the plan table's `0–3` row already carries it. The reassurance goes. What remains: "Dua atau tiga jawaban, lalu tutup dengan klaim pekan ini:" (25 words)
+
+The borrowed funeral line was the best thing in that paragraph and it was buried inside a citation, formatted as evidence about Cameron rather than as something to say out loud. **Credit the source on the chip; give the source's material the same standing as your own.**
 
 The fuller provenance story — which section came from which source — goes in a `<details class="fold">` so it is one tap away instead of a screen of table. The foldouts open automatically before printing, so nothing disappears on paper.
 
-Applied to the Q3 2026 lesson 6 guide this removed 29 repeated sentences and 15 citation lines, and the guide lost nothing a teacher needed.
+Applied to the Q3 2026 lesson 6 guide this removed 29 repeated sentences and 15 citation lines, and the guide lost nothing a teacher needed. Applied with rule 4 to lesson 9, it took every sourcing sentence out of the flow while the credits all survived, on chips.
+
+**Do not answer clutter by building a way to hide it.** The obvious-looking fix is a popup or a toggle that tucks the sourcing away, and it is the wrong instinct twice over: it is a lot of new interaction to hide the smallest part of the problem, and provenance is a prepare-time need that the Appendix B foldout already serves. Cut and demote first. If a guide still reads heavy afterwards, the useful control is not a provenance popup but a **mode toggle** beside the theme and mono buttons, collapsing *stage direction* rather than credits, since that is where the volume actually is.
 
 ### Bilingual quotations — every English quote, no exceptions
 
@@ -481,7 +547,17 @@ Two rules that are not optional:
 - **Verify every book number, one at a time.** Do not infer them from a pattern. Search for the title and read the number out of a real URL.
 - **Say which links are precise and which are not.** Label a paragraph link differently from a book link. If a reference genuinely cannot be resolved, say why rather than quietly linking the book and hoping.
 
-**And check that similar titles are actually the same book.** `Spiritual Gifts, vol. 1` is book 104; a separate item titled `Spiritual Gifts` with refcode SGL is book 1340. A quote fetched from one of them is not evidence about the other. This exact trap cost a wrong citation in the Q3 2026 lesson 6 guide: a quote from SGL was written up as "vol. 1" because the quarterly's Friday reading happened to be vol. 1. If two references share a title, resolve both book numbers before you write either one down, and if you cannot establish they are the same text, say so in the guide rather than merging them.
+**And check that similar titles are actually the same book.** Resolve the book id and read its catalogue record; do not reason from the title. A worked example from Q3 2026 lesson 6, where three items share a name and **none of them is what it looks like**:
+
+| Book | Title | Author | Year |
+|---|---|---|---|
+| 1340, code SGL | *Spiritual Gifts* | **J. N. Loughborough** | 1899 |
+| 104, code 1SG | *Spiritual Gifts, vol. 1* | Ellen G. White | 1858 |
+| pp. 5–16 inside book 104 | *Spiritual Gifts* | **Roswell F. Cottrell** | — |
+
+A quote fetched from 1340 is Loughborough's. The lesson's Friday reading is Cottrell's essay printed inside White's volume. Neither is Ellen White writing about spiritual gifts, and a guide that says "Ellen White says" over either one is wrong in front of a class that can check in a minute.
+
+Getting this right took `GET /content/books/<id>` and reading the `author` field, which costs one call. Guessing cost two wrong attributions in a row: first "vol. 1," then "probably Cottrell." **When two references share a title, resolve every book id before writing any of them down.**
 
 ### Clickable verse references
 
@@ -533,6 +609,36 @@ Also required: `viewport-fit=cover` in the viewport meta, `env(safe-area-inset-*
 17. At ≤620px the plan table renders as stacked blocks, not a horizontal scroll.
 18. **No Verification Ledger section, and no `#ledger` entry in the contents.** The footer points at the markdown for provenance instead.
 19. **Every day in Section 4 carries its own "Kutipan untuk hari ini" block.** A day with sources available and none printed is a failure; a day whose sources were piled into an appendix instead is the same failure.
+20. **On a bilingual page, the toggle moves everything and collides with nothing.** Switch to `EN` and read the whole page: any Indonesian left standing is a pane that was never wrapped. Then confirm `:root[data-lang]` is untouched by the page toggle — the quote cards must still be showing English, not the working translation — and that ids carry a pane suffix, so no contents link jumps into the hidden pane.
+
+---
+
+## The Teaching Deck: `slides/*.pptx`
+
+The guide is the teacher's. The deck is the **class's**, and it is not the guide in slide form.
+Build one every week, in the class's language, and put it in `slides/` beside the guide.
+
+**Read `references/teaching-deck.md` before writing the generator**, and load the `pptx` skill
+for the mechanics. The short version:
+
+| | |
+|---|---|
+| Shape | Day by day, Minggu through Kamis: divider, Scripture, meat, question. 30–35 slides |
+| The split | The slide carries what the class sees. The **speaker notes** carry timing, expected answers, how to reopen a closed question, and the cautions |
+| Meat | Every day gets at least one: a verified Ellen G. White quote, a famous voice quoted accurately, a real illustration, or background the text does not supply |
+| Legibility | **Nothing below 20pt**, checked in the XML, not by eye. This overrides the `pptx` skill's 14–16pt body guidance, which assumes a laptop |
+| Language | One per deck. Two languages on a projected slide halves the type for both |
+| Quotes | Verbatim, with the source on the same slide. Follow the attribution chain: Ellen G. White quoting Huss is still Huss |
+| Also ship | A PDF. The projector laptop may not have PowerPoint, and a PDF cannot lose a font |
+
+**The deck runs a different clock from the guide.** The guide spends ten minutes each on two deep
+questions and surveys the rest; the deck walks all five days at about seven minutes each. Put the
+deck's minutes on each day divider, and say in the title slide's notes that the two plans are
+alternatives. Mixing them overruns the hour.
+
+**Visual QA is not optional.** Render every slide to an image and look at it. The two defects the
+first Lesson 10 deck shipped with — a hairline rule under every title, and a caption printed
+straight through a source line — both passed validation and were obvious in the render.
 
 ---
 
@@ -540,7 +646,7 @@ Also required: `viewport-fit=cover` in the viewport meta, `env(safe-area-inset-*
 
 The guide is a page before it is a file, so it can go on the web. `ss.situmorang.com` is a GitHub Pages site served from the public repo `situmorang-com/sabbath-school`. It is **not** on a VPS, and it needs no credentials beyond the `gh` login that is already in place.
 
-Publishing needs `teachers-guide.html` to exist. Render it first — Final Pass item 16 — and run its checklist. There is nothing to publish from the markdown.
+Publishing needs `teachers-guide.html` to exist. Render it first — Final Pass item 19 — and run its checklist. There is nothing to publish from the markdown.
 
 ```sh
 cd "/Users/edmundsitumorang/Library/Mobile Documents/iCloud~md~obsidian/Documents/BIBLE STUDY/200 Seedbox/ss"
@@ -576,12 +682,19 @@ This step exists only in Claude Code. The `dist/` bundles for Claude Projects an
 - **Never ask the user for a theme.** Sabbath School has no theme to choose: the quarterly set it, church-wide. Asking for one shows you do not know how Sabbath School works. Find which lesson falls on that Sabbath instead.
 - **Never reconstruct an official quarterly lesson you could not read.** The one unforgivable failure. Ask for a paste instead.
 - **Never invent an EGW page range.** Chapter title and book, or nothing.
+- **Never put an unverified quote on a projector screen.** A class can check the wall on a phone before the hour ends. Every slide quote is verbatim with its source on the same slide, and a week with one verifiable famous voice beats a week with four plausible ones.
+- **Never build a deck that is the guide in slide form.** The slide carries what the class sees; the speaker notes carry the teacher's material. A deck with empty notes has thrown away the useful half.
 - **Never mis-quote the Memory Text.** The class memorizes it.
 - **Never write a lesson that is a sermon in seven pieces.** Sabbath School is discussion. If the class only listens, the material was wrong.
 - **Never ask a question you already know the answer to** and then supply it in the next sentence.
+- **Never write a question that only a reader can answer.** Most members arrive not having read. A question resting on facts they do not have produces silence or a platitude, and the fix is a setup inside the question, not a lecture before it.
 - **Never let all five days agree with the class.** A week with no cost was not built from the text.
 - **Never make Monday and Wednesday the same day** with different verses.
+- **Never collect an input the output ignores.** Class profile was asked for at Step 1, printed in the header, and used nowhere else for the life of this skill. If an input does not change the guide, either wire it through or stop asking for it.
 - **Never print provenance tags or narrate your research** in the lesson body. Ledger only.
+- **Never write a credit as a sentence in the reading flow.** Chip, parenthetical, or foldout. "This question comes from X, who uses the example Y" is the standard shape of the failure: it reads as research notes and it buries Y, which was the useful part.
+- **Never repeat the timed plan inside a day card.** The plan table owns the clock. The only exception is the two long blocks, where Step 8 requires the duration stated in place.
+- **Never write reassurance the teacher cannot act on.** "This will get them talking" is a prediction, not an instruction. Either give the move that makes it happen or delete the line.
 - **Never force an Adventist distinctive** onto a week that does not engage one, and never glide past one that the passage puts directly in front of you.
 - **Never pad Indonesian** to match the English word count.
 - **Never plan a discussion that cannot survive losing five minutes.** It will lose five minutes.
@@ -592,9 +705,12 @@ This step exists only in Claude Code. The `dist/` bundles for Claude Projects an
 
 - `references/lesson-anatomy.md` — the quarterly week's structure part by part, word budgets, heading conventions, the student/teacher edition split, and the Indonesian label table
 - `references/teaching-resources.md` — where teaching helps come from: what the official Teacher Comments covers and where it stops, ssnet's named weekly columns, video walkthroughs and how to transcribe them, method sources, and the source order for a guide
-- `references/teaching-methods.md` — facilitation: question sequencing, timing variants, silence, dominant talkers, mixed-language and seeker-present classes, doctrinal arguments, the mission story slot
+- `references/teaching-methods.md` — facilitation: question sequencing, the five tests, the self-contained question, timing variants, silence, class dynamics, **the six congregation profiles** (adults, young adults, deaf, seeker, baptismal, mixed), mixed-language classes, doctrinal arguments, the mission story slot
+- `references/teaching-deck-generator.js` — a working `pptxgenjs` generator, the Lesson 10 deck as a worked example. Copy it rather than starting from scratch; its helpers encode the layout rules
+- `references/teaching-deck.md` — the `slides/*.pptx` teaching deck: the day-by-day structure, the slide-versus-speaker-notes split, the 20pt floor, quote discipline on a screen, and the generator traps this collection has already paid for. Requires the `pptx` skill for the mechanics
 - `references/teachers-guide-template.html` — the `teachers-guide.html` skeleton: full stylesheet, theme and mono toggles, and markup examples for the plan table, day cards, two-minute callouts, question cards, hard spots, and appendix passages. Copy it rather than designing a new page
 - `bible-study-deep/SKILL.md` — the exegetical engine and the provenance/ledger discipline this skill inherits
+- `sermon-illustrations/SKILL.md` — where the hook and any day's illustration come from: the local illustration library first (Step 2, Tier 0), then the web, then an original
 - `commentary-tiers.md` (ships with `bible-study-deep`) — commentary sources by tier, lexicons, cautions
 - `adventist-themes.md`, `commentary-sources.md` (ship with `sermon-adventist`) — distinctives mapped to texts, and the Adventist source list
 - `HOWTO_EGW_LaguSion.md` (ships with `sermon-adventist`) — operating the EGW API helper
