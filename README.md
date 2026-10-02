@@ -106,15 +106,18 @@ Loads once; shared across all other skills.
 **What it produces:** Illustration with source, type, setup/tension/payoff/bridge, spoken length, verification notes.
 
 **Approach:**
-- **Tier 1 (Famous-Attributed)** — Search well-known illustration sources first (Adventist heritage, classic preachers, history, literature, science)
-- **Tier 2 (Original)** — If no Tier 1 fit, create original illustration labeled clearly
+- **Tier 0 (Local library)** — Search the local illustration library first: over 100,000 records at `/Users/edmundsitumorang/DEV/illustration-library` indexed by Scripture span, subject taxonomy and full text, queried with `bin/illus.mjs find … --ref … --max-words …`. Includes the Adventist pioneers, Ellen G. White, and the Adventist Mission stories. Skipped silently when the library is not on the machine.
+- **Tier 1 (Famous-Attributed)** — Then well-known illustration sources (Adventist heritage, classic preachers, history, literature, science)
+- **Tier 2 (Original)** — If neither fits, create an original illustration labeled clearly
+
+The sermon, Sabbath School and Bible study skills run the same Tier 0 search for their bookends and hooks.
 
 **Themed Sources:** Grace, Sabbath, Second Coming, State of Dead, Sanctuary, Faith/Trial, Service, Suffering, Forgiveness, Salvation, Health, Cross, End-time, plus Indonesian-context illustrations.
 
 **Key Features:**
 - Never fabricate "true stories" — verify or label as original
 - Track source and type (historical, parable, modern analogy, etc.)
-- Spoken length noted (~2–4 minutes typical for sermon opening)
+- Spoken length noted (3–5 minutes for an opening, 2–4 for a closing)
 - Bridge to sermon theme explicit
 
 ---
@@ -449,7 +452,7 @@ skills-sermon-adventist/
 │       └── teaching-methods.md (question sequencing, timing, silence, class dynamics)
 │
 └── sermon-illustrations/
-    ├── SKILL.md (Tier 1 famous → Tier 2 original)
+    ├── SKILL.md (Tier 0 local library → Tier 1 famous → Tier 2 original)
     ├── evals/
     │   └── evals.json
     └── references/
@@ -511,6 +514,7 @@ Youth audience. About 2 minutes spoken.
 ```
 
 **Output:**
+- Tier 0 search: local library records with ids (e.g. `illus.mjs find "deception" "counterfeit" "last days" --max-words 300`), read in full before use
 - Tier 1 search: historical Adventist illustrations on truth/deception (e.g., story from *Great Controversy*)
 - Or Tier 2: original story about discernment in digital age
 - Type, source, setup/payoff, bridge to sermon theme
@@ -520,7 +524,8 @@ Youth audience. About 2 minutes spoken.
 ## Requirements
 
 - **Claude Code** with skill-creator framework
-- **egwwritings.org API** access (for live EGW fetches in sermon-adventist & bible-study-deep)
+- **EGW Writings API** credentials and the `~/.config/scripts/egw-fetch.sh` helper (verbatim Ellen G. White text for every task skill)
+- **Local illustration library** (optional) — `/Users/edmundsitumorang/DEV/illustration-library` with Node 26 (`node:sqlite`); every skill searches it first for illustrations and falls back to web search when it is absent
 - **Blue Letter Bible** / **Bible Hub** (for free word-study reference tools, cited but not required for execution)
 
 ---
@@ -547,7 +552,7 @@ To run your own vibe test: pick a Scripture passage, load the skills, and follow
 ## Contributing & Feedback
 
 **Known issues / areas for improvement:**
-- egwwritings.org returns 403 on automated fetches; workaround uses Tier 2/3 fallback
+- egwwritings.org pages return 403 to scripts; the skills use the official API through `~/.config/scripts/egw-fetch.sh` (OAuth credentials required) and fall back to Tier 2/3 paraphrase only when the helper fails
 - Hymn numbers (SDAH & LSEL) need manual verification — skill flags uncertainties
 - Commentary sources assume English access; non-English commentary sources welcome
 

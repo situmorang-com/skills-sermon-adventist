@@ -9,7 +9,7 @@ Sabbath School is not a sermon with chairs in a circle. It is a *discussion* bui
 
 **Requires:** the `adventist-foundation` skill is loaded for doctrinal alignment, translation defaults, voice, banned phrases, and the Ellen G. White citation policy. Do not restate those rules here — apply them.
 
-**Related skills:** `bible-study-deep` for the exegetical engine behind a lesson, `sermon-illustrations` for the opening hook, `sermon-adventist` when the ask is actually a sermon.
+**Related skills:** `bible-study-deep` for the exegetical engine behind a lesson, `sermon-illustrations` for the opening hook and any story a day needs (its Step 2 searches the local illustration library first), `sermon-adventist` when the ask is actually a sermon.
 
 ---
 
@@ -141,6 +141,16 @@ Once the official comments are read, sweep the ecosystem. Full annotated list in
 
 **Depth still comes from the primary sources,** not from the helps. SDABC verse by verse, BRI on contested points, Ellen G. White, named scholars. The helps tell you what has already been said and show you how others run the hour; they are not a substitute for reading the text.
 
+**Stories come from the local illustration library before the web.** Over 100,000 illustrations are indexed on this machine by Scripture span, subject and full text, and the Adventist part of it is exactly what a Sabbath School class wants: the pioneers' own accounts, Ellen G. White passages, and every Adventist Mission Inside Story since 2016, each dated to the Friday that closes its lesson week. Search it for the hook and for any day that needs a real illustration:
+
+```bash
+/Users/edmundsitumorang/DEV/illustration-library/bin/illus.mjs find "PROBE" "PROBE" "PROBE" --ref "MEMORY TEXT" --max-words 300
+/Users/edmundsitumorang/DEV/illustration-library/bin/illus.mjs find "PROBE" "PROBE" --tradition sda --tag missions --max-words 600
+/Users/edmundsitumorang/DEV/illustration-library/bin/illus.mjs show <id>
+```
+
+Three short, differently worded probes, never a sentence; the index ANDs every word, and a phrase needs literal quotes inside the argument (`'"hound of heaven"'`). With `--ref`, the passage is pooled alongside the probes rather than filtering them, so `0 matched 2+ probes` is normal: read the rows marked `@<ref> … <- matches` first. Only a third of the Mission stories carry a Scripture reference and their only tag is `missions`, so reach them with concrete nouns, not the week's theme word: for an abstract claim take the nouns from the week's Bible stories (ark, altar, Jordan) and from the Inside Story's usual props (boat, exam, visa, hospital), and try two noun pairs before calling the shelf empty. Mission pieces are often serialised (Part 1, Part 2): `show` the neighbouring id. `show` the record and read all of it before you use it: a library hit is a lead, not a verified fact, and the verification rule in `sermon-illustrations/SKILL.md` (Step 2 and Step 5) applies unchanged. If the command is missing or exits 3, go to that skill's wider search and do not mention the library.
+
 ### Study the lesson three times
 
 The ecosystem's own best advice, and it maps onto the steps that follow:
@@ -266,6 +276,8 @@ Compress by cutting minutes 22–28, never by cutting application.
 
 **If the class runs 40 minutes**, add the extra five to the second real question, not to your exposition.
 
+**Source the hook before you write it.** Three minutes is about 300 words at speaking pace, so search the library with the memory text as the passage and `--max-words 300` (Step 3), then widen through the `sermon-illustrations` skill only when fewer than two records under 300 words genuinely carry the week's claim. The 300 words are the teacher's: leave 40 to 60 seconds inside the slot for the class's two voices, so aim for 200 to 250 spoken words. A hook the class has heard from the front three times this year is not a hook; the library's `×N attested` marker tells you which stories circulate widely. Treat `×3` or more as probably heard and `×2` as a caution; a `×1` Adventist record that fits the claim beats a `×3` evangelical staple. When the request is for the hook alone, deliver only the Section 3 hook block as it would sit in the guide, plus its verification note; no alternates after it.
+
 ## Step 7: Facilitation, not presentation
 
 A teacher's guide that produces a monologue has failed regardless of its content quality. Build these in:
@@ -378,6 +390,7 @@ Before delivering, check:
 18. **Appendix B's SDABC table lists only verses whose text you actually have.**
 19. **`teachers-guide.html` rendered** from `references/teachers-guide-template.html`, and its checklist run.
 20. **`slides/*.pptx` built** per `references/teaching-deck.md`, and its checklist run: no run below 20pt, speaker notes on every slide, a source line on every quote, no day without meat, and a PDF beside it.
+21. **Every illustration taken from the local library is logged in the ledger with its record id**, was read in full with `illus.mjs show`, and its named particulars were checked, not copied. The id is a provenance record, not a fact-check.
 
 Then deliver plainly:
 
@@ -713,6 +726,7 @@ This step exists only in Claude Code. The `dist/` bundles for Claude Projects an
 - `commentary-tiers.md` (ships with `bible-study-deep`) — commentary sources by tier, lexicons, cautions
 - `adventist-themes.md`, `commentary-sources.md` (ship with `sermon-adventist`) — distinctives mapped to texts, and the Adventist source list
 - `HOWTO_EGW_LaguSion.md` (ships with `sermon-adventist`) — operating the EGW API helper
+- `/Users/edmundsitumorang/DEV/illustration-library/` — the local illustration library and its CLI (`bin/illus.mjs`); `sermon-illustrations/SKILL.md` Step 2 is the protocol for searching it and Step 5 the verification gate
 
 ---
 

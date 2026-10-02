@@ -83,7 +83,9 @@ egw-fetch.sh search "reverence for the house of God"
 # Returns: para_id, refcode_short (page), and snippet
 
 egw-fetch.sh para 113.2411 12
-# Returns: 12 paragraphs of verbatim text, starting at para_id 113.2411, with refcodes
+# Returns: 12 paragraphs of verbatim text, starting at para_id 113.2411, with refcodes.
+# The JSON `content` field carries <span class="egwlink"> markup: strip it and cite refcode_short.
+# `egw-fetch.sh token` prints a bearer token for direct API calls (see egw-api-guide.md).
 ```
 
 **Full workflow when you intend to quote EGW:**
@@ -117,7 +119,7 @@ The word "paraphrased" should appear, or the framing should make clear it is a s
 - **Never** put text inside quotation marks unless the exact wording is verified.
 - **Never** invent a page number. If you don't know, say "in *Desire of Ages*" without a page.
 - **Never** invent a quote even if a perfect one would strengthen the point.
-- **Always** prefer fetching from egwwritings.org for quotes that will be read aloud or printed.
+- **Always** prefer fetching through `egw-fetch.sh` (the official EGW Writings API) for quotes that will be read aloud or printed.
 
 ---
 
@@ -148,6 +150,8 @@ When researching for a sermon or study, draw in this order:
    - **Fallback:** Physical copies or licensed Logos subscription if you need extended commentary beyond the first paragraph
 5. **Adventist Review / Ministry Magazine** — historic and contemporary Adventist thought
 6. **Broader Christian scholarship** — when it strengthens exegesis without contradicting Adventist distinctives
+
+**Illustrations are a separate axis, with their own local source.** The illustration library at `/Users/edmundsitumorang/DEV/illustration-library/` indexes over 100,000 illustrations by Scripture span, subject taxonomy and full text, including the Adventist pioneers' own writings, Ellen G. White passages and every Adventist Mission story since 2016. Any skill that needs a story, hook, object lesson or statistic searches it with `bin/illus.mjs` before the open web. The search protocol and the verification gate live in `sermon-illustrations/SKILL.md` (Steps 2 and 5); a record found there is a lead to verify, not a fact.
 
 ---
 

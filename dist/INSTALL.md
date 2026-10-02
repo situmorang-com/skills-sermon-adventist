@@ -268,7 +268,8 @@ dist/
 - Application questions
 
 ### Sermon Illustrations
-- Tier 1: Search famous/attributed illustrations first
+- Tier 0: Search the local illustration library first (`/Users/edmundsitumorang/DEV/illustration-library/bin/illus.mjs`; Claude Code on that machine only — other hosts skip it silently)
+- Tier 1: Search famous/attributed illustrations next
 - Tier 2: Create original illustrations labeled clearly
 - Themed source lists by doctrine
 

@@ -63,7 +63,7 @@ Any study over ~2,500 words opens with a short contents block after the header. 
 If the user is going to *teach* this (Sabbath School class, prayer meeting, small group) rather than study it, ask once, then produce the research document **plus** a teaching layer:
 
 - A flow at the top: segments with minute counts adding to the stated slot (typically 45 or 60)
-- An opening illustration or hook, written out
+- An opening illustration or hook, written out. Search the local illustration library first (`sermon-illustrations/SKILL.md`, Step 2: `/Users/edmundsitumorang/DEV/illustration-library/bin/illus.mjs find "PROBE" "PROBE" --ref "PASSAGE" --max-words 300`; exit 3 means the library is absent, skip it silently), then that skill's wider search; cite the record id, and read the whole record before using it
 - Discussion prompts placed inside the segments, not saved for the end
 - Teacher notes: what to skip if time runs short, and which question to protect
 - The eight research sections stay underneath as the teacher's own preparation

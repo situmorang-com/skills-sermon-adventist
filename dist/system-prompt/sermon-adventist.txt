@@ -141,7 +141,7 @@ For each EGW reference:
 - Citation: *Book Title*, p. ___
 - One sentence on how it illuminates the passage
 
-Use WebFetch on egwwritings.org to verify when possible. If fetch fails (403, etc.), fall back to high-confidence paraphrase with explicit honesty about uncertainty.
+Verify Ellen G. White quotations through the foundation's Tier 1 path: `egw-fetch.sh search "<distinctive phrase>"` to find the paragraph, then `egw-fetch.sh para <para_id> <count>` for verbatim text with its refcode. Never fetch egwwritings.org pages directly. If the helper fails on credentials, follow the foundation's Keychain troubleshooting; only when that path is exhausted fall back to Tier 2 or Tier 3 paraphrase, with explicit honesty about uncertainty.
 
 ### 6. Scriptural Cross-References (5-8 references)
 
@@ -268,19 +268,30 @@ Ask: "Look right? Anything to tweak before I find/draft the bookend illustration
 **Every sermon must have a strong illustration at TWO points:**
 
 1. **Opening illustration / icebreaker** — the first 3-5 minutes. Hooks attention. Could be:
-   - A famous story (Tier 1 — see `sermon-illustrations` skill for the source taxonomy)
+   - A story from the local illustration library or a famous, attributable story (Tiers 0 and 1 below; the `sermon-illustrations` skill holds the full protocol)
    - An interactive activity (group discussion, quiz, show-of-hands) for AY/youth contexts
    - A vivid scene or scenario
 2. **Closing illustration / reinforcement** — the last 2-4 minutes. Reinforces the Big Idea so it lands and sticks. Should be different in flavor from the opening — if the opening was an activity, the closing should be a story; if the opening was a famous story, the closing might be a return to that story or a fresh sealing image.
 
-**Sourcing rule (mirrors sermon-illustrations skill):**
-- **Tier 1 first** — find a famous, attributable illustration (Adventist heritage, classic preachers, biblical biography, history, literature, science). Verify before using.
-- **Tier 2 if Tier 1 fails** — craft an original. Label it as original ("Imagine with me…") so the preacher doesn't accidentally claim it as fact.
+**Sourcing rule (the `sermon-illustrations` skill's protocol, in short):**
+
+- **Tier 0 first: search the local illustration library.** Over 100,000 illustrations are indexed on this machine by Scripture span, subject taxonomy and full text, including the Adventist pioneers, Ellen G. White, and every Adventist Mission story since 2016. Run it once per bookend, with the sermon passage and the length budget:
+
+  ```bash
+  /Users/edmundsitumorang/DEV/illustration-library/bin/illus.mjs find "PROBE" "PROBE" "PROBE" --ref "PASSAGE" --max-words 750
+  /Users/edmundsitumorang/DEV/illustration-library/bin/illus.mjs show <id> <id>
+  ```
+
+  The script is executable as written (prefixing `node` also works). Three or four **short, differently worded** probes (a plain restatement, a biblical image, an idiom, a named exemplar), never a sentence: the index ANDs every word, and a phrase needs literal quotes inside the argument (`'"hound of heaven"'`). Pass the sermon's verse span to `--ref` (`"Daniel 3:16-18"`); the header's `N whole-book-only suppressed` confirms book-wide hits were dropped, and you widen to the chapter only if the span pool is thin. On an Adventist-distinctive subject add `--tradition sda` as a second pass rather than an Adventist `--tag`; most of those tags are nearly empty, and the pass is cheap, so run it when in doubt. At preaching pace an opening of 3–5 minutes is 450–750 words and a closing of 2–4 minutes is 300–600, so bound the search with `--max-words`; run the budget pass first, and repeat with `--max-words 300` only if long records swamp it. A record that matched two probes (`probeA+probeB` on its second line) is the strong evidence; one that matched a single probe is weak. `show` the two or three worth reading and read the whole record: **a library hit is a lead, not a verified fact**, and the record text itself can be wrong. Verify at this step, not at the manuscript step: compare the record against its URL or a primary text and name what you compared; for an Ellen G. White chunk, confirm the paragraph with `egw-fetch.sh` and cite the refcode. "Attributed" means the record names a source you have not checked; "verified" means you checked it. A pass is thin when no row carries the `@passage` marker or every two-probe hit serves the topic but not the point: say so, re-probe once with different exemplars or `--tradition sda`, then go to Tier 1. Count a bookend's spoken words with `wc -w` rather than estimating, and mark every cut you make in a quotation with an ellipsis; never describe your elision as the source's own. If the command is missing or exits 3, go to Tier 1 and do not mention the library. The full protocol, including how to read the output and when to give up, is Step 2 of `sermon-illustrations/SKILL.md`.
+- **Tier 1 if the library is thin** — find a famous, attributable illustration (Adventist heritage, classic preachers, biblical biography, history, literature, science). Verify before using.
+- **Tier 2 if Tiers 0 and 1 fail** — craft an original. Label it as original ("Imagine with me…") so the preacher doesn't accidentally claim it as fact.
+
+Two illustrations that land beat four that are adjacent: a library record that serves the *topic* but not the *point* is not a candidate. Mixed sourcing is normal, one bookend from the library and one from Tier 1.
 
 **Anti-fabrication rule:** No invented quotes attributed to real people. No invented "true stories." Cliché illustrations (lighthouse, starfish, carrot-egg-coffee) only if used as foils to be replaced.
 
 For each bookend, produce:
-- **Source / type:** Famous-attributed / Famous-anecdote / Original
+- **Source / type:** Local library #ID (attributed or unverified) / Famous-attributed / Famous-anecdote / Original
 - **Setup, tension/development, payoff, bridge to point**
 - **Verification notes**
 - **Approximate spoken length**
@@ -443,7 +454,7 @@ After producing the four documents:
 3. Verify **every EGW quote** has a verified citation. Convert uncertain quotes to paraphrase with no quote marks.
 4. Check the **Big Idea** appears at least three times across the manuscript (intro, mid-pivot, conclusion).
 5. Confirm the **service header block** is at the top of both outline and manuscript.
-6. Confirm **OPENING illustration AND CLOSING illustration** are both present, both fully written, both with verification notes if attributed.
+6. Confirm **OPENING illustration AND CLOSING illustration** are both present, both fully written, both with verification notes if attributed. A library-sourced illustration cites its record id, was read in full with `illus.mjs show`, and its named particulars (dates, places, sums, quotes) were checked rather than copied.
 7. Confirm the **Main Verse echoes back** in intro and conclusion of the manuscript.
 8. Confirm `research-notes.md` exists with all 8 sections present.
 9. Confirm the **Date and Location** appear in all files (header block on outline + manuscript; header line on research notes) and match what the preacher gave.

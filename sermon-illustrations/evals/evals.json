@@ -4,14 +4,17 @@
     {
       "id": 1,
       "prompt": "I need an illustration for the point that grace is undeserved — a person who receives something they could never earn. Sermon is on Ephesians 2:8-9.",
-      "expected_output": "2-4 candidate illustrations. At least one should be a famous, attributable story (e.g., John Newton, Spafford, the prodigal retold, or similar well-attested grace stories). Each illustration has setup, tension, payoff, bridge to the point, source/type label, approximate spoken length, and notes on verification. A recommendation line at the end.",
+      "expected_output": "2-4 candidate illustrations. The local library is searched first (illus.mjs find with 3-4 short, differently worded probes and --ref \"Ephesians 2:8-9\"), and at least one candidate comes from it with its record id cited and its text read in full with illus.mjs show. At least one should be a famous, attributable story (e.g., John Newton, Spafford, the prodigal retold, or similar well-attested grace stories). Each illustration has setup, tension, payoff, bridge to the point, source/type label, approximate spoken length, and notes on verification. A recommendation line at the end.",
       "files": [],
       "expectations": [
         "Output offers 2-4 distinct illustration candidates",
-        "At least 1 candidate is labeled as a famous/attributed illustration (Tier 1)",
+        "The local library was searched before the web, with short lexically diverse probes (not one sentence) and the sermon passage passed as --ref",
+        "At least 1 candidate is a local-library record, labeled 'Local library #ID' with the id, and its verification note says what was checked after reading the whole record",
+        "At least 1 candidate is labeled as a famous/attributed illustration (Tier 1) or is a library record carrying an attribution the note names",
         "Each illustration has clear setup, tension, payoff, and bridge to the sermon point",
         "Each illustration includes a source/type label and verification notes",
         "No fabricated quotes attributed to real people",
+        "No detail from a library record is marked 'verified' unless the note says how it was checked",
         "If clichéd illustrations (carrot-egg-coffee, lighthouse, starfish) appear, they are mentioned as foils/replaced, not used as primary candidates",
         "Output ends with a recommendation"
       ]
@@ -19,11 +22,13 @@
     {
       "id": 2,
       "prompt": "Looking for an illustration about Sabbath rest — not just stopping work but actively delighting in God. 5 minutes max when told from the pulpit.",
-      "expected_output": "2-4 candidates including likely Adventist heritage (Joseph Bates), Jewish Shabbat tradition (verifiable e.g. Heschel), or Eric Liddell. All within 5 minutes spoken length. Bridge connects to the active delight aspect, not just rest as cessation.",
+      "expected_output": "2-4 candidates including likely Adventist heritage (Joseph Bates via the pioneer records), Ellen White's 'rested, not as one weary' from Patriarchs and Prophets, Jewish Shabbat tradition (Heschel), or Eric Liddell framed as conviction rather than seventh-day observance. The library search is bounded with --max-words 750 and run both broadly and with --tradition sda. All within 5 minutes spoken length. Bridge connects to the active delight aspect, not just rest as cessation.",
       "files": [],
       "expectations": [
         "Output offers 2-4 illustration candidates",
-        "At least one candidate draws from Adventist heritage or Jewish Shabbat tradition (Joseph Bates, Heschel, or similar)",
+        "The local library was searched with a length bound matching the 5-minute budget (--max-words around 750)",
+        "At least one candidate draws from Adventist heritage or Jewish Shabbat tradition (Joseph Bates, Heschel, Ellen White on creation rest, or similar)",
+        "Any evangelical Sabbath record is screened for Sunday-keeping and framed honestly (e.g., Liddell as a model of conviction, not of the seventh day)",
         "Each candidate's spoken length is within or under 5 minutes",
         "The bridge specifically addresses 'active delight' not merely 'rest from work'",
         "No fabricated quotes",
@@ -33,15 +38,32 @@
     {
       "id": 3,
       "prompt": "Need an illustration for the investigative judgment — the idea that records matter and Christ is our Advocate right now. Hard concept for non-Adventists.",
-      "expected_output": "2-4 candidates. Likely needs both Tier 1 (Hiram Edson cornfield, Day of Atonement, courtroom advocate stories) and possibly a Tier 2 original since this is an Adventist-distinctive concept. Clear bridge to records-matter and Christ-as-advocate-now.",
+      "expected_output": "2-4 candidates. The library is searched by text probes plus --tradition sda (not by the near-empty Adventist tags), yielding Great Controversy passages and the It Is Written courtroom record (#39094) as leads, plus Loughborough's Hiram Edson account (#81605) for any heritage detail. Likely a mixed answer: a library record, a Tier 1 courtroom or advocate illustration, and possibly a Tier 2 original. Heritage particulars (Edson's farm sale, what he told neighbours) are either sourced to the pioneer records or dropped. Clear bridge to records-matter and Christ-as-advocate-now.",
       "files": [],
       "expectations": [
         "Output offers 2-4 illustration candidates",
-        "At least one candidate draws from Adventist heritage (Hiram Edson, Day of Atonement, sanctuary)",
+        "The library search uses text probes with --tradition sda or --ref rather than relying on --tag the-sanctuary or --tag investigative-judgment",
+        "At least one candidate draws from Adventist heritage or Spirit of Prophecy (Hiram Edson via the pioneer records, Day of Atonement, Great Controversy on the sanctuary)",
+        "No heritage particular (date, sale, conversation, garment) is asserted without a named source; unsourced details are dropped or flagged once",
         "If an original illustration is included, it is clearly labeled as original/invented",
-        "Each illustration's bridge addresses 'records matter' AND 'Christ as advocate now'",
+        "Each illustration's bridge addresses 'records matter' AND 'Christ as advocate now'; records that serve only one half are not offered as candidates",
         "Tone is accessible to non-Adventist hearers without softening the doctrine",
         "No fabricated quotes",
+        "Output ends with a recommendation"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Saya berkhotbah di Jemaat Efata Tuli Jakarta tentang Yesus yang mencari domba yang hilang (Lukas 15:1-7). Butuh satu ilustrasi pembuka yang bisa DILIHAT, bukan didengar — jemaatnya Tuli. Sekitar 2 menit.",
+      "expected_output": "2-3 candidates in simplified Indonesian, each visual or tactile (a prop, an object lesson, a live demonstration, or a mission story with a concrete scene), none relying on sound, music, voices or whispers. The library search includes --ref \"Luke 15:1-7\", --max-words around 300, and the --concept children-sermon route to the SermonWriter object lessons; any Adventist Mission story used is dated and cited. Each candidate names the object or scene the interpreter can show. Recommendation at the end.",
+      "files": [],
+      "expectations": [
+        "Output is in simplified Indonesian with short sentences and concrete nouns",
+        "Every candidate can be seen or touched; no candidate depends on sound, music, voices, whispers or hearing-based verbs like 'dengarkan'",
+        "The library was searched with the passage as --ref and a length bound near 300 words, and the prop-lesson route (--concept children-sermon) or an Adventist Mission story was tried",
+        "Any library record used is cited by id and was read in full; any Adventist Mission story carries its date",
+        "Each candidate names the object, prop or scene to show",
+        "No fabricated quotes or invented 'true stories'",
         "Output ends with a recommendation"
       ]
     }

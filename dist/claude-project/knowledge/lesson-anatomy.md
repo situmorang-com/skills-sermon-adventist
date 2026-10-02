@@ -56,7 +56,7 @@ Day name, date, colon, then a concrete section title. A colon, not an em dash �
 |---|---|---|
 | Read prompt | One line: `Read Genesis 12:1–5.` | One passage, short enough to read aloud in class in under a minute |
 | Exposition | 350–450 words | Prose. Word studies, background, and commentary dissolved into it. No visible scaffolding, no source tiers, no tags |
-| Questions | 1–2, set off in bold or italic | The point of the day. See the four tests in `SKILL.md` A5 |
+| Questions | 1–2, set off in bold or italic | The point of the day. See the five tests in `teaching-methods.md` |
 
 **The five moves.** A well-built week distributes work like this, though the order can vary by genre:
 
