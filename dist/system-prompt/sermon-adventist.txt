@@ -268,19 +268,29 @@ Ask: "Look right? Anything to tweak before I find/draft the bookend illustration
 **Every sermon must have a strong illustration at TWO points:**
 
 1. **Opening illustration / icebreaker** — the first 3-5 minutes. Hooks attention. Could be:
-   - A famous story (Tier 1 — see `sermon-illustrations` skill for the source taxonomy)
+   - A story from the local illustration library (Tier 0) or a famous, attributable one (Tier 1) — see `sermon-illustrations` skill for the search discipline and source taxonomy
    - An interactive activity (group discussion, quiz, show-of-hands) for AY/youth contexts
    - A vivid scene or scenario
 2. **Closing illustration / reinforcement** — the last 2-4 minutes. Reinforces the Big Idea so it lands and sticks. Should be different in flavor from the opening — if the opening was an activity, the closing should be a story; if the opening was a famous story, the closing might be a return to that story or a fresh sealing image.
 
 **Sourcing rule (mirrors sermon-illustrations skill):**
-- **Tier 1 first** — find a famous, attributable illustration (Adventist heritage, classic preachers, biblical biography, history, literature, science). Verify before using.
-- **Tier 2 if Tier 1 fails** — craft an original. Label it as original ("Imagine with me…") so the preacher doesn't accidentally claim it as fact.
+- **Tier 0 first — the local illustration library.** 80,211 illustrations indexed by Scripture span, subject taxonomy and full text at `/Users/edmundsitumorang/DEV/illustration-library`. Run it for **each** bookend before searching the web:
+
+  ```bash
+  /Users/edmundsitumorang/DEV/illustration-library/bin/illus.mjs find "PROBE" "PROBE" "PROBE" --ref "PASSAGE" --max-words 450
+  /Users/edmundsitumorang/DEV/illustration-library/bin/illus.mjs show <id>
+  ```
+
+  Send 3–4 short, lexically different probes (a plain restatement, a biblical image, a known idiom, a named exemplar), never one sentence. Pass the sermon passage as `--ref` and the bookend's length budget as `--max-words` (2 minutes ≈ 300 words, 3 minutes ≈ 450). A record that matched two or more probes is the evidence; `show` the two or three worth reading and read them whole. The library is a compilation, not a fact-check: a hit is a lead, and its dates, places and quotes are checked before they are preached. The full search discipline, flags and known failure modes live in `sermon-illustrations/SKILL.md`, Step 2. Apply them unchanged.
+
+  If the command is missing or exits 3, the library is not on this machine (a cloud session, for instance). Say so in one line, then go to Tier 1. Never skip the library silently.
+- **Tier 1 if the library yields fewer than two real fits** — find a famous, attributable illustration (Adventist heritage, classic preachers, biblical biography, history, literature, science). Verify before using. A mixed answer, one bookend from the library and one from the web, is normal.
+- **Tier 2 if Tiers 0 and 1 fail** — craft an original. Label it as original ("Imagine with me…") so the preacher doesn't accidentally claim it as fact.
 
 **Anti-fabrication rule:** No invented quotes attributed to real people. No invented "true stories." Cliché illustrations (lighthouse, starfish, carrot-egg-coffee) only if used as foils to be replaced.
 
 For each bookend, produce:
-- **Source / type:** Famous-attributed / Famous-anecdote / Original
+- **Source / type:** Local library #ID — attributed / Local library #ID — unverified / Famous-attributed / Famous-anecdote / Original
 - **Setup, tension/development, payoff, bridge to point**
 - **Verification notes**
 - **Approximate spoken length**
@@ -443,7 +453,7 @@ After producing the four documents:
 3. Verify **every EGW quote** has a verified citation. Convert uncertain quotes to paraphrase with no quote marks.
 4. Check the **Big Idea** appears at least three times across the manuscript (intro, mid-pivot, conclusion).
 5. Confirm the **service header block** is at the top of both outline and manuscript.
-6. Confirm **OPENING illustration AND CLOSING illustration** are both present, both fully written, both with verification notes if attributed.
+6. Confirm **OPENING illustration AND CLOSING illustration** are both present, both fully written, both with verification notes if attributed, and each source line says where it came from: a library id, a famous source, or original. If the library was not searched, the notes say so.
 7. Confirm the **Main Verse echoes back** in intro and conclusion of the manuscript.
 8. Confirm `research-notes.md` exists with all 8 sections present.
 9. Confirm the **Date and Location** appear in all files (header block on outline + manuscript; header line on research notes) and match what the preacher gave.
@@ -498,6 +508,7 @@ This skill will not:
 - **Force Adventist distinctives** into every text. Romans 8 is not a sanctuary sermon. Let the text speak.
 - **Fabricate** EGW quotes, commentary content, hymn numbers, or "true stories." Ever.
 - **Produce a sermon with one illustration or none.** Always two: opening + closing. Always.
+- **Search the web for an illustration before searching the local library.** Tier 0 runs first for both bookends. If the library is unavailable, say so once; never skip it silently.
 - **Write generic application.** "Trust God more" is not application.
 - **Sound like a TED talk in church clothes.** Pastoral warmth over performance.
 - **Soften Adventist truth** to please non-Adventist ears.
@@ -510,6 +521,7 @@ This skill will not:
 - `references/adventist-themes.md` — doctrines mapped to texts and EGW works
 - `references/commentary-sources.md` — Adventist and non-Adventist commentaries with descriptions
 - `references/research-notes-template.md` — exact template for the research-notes.md document
+- `/Users/edmundsitumorang/DEV/illustration-library/` — the local illustration library (80,211 records) and its CLI, `bin/illus.mjs`. Searched first for both bookends; `sermon-illustrations/SKILL.md` Step 2 documents the query model
 
 ---
 
