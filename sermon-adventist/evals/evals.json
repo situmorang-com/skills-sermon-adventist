@@ -26,7 +26,8 @@
         "No banned AI-slop phrases appear",
         "The Main Verse is echoed in intro AND conclusion of manuscript",
         "No fabricated quotes attributed to commentaries or real people",
-        "No fabricated hymn numbers"
+        "No fabricated hymn numbers",
+        "Both bookend illustrations were searched for in the local illustration library first (illus.mjs find with 3-4 probes and --ref), or the output states in one line that the library was unavailable"
       ]
     },
     {
@@ -46,7 +47,8 @@
         "Manuscript has STRONG OPENING and STRONG CLOSING illustrations, both fully written",
         "Scripture in TB; manuscript ~2500-3500 words Indonesian",
         "Tone appropriate for evangelistic non-Adventist audience",
-        "No fabricated quotes or hymn numbers"
+        "No fabricated quotes or hymn numbers",
+        "Both bookend illustrations were searched for in the local illustration library first (illus.mjs find with 3-4 probes and --ref), or the output states in one line that the library was unavailable"
       ]
     },
     {
@@ -66,7 +68,8 @@
         "Narrative structure: tells Genesis 39 vividly, turns from story to listeners",
         "Application is concrete and youth-relevant",
         "Manuscript ~2400-3200 words KJV",
-        "Big Idea echoed in intro and conclusion"
+        "Big Idea echoed in intro and conclusion",
+        "Both bookend illustrations were searched for in the local illustration library first (illus.mjs find with 3-4 probes and --ref), or the output states in one line that the library was unavailable"
       ]
     }
   ]

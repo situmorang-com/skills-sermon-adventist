@@ -43,7 +43,7 @@ Loads once; shared across all other skills.
 
 **Key Features:**
 - **6 choosable sermon structures** (Expository, Topical, Narrative, Biographical, Textual, Three-Point)
-- **Mandatory bookend illustrations** — strong opening (grab attention) + strong closing (call to action)
+- **Mandatory bookend illustrations** — strong opening (grab attention) + strong closing (call to action), sourced from the local illustration library first, then famous/attributed sources, then an original
 - **Service header block** — Title, Main Verse (Ayat Inti), Responsive Reading (Ayat Bersahutan — one continuous 5–7 verse passage, antiphonal), Opening/Closing Hymns (both SDAH & LSEL recommendations)
 - **Hebrew/Greek word studies** — KJV + TB + original language + Strong's + range of meaning + translation comparison
 - **Multi-commentary insights** — Andrews Bible Commentary + SDABC + named Adventist scholars
@@ -106,8 +106,9 @@ Loads once; shared across all other skills.
 **What it produces:** Illustration with source, type, setup/tension/payoff/bridge, spoken length, verification notes.
 
 **Approach:**
-- **Tier 1 (Famous-Attributed)** — Search well-known illustration sources first (Adventist heritage, classic preachers, history, literature, science)
-- **Tier 2 (Original)** — If no Tier 1 fit, create original illustration labeled clearly
+- **Tier 0 (Local Library)** — Search the preacher's own illustration library first: 80,211 records at `/Users/edmundsitumorang/DEV/illustration-library`, indexed by Scripture span, subject taxonomy and full text (`bin/illus.mjs find … --ref <passage>`). A hit is a lead, not a verified fact
+- **Tier 1 (Famous-Attributed)** — Then well-known illustration sources (Adventist heritage, classic preachers, history, literature, science)
+- **Tier 2 (Original)** — If neither fits, create an original illustration labeled clearly
 
 **Themed Sources:** Grace, Sabbath, Second Coming, State of Dead, Sanctuary, Faith/Trial, Service, Suffering, Forgiveness, Salvation, Health, Cross, End-time, plus Indonesian-context illustrations.
 
@@ -401,7 +402,7 @@ These skills are built to **never invent content**:
 | Ellen G. White quotes | Fetched live from egwwritings.org (Tier 1), or paraphrased & labeled (Tier 3). Never put paraphrase in quotation marks. |
 | Commentary content | Paraphrased from named sources (Andrews, SDABC, Doukhan, etc.) or flagged: *"[Source] likely addresses X — verify in your copy."* Never fabricated. |
 | Hymn numbers | Verified or flagged as uncertain. Never invented. |
-| Illustrations | Either famous/attributed with source traced, or labeled clearly as original. Never "true story" without verification. |
+| Illustrations | Searched in the local illustration library first (Tier 0), then famous/attributed with source traced, or labeled clearly as original. A library hit is a lead, not a fact-check. Never "true story" without verification. |
 | Sermon structure | Chosen from 6 well-defined structures (Expository, Topical, Narrative, Biographical, Textual, Three-Point). Not invented per sermon. |
 
 **If a guarantee is broken in output, that's a bug.** Report it.
@@ -449,7 +450,7 @@ skills-sermon-adventist/
 │       └── teaching-methods.md (question sequencing, timing, silence, class dynamics)
 │
 └── sermon-illustrations/
-    ├── SKILL.md (Tier 1 famous → Tier 2 original)
+    ├── SKILL.md (Tier 0 local library → Tier 1 famous → Tier 2 original)
     ├── evals/
     │   └── evals.json
     └── references/
@@ -522,6 +523,7 @@ Youth audience. About 2 minutes spoken.
 - **Claude Code** with skill-creator framework
 - **egwwritings.org API** access (for live EGW fetches in sermon-adventist & bible-study-deep)
 - **Blue Letter Bible** / **Bible Hub** (for free word-study reference tools, cited but not required for execution)
+- **Illustration library** at `/Users/edmundsitumorang/DEV/illustration-library` (`bin/illus.mjs`) — searched first for every illustration. When it is absent (cloud sessions, other machines) the skills say so once and fall back to web sources
 
 ---
 
@@ -550,6 +552,7 @@ To run your own vibe test: pick a Scripture passage, load the skills, and follow
 - egwwritings.org returns 403 on automated fetches; workaround uses Tier 2/3 fallback
 - Hymn numbers (SDAH & LSEL) need manual verification — skill flags uncertainties
 - Commentary sources assume English access; non-English commentary sources welcome
+- The illustration library lives on the preacher's Mac; Claude Code cloud sessions cannot reach it and fall back to Tier 1 after saying so
 
 ---
 
