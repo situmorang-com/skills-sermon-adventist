@@ -126,7 +126,7 @@ Pick 3–5 words from the passage that carry interpretive weight. For each:
 
 Format as a sub-heading per word with the table. The point is not to make the user look smart — it's to surface interpretive choices the translation has already made for them.
 
-Free tools for word studies (use live where possible): Blue Letter Bible (blueletterbible.org), Bible Hub (biblehub.com), STEP Bible (stepbible.org).
+Free tools for word studies (use live where possible): Blue Letter Bible (blueletterbible.org), Bible Hub (biblehub.com), STEP Bible (stepbible.org). For the translation-comparison row, `scripts/helloao-fetch.py verse "<passage>" --t eng_kjv,BSB,eng_asv,eng_ylt` prints the verse in each; `list translations <language>` shows the ids. It does not serve the Terjemahan Baru.
 
 ---
 
@@ -192,7 +192,7 @@ egw-fetch.sh para 12511.1441 4
 - **In the body**, one line in the preacher's register: "SDABC treats the scarlet cord at 2SDABC p. 184 — check your volume."
 - **In the ledger**, the full detail: `2SDABC p. 184.7 | located-unread | para_id 12511.1441, 403 not purchased | Check your copy before citing`.
 
-**Second path for SDABC:** `sdabc-fetch.sh` (Bash script, `~/.config/scripts/`) scrapes bibletools.info. First-paragraph extraction only — adequate for study context, not for extended treatment. See `sdabc-guide.md`.
+**Second path for SDABC:** `~/.config/scripts/sdabc-fetch.sh <book> <chapter> <verse>` scrapes bibletools.info and prints every paragraph of the verse's entry. Run it for each verse the study turns on, not only the first. Exit 2 means the site was unreachable: retry before recording the commentary as located-unread. See `sdabc-guide.md`.
 
 If both paths fail for a source, it is located-unread or absent. It is never a position claim by default.
 
@@ -259,7 +259,7 @@ Historically significant voices preachers worldwide have drawn on for centuries.
 | **Matthew Poole** (1669–1676) | Word-level OT exegesis, Hebrew engagement, cross-reference richness | Pre-critical, but fewer direct conflicts than Henry or Calvin. |
 | **Spurgeon**, *Treasury of David* (1869–1885) | Psalms only. Unmatched devotional and illustrative depth. | Assumes soul immortality and eternal hellfire. |
 
-Matthew Henry is indexed in the EGW Writings API, so he is often the one classic voice you can quote verbatim. Editions, access notes, and fuller descriptions: `references/commentary-tiers.md`.
+**Read the classic voices before naming them.** From the repo root, `scripts/helloao-fetch.py commentary "<passage>"` prints what Matthew Henry, Jamieson-Fausset-Brown, Adam Clarke, John Gill, Calvin, Keil-Delitzsch (Old Testament only) and the Tyndale Open Study Notes say on the span, each entry labelled with the verses it covers. Run it for every study, so this tier reports what the commentators wrote instead of pointing at them. The first six are public domain and may be quoted; the Tyndale notes are CC BY-SA, so paraphrase or quote with attribution. `--only <id,id>` narrows it, `--full` lifts the 400-word cap, and exit 2 means the API was unreachable: retry before writing "nothing is claimed about its contents". The doctrinal flags in the table above apply to every line it returns. Matthew Henry is also indexed in the EGW Writings API. Editions, access notes, and fuller descriptions: `references/commentary-tiers.md`.
 
 ---
 

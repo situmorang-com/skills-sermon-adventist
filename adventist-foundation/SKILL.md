@@ -145,9 +145,9 @@ When researching for a sermon or study, draw in this order:
 4. **Adventist Bible commentaries** — denominational scholarly commentary
    - Andrews Bible Commentary for current, accessible exposition
    - SDA Bible Commentary (SDABC) for detailed verse-level treatment
-   - **Access:** Use `sdabc-fetch.sh` (Bash script, `~/.config/scripts/`) to scrape verbatim commentary from bibletools.info. First-paragraph extraction is suitable for sermon context. See `sdabc-guide.md` for details and limitations.
+   - **Access:** Use `sdabc-fetch.sh` (Bash script, `~/.config/scripts/`) to scrape verbatim commentary from bibletools.info. It prints every paragraph of the verse's entry; exit 2 means the site was unreachable, so retry. See `sdabc-guide.md` for details and limitations.
    - Volumes 1-7 available on BibleTools with full-text search
-   - **Fallback:** Physical copies or licensed Logos subscription if you need extended commentary beyond the first paragraph
+   - **Fallback:** Physical copies or licensed Logos subscription if you need more than the site's "limited" SDABC text
 5. **Adventist Review / Ministry Magazine** — historic and contemporary Adventist thought
 6. **Broader Christian scholarship** — when it strengthens exegesis without contradicting Adventist distinctives
 

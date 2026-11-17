@@ -30,18 +30,22 @@ import urllib.request
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/128.0 Safari/537.36")
 CDX = "https://web.archive.org/cdx/search/cdx"
+AVAILABLE = "https://archive.org/wayback/available"
 
 
-def http(url, tries=4):
+def http(url, tries=3, timeout=20):
+    """Worst case is about 70 seconds per URL, so one dead host cannot hold a
+    caller past a two-minute command timeout."""
     last = None
     for i in range(tries):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA})
-            with urllib.request.urlopen(req, timeout=45) as r:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
                 return r.read().decode("utf-8", "ignore")
         except Exception as e:                      # archive.org rate-limits; back off
             last = e
-            time.sleep(3 * (i + 1))
+            if i < tries - 1:
+                time.sleep(2 * (i + 1))
     raise SystemExit(f"Could not fetch {url}: {last}")
 
 
@@ -54,15 +58,37 @@ def search(term):
 
 def snapshots(url, n=6):
     """Timestamps of the last n good snapshots, newest first."""
-    seen = []
-    for u in (url, url.rstrip("/"), url.replace("https://www.", "https://"),
-              url.replace("https://", "https://www.")):
+    seen, failed = [], 0
+    variants = list(dict.fromkeys((url, url.rstrip("/"),
+                                   url.replace("https://www.", "https://"),
+                                   url.replace("https://", "https://www."))))
+    for u in variants:
         q = (f"{CDX}?url={urllib.parse.quote(u, safe='')}"
              f"&filter=statuscode:200&fl=timestamp&limit=-{n}")
-        for l in http(q).strip().splitlines():
+        try:
+            lines = http(q, tries=2).strip().splitlines()
+        except SystemExit:
+            failed += 1
+            continue
+        for l in lines:
             t = l.strip()
             if t and t not in seen:
                 seen.append(t)
+    if not seen:
+        # The CDX index is the part of archive.org that goes down most often.
+        # The availability API is a separate service and returns the one
+        # closest snapshot.
+        try:
+            data = json.loads(http(f"{AVAILABLE}?url={urllib.parse.quote(url, safe='')}", tries=2))
+            t = ((data.get("archived_snapshots") or {}).get("closest") or {}).get("timestamp")
+            if t:
+                seen.append(t)
+        except (SystemExit, ValueError):
+            failed += 1
+    if not seen and failed:
+        raise SystemExit(f"archive.org did not answer for {url} "
+                         f"({failed} lookups failed). This is a network failure, "
+                         "not a missing article: retry later.")
     return sorted(seen, reverse=True)[:n]
 
 
@@ -195,12 +221,13 @@ def get(url):
 
     # Captures of a client-rendered page can be empty shells. Walk back until one
     # actually carries the article.
-    best, ts = None, stamps[0]
+    best, ts, art, data, unreachable = None, stamps[0], None, None, 0
     for stamp in stamps:
         snap_url = direct or f"https://web.archive.org/web/{stamp}id_/{url}"
         try:
             html = http(snap_url)
         except SystemExit:
+            unreachable += 1
             continue
         m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', html, re.S)
         if m:
@@ -219,6 +246,10 @@ def get(url):
     if not art:
         if best:
             return best
+        if unreachable == len(stamps):
+            raise SystemExit(f"Found {len(stamps)} snapshot(s) of {url} but archive.org "
+                             "did not serve any of them. This is a network failure, "
+                             "not a missing article: retry later.")
         raise SystemExit("No snapshot of that URL carries article text. "
                          "Try `bri-fetch.py search <keyword>` for an older path.")
 

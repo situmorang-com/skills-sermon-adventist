@@ -318,7 +318,7 @@ Then one subsection per day, Sunday through Thursday, each in this fixed shape:
 - **All of them, not one.** If four sources bear on Tuesday, print four. Picking a favourite and dropping the rest is the writer editing the teacher's options away. Where a day has more than three, open the block with one line on which to reach for first and which to keep in reserve.
 - **Each quote earns a sentence of use.** Not "here is a quote" but what it does: which minute of the plan it belongs to, where to stop reading, what objection it answers, what it is *not* evidence for.
 - **Keep the source's own colour.** Ellen G. White is `blockquote.egw`, gold. SDABC, Henry, BRI and scholarship are `blockquote.cited`, neutral. Gold is Spirit of Prophecy and nothing else, in a day card exactly as in a section.
-- **Verbatim and paraphrase look different.** A fetched EGW paragraph goes in quotation marks in a bilingual card. An SDABC first-paragraph extraction rendered into Indonesian is a paraphrase: no quotation marks, and the note says it is a paraphrase and that the volume holds more.
+- **Verbatim and paraphrase look different.** A fetched EGW paragraph goes in quotation marks in a bilingual card. An SDABC extraction rendered into Indonesian is a paraphrase: no quotation marks, and the note says it is a paraphrase and that the volume holds more.
 - **Attribution cautions ride with their quote,** not in a distant section. The *Spiritual Gifts* attribution flag belongs directly under the *Spiritual Gifts* quote, in scarlet.
 - **A day with no Ellen G. White is normal.** Say so in one line and let SDABC carry it. Do not stretch a quote from another chapter to cover a day it does not address.
 
