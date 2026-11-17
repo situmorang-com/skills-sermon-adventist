@@ -66,9 +66,11 @@ echo "📦 Building adventist-foundation packages..."
 
 # Claude Project (full)
 cp -v "$REPO_ROOT/adventist-foundation/SKILL.md" "$DIST_DIR/claude-project/adventist-foundation-instructions.md"
+copy_references "adventist-foundation" "claude-project"
 
 # ChatGPT (same - foundation is usually OK size-wise)
 cp -v "$(chatgpt_source adventist-foundation)" "$DIST_DIR/chatgpt-gpt/adventist-foundation-instructions.md"
+copy_references "adventist-foundation" "chatgpt-gpt"
 
 # System prompt (API)
 cp -v "$REPO_ROOT/adventist-foundation/SKILL.md" "$DIST_DIR/system-prompt/adventist-foundation.txt"

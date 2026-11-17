@@ -7,18 +7,19 @@ description: Prepare a complete Seventh-day Adventist sermon — produces THREE 
 
 Prepare a complete sermon package: research notes → interactive brainstorm → outline → full manuscript. Three deliverables, one cohesive workflow. Adventist in theology, faithful in citation, ready to preach.
 
-**Requires:** the `adventist-foundation` skill is loaded for doctrinal alignment, voice, banned phrases, and EGW citation policy. Do not duplicate those rules here — apply them.
+**First: load `adventist-foundation`.** Call the Skill tool with `adventist-foundation`, or read `../adventist-foundation/SKILL.md` from this skill's folder, before any other step. It carries doctrinal alignment, voice, banned phrases, EGW citation policy and the tool list. Go on once its banned-phrase list and translation policy are in context. Do not duplicate those rules here — apply them.
 
 ---
 
 ## What This Skill Produces
 
-Four documents per sermon, in this order:
+Four documents and a PowerPoint per sermon, in this order:
 
 1. **`research-notes.md`** — exegetical and pastoral research the preacher can review, study, and reference. Includes passage context, historical background, key word studies, commentary insights from multiple Adventist sources, EGW cross-references, scriptural cross-references, theological themes, and thinking prompts that pressure-test the sermon.
 2. **`sermon-outline.md`** — service header block (title, main verse, responsive reading, opening + closing hymns) followed by a sermon outline appropriate to the chosen structure, with **strong bookend illustrations** at the opening and the closing.
 3. **`sermon-manuscript.md`** — the actual words the preacher will say, in the chosen language, with both bookend illustrations woven in, all Scripture and EGW quotes properly cited.
 4. **`slides.md`** — a slide-by-slide deck, formatted as copy-paste text for **Gamma AI** (gamma.app). One idea per slide, slides separated by `---`, with Scripture quoted verbatim and `[GAMBAR: …]` visual suggestions. Includes a paste-ready block and a verification notes section.
+5. **The PowerPoint** — a `.pptx` built by `sermon-deck` from `slides/deck.json`, the same slides as `slides.md`, for a preacher who will not use Gamma.
 
 ---
 
@@ -39,11 +40,11 @@ Step 6: Generate sermon-outline.md
         ↓
 Step 7: Generate sermon-manuscript.md
         ↓
-Step 8: Generate slides.md (Gamma AI deck)
+Step 8: Generate slides.md (Gamma AI deck) and the PowerPoint (deck.json → sermon-deck)
         ↓
 Step 9: Final pass (verify citations, AI-slop, hymn numbers, illustration bookends)
         ↓
-Step 10: Auto-save to /DEV/skills-sermon-adventist/output/[YYYY-MM-DD]-[kebab-case-title]/
+Step 10: Save to the folder `sermon-out.py dir` prints (study/, sermon/, slides/, _resources/)
 ```
 
 ---
@@ -86,6 +87,8 @@ The research notes follow this exact structure (see `references/research-notes-t
 Specifics that change how the passage reads. Political setting, religious context, cultural practices, 2-3 details modern readers miss.
 
 ### 3. Key Word Studies (3-5 words)
+
+Run `bible.py pack "<passage>"` first. It returns every Hebrew or Greek word in the passage with its Strong's number, parsing and gloss, the places the KJV's Greek differs from NA28, brief lexicon entries and the top cross-references, so the table below and Section 6 are filled from data you have read. When `study/bible-study.md` already exists in the sermon's folder, draw from it and skip the pack.
 
 For each word, produce this table:
 
@@ -144,6 +147,8 @@ For each EGW reference:
 Verify Ellen G. White quotations through the foundation's Tier 1 path: `egw-fetch.sh search "<distinctive phrase>"` to find the paragraph, then `egw-fetch.sh para <para_id> <count>` for verbatim text with its refcode. Never fetch egwwritings.org pages directly. If the helper fails on credentials, follow the foundation's Keychain troubleshooting; only when that path is exhausted fall back to Tier 2 or Tier 3 paraphrase, with explicit honesty about uncertainty.
 
 ### 6. Scriptural Cross-References (5-8 references)
+
+Choose from the pack's cross-references (`bible.py xref "<passage>" -n 20` for more), adding the Old Testament background reader votes miss.
 
 For each:
 - **Reference** — book, chapter, verse
@@ -443,6 +448,14 @@ The deck follows the sermon's flow — it does NOT invent new content. Pull titl
 
 After outputting, tell the preacher how to paste it into Gamma (Card-by-card mode, copy between the MULAI/AKHIR markers).
 
+### The PowerPoint — `slides/deck.json` → `.pptx`
+
+Build the PowerPoint too, from the same slides, so the preacher has a deck that needs no Gamma.
+
+1. Write `slides/deck.json` in the sermon's folder. `sermon-deck --example` prints the format: a `title`, the `bigIdea` as lines (wrap the key words in `**…**`), and a `slides` array of `title`, `verse`, `point`, `movement` and `idea` slides. One slide per `---` block of `slides.md`; each sermon movement opens with a `movement` slide; directions for the preacher go in `note`, never on the slide.
+2. Run `sermon-deck <folder>/slides/deck.json`. It writes the `.pptx` beside the JSON and warns about text likely to overflow: split a verse longer than about 300 characters over two slides, and shorten a `point` it flags.
+3. Look at the slides before delivering (convert to PDF and view the pages); fix `deck.json` and rebuild until no slide overflows.
+
 ---
 
 ## Step 9: Final Pass
@@ -459,43 +472,40 @@ After producing the four documents:
 8. Confirm `research-notes.md` exists with all 8 sections present.
 9. Confirm the **Date and Location** appear in all files (header block on outline + manuscript; header line on research notes) and match what the preacher gave.
 10. Confirm `slides.md` exists, every verse on a slide matches the manuscript, and the verification-notes section is present and marked "jangan disalin ke Gamma."
+11. Confirm the `.pptx` was built from `slides/deck.json` and its slides were looked at.
+12. Run `check-quotes.py <the sermon's folder>`. Exit 0 means every cited KJV or TB quotation, in the documents and on the slides, matches the Bible; fix each line it reports and run it again.
+13. Confirm `research-notes.md` ends with the `Unverified` block (foundation, Output Standards), and repeat its count in the delivery message. Ellen White wording translated by you rather than taken from the official Indonesian edition (`egw-fetch.sh search "<phrase>" lang=id`) belongs on it.
 
 Deliver all four documents:
 > Four documents ready: research-notes.md (review while you pray), sermon-outline.md (service flow), sermon-manuscript.md (what to preach), slides.md (paste into gamma.app for the deck). EGW quotes fetched from egwwritings.org where possible, otherwise paraphrased with notes. Hymn numbers flagged where unverified. Pray over it and make it yours.
 
 ---
 
-## Step 10: Auto-Save to Output Directory
+## Step 10: Save
 
-After the preacher approves the final manuscripts, save all four files to the output directory:
+Save where `sermon-out.py` says. No skill carries the path: on the preacher's computer it is the sermon library's inbox, elsewhere the repo's `output/`.
 
-**Path structure:**
+1. `sermon-out.py dir <YYYY-MM-DD> "<Sermon Title>"` creates the title folder and prints its path. The date is the date of delivery; pass `-` when the preacher never gave one and tell them none was recorded. Run it before writing the first file, so every document is written straight into place.
+2. Write into the layout:
+
 ```
-/Users/edmundsitumorang/DEV/skills-sermon-adventist/output/
-└── [YYYY-MM-DD]-[sermon-title-in-kebab-case]/
-    ├── research-notes.md
-    ├── sermon-outline.md
-    ├── sermon-manuscript.md
-    └── slides.md
+[YYYY-MM-DD]-[sermon-title-in-kebab-case]/
+├── README.md                  (written by tidy)
+├── study/bible-study.md       (when a study was made first)
+├── sermon/research-notes.md
+├── sermon/sermon-outline.md
+├── sermon/sermon-manuscript.md
+├── slides/slides.md
+├── slides/deck.json
+├── slides/[title].pptx
+└── _resources/                (source texts fetched for the sermon)
 ```
 
-**Workflow:**
-1. Convert sermon title to kebab-case (lowercase, hyphens instead of spaces; keep special words like "God", "Christ")
-   - "The Place Whereon Thou Standest Is Holy" → `the-place-whereon-thou-standest-is-holy`
-2. Prefix the folder name with the **date of delivery** in ISO `YYYY-MM-DD` form so sermons sort chronologically
-   - Date `2026-07-04` + title above → `2026-07-04-the-place-whereon-thou-standest-is-holy`
-   - If the preacher never gave a date, fall back to the title alone and tell them no date was recorded
-3. Create the folder if it doesn't exist
-4. Write the four .md files into it — each (except slides.md) already carries the **Date** and **Location** in its service header block (see Step 6)
-5. Confirm to the preacher with the file paths
+3. Save each source text you fetched and relied on as a plain text file in `_resources/`, named for the source.
+4. Run `sermon-out.py tidy <folder>`: it files anything left loose and writes the `README.md` index.
+5. Confirm to the preacher with the folder path and the delivery date and location recorded in each file's header.
 
-**Example output:**
-> Sermon saved to `/Users/edmundsitumorang/DEV/skills-sermon-adventist/output/2026-07-04-the-place-whereon-thou-standest-is-holy/`
-> - research-notes.md
-> - sermon-outline.md
-> - sermon-manuscript.md
-> - slides.md
-> Delivery: 2026-07-04 at [location] — recorded in each file's header.
+The preacher moves the finished folder from the inbox into the library's categories; leave that to them.
 
 ---
 

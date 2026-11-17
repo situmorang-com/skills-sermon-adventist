@@ -7,7 +7,7 @@ description: Produce deep, structured Bible study notes for a passage from a Sev
 
 Deep exegetical study notes for an Adventist preacher or teacher. Structured, citation-rich, multi-source, and faithful to both Scripture and the Spirit of Prophecy.
 
-**Requires:** the `adventist-foundation` skill is loaded for translation defaults, EGW citation policy, and voice.
+**First: load `adventist-foundation`.** Call the Skill tool with `adventist-foundation`, or read `../adventist-foundation/SKILL.md` from this skill's folder, before any other step. It carries translation defaults, EGW citation policy, voice and the tool list. Go on once its banned-phrase list and translation policy are in context.
 
 ---
 
@@ -76,6 +76,8 @@ Do not silently switch to this form. A study document and a lesson plan are diff
 
 ## Step 2: Section-by-Section Workflow
 
+**Start with the study pack.** `bible.py pack "<passage>"` returns in one call the passage in the KJV, the Berean Standard Bible and the Indonesian AYT; every Hebrew or Greek word with its Strong's number, parsing and gloss; the places where the KJV's Greek differs from NA28; brief lexicon entries for the less common words; and the ten most-voted cross-references with their text. Its first line says `local data` or `fallback`. On this machine it reads a local database; elsewhere it falls back to free APIs and returns Strong's numbers without parsing and no text differences, which the line states. Build Sections 1, 3 and 6 from the pack, and reach for `bible.py strongs <number>`, `words`, `xref -n 20` or `commentary` when a section needs more. If `scripts/bible.py` is not present (the skill installed on its own), use the free web tools named below, as before. The pack does not carry the Terjemahan Baru, SDABC, Ellen White or BRI; those keep their own tools.
+
 Produce each section in order. Each section has a target length and concrete deliverables. Do not skip sections; if a section yields little for a particular passage (e.g., no OT background for a NT passage), say so briefly and move on.
 
 ---
@@ -89,7 +91,7 @@ What the passage is and where it sits.
 - **Placement** (2–3 sentences): what comes before and after; how this passage fits the book's argument or story
 - **Literary shape** (2–4 sentences): how the passage is *built*. Chiasm, inclusio, parallelism, repeated refrain, a hinge verse, an argument that turns on a single conjunction. Name the structure and say what it does to the meaning. Hebrew narrative and poetry are shaped deliberately, and Adventist scholarship (Doukhan above all) reads that shape as carrying weight. If the passage has no notable structure, say so in a clause and move on rather than inventing a chiasm
 - **The passage itself** — quote it in full from the chosen translation in a blockquote, with attribution
-- **Textual integrity** — flag a significant variant when there is one. The KJV follows the Textus Receptus, so passages like Mark 16:9–20, John 7:53–8:11, 1 John 5:7, Acts 8:37 and Matthew 6:13b read differently in the critical text. Say plainly which witnesses support what, and never build a doctrinal point on a disputed reading without noting the dispute. Most passages need nothing here; say nothing rather than manufacture a controversy
+- **Textual integrity** — flag a significant variant when there is one. The KJV follows the Textus Receptus, so passages like Mark 16:9–20, John 7:53–8:11, 1 John 5:7, Acts 8:37 and Matthew 6:13b read differently in the critical text. Say plainly which witnesses support what, and never build a doctrinal point on a disputed reading without noting the dispute. The pack's "Where the KJV's Greek and NA28 differ" block lists them for a New Testament passage, word by word; report the ones that change the sense and leave the spelling-level ones out. Most passages need nothing here; say nothing rather than manufacture a controversy
 
 Length: ~200–300 words plus the quoted passage.
 
@@ -118,7 +120,7 @@ Pick 3–5 words from the passage that carry interpretive weight. For each:
 | English word | As it appears in KJV |
 | Indonesian word | As it appears in Terjemahan Baru. Note which TB: the 1974 TB and the 2023 revision (TB2) differ in wording often enough to matter in a word study |
 | Original (Hebrew/Greek) | With transliteration |
-| Strong's number | Only if you are certain. Omit the row rather than approximate: a wrong Strong's number sends the reader to the wrong word |
+| Strong's number | Take it from `bible.py words` or the pack, which read it from the tagged text. Without that, only if you are certain: omit the row rather than approximate, because a wrong Strong's number sends the reader to the wrong word |
 | Literal / root meaning | The basic sense |
 | Range of meaning | How the word is used elsewhere in Scripture (cite 1–3 other occurrences) |
 | Translation comparison | KJV vs. TB vs. one or two others (NKJV, NIV, NASB, ESV) where the difference is interpretive |
@@ -259,7 +261,7 @@ Historically significant voices preachers worldwide have drawn on for centuries.
 | **Matthew Poole** (1669–1676) | Word-level OT exegesis, Hebrew engagement, cross-reference richness | Pre-critical, but fewer direct conflicts than Henry or Calvin. |
 | **Spurgeon**, *Treasury of David* (1869–1885) | Psalms only. Unmatched devotional and illustrative depth. | Assumes soul immortality and eternal hellfire. |
 
-**Read the classic voices before naming them.** From the repo root, `scripts/helloao-fetch.py commentary "<passage>"` prints what Matthew Henry, Jamieson-Fausset-Brown, Adam Clarke, John Gill, Calvin, Keil-Delitzsch (Old Testament only) and the Tyndale Open Study Notes say on the span, each entry labelled with the verses it covers. Run it for every study, so this tier reports what the commentators wrote instead of pointing at them. The first six are public domain and may be quoted; the Tyndale notes are CC BY-SA, so paraphrase or quote with attribution. `--only <id,id>` narrows it, `--full` lifts the 400-word cap, and exit 2 means the API was unreachable: retry before writing "nothing is claimed about its contents". The doctrinal flags in the table above apply to every line it returns. Matthew Henry is also indexed in the EGW Writings API. Editions, access notes, and fuller descriptions: `references/commentary-tiers.md`.
+**Read the classic voices before naming them.** `helloao-fetch.py commentary "<passage>"` prints what Matthew Henry, Jamieson-Fausset-Brown, Adam Clarke, John Gill, Calvin, Keil-Delitzsch (Old Testament only) and the Tyndale Open Study Notes say on the span, each entry labelled with the verses it covers. Run it for every study, so this tier reports what the commentators wrote instead of pointing at them. The first six are public domain and may be quoted; the Tyndale notes are CC BY-SA, so paraphrase or quote with attribution. `--only <id,id>` narrows it, `--full` lifts the 400-word cap, and exit 2 means the API was unreachable: retry before writing "nothing is claimed about its contents". The doctrinal flags in the table above apply to every line it returns. Matthew Henry is also indexed in the EGW Writings API. Editions, access notes, and fuller descriptions: `references/commentary-tiers.md`.
 
 ---
 
@@ -317,7 +319,7 @@ Follow the **Tier 1/2/3 EGW policy** from `adventist-foundation`. For 3–5 refe
 
 ### Section 6: Scriptural Cross-References
 
-5–8 related passages, each with:
+5–8 related passages. `bible.py xref "<passage>" -n 20` lists candidates ranked by reader votes: a starting list to choose from, not the section itself. Keep the ones that serve the study and add the Old Testament background the votes miss. Each with:
 
 - **Reference** — book, chapter, verse
 - **Quote or summary** — short
@@ -440,44 +442,37 @@ Close the markdown with this table. It is the document's audit trail, and **the 
 
 Hymn numbers, if the study recommends any, go in the ledger too — never invent them (use the Lagu Sion database; see `sermon-adventist/HOWTO_EGW_LaguSion.md`).
 
+**Under the table, the `Unverified` block** (foundation, Output Standards): one line per claim not checked this session, or `Unverified: none`. A source confirmed after the study was written is moved into the table in the same edit, so the ledger never lags the work.
+
+**Before the study is called finished, run `check-quotes.py <the study's folder>`.** Exit 0 means every cited KJV or TB quotation matches the Bible; fix each line it reports and run it again.
+
 ---
 
 ## Step 4: Save the Study
 
-Once the study is delivered and the user is satisfied with it, write it to the repo output tree so it sits alongside the sermon material.
+Write the study where `sermon-out.py` says, so a study and the sermon built on it sit in one folder.
 
-**Path structure:**
-```
-/Users/edmundsitumorang/DEV/skills-sermon-adventist/output/
-└── [YYYY-MM-DD]-[kebab-case-title]/
-    └── bible-study.md
-```
+1. `sermon-out.py dir <YYYY-MM-DD> "<Study Title>"` creates the title folder and prints its path. Use the teaching or delivery date; pass `-` when no date was given and tell the user none was recorded. A sermon folder for the same message already exists when the same command prints a folder that has files in it: write into it.
+2. Write the study to `study/bible-study.md` inside that folder. The filename is fixed: the sermon workflow expects it.
+3. Save each source text you fetched and relied on (an SDABC entry, a BRI article, the Terjemahan Baru verses) as a plain text file in `_resources/`, named for the source.
+4. Run `sermon-out.py tidy <folder>` to write the folder's `README.md` index, then give the user the path.
 
-**Workflow:**
-1. **If the study supports a sermon that already has a folder, write `bible-study.md` into that existing folder.** Do not create a second folder for the same message.
-2. Otherwise create a new folder: teaching/delivery date in ISO `YYYY-MM-DD` form, then the study title in kebab-case (lowercase, hyphens for spaces; keep words like "God" and "Christ").
-   - "The Sanctuary and the Plan of Salvation" on 2026-08-01 → `2026-08-01-the-sanctuary-and-the-plan-of-salvation`
-3. If no date was given, use the title alone and tell the user no date was recorded.
-4. Confirm the path back to the user.
-
-The filename is always `bible-study.md` — that is what the sermon workflow and the rest of the output tree expect.
+The layout is in `../adventist-foundation/references/tools.md`.
 
 ---
 
-## Step 5: Optional HTML Render — `bible-study.html`
+## Step 5: The Reading Copy — `bible-study.html`
 
-When the user wants a readable or shareable version, render a styled page beside the markdown.
+When the user wants a readable or shareable version, run `render-study.py <folder>/study/bible-study.md`. It fills `references/html-template.html` and writes `bible-study.html` beside the markdown.
 
-**The two files are not the same document.** `bible-study.md` is the workshop: it carries the Verification Ledger, `para_id`s, tier markers, HTTP codes. `bible-study.html` is the reading copy: same study, same citations, same doctrinal flags, **none of the verification apparatus**. The ledger does not go into the HTML at all; a single footer line points back to the markdown for it.
+**The two files are not the same document.** `bible-study.md` is the workshop: it carries the Verification Ledger, `para_id`s, tier markers, HTTP codes. `bible-study.html` is the reading copy: same study, same citations, same doctrinal flags, none of the verification apparatus. The script drops the ledger and warns on stderr when a `para_id`, a status code or a provenance tag reaches the page; rewrite the markdown sentence it came from and render again until it runs silent.
 
-Build it from `references/html-template.html` — copy the template and fill it in, never design a fresh page. It carries the stylesheet, both toggles (theme and monochrome), the contents scroll-spy and the progress bar, so consecutive studies read as one series.
+The script reads the passage, title, audience and translation from the markdown header, so the header in Step 3 must be exact. `references/html-render.md` is the full spec of the page (placeholders, markup contract, design numbers); open it when the script's output looks wrong or the user wants the page changed.
 
-**`references/html-render.md` is the full spec** and you should open it before rendering: the eight placeholders, the markup contract for every element, the design numbers (68ch measure, 18.5px/1.72 body, sentence-case headings, AA contrast on every pair), the sanctuary palette and its section ramp, and a twelve-point checklist to run before handing the file over.
+Two rules the markdown must already keep, because the page inherits them:
 
-Two rules worth stating here because they are the ones most often broken:
-
-- **Descriptive link text.** The URL belongs in the `href`, never in the visible text — in the markdown too: `[The gift of tongues in 1 Corinthians 14](url)`, not a bare address in running prose.
-- **One `<ol>` per list.** Markdown converters emit one list per item, which restarts the count and renders every application question as "1."
+- **Descriptive link text.** The URL belongs in the link target, never in the visible text: `[The gift of tongues in 1 Corinthians 14](url)`, not a bare address in running prose.
+- **One numbered list per run.** Number the items 1, 2, 3 on consecutive lines so the page counts them as one list.
 
 ---
 
@@ -520,7 +515,8 @@ When `PRIMARY_LANGUAGE` is Indonesian, the entire study is in Indonesian, with:
 - `references/commentary-tiers.md` — Tier 3 and Tier 4 sources in full, lexicon list, the root-fallacy caution, free digital tools
 - `references/html-render.md` — the full HTML spec: placeholders, markup contract, design numbers, sanctuary palette, pre-delivery checklist
 - `references/html-template.html` — the page skeleton itself. Copy it rather than designing a new page
-- `scripts/bri-fetch.py` — **repo root, not this folder.** Reads BRI articles the live site blocks, via the Wayback Machine
+- `bri-fetch.py` — reads BRI articles the live site blocks, via the Wayback Machine; `get <url> --grep term,term` prints only the paragraphs you need
+- `../adventist-foundation/references/tools.md` — every tool, what to do when one is missing, and the output folder layout
 - `adventist-themes.md` (ships with `sermon-adventist`) — Adventist distinctives mapped to anchor passages and EGW works
 - `commentary-sources.md` (ships with `sermon-adventist`) — the Adventist side: BRI, ABC, SDABC, SDAIBC, Adventist scholars by specialty, periodicals
 - `HOWTO_EGW_LaguSion.md` (ships with `sermon-adventist`) — operating the EGW API helper and the Lagu Sion hymn database

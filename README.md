@@ -56,7 +56,7 @@ Loads once; shared across all other skills.
 - "Khotbah evangelisasi tentang kedatangan Yesus untuk anak muda. 40 menit. Bahasa Indonesia."
 - "Youth program on Joseph in Genesis 39 — integrity when no one's watching. Narrative style, 20 minutes."
 
-**Output location:** `sermon-adventist/output/`
+**Output location:** the folder `scripts/sermon-out.py dir <date> "<title>"` prints: the sermon library's inbox where one exists, otherwise `output/`. One folder per title, with `study/`, `sermon/`, `slides/`, `_resources/` and `_assets/` inside.
 
 ---
 
@@ -142,7 +142,7 @@ The sermon, Sabbath School and Bible study skills run the same Tier 0 search for
 
 **Readable HTML render:** `teachers-guide.html`, built from `references/teachers-guide-template.html`. Same sanctuary palette and 68ch measure as the `bible-study-deep` page, plus components a guide needs: a glanceable timed plan (weight-bearing rows tinted, the droppable row dimmed), per-day cards with a "two minutes" callout, question cards, pushback blocks, and a gold "before class" homework note. Dark/light and mono toggles, print rules, works offline.
 
-**Output location:** `output/[YYYY-MM-DD]-ss-[kebab-case-title]/` — the `ss-` prefix keeps it separate from a sermon on the same Sabbath.
+**Output location:** `[YYYY-MM-DD]-ss-[kebab-case-title]/` under the root `scripts/sermon-out.py root` prints — the `ss-` prefix keeps it separate from a sermon on the same Sabbath.
 
 **Publishes to the web (Claude Code only):** `teachers-guide.html` ships to **[ss.situmorang.com](https://ss.situmorang.com/)** via `scripts/publish-guide.mjs` in the [`situmorang-com/sabbath-school`](https://github.com/situmorang-com/sabbath-school) repo, which strips the Verification Ledger, scrubs `para_id` locators, and archives every week under `/lessons/`. The newest guide is always the homepage. Not available in the Claude Project or ChatGPT bundles.
 
@@ -520,6 +520,22 @@ Youth audience. About 2 minutes spoken.
 - Type, source, setup/payoff, bridge to sermon theme
 
 ---
+
+## Command-Line Tools
+
+After cloning, run `scripts/install.sh` once. It links the tools into `~/.local/bin` so the skills can call them from any folder, installs the deck builder's dependencies, and switches on the pre-commit check.
+
+| Tool | Job |
+|---|---|
+| `bible.py` | Hebrew and Greek words, lexicon, cross-references and verse text from a local database (`bible.py sync` builds it), with a free-API fallback |
+| `helloao-fetch.py` | Seven classic commentaries by verse |
+| `bri-fetch.py` | Biblical Research Institute articles through the Wayback Machine |
+| `sermon-out.py` | Decides where a sermon or study is saved and lays out its folder |
+| `render-study.py` | `bible-study.md` to the reading copy, `bible-study.html` |
+| `sermon-deck` | Sermon PowerPoint from `slides/deck.json` |
+| `check-quotes.py` | Compares every cited KJV or Terjemahan Baru quotation with the Bible |
+
+`scripts/test.sh` runs the offline checks (it is the pre-commit hook); `scripts/test.sh --net` adds the API fallbacks. The skills' own guide to these tools is `adventist-foundation/references/tools.md`.
 
 ## Requirements
 

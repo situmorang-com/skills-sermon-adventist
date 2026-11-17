@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{LANG}}">
 <head>
+<script>document.documentElement.classList.add('js')</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{{LESSON}} — {{TITLE}}</title>
@@ -144,7 +145,9 @@ body::after{
     backdrop-filter:blur(18px) saturate(150%);
     -webkit-backdrop-filter:blur(18px) saturate(150%)}
 }
-article{max-width:var(--measure);padding:56px 24px 120px;margin:0 auto}
+/* width:100% keeps the article inside a narrow screen: with auto margins alone a grid
+   item sizes to its widest table, and the whole page scrolls sideways on a phone. */
+article{width:100%;min-width:0;box-sizing:border-box;max-width:var(--measure);padding:56px 24px 120px;margin:0 auto}
 
 /* Hero -------------------------------------------------------------------- */
 .kicker{display:inline-block;font:600 10.5px/1 var(--mono);letter-spacing:.17em;
@@ -175,9 +178,10 @@ dl.meta dd{margin:0;color:var(--muted)}
   color-mix(in srgb, var(--s8) 40%, transparent))}
 
 /* Sections ---------------------------------------------------------------- */
-section.sec{--hue:var(--muted);position:relative;
-  opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
-section.sec.in{opacity:1;transform:none}
+section.sec{--hue:var(--muted);position:relative}
+/* Hidden only once the script has run, so the page is readable without JavaScript. */
+.js section.sec{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.js section.sec.in{opacity:1;transform:none}
 section.sec[data-hue="1"]{--hue:var(--s1)}
 section.sec[data-hue="2"]{--hue:var(--s2)}
 section.sec[data-hue="3"]{--hue:var(--s3)}

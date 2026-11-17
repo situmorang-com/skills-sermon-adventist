@@ -3,3 +3,6 @@
 
 # Generated sermon and lesson output. Working product, published separately.
 /output/
+
+# Python bytecode
+__pycache__/

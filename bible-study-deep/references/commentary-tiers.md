@@ -95,7 +95,8 @@ Name the lexicon when a word study leans on it. "The Hebrew means" with no sourc
 | **Bible Hub** | biblehub.com | Interlinear, parallel translations, brief commentary excerpts |
 | **STEP Bible** | stepbible.org | Original-language tools from Tyndale House |
 | **EGW Writings** | egwwritings.org (API: `a.egwwritings.org`) | Ellen White corpus plus ABC, SDABC, Matthew Henry, Vine's. Use `egw-fetch.sh`; the public site 403s automated requests. |
-| **Free Use Bible API** | bible.helloao.org (no key) | Seven commentaries by verse (Matthew Henry, JFB, Clarke, Gill, Calvin, Keil-Delitzsch, Tyndale Open Study Notes) and about 1,500 translations, including the plain-language Indonesian TSI and AYT. Read with `scripts/helloao-fetch.py` (repo root); exit 2 is a network failure |
+| **Local Bible database** | `bible.py`; data in `~/DEV/bible-data`, built by `bible.py sync` | STEPBible tagged Hebrew and Greek with Strong's numbers and parsing, brief lexicons, OpenBible cross-references, KJV, BSB and AYT text. `pack "<passage>"` returns all of it for a span. Falls back to free APIs when the database is absent |
+| **Free Use Bible API** | bible.helloao.org (no key) | Seven commentaries by verse (Matthew Henry, JFB, Clarke, Gill, Calvin, Keil-Delitzsch, Tyndale Open Study Notes) and about 1,500 translations, including the plain-language Indonesian TSI and AYT. Read with `helloao-fetch.py`; exit 2 is a network failure |
 | **BibleTools** | bibletools.info | SDABC full-text; scraped by `sdabc-fetch.sh` (every paragraph of the verse's entry; `--first` for the first only) |
 | **Adventist Heritage** | adventistarchives.org | Pioneer Adventist primary documents |
 

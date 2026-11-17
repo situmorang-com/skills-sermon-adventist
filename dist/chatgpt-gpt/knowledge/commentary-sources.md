@@ -12,7 +12,7 @@ This is the reference list of commentaries and Adventist scholars the `sermon-ad
 
 Use [adventistbiblicalresearch.org](https://adventistbiblicalresearch.org/) as a first-tier Bible-study source for biblical interpretation, doctrine, hermeneutics, prophecy, sanctuary, Sabbath, creation, and disputed theological questions.
 
-- **The live site returns 403 to every automated request** (Vercel bot checkpoint); a browser is fine, a script is not. Use `scripts/bri-fetch.py get <url>` from the repo root, which reads the article through the Wayback Machine. Cite the snapshot date, and treat the live page as authoritative.
+- **The live site returns 403 to every automated request** (Vercel bot checkpoint); a browser is fine, a script is not. Use `bri-fetch.py get <url>` (add `--grep term,term` for only the paragraphs that mention every term), which reads the article through the Wayback Machine. Cite the snapshot date, and treat the live page as authoritative.
 - Search by passage, biblical book, author, and doctrinal theme (`bri-fetch.py search "<keyword>"`).
 - Prefer original BRI articles, documents, and committee reports over third-party summaries.
 - Capture the author, title, publication date, and direct URL in research notes.

@@ -136,8 +136,8 @@ When researching for a sermon or study, draw in this order:
 3. **Biblical Research Institute (BRI)** — primary Adventist research source for biblical interpretation, doctrine, hermeneutics, and theological questions
    - **Access:** The live site is behind a Vercel bot checkpoint that returns **403 to every automated request**, whatever headers you send. A browser works; a script does not. Use the helper:
      ```bash
-     scripts/bri-fetch.py search "tongues"        # archived BRI URLs by keyword
-     scripts/bri-fetch.py get <bri-url>           # the full article as text
+     bri-fetch.py search "tongues"        # archived BRI URLs by keyword
+     bri-fetch.py get <bri-url>           # the full article as text
      ```
      It reads the article through the Wayback Machine and unpacks the Next.js payload (archived HTML is only a shell). Text retrieved this way is the real article, so quoting it is legitimate — **report the snapshot date with the citation**, and treat the live page as authoritative. Prefer the original BRI article, document, or committee report over third-party summaries.
    - Consult BRI early when a passage touches prophecy, sanctuary, Sabbath, creation, anthropology, ordination, hermeneutics, or another debated Adventist doctrine.
@@ -145,9 +145,9 @@ When researching for a sermon or study, draw in this order:
 4. **Adventist Bible commentaries** — denominational scholarly commentary
    - Andrews Bible Commentary for current, accessible exposition
    - SDA Bible Commentary (SDABC) for detailed verse-level treatment
-   - **Access:** Use `sdabc-fetch.sh` (Bash script, `~/.config/scripts/`) to scrape verbatim commentary from bibletools.info. First-paragraph extraction is suitable for sermon context. See `sdabc-guide.md` for details and limitations.
+   - **Access:** Use `sdabc-fetch.sh` (Bash script, `~/.config/scripts/`) to scrape verbatim commentary from bibletools.info. It prints every paragraph of the verse's entry; exit 2 means the site was unreachable, so retry. See `sdabc-guide.md` for details and limitations.
    - Volumes 1-7 available on BibleTools with full-text search
-   - **Fallback:** Physical copies or licensed Logos subscription if you need extended commentary beyond the first paragraph
+   - **Fallback:** Physical copies or licensed Logos subscription if you need more than the site's "limited" SDABC text
 5. **Adventist Review / Ministry Magazine** — historic and contemporary Adventist thought
 6. **Broader Christian scholarship** — when it strengthens exegesis without contradicting Adventist distinctives
 
@@ -209,6 +209,13 @@ Every task skill in this collection follows these:
 - **Concise by default** — say what needs to be said, then stop
 - **No filler preambles** like "Great question! Here's a sermon for you:" — just deliver the work
 - **Always cite Scripture and EGW.** No floating quotes.
+- **Close with the unverified list.** The ledger (or, for a sermon, `research-notes.md`) ends with a block headed `Unverified` naming every claim not checked against a source in this session: a page number from memory, an author known only from a search result, hymn words not read, a quotation in your own translation. Write `Unverified: none` when it is empty, and give the count in the hand-off message. A claim leaves the list only by being checked.
+
+---
+
+## Tools
+
+`references/tools.md` lists the command-line tools the skills call by bare name (`bible.py`, `egw-fetch.sh`, `sdabc-fetch.sh`, `bri-fetch.py`, `helloao-fetch.py`, `sermon-out.py`, `render-study.py`, `sermon-deck`, `check-quotes.py`), what to do when one is "command not found", and the folder layout every sermon and study is saved in. Read it before the first tool call of a task.
 
 ---
 

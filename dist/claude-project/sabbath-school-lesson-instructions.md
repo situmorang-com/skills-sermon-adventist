@@ -7,7 +7,7 @@ description: Build a Seventh-day Adventist Sabbath School teacher's guide for a 
 
 Sabbath School is not a sermon with chairs in a circle. It is a *discussion* built on a text, run in about thirty-five minutes, in front of people who read the lesson (or did not) and who will talk if the questions are good and sit silent if they are not. This skill produces material for that room.
 
-**Requires:** the `adventist-foundation` skill is loaded for doctrinal alignment, translation defaults, voice, banned phrases, and the Ellen G. White citation policy. Do not restate those rules here — apply them.
+**First: load `adventist-foundation`.** Call the Skill tool with `adventist-foundation`, or read `../adventist-foundation/SKILL.md` from this skill's folder, before any other step; go on once its banned-phrase list, translation policy and tool list (`references/tools.md`) are in context. It is needed for doctrinal alignment, translation defaults, voice, banned phrases, and the Ellen G. White citation policy. Do not restate those rules here — apply them.
 
 **Related skills:** `bible-study-deep` for the exegetical engine behind a lesson, `sermon-illustrations` for the opening hook and any story a day needs (its Step 2 searches the local illustration library first), `sermon-adventist` when the ask is actually a sermon.
 
@@ -93,6 +93,8 @@ What you minimally need before writing: the lesson title, the Memory Text, the R
 ## Step 3: Gather the best of what already exists
 
 **A good teacher's guide is a collection, not an invention.** The official Teacher Comments ships every week, ssnet publishes four named columns, video walkthroughs go deeper than either, and SDABC and Ellen G. White sit behind all of it. Every one of those is on the internet and none of them is in the room with the teacher on Sabbath morning.
+
+**For the week's main passages, start with `bible.py pack "<passage>" --brief`.** One call returns the text in three versions, the places the KJV's Greek differs from NA28, brief lexicon entries and the top cross-references: the raw material for Section 6 and for any word the lesson leans on.
 
 **That is the job: bring the good material into one document the teacher can actually work from, credit it, and add what is missing.** Not "say something nobody else said." A teacher does not want novelty; they want everything worth knowing about this week in one place, organized for the clock.
 
@@ -318,7 +320,7 @@ Then one subsection per day, Sunday through Thursday, each in this fixed shape:
 - **All of them, not one.** If four sources bear on Tuesday, print four. Picking a favourite and dropping the rest is the writer editing the teacher's options away. Where a day has more than three, open the block with one line on which to reach for first and which to keep in reserve.
 - **Each quote earns a sentence of use.** Not "here is a quote" but what it does: which minute of the plan it belongs to, where to stop reading, what objection it answers, what it is *not* evidence for.
 - **Keep the source's own colour.** Ellen G. White is `blockquote.egw`, gold. SDABC, Henry, BRI and scholarship are `blockquote.cited`, neutral. Gold is Spirit of Prophecy and nothing else, in a day card exactly as in a section.
-- **Verbatim and paraphrase look different.** A fetched EGW paragraph goes in quotation marks in a bilingual card. An SDABC first-paragraph extraction rendered into Indonesian is a paraphrase: no quotation marks, and the note says it is a paraphrase and that the volume holds more.
+- **Verbatim and paraphrase look different.** A fetched EGW paragraph goes in quotation marks in a bilingual card. An SDABC extraction rendered into Indonesian is a paraphrase: no quotation marks, and the note says it is a paraphrase and that the volume holds more.
 - **Attribution cautions ride with their quote,** not in a distant section. The *Spiritual Gifts* attribution flag belongs directly under the *Spiritual Gifts* quote, in scarlet.
 - **A day with no Ellen G. White is normal.** Say so in one line and let SDABC carry it. Do not stretch a quote from another chapter to cover a day it does not address.
 
@@ -391,6 +393,8 @@ Before delivering, check:
 19. **`teachers-guide.html` rendered** from `references/teachers-guide-template.html`, and its checklist run.
 20. **`slides/*.pptx` built** per `references/teaching-deck.md`, and its checklist run: no run below 20pt, speaker notes on every slide, a source line on every quote, no day without meat, and a PDF beside it.
 21. **Every illustration taken from the local library is logged in the ledger with its record id**, was read in full with `illus.mjs show`, and its named particulars were checked, not copied. The id is a provenance record, not a fact-check.
+22. **`check-quotes.py <the guide's folder>` exits 0**: every cited KJV or TB quotation matches the Bible. Fix each line it reports and run it again.
+23. **The ledger ends with the `Unverified` block** (foundation, Output Standards), and the delivery message gives its count.
 
 Then deliver plainly:
 
@@ -400,15 +404,19 @@ Then deliver plainly:
 
 ## Save the Output
 
+`sermon-out.py dir <YYYY-MM-DD> "ss <Lesson Title>"` creates the folder and prints its path: the sermon library's inbox on the preacher's computer, the repo's `output/` elsewhere. The date is the Sabbath the lesson is taught. Run it before writing the first file.
+
 ```
-/Users/edmundsitumorang/DEV/skills-sermon-adventist/output/
-└── [YYYY-MM-DD]-ss-[kebab-case-title]/
-    ├── teachers-guide.md            (the workshop copy: ledger, para_id)
-    ├── teachers-guide.html          (the copy used in the room)
-    └── slides/
-        ├── pelajaran-NN-[slug].pptx (projected to the class)
-        └── pelajaran-NN-[slug].pdf  (fallback: the projector laptop may lack PowerPoint)
+[YYYY-MM-DD]-ss-[kebab-case-title]/
+├── README.md                    (index, written by `sermon-out.py tidy <folder>`)
+├── teachers-guide.md            (the workshop copy: ledger, para_id)
+├── teachers-guide.html          (the copy used in the room)
+└── slides/
+    ├── pelajaran-NN-[slug].pptx (projected to the class)
+    └── pelajaran-NN-[slug].pdf  (fallback: the projector laptop may lack PowerPoint)
 ```
+
+The guide files stay at the top of the folder, unlike a sermon's: the publisher names the lesson after the folder that holds `teachers-guide.html`. Finish with `sermon-out.py tidy <folder>` for the index.
 
 The `ss-` prefix is deliberate. A Sabbath School lesson and a sermon can fall on the same Sabbath and are different material, so they get different folders. Do not write Sabbath School files into a sermon folder.
 
@@ -666,12 +674,12 @@ cd "/Users/edmundsitumorang/Library/Mobile Documents/iCloud~md~obsidian/Document
 
 # Always look before you ship.
 node scripts/publish-guide.mjs \
-  /Users/edmundsitumorang/DEV/skills-sermon-adventist/output/[YYYY-MM-DD]-ss-[slug]/teachers-guide.html \
+  "<the guide's folder>/teachers-guide.html" \
   --dry-run
 
 # Then publish.
 node scripts/publish-guide.mjs \
-  /Users/edmundsitumorang/DEV/skills-sermon-adventist/output/[YYYY-MM-DD]-ss-[slug]/teachers-guide.html
+  "<the guide's folder>/teachers-guide.html"
 ```
 
 The script removes the Verification Ledger and its contents entry, appends the LAI attribution footer, writes the guide as both the homepage and `lessons/<slug>/`, rebuilds the archive index, commits, and pushes. Cautions stay — they are exactly what a teacher needs when deciding whether to read a quote aloud.

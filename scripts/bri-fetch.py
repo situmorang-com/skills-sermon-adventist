@@ -12,6 +12,7 @@ Usage
   bri-fetch.py search "tongues"            # archived BRI URLs matching a keyword
   bri-fetch.py get <bri-url>               # print the article as text
   bri-fetch.py get <bri-url> --json        # title/author/date/body as JSON
+  bri-fetch.py get <bri-url> --grep "firstfruits,144"   # only the paragraphs that mention every term
   bri-fetch.py get <wayback-url>           # pin a specific snapshot
 
 Honesty rules for anything you cite from this
@@ -291,7 +292,17 @@ def main():
             print(f"Wayback snapshot: {art['snapshot']}")
             print(f"Words: {len(art['body'].split())}")
             print("-" * 70)
-            print(art["body"])
+            if "--grep" in sys.argv:
+                # Only the paragraphs that mention every term: an article runs to
+                # several thousand words and a study usually needs three of them.
+                terms = [t.lower() for t in sys.argv[sys.argv.index("--grep") + 1].split(",") if t.strip()]
+                paras = [p for p in re.split(r"\n\s*\n", art["body"]) if p.strip()]
+                hits = [(i, p) for i, p in enumerate(paras, 1) if all(t in p.lower() for t in terms)]
+                print(f"{len(hits)} of {len(paras)} paragraphs mention {' and '.join(terms)}\n")
+                for i, p in hits:
+                    print(f"[paragraph {i}] {p.strip()}\n")
+            else:
+                print(art["body"])
     else:
         print(__doc__)
         raise SystemExit(1)

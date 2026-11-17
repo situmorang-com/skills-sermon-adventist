@@ -1,0 +1,3 @@
+#!/bin/bash
+# Runs the fast checks before every commit. Skip once with: git commit --no-verify
+exec "$(git rev-parse --show-toplevel)/scripts/test.sh"

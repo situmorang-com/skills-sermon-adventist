@@ -1,0 +1,10 @@
+{
+  "name": "sermon-deck",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Builds a sermon PowerPoint from deck.json",
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "pptxgenjs": "^4.0.1"
+  }
+}

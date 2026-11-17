@@ -7,7 +7,7 @@ description: Find or craft sermon illustrations for Seventh-day Adventist preach
 
 Search the local library first. Then find a famous illustration that fits. If none fits, craft an original one. Always with attribution where possible, never with fabricated quotes.
 
-**Requires:** the `adventist-foundation` skill is loaded for voice, EGW citation policy, and banned phrases.
+**First: load `adventist-foundation`.** Call the Skill tool with `adventist-foundation`, or read `../adventist-foundation/SKILL.md` from this skill's folder, before any other step. It carries voice, EGW citation policy, banned phrases and the tool list. Go on once its banned-phrase list and translation policy are in context.
 
 ---
 
